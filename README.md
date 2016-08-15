@@ -4,9 +4,9 @@ A program for unsupervised clustering of environmental microbial assemblies usin
 
 ##Description##
 Includes:
--BinSanity and BinSanity-refinement scripts for optimal clustering
--Utilities to retrieve contig coverage and create associated input files for BinSanity
--All relevant in-house scripts used in data generation
+-BinSanity and BinSanity-refinement scripts for optimal clustering /n
+-Utilities to retrieve contig coverage and create associated input files for BinSanity/n
+-All relevant in-house scripts used in data generation /n
 
 ##Support##
 
