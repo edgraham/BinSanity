@@ -8,8 +8,8 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 
 ##Issues##
 
+If an issue arises in the process of utilizing BinSanity please provide please create an issue and we will address is as soon as possible. To expedite a response please provide any associated error messages. 
 
-
-##Cite the Following when Using##
-
-
+##Citation##
+In Prep:
+Elaina Graham, John Heidelberg, & Benjamin Tully. 2016. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. 
