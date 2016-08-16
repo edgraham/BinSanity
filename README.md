@@ -12,8 +12,10 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
 
 Programs used to prepare input files for BinSanity and associated utility scripts include:
-*[Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
-*[Samtools] (http://www.htslib.org/) (v1.2)
+
+* [Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
+* [Samtools] (http://www.htslib.org/) (v1.2)
+
 ###Input Files###
 * Fasta file
 * Combined Coverage Profile
@@ -25,10 +27,29 @@ con-2   14         29         21
 ```
 
 ###Script Usage's###
-To generate input files the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided
+To generate input files for BinSanity the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided:
+* 'contig-coverage-bam' generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  
 ```
 contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage] 
+.............
+ ---------------------------------------------------------
+            Finding Length information for each Contig
+ ---------------------------------------------------------
+ Number of sequences processed for length: 2343
+ 
+  ---------------------------------------------------------
+    Extracting Coverage Information from provided BAM file
+  ---------------------------------------------------------
+  
+  Number of records processed for coverage: 2343
+  
+  ---------------------------------------------------------
+                    Building Coverage File
+  ---------------------------------------------------------
+  Final Contigs processed: 2343
+
 ```
+Output is typically in the format `sample-1.coverage`
 ```
 BinSanity -f [directory-with-fasta-file] -l [fna,fa,fasta] -c [combined-cov]
 ```
