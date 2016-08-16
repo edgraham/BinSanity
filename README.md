@@ -99,7 +99,7 @@ Binsanity-refine -f [directory-with-fasta-file] -l [fasta-file-identifier] -c [c
 ```
 
 ##Example Problem##
->The Infant Gut Metagenome collected and curated by [Sharon et al 2013](https://t.co/6h8LmNpxpk) was clustered by us to test BinSanity. To confirm you have BinSanity working we have provided a folder `Example` containing the fasta file (`INFANT-GUT-ASSEMBLY.fa`) containing contigs for the Infant Gut Metagenome provided by [Eren et al. 2015](https://doi.org/10.7717/peerj.1319). All files associated with our BinSanity run are also provided, which includes the combined coverage profile (produced using Bowtie2 v2.2.5 on defaults, `contig-coverage-bam.py`, and `cov-combine.py`.
+>The Infant Gut Metagenome collected and curated by [Sharon et al. (2013)](https://t.co/6h8LmNpxpk) was clustered by us to test BinSanity. To confirm you have BinSanity working we have provided a folder `Example` containing the fasta file (`INFANT-GUT-ASSEMBLY.fa`) containing contigs for the Infant Gut Metagenome provided by [Eren et al. (2015)](https://doi.org/10.7717/peerj.1319). All files associated with our BinSanity run are also provided, which includes the combined coverage profile (produced using Bowtie2 v2.2.5 on defaults, `contig-coverage-bam.py`, and `cov-combine.py`.
 
 To run the test use the following command while in the `Example` directory:
 
