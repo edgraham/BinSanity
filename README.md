@@ -16,6 +16,9 @@ Programs used to prepare input files for BinSanity and associated utility script
 * [Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
 * [Samtools] (http://www.htslib.org/) (v1.2)
 
+Program used by us to putatively analyze bin completion and redundancy for refinement:
+* [CheckM] (https://github.com/Ecogenomics/CheckM)
+
 ###Input Files###
 * Fasta file
 * Combined Coverage Profile
