@@ -11,12 +11,12 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
 
-Programs used to prepare input files for BinSanity and associated utility scripts include:
+>Programs used to prepare input files for BinSanity and associated utility scripts include:
 
 * [Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
 * [Samtools] (http://www.htslib.org/) (v1.2)
 
-Program used by us to putatively analyze bin completion and redundancy for refinement:
+>Program used by us to putatively analyze bin completion and redundancy for refinement:
 * [CheckM] (https://github.com/Ecogenomics/CheckM)
 
 ###Input Files###
