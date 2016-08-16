@@ -2,18 +2,21 @@
 
 Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
 
-##  BinSanity ##
+## BinSanity ##
 ###Dependencies###
-Versions used at time of last update to script are provided in parenthesis.
+>Versions used at time of last update to script are provided in parenthesis.
 
 * [Numpy](http://www.numpy.org/) (v1.11.1)
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
-* [BedTools] (http://bedtools.readthedocs.io/en/latest/content/installation.html)(v2.17.0)
+* [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
 
+Programs used to prepare input files for BinSanity and associated utility scripts include:
+*[Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
+*[Samtools] (http://www.htslib.org/) (v1.2)
 ###Input Files###
 * Fasta file
-* Combined Coverage Profile:
+* Combined Coverage Profile
 ```
 contig  coverage-1 coverage-2 coverage-3
 con-1   121        89         95
@@ -21,7 +24,15 @@ con-2   14         29         21
 .......
 ```
 
-* 
+###Script Usage's###
+To generate input files the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided
+```
+contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage] 
+```
+```
+BinSanity -f [directory-with-fasta-file] -l [fna,fa,fasta] -c [combined-cov]
+```
+
 
 
 ##Issues##
