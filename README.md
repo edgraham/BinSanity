@@ -5,10 +5,10 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 ##  BinSanity ##
 ###Dependencies###
 Versions used at time of last update to script are provided in parenthesis
-[Numpy](http://www.numpy.org/) (v1.11.1)
-[SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
-[Biopython](http://biopython.org/wiki/Download) (v1.66)
-[BedTools] (http://bedtools.readthedocs.io/en/latest/content/installation.html)(v2.17.0)
+*[Numpy](http://www.numpy.org/) (v1.11.1)
+*[SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
+*[Biopython](http://biopython.org/wiki/Download) (v1.66)
+*[BedTools] (http://bedtools.readthedocs.io/en/latest/content/installation.html)(v2.17.0)
 
 ##Issues##
 
