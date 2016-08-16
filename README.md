@@ -178,7 +178,6 @@ Cluster 21: 551
 If an issue arises in the process of utilizing BinSanity please provide please create an issue and we will address is as soon as possible. To expedite a response please provide any associated error messages. 
 
 ##Citation##
-In Prep:
-Elaina Graham, John Heidelberg, & Benjamin Tully. 2016. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. 
+Graham, E., Heidelberg, J. & Tully, B. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. bioRxiv, doi:10.1101/069567 (2016).
 
 
