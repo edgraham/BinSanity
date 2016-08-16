@@ -11,6 +11,18 @@ Versions used at time of last update to script are provided in parenthesis.
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools] (http://bedtools.readthedocs.io/en/latest/content/installation.html)(v2.17.0)
 
+###Input Files###
+* Fasta file
+* Combined Coverage Profile
+'''
+contig  coverage-1 coverage-2 coverage-3
+con-1   121        89         95
+con-2   14         29         21
+.......
+'''
+* 
+
+
 ##Issues##
 
 If an issue arises in the process of utilizing BinSanity please provide please create an issue and we will address is as soon as possible. To expedite a response please provide any associated error messages. 
