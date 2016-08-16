@@ -28,7 +28,7 @@ con-2   14         29         21
 
 ###Script Usage's###
 To generate input files for BinSanity the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided:
-* 'contig-coverage-bam' generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  
+* `contig-coverage-bam` generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  
 ```
 contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage] 
 .............
@@ -51,9 +51,46 @@ contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage]
 ```
 Output is typically in the format `sample-1.coverage`
 ```
-BinSanity -f [directory-with-fasta-file] -l [fna,fa,fasta] -c [combined-cov]
+$less sample-1.coverage
+
+contig cov length
+con-1  250 3049
+con-2  215 1203
+con-3  123 4032
+con-4  110 5021
+....
 ```
 
+*`cov-combine.py` generates a combined coverage profile from the individual coverage files produces by `contig-coverage-bam`
+```
+cov-combine -c [suffix-linking-coverage-files] -o [output-file]
+
+......
+
+--------------------------------------------------------------------
+        Finished combined coverage profiles in 650 seconds
+____________________________________________________________________
+```
+* `Binsanity` clusters contigs based on the input of a combined coverage profile. Preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
+```
+Binsanity -f [directory-with-fasta-file] -l [fna,fa,fasta] -c [combined-cov]
+
+-------------------------------------------------------
+               Running Binsanity
+          ---Computing Coverage Array ---
+-------------------------------------------------------
+Preference: -3
+Maximum iterations: 4000
+Convergence Iterations: 400
+Conitg Cut-Off: 1000
+Damping Factor: 0.95
+.......
+```
+* `Binsanity-refine` is used to refine bins with high redundancy or low completion by reclustering only those contigs from bins indicated and incorporation of tetranucleotide frequenices and GC-content. K-mer, preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-t`, `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
+
+```
+Binsanity-refine -f [directory-with-fasta-file] -l [fasta-file-identifier] -c [combined_cov_file]
+```
 
 
 ##Issues##
