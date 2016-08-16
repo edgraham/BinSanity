@@ -108,18 +108,6 @@ Binsanity -f . -l .fa -p -10
 ```
 The output should be as follows:
 ```
-        -------------------------------------------------------
-                         Running Bin-sanity
-                    
-                    ---Computing Coverage Array ---
-        -------------------------------------------------------
-        
-Preference: -10.0
-Maximum Iterations: 4000
-Convergence Iterations: 400
-Contig Cut-Off: 1000
-Damping Factor: 0.95
-
 
         -------------------------------------------------------
                          Running Bin-sanity
@@ -138,9 +126,6 @@ Damping Factor: 0.95
         -------------------------------------------------------
                     ---Clustering Contigs---
         -------------------------------------------------------
-        
-        
-
 Cluster 0: 5
 Cluster 1: 14
 Cluster 2: 75
@@ -166,8 +151,6 @@ Cluster 21: 551
 
 	  	Total Number of Bins: 22
 
-        
-        
         --------------------------------------------------------
               --- Putative Bins Computed in 233.362998962 seconds ---
         --------------------------------------------------------
