@@ -14,11 +14,12 @@ Versions used at time of last update to script are provided in parenthesis.
 ###Input Files###
 * Fasta file
 * Combined Coverage Profile:
-
-$contig  coverage-1 coverage-2 coverage-3
+```
+contig  coverage-1 coverage-2 coverage-3
 con-1   121        89         95
 con-2   14         29         21
 .......
+```
 
 * 
 
