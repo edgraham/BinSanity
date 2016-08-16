@@ -95,6 +95,80 @@ Damping Factor: 0.95
 Binsanity-refine -f [directory-with-fasta-file] -l [fasta-file-identifier] -c [combined_cov_file]
 ```
 
+##Example Problem##
+>The Infant Gut Metagenome collected and curated by [Sharon et al 2013](https://t.co/6h8LmNpxpk) was clustered by us to test BinSanity. To confirm you have BinSanity working we have provided a folder `Example` containing the fasta file (`INFANT-GUT-ASSEMBLY.fa`) containing contigs for the Infant Gut Metagenome provided by [Eren et al. 2015](https://doi.org/10.7717/peerj.1319). All files associated with our BinSanity run are also provided, which includes the combined coverage profile (produced using Bowtie2 v2.2.5 on defaults, `contig-coverage-bam.py`, and `cov-combine.py`.
+
+To run the test use the following command while in the `Example` directory:
+
+```
+Binsanity -f . -l .fa -p -10
+```
+The output should be as follows:
+```
+        -------------------------------------------------------
+                         Running Bin-sanity
+                    
+                    ---Computing Coverage Array ---
+        -------------------------------------------------------
+        
+Preference: -10.0
+Maximum Iterations: 4000
+Convergence Iterations: 400
+Contig Cut-Off: 1000
+Damping Factor: 0.95
+
+
+        -------------------------------------------------------
+                         Running Bin-sanity
+                    
+                    ---Computing Coverage Array ---
+        -------------------------------------------------------
+        
+Preference: -10.0
+Maximum Iterations: 4000
+Convergence Iterations: 400
+Contig Cut-Off: 1000
+Damping Factor: 0.95
+
+(4189, 11)
+        
+        -------------------------------------------------------
+                    ---Clustering Contigs---
+        -------------------------------------------------------
+        
+        
+
+Cluster 0: 5
+Cluster 1: 14
+Cluster 2: 75
+Cluster 3: 105
+Cluster 4: 54
+Cluster 5: 20
+Cluster 6: 34
+Cluster 7: 43
+Cluster 8: 27
+Cluster 9: 105
+Cluster 10: 35
+Cluster 11: 10
+Cluster 12: 39
+Cluster 13: 30
+Cluster 14: 727
+Cluster 15: 256
+Cluster 16: 574
+Cluster 17: 7
+Cluster 18: 620
+Cluster 19: 508
+Cluster 20: 350
+Cluster 21: 551
+
+	  	Total Number of Bins: 22
+
+        
+        
+        --------------------------------------------------------
+              --- Putative Bins Computed in 233.362998962 seconds ---
+        --------------------------------------------------------
+```
 
 ##Issues##
 
@@ -103,3 +177,5 @@ If an issue arises in the process of utilizing BinSanity please provide please c
 ##Citation##
 In Prep:
 Elaina Graham, John Heidelberg, & Benjamin Tully. 2016. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. 
+
+
