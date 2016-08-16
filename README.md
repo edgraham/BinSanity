@@ -31,10 +31,12 @@ con-2   14         29         21
 
 ###Script Usage's###
 To generate input files for BinSanity the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided:
-* `contig-coverage-bam` generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  
+* `contig-coverage-bam` generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  To maintain consistency we used the `.coverage`suffix for all files output from this script.
 ```
 contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage] 
-.............
+```
+The standard output:
+```
  ---------------------------------------------------------
             Finding Length information for each Contig
  ---------------------------------------------------------
@@ -52,7 +54,7 @@ contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage]
   Final Contigs processed: 2343
 
 ```
-Output is typically in the format `sample-1.coverage`
+An example of the output file is shown below:
 ```
 $less sample-1.coverage
 
@@ -67,9 +69,10 @@ con-4  110 5021
 *`cov-combine.py` generates a combined coverage profile from the individual coverage files produces by `contig-coverage-bam`
 ```
 cov-combine -c [suffix-linking-coverage-files] -o [output-file]
+```
+Standard output will read:
 
-......
-
+```
 --------------------------------------------------------------------
         Finished combined coverage profiles in 650 seconds
 ____________________________________________________________________
