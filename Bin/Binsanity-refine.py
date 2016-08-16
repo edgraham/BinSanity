@@ -237,7 +237,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='Binsanity-refine.py', usage='%(prog)s  -f [Path To Contig File] -l [name of file] {optional [-x Contig Size Cut Off] [-plot Y] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
     metagenomic data into bins using contig coverage values. It takes as input a coverage file and files containing the contigs to be binned, then outputs clusters of contigs in putative bins.""")
     parser.add_argument("-f", dest="inputContigFiles", help="Specify directory containing your contigs")
-    parser.add_argument("-p", type=float, dest="preference", default=-100, help="Specify a preference (default is -500) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting")
+    parser.add_argument("-p", type=float, dest="preference", default=-100, help="Specify a preference (default is -100) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting")
     parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="Specify a max number of iterations (default is 2000)")
     parser.add_argument("-v", type=int, dest="conviter",default=400, help="Specify the convergence iteration number (default is 200), e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.")
     parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.9")
@@ -245,6 +245,7 @@ if __name__ == '__main__':
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
     parser.add_argument("-c",dest="inputCoverage",help="Identify coverage file")
     parser.add_Argument("-t", dest="inputKmer", type=int, default=4, help="Specify k-mer desired for analysis, default is 4")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1.1')    
 
     args = parser.parse_args()
     if (args.inputContigFiles is None) and not args.name:

@@ -115,7 +115,7 @@ class Logger(object):
 ###################################################################
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Binsanity.py', usage='%(prog)s -c [Coverage File] -f [Path To Contig File] -l [Suffix Linking Contig files] {optional [-x Contig Size Cut Off] [-plot Y] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
+    parser = argparse.ArgumentParser(prog='Binsanity', usage='%(prog)s -c [Coverage File] -f [Path To Contig File] -l [Suffix Linking Contig files] {optional [-x Contig Size Cut Off] [-plot Y] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
     metagenomic data into bins using contig coverage values. It takes as input a coverage file and files containing the contigs to be binned, then outputs clusters of contigs in putative bins.""")
     parser.add_argument("-c", dest="inputCovFile", help="Specify a Coverage File")
     parser.add_argument("-f", dest="inputContigFiles", help="Specify directory containing your contigs")
@@ -125,16 +125,17 @@ if __name__ == '__main__':
     parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.9")
     parser.add_argument("-l",dest="link", default="fa",help="Specify the suffix linking your fasta contig files, default is fa")
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1.1')
 
     args = parser.parse_args()
     if args.inputCovFile is None:
-        print "Please indicate -c coverage file"
-    elif args.inputContigFiles is None:
-        print "Please indicate -f directory containing your contigs"
-    elif args.inputCovFile is None:
-        if (args.inputContigFiles is None):
+        if (args.inputContigFiles is None) and (args.link is None):
             parser.print_help()
-    elif args.inputContigFiles and not args.link:
+    if (args.inputCovFile is None):
+        print "Please indicate -c coverage file"
+    if args.inputContigFiles is None:
+        print "Please indicate -f directory containing your contigs"
+    elif args.link and not args.link:
         parser.error('-l Suffix Linking Contig Files Needed')
 
 
