@@ -66,7 +66,7 @@ con-4  110 5021
 ....
 ```
 
-*`cov-combine.py` generates a combined coverage profile from the individual coverage files produces by `contig-coverage-bam`
+* `cov-combine.py` generates a combined coverage profile from the individual coverage files produces by `contig-coverage-bam`
 ```
 cov-combine -c [suffix-linking-coverage-files] -o [output-file]
 ```
