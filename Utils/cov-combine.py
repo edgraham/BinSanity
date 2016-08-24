@@ -71,8 +71,6 @@ if __name__ == '__main__':
         parser.error('-o output fasta file needed')
     if args.inputCoverage is None:
         parser.error('-c suffic linking coverage profiles needed')
-    elif 
-        
     else:
         time = time.time()
         print"""
