@@ -68,7 +68,7 @@ def affinity_propagation(array,names,files,d,e,f,g,unused,b):
 		if apclust[i] not in outfile_data.keys():
 			outfile_data[apclust[i]] = [names[i]]
 		i += 1
-            unbinned_file = open("afprop.unbinned.fna", "w" )
+            unbinned_file = open("Binsanity.unbinned.fna", "w" )
             for filename in files:
                 out_name = filename.split(".")[0]
             with open(os.path.join(b,filename),"r") as input2_file: 
@@ -115,7 +115,7 @@ class Logger(object):
 ###################################################################
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Binsanity', usage='%(prog)s -c [Coverage File] -f [Path To Contig File] -l [Suffix Linking Contig files] {optional [-x Contig Size Cut Off] [-plot Y] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
+    parser = argparse.ArgumentParser(prog='Binsanity', usage='%(prog)s -c [Coverage File] -f [Path To Contig File] -l [Suffix Linking Contig files] {optional [-x Contig Size Cut Off] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
     metagenomic data into bins using contig coverage values. It takes as input a coverage file and files containing the contigs to be binned, then outputs clusters of contigs in putative bins.""")
     parser.add_argument("-c", dest="inputCovFile", help="Specify a Coverage File")
     parser.add_argument("-f", dest="inputContigFiles", help="Specify directory containing your contigs")

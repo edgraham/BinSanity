@@ -244,7 +244,7 @@ if __name__ == '__main__':
     parser.add_argument("-l",dest="name",help="Specify file you want to refine")
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
     parser.add_argument("-c",dest="inputCoverage",help="Identify coverage file")
-    parser.add_Argument("-t", dest="inputKmer", type=int, default=4, help="Specify k-mer desired for analysis, default is 4")
+    parser.add_argument("-t", dest="inputKmer", type=int, default=4, help="Specify k-mer desired for analysis, default is 4")
     parser.add_argument('--version', action='version', version='%(prog)s v0.1.1')    
 
     args = parser.parse_args()
