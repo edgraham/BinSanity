@@ -104,7 +104,7 @@ def get_contigs(c):
                     contig_names.append(name)
     contig_dict = {}
     for filename in file_names:
-        if filename.startswith('GC_count') or filename.startswith('tetramer-frequencies'):
+        if filename.startswith('tetramer-frequencies'):
             full = list(csv.reader(open(str(filename),'rb'), delimiter='\t'))
             del full[0]
             for value in list(full[1]):
@@ -116,6 +116,19 @@ def get_contigs(c):
                             elif lists[0] not in full:
                                 contig_dict.setdefault(lists[0],[])
                                 contig_dict[lists[0]].append(str(np.log10(float(lists[list(full[1]).index(value)])+1)))
+        for filename in file_names:
+            if filename.startswith('GC_count'):
+                full = list(csv.reader(open(str(filename),'rb'), delimiter='\t'))
+                del full[0]
+                for value in list(full[1]):
+                    if list(full[1]).index(value) > 0:
+                        for lists in full:
+                            if lists[0] in contig_names:
+                                if lists[0] in contig_dict:
+                                    contig_dict[lists[0]].append(str((float(lists[list(full[1]).index(value)]))))
+                                elif lists[0] not in full:
+                                    contig_dict.setdefault(lists[0],[])
+                                    contig_dict[lists[0]].append(str((float(lists[list(full[1]).index(value)]))))
     full = list(csv.reader(open(str(c),'rb'), delimiter='\t'))
     for value in list(full[1]):
         if list(full[1]).index(value) > 0:
