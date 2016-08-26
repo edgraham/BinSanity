@@ -68,9 +68,10 @@ def affinity_propagation(array,names,files,d,e,f,g,unused,b):
 		if apclust[i] not in outfile_data.keys():
 			outfile_data[apclust[i]] = [names[i]]
 		i += 1
-            unbinned_file = open("Binsanity.unbinned.fna", "w" )
+            
             for filename in files:
                 out_name = filename.split(".")[0]
+            unbinned_file = open(str(out_name)+".unbinned.fna", "w" )
             with open(os.path.join(b,filename),"r") as input2_file: 
 	  	fasta_dict = create_fasta_dict(input2_file)                
 	  	for id_ in list(unused):
