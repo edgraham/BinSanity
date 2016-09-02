@@ -20,7 +20,7 @@ def get_contigs(c):
             if name not in all_contigs:
                 all_contigs.append(name)
     return all_contigs
-    
+
 
 def get_coverage(a,b,c):
     coverage_log_all = {}
@@ -38,7 +38,7 @@ def get_coverage(a,b,c):
         for n in cov:
             log = np.log10((float(n))+1)
             coverage_log.append(str(log))
-    
+
         data = zip(contig,coverage_log)
         data = dict(data)
         for name in all_:
@@ -49,19 +49,19 @@ def get_coverage(a,b,c):
                     coverage_log_all.setdefault(name, [])
                     coverage_log_all[name].append('0')
         for key in data.viewkeys():
-            if key in all_: 
+            if key in all_:
                 if key in coverage_log_all:
                     coverage_log_all[key].append(data[key])
                 elif key not in coverage_log_all:
                     coverage_log_all.setdefault(key, [])
                     coverage_log_all[key].append(data[key])
 
-                
+
     out = open(str(b), 'w')
     for key, value in coverage_log_all.iteritems():
         out.write('%s\t%s\n' % (key,'\t'.join(value)))
     out.close()
-    
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='cov-combine.py', usage='%(prog)s -o Output File')
     parser.add_argument("-o", dest="inputoutput", help="Specify the output file")
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     if args.inputCoverage is None:
         parser.error('-c suffic linking coverage profiles needed')
     else:
-        time = time.time()
+        startTime = time.time()
         print"""
         ---------------------------------------------------------------------
         """
@@ -81,4 +81,4 @@ if __name__ == '__main__':
         print ("""
         --------------------------------------------------------------------
                  Finished combined coverage profiles in %s seconds
-        ____________________________________________________________________""" % (time.time() - time))
+        ____________________________________________________________________""" % (time.time() - startTime))

@@ -26,10 +26,10 @@ def extract_from_bam(bam_results):
             sys.stdout.write("\rNumber of record processed for coverage: %i" % count)
             sys.stdout.flush()
     return out_dict
-    
-    
+
+
 def create_cov_file(length_dictionary,bedtools_dict,outname):
-    print 
+    print
     """
     ---------------------------------------------------------
                     Building Coverage File
@@ -44,6 +44,8 @@ def create_cov_file(length_dictionary,bedtools_dict,outname):
         get_length = length_dictionary[contig]
         contig_dict.setdefault("length",str(get_length))
         average_coverage = contig_dict.get('cov_mean')
+        if average_coverage is None:
+            average_coverage = '0'
         average_coverage=str(average_coverage)
         contigs.append(contig)
         coverage.append(average_coverage)
@@ -54,7 +56,7 @@ def create_cov_file(length_dictionary,bedtools_dict,outname):
     y = zip(contigs,coverage,length)
     with open(outname, 'w') as file:
         file.writelines('\t'.join(i) + '\n' for i in y)
-        
+
 def find_contig_length(fastafile):
     len_dict = {}
     count = 0
@@ -64,12 +66,12 @@ def find_contig_length(fastafile):
         sys.stdout.write("\rNumber of sequences Processed for length: %i" % count)
         sys.stdout.flush()
     return len_dict
-                
-        
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='contig-coverage-bam.py', usage='%(prog)s -b Bam File -r Fasta File -o Output File')
     parser.add_argument("-f", dest="fastafile", help="Fasta File")
-    parser.add_argument("-b", dest="bamfiles", help="BAM file")   
+    parser.add_argument("-b", dest="bamfiles", help="BAM file")
     parser.add_argument("-o",dest="outfile",help="outfile name (e.g file.coverage)")
     args = parser.parse_args()
     signal(SIGPIPE,SIG_DFL)
@@ -77,16 +79,16 @@ if __name__ == "__main__":
     ---------------------------------------------------------
             Finding Length information for each Contig
     ---------------------------------------------------------
-    
+
     """
     x =find_contig_length(args.fastafile)
     print """
-    
-    
+
+
     ---------------------------------------------------------
      Extracting Coverage Information from provided BAM file
     ---------------------------------------------------------
-    
+
     """
     y = extract_from_bam(args.bamfiles)
     create_cov_file(x,y,args.outfile)
