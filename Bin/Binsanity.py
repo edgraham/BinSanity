@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-import os, sys, time, argparse
+import os, sys, time, argparse,shutil
 import numpy as np
 from Bio import SeqIO
 from sklearn.cluster import AffinityPropagation
@@ -20,39 +20,35 @@ def get_cov_data(h):
 	all_cov_data[cov_data[0]] = cov_data
     return all_cov_data
 
-def cov_array(a,b,link,size):
+def cov_array(a,path,file_name,size):
     """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
     count = 0
-    for filename in os.listdir(b):
-        file_names = []
-        if str(filename).endswith(link):
-            file_names.append(filename)
-   	    names = []
-   	    c = 0
-   	    cov_array = []
-   	    unused = []
-   	    for record in SeqIO.parse(os.path.join(b, filename), "fasta"):
-   	        count = count + 1
-   	        if len(record.seq) >= int(size):
-	      	    if record.id in a.keys():
-	     	         data = a[record.id]
-	 	         names.append(data[0])	
-	 	         data.remove(data[0])
-	 	         line = " ".join(data)
-	 	         if c == 1:
-			         temparray = np.fromstring(line, dtype=float, sep=' ')
-			         cov_array = np.vstack((cov_array, temparray))
-			 if c == 0:
-			         cov_array = np.fromstring(line, dtype=float, sep=' ')
-			         c += 1
-                else:
+    names = []
+    c = 0
+    cov_array = []
+    unused = []
+    for record in SeqIO.parse(os.path.join(path, file_name), "fasta"):
+       count = count + 1
+       if len(record.seq) >= int(size):
+  	    if record.id in a.keys():
+ 	         data = a[record.id]
+	         names.append(data[0])	
+	         data.remove(data[0])
+ 	         line = " ".join(data)
+ 	         if c == 1:
+		         temparray = np.fromstring(line, dtype=float, sep=' ')
+		         cov_array = np.vstack((cov_array, temparray))
+		 if c == 0:
+		         cov_array = np.fromstring(line, dtype=float, sep=' ')
+		         c += 1
+            else:
                     unused.append(str(record.id))   
-            print cov_array.shape
-            return cov_array, names, file_names, unused			     
+    print cov_array.shape
+    return cov_array, names, unused			     
 
-def affinity_propagation(array,names,files,d,e,f,g,unused,b):	
+def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,unused,path,output_directory):	
             """Uses affinity propagation to make putative bins"""		     
-            apclust = AffinityPropagation(damping=float(d), max_iter=int(e), convergence_iter=int(f), copy=True, preference=int(g), affinity='euclidean', verbose=False).fit_predict(array)
+            apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
             print
             """
             -------------------------------------------------------
@@ -68,11 +64,9 @@ def affinity_propagation(array,names,files,d,e,f,g,unused,b):
 		if apclust[i] not in outfile_data.keys():
 			outfile_data[apclust[i]] = [names[i]]
 		i += 1
-            
-            for filename in files:
-                out_name = filename.split(".")[0]
+            out_name = file_name.split(".")[0]
             unbinned_file = open(str(out_name)+".unbinned.fna", "w" )
-            with open(os.path.join(b,filename),"r") as input2_file: 
+            with open(os.path.join(path,file_name),"r") as input2_file: 
 	  	fasta_dict = create_fasta_dict(input2_file)                
 	  	for id_ in list(unused):
 	  	    unbinned_file.write(">"+str(id_)+"\n"+str(fasta_dict[id_])+"\n")
@@ -99,6 +93,21 @@ def affinity_propagation(array,names,files,d,e,f,g,unused,b):
 	  	Total Number of Bins: %i""" % count)
 
             unbinned_file.close()       
+########################################################################################
+            if os.path.isdir(str(output_directory)) is True:
+                for name in os.listdir("."):
+                    names.append(name)
+                for x in names:
+                    if str(out_name) and "bin" in str(x):
+                        shutil.move(str(x),str(output_directory))
+            else:
+                os.makedirs(str(output_directory))
+                names = []
+                for name in os.listdir("."):
+                    names.append(name)
+                for x in names:
+                    if str(out_name) and "bin" in str(x):
+                        shutil.move(str(x),str(output_directory))
             
 class Logger(object):
     def __init__(self):
@@ -124,20 +133,21 @@ if __name__ == '__main__':
     parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="Specify a max number of iterations (default is 2000)")
     parser.add_argument("-v", type=int, dest="conviter",default=400, help="Specify the convergence iteration number (default is 200), e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.")
     parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.9")
-    parser.add_argument("-l",dest="link", default="fa",help="Specify the suffix linking your fasta contig files, default is fa")
+    parser.add_argument("-l",dest="file", help="Specify the fasta file containing contigs you want to cluster")
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.1.1')
+    parser.add_argument("-o",dest="outputdir", default="BINSANITY-RESULTS", help="Give a name to the directory BinSanity results will be output in [Default is 'BINSANITY-RESULTS']")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1.3')
 
     args = parser.parse_args()
     if args.inputCovFile is None:
-        if (args.inputContigFiles is None) and (args.link is None):
+        if (args.inputContigFiles is None) and (args.file is None):
             parser.print_help()
     if (args.inputCovFile is None):
         print "Please indicate -c coverage file"
     if args.inputContigFiles is None:
         print "Please indicate -f directory containing your contigs"
-    elif args.link and not args.link:
-        parser.error('-l Suffix Linking Contig Files Needed')
+    elif args.inputContigFiles and not args.file:
+        parser.error('-l Need to identify file to be clustered')
 
 
     else:
@@ -157,7 +167,7 @@ if __name__ == '__main__':
         print "Damping Factor: " + str(args.damp) + "\n"
         
         
-        val1, val2, val3, val4 = cov_array((get_cov_data(args.inputCovFile)), args.inputContigFiles, args.link,args.ContigSize)
+        val1, val2, val3 = cov_array((get_cov_data(args.inputCovFile)), args.inputContigFiles, args.file,args.ContigSize)
 
         print """
         
@@ -167,7 +177,7 @@ if __name__ == '__main__':
         -------------------------------------------------------
         
         """ 
-        affinity_propagation(val1, val2, val3, args.damp, args.maxiter, args.conviter, args.preference,val4,args.inputContigFiles)
+        affinity_propagation(val1, val2, args.file, args.damp, args.maxiter, args.conviter, args.preference,val3,args.inputContigFiles,args.outputdir)
   
         print("""
         
