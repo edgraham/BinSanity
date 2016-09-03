@@ -79,16 +79,12 @@ if __name__ == "__main__":
     ---------------------------------------------------------
             Finding Length information for each Contig
     ---------------------------------------------------------
-
     """
     x =find_contig_length(args.fastafile)
     print """
-
-
     ---------------------------------------------------------
      Extracting Coverage Information from provided BAM file
     ---------------------------------------------------------
-
     """
     y = extract_from_bam(args.bamfiles)
     create_cov_file(x,y,args.outfile)
