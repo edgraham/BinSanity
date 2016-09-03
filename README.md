@@ -178,7 +178,7 @@ Currently the thresholds written into the script place bins into categories usin
 The program is called as follows:
 `checkm_analysis -checkM [checkm_qa tab delimited output]`
 <p>
-It should be noted that selection of these values are arbitrary and as techniques improve the values of generally accepted redundancy, completion, and strain heterogeneity may change.<p>
+It should be noted that selection of the high and low redundancy values are an arbitrary cut off and the values of generally accepted redundancy, completion, and strain heterogeneity are up for debate so it is recommended that if you use the script that you decide what the best cut off values are for your purposes.<p>
 CheckM is also only one means of evaluating bins and for the best results we advocate using multiple evlaution methods before considering a bin 'High Quality'. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessar if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
 
 
