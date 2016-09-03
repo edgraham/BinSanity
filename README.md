@@ -67,14 +67,14 @@ con-4  110 5021
 ```
 
 * `cov-combine.py` combines all coverage profiles provided by `contig-coverage-bam`into a single combined profile. <br />
-The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).<br />
+<p>The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).<br />
 * Currently the `-t` has six options:
 * log --> Log transform
 * None --> Raw Coverage Values
 * X5 --> Multiplication by 5 
 * X10 --> Multiplication by 10
 * SQR --> Square root<br />
-We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
+<p>We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
     
 ```
 cov-combine -c [suffix-linking-coverage-files] -o [output-file] -t [Transformation]
@@ -165,6 +165,20 @@ Cluster 21: 551
               --- Putative Bins Computed in 233.362998962 seconds ---
         --------------------------------------------------------
 ```
+##Other Useful Utilities##
+#Using CheckM for a quick look##
+For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
+
+Currently the thresholds written into the script place bins into categories using the following parameters:<p>
+*High completion: > 80% complete with < 10% redundancy, or > 50% with < 5% redundacy
+*Low completion: < 50% complete with < 5% redundancy
+*Strain Variation: >50% complete with >90% strain heterogeneity
+*High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
+<p>
+
+It should be noted that selection of these values are arbitrary and as techniques improve the values of generally accepted redundancy, completion, and strain heterogeneity may change.<p>
+CheckM is also only one means of evaluating bins and for the best results we advocate using multiple evlaution methods before considering a bin 'High Quality'. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessar if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
+
 
 ##Issues##
 
