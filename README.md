@@ -167,7 +167,7 @@ Cluster 21: 551
 ```
 ##Other Useful Utilities##
 #Using CheckM for a quick look##
-For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
+For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
 
 Currently the thresholds written into the script place bins into categories using the following parameters:<p>
 * High completion: > 80% complete with < 10% redundancy, or > 50% with < 5% redundacy
