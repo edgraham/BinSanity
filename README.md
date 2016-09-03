@@ -69,11 +69,11 @@ con-4  110 5021
 * `cov-combine.py` combines all coverage profiles provided by `contig-coverage-bam`into a single combined profile. 
 > The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).
 * Currently the `-t` has six options:
-* log --> Log transform \n
-* None --> Raw Coverage Values \n
-* X5 --> Multiplication by 5 \n
-* X10 --> Multiplication by 10 \n
-* SQR --> Square root \n
+* log --> Log transform
+* None --> Raw Coverage Values
+* X5 --> Multiplication by 5 
+* X10 --> Multiplication by 10
+* SQR --> Square root
 >We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
     
 ```
