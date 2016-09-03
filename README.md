@@ -1,4 +1,4 @@
-# BinSanity v0.1.2
+# BinSanity v0.1.3
 
 Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
 
@@ -66,20 +66,30 @@ con-4  110 5021
 ....
 ```
 
-* `cov-combine.py` generates a combined coverage profile from the individual coverage files produces by `contig-coverage-bam`
+* `cov-combine.py` combines all coverage profiles provided by `contig-coverage-bam`into a single combined profile. 
+* The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).
+** Currently the `-t` has six options:
+** log --> Log transform \n
+** None --> Raw Coverage Values \n
+** X5 --> Multiplication by 5 \n
+** X10 --> Multiplication by 10 \n
+**SQR --> Square root \n
+*We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
+    
 ```
-cov-combine -c [suffix-linking-coverage-files] -o [output-file]
+cov-combine -c [suffix-linking-coverage-files] -o [output-file] -t [Transformation]
 ```
 Standard output will read:
 
 ```
 --------------------------------------------------------------------
+Getting coverage.......
         Finished combined coverage profiles in 650 seconds
 ____________________________________________________________________
 ```
 * `Binsanity` clusters contigs based on the input of a combined coverage profile. Preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
 ```
-Binsanity -f [directory-with-fasta-file] -l [fna,fa,fasta] -c [combined-cov]
+Binsanity -f [directory-with-fasta-file] -l [fasta_file] -c [combined-cov]
 
 -------------------------------------------------------
                Running Binsanity
