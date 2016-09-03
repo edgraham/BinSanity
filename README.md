@@ -67,7 +67,7 @@ con-4  110 5021
 ```
 
 * `cov-combine.py` combines all coverage profiles provided by `contig-coverage-bam`into a single combined profile. 
-> The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).
+>The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).
 * Currently the `-t` has six options:
 * log --> Log transform
 * None --> Raw Coverage Values
