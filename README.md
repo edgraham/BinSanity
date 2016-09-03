@@ -170,12 +170,14 @@ Cluster 21: 551
 For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
 
 Currently the thresholds written into the script place bins into categories using the following parameters:<p>
-*High completion: > 80% complete with < 10% redundancy, or > 50% with < 5% redundacy
-*Low completion: < 50% complete with < 5% redundancy
-*Strain Variation: >50% complete with >90% strain heterogeneity
-*High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
+* High completion: > 80% complete with < 10% redundancy, or > 50% with < 5% redundacy
+* Low completion: < 50% complete with < 5% redundancy
+* Strain Variation: >50% complete with >90% strain heterogeneity
+* High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
 <p>
-
+The program is called as follows:
+`checkm_analysis -checkM [checkm_qa tab delimited output]`
+<p>
 It should be noted that selection of these values are arbitrary and as techniques improve the values of generally accepted redundancy, completion, and strain heterogeneity may change.<p>
 CheckM is also only one means of evaluating bins and for the best results we advocate using multiple evlaution methods before considering a bin 'High Quality'. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessar if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
 
