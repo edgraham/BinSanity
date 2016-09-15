@@ -95,6 +95,7 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             unbinned_file.close()       
 ########################################################################################
             if os.path.isdir(str(output_directory)) is True:
+            	names = []
                 for name in os.listdir("."):
                     names.append(name)
                 for x in names:
