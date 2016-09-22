@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import collections
+import collections,shutil
 import os, sys, time, argparse
 import numpy as np
 from Bio import SeqIO
@@ -188,51 +188,50 @@ def cov_array(a,b,name,size):
     print cov_array.shape
     return cov_array, names, unused			     
 
-def affinity_propagation(array,names,unused,d,e,f,g,b,name):	
-            """Uses affinity propagation to make putative bins"""		     
-            apclust = AffinityPropagation(damping=float(d), max_iter=int(e), convergence_iter=int(f), copy=True, preference=float(g), affinity='euclidean', verbose=False).fit_predict(array)
-            print
-            """
-            -------------------------------------------------------
+def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
+    """Uses affinity propagation to make putative bins"""    
+    if os.path.isdir(str(output_directory)) is False:
+        os.mkdir(output_directory)
+    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+    print"""-------------------------------------------------------
                             --Creating Bins--
             -------------------------------------------------------"""
-            outfile_data = {}
-            i = 0
-            while i < len(names):
-                if apclust[i] in outfile_data.keys():
-			outfile_data[apclust[i]].append(names[i])
-		if apclust[i] not in outfile_data.keys():
-			outfile_data[apclust[i]] = [names[i]]
-		i += 1
-            out_name = name.split(".fna")[0]
-            unbinned_file = open(str(out_name)+".unbinned-refine.fna", "w" )
-            with open(os.path.join(b,name),"r") as input2_file: 
-	  	fasta_dict = create_fasta_dict(input2_file)                
-	  	for id_ in list(unused):
-	  	    unbinned_file.write(">"+str(id_)+"\n"+str(fasta_dict[id_])+"\n") 
-	  	count = 0                               
-                for k in outfile_data:
-	  	    if len(outfile_data[k]) >= 5:
-	  	        output_file = open(str(out_name)+".refined_bin_%s.fna" % (k), "w" )
-	  	        for x in outfile_data[k]:
-	  	            output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	        output_file.close()
-	  	        count = count + 1
-	  	    elif len(outfile_data[k]) < 5:
-	  	        if any((len(fasta_dict[x])>100000) for x in outfile_data[k]):
-	  	            output_file = open(str(out_name)+".refined_bin_%s.fna" % (k), "w" )
-	  	            for x in outfile_data[k]:
-	  	                output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	            output_file.close()
-	  	            count = count +1
-	  	        else:
-	  	            for x in outfile_data[k]:
-	  	                unbinned_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	    print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
-	  	print ("""
-	  	Total Number of Bins: %i""" % count)
-            unbinned_file.close()       
-            
+    outfile_data = {}
+    i = 0
+    while i < len(names):
+        if apclust[i] in outfile_data.keys():
+            outfile_data[apclust[i]].append(names[i])
+        if apclust[i] not in outfile_data.keys():
+            outfile_data[apclust[i]] = [names[i]]
+        i += 1
+    out_name = file_name.split(".")[0]
+    unbinned_file = open(os.path.join(output_directory,str(out_name)+".refine-unbinned.fna"),"w")
+    with open(os.path.join(path,file_name),"r") as input2_file: 
+        fasta_dict = create_fasta_dict(input2_file)                
+        count = 0                
+        for k in outfile_data:
+            if len(outfile_data[k]) >= 5:
+                output_file = open(os.path.join(output_directory,str(out_name)+".refined_%s.fna" % (k)), "w" )
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+                count = count + 1
+            elif len(outfile_data[k]) < 5:
+                if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
+                    output_file = open(os.path.join(output_directory,str(out_name)+".refined_%s.fna" % (k)), "w" )
+                    for x in outfile_data[k]:
+                        output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                    output_file.close()
+                    count = count +1
+            else:
+                for x in outfile_data[k]:
+                    unbinned_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+            print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
+        print ("""Total Number of Bins: %i""" % count)
+    
+    unbinned_file.close()       
+
+                
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
@@ -247,26 +246,32 @@ class Logger(object):
 
     
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Binsanity-refine.py', usage='%(prog)s  -f [Path To Contig File] -l [name of file] {optional [-x Contig Size Cut Off] [-plot Y] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
+    parser = argparse.ArgumentParser(prog='Binsanity', usage='%(prog)s -c [Coverage File] -f [Path To Contig File] -l [Suffix Linking Contig files] {optional [-x Contig Size Cut Off] [-p Preference] [-m Max Iterations] [-v Convergence Iterations] [-d Damping factor]}',description="""Script designed to use Affinity Propagation to split
     metagenomic data into bins using contig coverage values. It takes as input a coverage file and files containing the contigs to be binned, then outputs clusters of contigs in putative bins.""")
+    parser.add_argument("-c", dest="inputCovFile", help="Specify a Coverage File")
     parser.add_argument("-f", dest="inputContigFiles", help="Specify directory containing your contigs")
-    parser.add_argument("-p", type=float, dest="preference", default=-100, help="Specify a preference (default is -100) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting")
+    parser.add_argument("-p", type=float, dest="preference", default=-3, help="Specify a preference (default is -3) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting. If your range of coverages are low you will want to decrease the preference, if you have 10 or less replicates increasing the preference could benefit you.")
     parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="Specify a max number of iterations (default is 2000)")
     parser.add_argument("-v", type=int, dest="conviter",default=400, help="Specify the convergence iteration number (default is 200), e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.")
+    parser.add_argument("-kmer",type=int,dest="inputKmer",default=4,help="Specify a number for kmer calculation. Default is 4. Tetramer frequencies are recommended")
     parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.9")
-    parser.add_argument("-l",dest="name",help="Specify file you want to refine")
+    parser.add_argument("-l",dest="fastafile", help="Specify the fasta file containing contigs you want to cluster")
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
-    parser.add_argument("-c",dest="inputCoverage",help="Identify coverage file")
-    parser.add_argument("-t", dest="inputKmer", type=int, default=4, help="Specify k-mer desired for analysis, default is 4")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.1.1')    
+    parser.add_argument("-o",dest="outputdir", default="BINSANITY-REFINEMENT", help="Give a name to the directory BinSanity results will be output in [Default is 'BINSANITY-RESULTS']")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1.4')
+
 
     args = parser.parse_args()
-    if (args.inputContigFiles is None) and not args.name:
-        print "Please indicate directory in which file to be refined is contained"
-    elif (args.name is None) and not args.inputContigFiles:
-        print " Please indicate what fasta, fa, or fna file you want to refine"
-    elif args.inputCoverage is None:
-        print "Please indicate suffix linking coverage profile"
+    if args.inputCovFile is None:
+        if (args.inputContigFiles is None) and (args.fastafile is None):
+            parser.print_help()
+    if (args.inputCovFile is None):
+        print "Please indicate -c coverage file"
+    if args.inputContigFiles is None:
+        print "Please indicate -f directory containing your contigs"
+    elif args.inputContigFiles and not args.fastafile:
+        parser.error('-l Need to identify file to be clustered')
+
     else:
         start_time = time.time()
         sys.stdout = Logger()
@@ -275,7 +280,7 @@ if __name__ == '__main__':
                      Calculating GC content
         -------------------------------------------------------"""
         GC_time = time.time()
-        GC_Fasta_file(args.inputContigFiles, args.name)
+        GC_Fasta_file(args.inputContigFiles, args.fastafile)
         print "GC content calculated in %s seconds" % (time.time() - GC_time)
         
         print """
@@ -283,19 +288,18 @@ if __name__ == '__main__':
                      Calculating tetramer frequencies
         -------------------------------------------------------"""
         kmer_time = time.time()
-        output(kmer_counts(args.inputKmer,args.inputContigFiles,args.name))
+        output(kmer_counts(args.inputKmer,args.inputContigFiles,args.fastafile))
         print "tertamer frequency calculated in %s seconds" % (time.time()- kmer_time)
         
         print """
         ------------------------------------------------------
           Creating Combined Composition and Coverage Profile
-        -------------------------------------------------------"""
+        ------------------------------------------------------"""
         combine_time = time.time()
         print "Combined profile created in %s seconds" % (time.time()- combine_time)
        
-        get_contigs(args.inputCoverage)
-        print """
-        -------------------------------------------------------
+        get_contigs(args.inputCovFile)
+        print """ -------------------------------------------------------
                 Reclustering on Composition and Coverage
         -------------------------------------------------------"""
         print "Preference: " + str(args.preference)
@@ -304,15 +308,14 @@ if __name__ == '__main__':
         print "Contig Cut-Off: " + str(args.ContigSize)
         print "Damping Factor: " + str(args.damp) + "\n"
         
-        
-        val1, val2, val3 = cov_array((get_cov_data('tetra-GC-out')), args.inputContigFiles, args.name,args.ContigSize)
+        val1, val2, val3 = cov_array((get_cov_data('tetra-GC-out')), args.inputContigFiles, args.fastafile,args.ContigSize)
 
         print """
         
         -------------------------------------------------------
                         Re-clustering contigs
         -------------------------------------------------------""" 
-        affinity_propagation(val1, val2,val3, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.name)
+        affinity_propagation(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.outputdir)
   
         print("""
         --------------------------------------------------------
