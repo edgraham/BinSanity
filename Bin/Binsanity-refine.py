@@ -211,14 +211,14 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
         count = 0                
         for k in outfile_data:
             if len(outfile_data[k]) >= 5:
-                output_file = open(os.path.join(output_directory,str(out_name)+".refined_%s.fna" % (k)), "w" )
+                output_file = open(os.path.join(output_directory,str(out_name)+"-refined_%s.fna" % (k)), "w" )
                 for x in outfile_data[k]:
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
             elif len(outfile_data[k]) < 5:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
-                    output_file = open(os.path.join(output_directory,str(out_name)+".refined_%s.fna" % (k)), "w" )
+                    output_file = open(os.path.join(output_directory,str(out_name)+"-refined_%s.fna" % (k)), "w" )
                     for x in outfile_data[k]:
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
