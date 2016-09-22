@@ -5,19 +5,19 @@ from Bio import SeqIO
 from sklearn.cluster import AffinityPropagation
 
 def create_fasta_dict(fastafile):
-        """makes dictionary using fasta files to be binned"""
-	fasta_dict = {}
-	for record in SeqIO.parse(fastafile, "fasta"):
-		fasta_dict[record.id] = record.seq
-	return fasta_dict
+    """makes dictionary using fasta files to be binned"""
+    fasta_dict = {}
+    for record in SeqIO.parse(fastafile, "fasta"):
+        fasta_dict[record.id] = record.seq
+    return fasta_dict
 
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
     for line in open(str(h), "r"):
-   	line = line.rstrip()
-	cov_data = line.split()
-	all_cov_data[cov_data[0]] = cov_data
+        line = line.rstrip()
+        cov_data = line.split()
+        all_cov_data[cov_data[0]] = cov_data
     return all_cov_data
 
 def cov_array(a,path,file_name,size):
@@ -26,90 +26,66 @@ def cov_array(a,path,file_name,size):
     names = []
     c = 0
     cov_array = []
-    unused = []
     for record in SeqIO.parse(os.path.join(path, file_name), "fasta"):
-       count = count + 1
-       if len(record.seq) >= int(size):
-  	    if record.id in a.keys():
- 	         data = a[record.id]
-	         names.append(data[0])	
-	         data.remove(data[0])
- 	         line = " ".join(data)
- 	         if c == 1:
-		         temparray = np.fromstring(line, dtype=float, sep=' ')
-		         cov_array = np.vstack((cov_array, temparray))
-		 if c == 0:
-		         cov_array = np.fromstring(line, dtype=float, sep=' ')
-		         c += 1
-            else:
-                    unused.append(str(record.id))   
+        count = count + 1
+        if len(record.seq) >= int(size):
+            if record.id in a.keys():
+                data = a[record.id]
+                names.append(data[0])
+                data.remove(data[0])
+                line = " ".join(data)
+                if c == 1:
+                    temparray = np.fromstring(line, dtype=float, sep=' ')
+                    cov_array = np.vstack((cov_array, temparray))
+                if c == 0:
+                    cov_array = np.fromstring(line, dtype=float, sep=' ')
+                    c += 1 
     print cov_array.shape
-    return cov_array, names, unused			     
+    return cov_array, names  
 
-def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,unused,path,output_directory):	
-            """Uses affinity propagation to make putative bins"""		     
-            apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
-            print
-            """
-            -------------------------------------------------------
+def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
+    """Uses affinity propagation to make putative bins"""
+    if os.path.isdir(str(output_directory)) is False:
+        os.mkdir(output_directory)
+    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+    print"""-------------------------------------------------------
                             --Creating Bins--
-            -------------------------------------------------------
-            
-            """
-            outfile_data = {}
-            i = 0
-            while i < len(names):
-                if apclust[i] in outfile_data.keys():
-			outfile_data[apclust[i]].append(names[i])
-		if apclust[i] not in outfile_data.keys():
-			outfile_data[apclust[i]] = [names[i]]
-		i += 1
-            out_name = file_name.split(".")[0]
-            unbinned_file = open(str(out_name)+".unbinned.fna", "w" )
-            with open(os.path.join(path,file_name),"r") as input2_file: 
-	  	fasta_dict = create_fasta_dict(input2_file)                
-	  	for id_ in list(unused):
-	  	    unbinned_file.write(">"+str(id_)+"\n"+str(fasta_dict[id_])+"\n")
-	  	count = 0                
-                for k in outfile_data:
-	  	    if len(outfile_data[k]) >= 5:
-	  	        output_file = open(str(out_name)+".bin_%s.fna" % (k), "w" )
-	  	        for x in outfile_data[k]:
-	  	            output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	        output_file.close()
-	  	        count = count + 1
-	  	    elif len(outfile_data[k]) < 5:
-	  	        if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
-	  	            output_file = open(str(out_name)+".bin_%s.fna" % (k), "w" )
-	  	            for x in outfile_data[k]:
-	  	                output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	            output_file.close()
-	  	            count = count +1
-	  	        else:
-	  	            for x in outfile_data[k]:
-	  	                unbinned_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
-	  	    print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
-	  	print ("""
-	  	Total Number of Bins: %i""" % count)
-
-            unbinned_file.close()       
-########################################################################################
-            if os.path.isdir(str(output_directory)) is True:
-            	names = []
-                for name in os.listdir("."):
-                    names.append(name)
-                for x in names:
-                    if str(out_name) and "bin" in str(x):
-                        shutil.move(str(x),str(output_directory))
+            -------------------------------------------------------"""
+    outfile_data = {}
+    i = 0
+    while i < len(names):
+        if apclust[i] in outfile_data.keys():
+            outfile_data[apclust[i]].append(names[i])
+        if apclust[i] not in outfile_data.keys():
+            outfile_data[apclust[i]] = [names[i]]
+        i += 1
+    out_name = file_name.split(".")[0]
+    unbinned_file = open(os.path.join(output_directory,str(out_name)+".unbinned.fna"),"w")
+    with open(os.path.join(path,file_name),"r") as input2_file: 
+        fasta_dict = create_fasta_dict(input2_file)                
+        count = 0                
+        for k in outfile_data:
+            if len(outfile_data[k]) >= 5:
+                output_file = open(os.path.join(output_directory,str(out_name)+".bin_%s.fna" % (k)), "w")
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+                count = count + 1
+            elif len(outfile_data[k]) < 5:
+                if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
+                    output_file = open(os.path.join(output_directory,str(out_name)+".bin_%s.fna" % (k)), "w")
+                    for x in outfile_data[k]:
+                        output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                    output_file.close()
+                    count = count +1
             else:
-                os.makedirs(str(output_directory))
-                names = []
-                for name in os.listdir("."):
-                    names.append(name)
-                for x in names:
-                    if str(out_name) and "bin" in str(x):
-                        shutil.move(str(x),str(output_directory))
-            
+                for x in outfile_data[k]:
+                    unbinned_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+            print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
+        print ("""Total Number of Bins: %i""" % count)
+    
+    unbinned_file.close()       
+########################################################################################     
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
@@ -131,23 +107,23 @@ if __name__ == '__main__':
     parser.add_argument("-c", dest="inputCovFile", help="Specify a Coverage File")
     parser.add_argument("-f", dest="inputContigFiles", help="Specify directory containing your contigs")
     parser.add_argument("-p", type=float, dest="preference", default=-3, help="Specify a preference (default is -3) Note: decreasing the preference leads to more lumping, increasing will lead to more splitting. If your range of coverages are low you will want to decrease the preference, if you have 10 or less replicates increasing the preference could benefit you.")
-    parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="Specify a max number of iterations (default is 4000)")
-    parser.add_argument("-v", type=int, dest="conviter",default=400, help="Specify the convergence iteration number (default is 400), e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.")
-    parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.95")
-    parser.add_argument("-l",dest="file", help="Specify the fasta file containing contigs you want to cluster")
+    parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="Specify a max number of iterations (default is 2000)")
+    parser.add_argument("-v", type=int, dest="conviter",default=400, help="Specify the convergence iteration number (default is 200), e.g Number of iterations with no change in the number of estimated clusters that stops the convergence.")
+    parser.add_argument("-d",default=0.95, type=float, dest="damp", help="Specify a damping factor between 0.5 and 1, default is 0.9")
+    parser.add_argument("-l",dest="fastafile", help="Specify the fasta file containing contigs you want to cluster")
     parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="Specify the contig size cut-off (Default 1000 bp)")
     parser.add_argument("-o",dest="outputdir", default="BINSANITY-RESULTS", help="Give a name to the directory BinSanity results will be output in [Default is 'BINSANITY-RESULTS']")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.1.3')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.1.4')
 
     args = parser.parse_args()
     if args.inputCovFile is None:
-        if (args.inputContigFiles is None) and (args.file is None):
+        if (args.inputContigFiles is None) and (args.fastafile is None):
             parser.print_help()
     if (args.inputCovFile is None):
         print "Please indicate -c coverage file"
     if args.inputContigFiles is None:
         print "Please indicate -f directory containing your contigs"
-    elif args.inputContigFiles and not args.file:
+    elif args.inputContigFiles and not args.fastafile:
         parser.error('-l Need to identify file to be clustered')
 
 
@@ -166,9 +142,10 @@ if __name__ == '__main__':
         print "Convergence Iterations: " + str(args.conviter)
         print "Contig Cut-Off: " + str(args.ContigSize)
         print "Damping Factor: " + str(args.damp) + "\n"
+
         
         
-        val1, val2, val3 = cov_array((get_cov_data(args.inputCovFile)), args.inputContigFiles, args.file,args.ContigSize)
+        val1, val2 = cov_array((get_cov_data(args.inputCovFile)), args.inputContigFiles, args.fastafile,args.ContigSize)
 
         print """
         
@@ -178,7 +155,7 @@ if __name__ == '__main__':
         -------------------------------------------------------
         
         """ 
-        affinity_propagation(val1, val2, args.file, args.damp, args.maxiter, args.conviter, args.preference,val3,args.inputContigFiles,args.outputdir)
+        affinity_propagation(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.outputdir)
   
         print("""
         
