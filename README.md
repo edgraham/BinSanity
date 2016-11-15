@@ -102,7 +102,7 @@ Conitg Cut-Off: 1000
 Damping Factor: 0.95
 .......
 ```
-* `Binsanity-refine` is used to refine bins with high redundancy or low completion by reclustering only those contigs from bins indicated and incorporation of tetranucleotide frequenices and GC-content. K-mer, preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-t`, `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
+* `Binsanity-refine` is used to refine bins with high redundancy or low completion by reclustering only those contigs from bins indicated and incorporation of tetranucleotide frequenices and GC-content. K-mer, preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-kmer`, `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
 
 ```
 Binsanity-refine -f [directory-with-fasta-file] -l [fasta-file-identifier] -c [combined_cov_file]
