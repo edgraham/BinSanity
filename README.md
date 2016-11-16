@@ -10,6 +10,7 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
+* [Pandas] (http://pandas.pydata.org/) (v0.13.1)
 
 >Programs used to prepare input files for BinSanity and associated utility scripts include:
 
