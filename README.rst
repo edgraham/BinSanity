@@ -1,4 +1,4 @@
-# BinSanity v0.1.3
+# BinSanity v0.1.3#
 
 Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
 
