@@ -135,8 +135,9 @@ Using the Infant Gut Metagenome (available in the Examples file) the command wou
 Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm 
 ```
 
-** The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
-* This workflow will do the following:
+The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
+<p>
+This workflow will do the following:
 <p>
 * run`Binsanity` solely with coverage. 
 * run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
@@ -150,7 +151,7 @@ Currently the thresholds written into the script place bins into categories usin
 * Low completion: less than 50% complete with > 90% strain heterogeneity
 * High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
 <p>
-The program is written in to the script `Binsanity-wf`, but can also be called as a stand alone script available in the Utils. It is run as:
+The program is written in to the script `Binsanity-wf`, but can also be called as a stand alone script available in the Utils. It is run as: <p>
 `checkm_analysis -checkM [checkm_qa tab delimited output]`
 <p>
 It should be noted that selection of the high and low redundancy values are an arbitrary cut off and the values of generally accepted redundancy, completion, and strain heterogeneity are up for debate so it is recommended that if you use the script that you decide what the best cut off values are for your purposes.<p>
