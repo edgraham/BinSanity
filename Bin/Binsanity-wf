@@ -249,7 +249,7 @@ def checkm_analysis(file_,fasta,path):
     High_redundancy = []
     Strain_variation = []
     for list_ in new_2:
-        if float(list_[12]) >95 and (float(list_[13])<10):
+        elif float(list_[12]) >95 and (float(list_[13])<10):
             High_completion.append(list_[0])
         elif float(list_[12]) > 80 and (float(list_[13])<=5):
             High_completion.append(list_[0])
