@@ -1,8 +1,9 @@
-# BinSanity v0.1.3
+
+#BinSanity v0.2.0#
 
 Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
 
-## BinSanity ##
+##BinSanity ##
 ###Dependencies###
 >Versions used at time of last update to script are provided in parenthesis.
 
@@ -20,102 +21,149 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 >Program used by us to putatively analyze bin completion and redundancy for refinement:
 * [CheckM] (https://github.com/Ecogenomics/CheckM)
 
-###Input Files###
-* Fasta file
-* Combined Coverage Profile
+#Installation#
+* Install the latest stable version via pip
 ```
-contig  coverage-1 coverage-2 coverage-3
-con-1   121        89         95
-con-2   14         29         21
-.......
+pip install BinSanity
 ```
 
-###Script Usage's###
-To generate input files for BinSanity the scripts `contig-coverage-bam.py` and `cov-combine.py` are provided:
-* `contig-coverage-bam` generates a `.coverage` file that produces a tab delimited file containing average contig coverage from a `.BAM` file. In our tests we used Bowtie2 to produce a `.SAM` file.  To maintain consistency we used the `.coverage`suffix for all files output from this script.
-```
-contig-coverage-bam -f [fasta-file] -b [Bam-file] -o [out.coverage] 
-```
-The standard output:
-```
- ---------------------------------------------------------
-            Finding Length information for each Contig
- ---------------------------------------------------------
- Number of sequences processed for length: 2343
- 
-  ---------------------------------------------------------
-    Extracting Coverage Information from provided BAM file
-  ---------------------------------------------------------
-  
-  Number of records processed for coverage: 2343
-  
-  ---------------------------------------------------------
-                    Building Coverage File
-  ---------------------------------------------------------
-  Final Contigs processed: 2343
+##Script Usage's##
 
-```
-An example of the output file is shown below:
-```
-$less sample-1.coverage
-
-contig cov length
-con-1  250 3049
-con-2  215 1203
-con-3  123 4032
-con-4  110 5021
-....
-```
-
-* `cov-combine.py` combines all coverage profiles provided by `contig-coverage-bam`into a single combined profile. <br />
-<p>The `-c` flag is used to identify the suffix linking the coverage files produced via contig-coverage-bam. The `-o` flag is used to identify the name of the desired output file. the `-t` was added so that the user can decide what kind of transformation of the coverage data they desire (if any).<br />
-* Currently the `-t` has six options:
+First you need to generate input files for Binsanity (e.g the coverage profile).
+To generate input files for BinSanity the script `Binsanity-profile` is provided:
+* `Binsanity-profile` generates a `.cov` file containing both average contig coverage from a `.BAM` file calculated via multiBamCov in Bedtools. In our tests we used Bowtie2 to produce a `.SAM` file.  To maintain consistency we used the `.cov`suffix for all files output from this script.
+*There are multiple transformation options identified by the flag `--transform`. We recommend the Scaled option.
+* Scale --> Scaled by multiplying by 100 and log transformed
 * log --> Log transform
 * None --> Raw Coverage Values
 * X5 --> Multiplication by 5 
 * X10 --> Multiplication by 10
 * SQR --> Square root<br />
-<p>We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
-    
-```
-cov-combine -c [suffix-linking-coverage-files] -o [output-file] -t [Transformation]
-```
-Standard output will read:
+<p> Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
 
 ```
---------------------------------------------------------------------
-Getting coverage.......
-        Finished combined coverage profiles in 650 seconds
-____________________________________________________________________
+Binsanity-profile -o Infant-gut-assembly --contigs contigs_of_interest.txt -i igm.fa -s /path/to/bam/files --transform Scale
 ```
-* `Binsanity` clusters contigs based on the input of a combined coverage profile. Preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
-```
-Binsanity -f [directory-with-fasta-file] -l [fasta_file] -c [combined-cov]
 
--------------------------------------------------------
-               Running Binsanity
-          ---Computing Coverage Array ---
--------------------------------------------------------
-Preference: -3
-Maximum iterations: 4000
-Convergence Iterations: 400
-Conitg Cut-Off: 1000
-Damping Factor: 0.95
-.......
+The standard output:
 ```
-* `Binsanity-refine` is used to refine bins with high redundancy or low completion by reclustering only those contigs from bins indicated and incorporation of tetranucleotide frequenices and GC-content. K-mer, preference, damping factor, contig cut-off, convergence iterations, and maximum iterations can be optionally adjusted using `-kmer`, `-p`, `-d`, `-x`, `-v`, and `-m` respectively.
+ ---------------------------------------------------------
+                       Formating BED File
+ ---------------------------------------------------------
+
+  ---------------------------------------------------------
+                    Generating Read Counts
+  ---------------------------------------------------------
+
+  
+  ---------------------------------------------------------
+                   Combining all Readcount Files
+  ---------------------------------------------------------
+   ---------------------------------------------------------
+                   Transforming Coverage Profile
+  ---------------------------------------------------------
+```
+* This script will output two files. The raw `Infant-gut-assembly.cov` file and the transformed `Infant-gut-assembly.cov.x100.lognorm` coverage profile.
 
 ```
-Binsanity-refine -f [directory-with-fasta-file] -l [fasta-file-identifier] -c [combined_cov_file]
+$less Infant-gut-assembly.cov.x100.lognorm
+
+con-1  1.2 0.4
+con-2  1.0 0.4
+con-3  1.3 4.2
+con-4  1.1 5.1
+....
 ```
+###Running BinSanity###
+* Three scripts are available to run Binsanity: `Binsanity`,`Binsanity-refine`,`Binsanity-wf`
+* `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
+* `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
+* `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. ```
+
+####Running the Binsanity Workflow####
+The help menu for `Binsanity-wf` is shown below:
+```
+usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
+                    [-p PREFERENCE] [-m MAXITER] [-v CONVITER] [-d DAMP]
+                    [-l FASTAFILE] [-x CONTIGSIZE] [-o OUTPUTDIR]
+                    [--threads THREADS] [--kmer KMER]
+                    [--refine-preference INPUTREFINEDPREF] [--version]
+
+Script designed to use Affinity Propagation to split
+    metagenomic data into bins using contig coverage values.
+    It takes as input a coverage file and files containing
+    the contigs to be binned, then outputs clusters of contigs in putative bins.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c INPUTCOVFILE       Specify a Coverage File
+
+  -f INPUTCONTIGFILES   Specify directory containing your contigs
+
+  -p PREFERENCE         Specify a preference (default is -3)
+                            Note: decreasing the preference leads to more lumping,
+                            increasing will lead to more splitting. If your range
+                            of coverages are low you will want to decrease the
+                            preference, if you have 10 or less replicates increasing
+                            the preference could benefit you.
+
+  -m MAXITER            Specify a max number of iterations (default is 4000)
+
+  -v CONVITER           Specify the convergence iteration number (default is 400)
+                            e.g Number of iterations with no change in the number
+                            of estimated clusters that stops the convergence.
+
+  -d DAMP               Specify a damping factor between 0.5 and 1, default is 0.95
+
+  -l FASTAFILE          Specify the fasta file containing contigs you want to cluster
+
+  -x CONTIGSIZE         Specify the contig size cut-off (Default 1000 bp)
+
+  -o OUTPUTDIR          Give a name to the directory BinSanity results will be output in [Default is 'BINSANITY-RESULTS']
+
+  --threads THREADS     Indicate how many threads you want dedicated to the subprocess CheckM
+
+  --kmer KMER           Indicate a number for the kmer calculation, the default is 4
+
+  --refine-preference INPUTREFINEDPREF
+                        Specify a preference for refinement. The Default is -25
+
+  --version             show program's version number and exit
+```
+Using the Infant Gut Metagenome (available in the Examples file) the command would be as follows:
+```
+Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm 
+```
+
+The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
+<p>
+This workflow will do the following:
+<p>
+* run`Binsanity` solely with coverage. 
+* run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
+* run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
+#####Setting Completion and Redundnacy Estimates for refinement#####
+
+For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
+
+Currently the thresholds written into the script place bins into categories using the following parameters:<p>
+* High completion: greater than 95% complete with < 10% redundancy, greater than 80% with <5% redundancy,  or > 50% with < 2% redundacy
+* Low completion: less than 50% complete with > 90% strain heterogeneity
+* High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
+<p>
+The program is written in to the script `Binsanity-wf`, but can also be called as a stand alone script available in the Utils. It is run as: <p>
+`checkm_analysis -checkM [checkm_qa tab delimited output]`
+<p>
+It should be noted that selection of the high and low redundancy values are an arbitrary cut off and the values of generally accepted redundancy, completion, and strain heterogeneity are up for debate so it is recommended that if you use the script that you decide what the best cut off values are for your purposes.<p>
+CheckM is also only one means of evaluating bins. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessar if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
 
 ##Example Problem##
 >The Infant Gut Metagenome collected and curated by [Sharon et al. (2013)](http://dx.doi.org/10.1101/gr.142315.112) was clustered by us to test BinSanity. To confirm you have BinSanity working we have provided a folder `Example` containing the fasta file (`INFANT-GUT-ASSEMBLY.fa`) containing contigs for the Infant Gut Metagenome provided by [Eren et al. (2015)](https://doi.org/10.7717/peerj.1319). All files associated with our BinSanity run are also provided, which includes the combined coverage profile (produced using Bowtie2 v2.2.5 on defaults, `contig-coverage-bam.py`, and `cov-combine.py`.
 
-To run the test use the following command while in the `Example` directory:
+To run the test use the following command using the igm.fa and Infant_gut_assembly.cov.x100.lognorm
 
 ```
-Binsanity -f . -l .fa -p -10
+Binsanity -f . -l igm.fa -p -10
 ```
 The output should be as follows:
 ```
@@ -166,22 +214,6 @@ Cluster 21: 551
               --- Putative Bins Computed in 233.362998962 seconds ---
         --------------------------------------------------------
 ```
-##Other Useful Utilities##
-###Using CheckM for a quick look###
-For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
-
-Currently the thresholds written into the script place bins into categories using the following parameters:<p>
-* High completion: > 80% complete with < 10% redundancy, or > 50% with < 5% redundacy
-* Low completion: < 50% complete with < 5% redundancy
-* Strain Variation: >50% complete with >90% strain heterogeneity
-* High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
-<p>
-The program is called as follows:
-`checkm_analysis -checkM [checkm_qa tab delimited output]`
-<p>
-It should be noted that selection of the high and low redundancy values are an arbitrary cut off and the values of generally accepted redundancy, completion, and strain heterogeneity are up for debate so it is recommended that if you use the script that you decide what the best cut off values are for your purposes.<p>
-CheckM is also only one means of evaluating bins and for the best results we advocate using multiple evlaution methods before considering a bin 'High Quality'. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessar if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
-
 
 ##Issues##
 

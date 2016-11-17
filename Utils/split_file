@@ -1,0 +1,38 @@
+#! /usr/bin/env python
+
+from Bio import SeqIO
+from Bio.SeqRecord import SeqRecord
+import argparse
+import random
+
+def split_file(filename,output):
+    seq_processed = 0
+    new = []
+    length = random.randint(3000,15000)
+    for record in SeqIO.parse(filename, "fasta"):
+        seq_processed +=1
+        seq = record.seq
+        id_ =record.id
+        x = [seq[i:i+int(length)] for i in range(0, len(seq), int(length))]
+        for seq_ in x:
+            record_1 = SeqRecord(seq_, id_+"_"+ str(x.index(seq_)+1), description="")
+            new.append(record_1)
+    seq_processed =0
+    output_handle = open(output, "w")
+    SeqIO.write(new, output_handle, "fasta")
+    output_handle.close()
+if __name__ == '__main__':        
+    parser = argparse.ArgumentParser(prog='split_file.py', usage='%(prog)s -o Output File -f file')
+    parser.add_argument("-o", dest="inputoutput", help="Specify the output file")
+    parser.add_argument("-f", dest="inputfilename", help="Specify the input file")
+    
+    args = parser.parse_args()
+    if args.inputoutput is None:
+        if args.inputfilename is None:
+            parser.print_help()
+    elif args.inputoutput and not args.inputfilename:
+        parser.error('-f input file needed')
+    elif args.inputfilename and not args.inputoutput:
+        parser.error('-o output fasta file needed')
+    else:
+        split_file(args.inputfilename, args.inputoutput)
