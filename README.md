@@ -220,6 +220,8 @@ Cluster 21: 551
 If an issue arises in the process of utilizing BinSanity please create an issue and we will address is as soon as possible. To expedite a response please provide any associated error messages. 
 As this project is actively being improved any comments or suggestions are welcome.
 
+* [Binsanity Forum](https://groups.google.com/forum/#!forum/binsanity)
+
 ##Citation##
 Graham, E., Heidelberg, J. & Tully, B. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. bioRxiv, doi:10.1101/069567 (2016).
 
