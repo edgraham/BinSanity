@@ -137,9 +137,10 @@ Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm
 
 ** The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
 * This workflow will do the following:
-*** run`Binsanity` solely with coverage. 
-*** run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
-*** run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
+<p>
+* run`Binsanity` solely with coverage. 
+* run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
+* run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
 #####Setting Completion and Redundnacy Estimates for refinement#####
 
 For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
