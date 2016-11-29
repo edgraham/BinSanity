@@ -81,7 +81,6 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
     
-    unbinned_file.close()       
 ########################################################################################     
 class Logger(object):
     def __init__(self):
