@@ -39,8 +39,9 @@ $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
-* to download pplacer follow this instructions [here](http://matsen.github.io/pplacer/compiling.html)
-##Script Usage's##
+* to download pplacer follow this instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
+
+##Script Usage##
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
 To generate input files for BinSanity the script `Binsanity-profile` is provided:
