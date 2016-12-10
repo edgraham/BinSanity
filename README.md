@@ -39,6 +39,7 @@ $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
+* to download pplacer follow this instructions [here](http://matsen.github.io/pplacer/compiling.html)
 ##Script Usage's##
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
@@ -54,7 +55,7 @@ To generate input files for BinSanity the script `Binsanity-profile` is provided
 <p> Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
 
 ```
-Binsanity-profile -o Infant-gut-assembly --contigs contigs_of_interest.txt -i igm.fa -s /path/to/bam/files --transform Scale
+$ Binsanity-profile -o Infant-gut-assembly --contigs contigs_of_interest.txt -i igm.fa -s /path/to/bam/files --transform Scale
 ```
 
 The standard output:
@@ -144,7 +145,7 @@ optional arguments:
 ```
 Using the Infant Gut Metagenome (available in the Examples file) the command would be as follows:
 ```
-Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm 
+$ Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm 
 ```
 
 The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
@@ -175,7 +176,7 @@ CheckM is also only one means of evaluating bins. This script is provided as a m
 To run the test use the following command using the igm.fa and Infant_gut_assembly.cov.x100.lognorm
 
 ```
-Binsanity -f . -l igm.fa -p -10
+$ Binsanity -f . -l igm.fa -p -10
 ```
 The output should be as follows:
 ```
