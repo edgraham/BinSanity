@@ -22,11 +22,23 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 * [CheckM] (https://github.com/Ecogenomics/CheckM)
 
 #Installation#
+* Usage of BinSanity requires installation of numpy 
+```
+$ pip install numpy
+```
 * Install the latest stable version via pip
 ```
-pip install BinSanity
+$ pip install BinSanity
 ```
-
+* If you want to use the BinSanity workflow `Binsanity-wf` you will also need to download [HMMER](http://hmmer.org/) and [pplacer](http://matsen.fhcrc.org/pplacer/)
+* HMMER can be downloaded like this:
+```
+$ wget http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
+$ tar -zxvf hmmer-3.1b2.tar.gz
+$ cd hmmer-3.1b2
+$ ./configure && make && sudo make install
+$ cd easel && make check && sudo make install
+```
 ##Script Usage's##
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
