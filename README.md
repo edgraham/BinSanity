@@ -39,7 +39,7 @@ $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
-* to download pplacer follow this instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
+* to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
 
 ##Script Usage##
 
