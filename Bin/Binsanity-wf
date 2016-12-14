@@ -226,8 +226,8 @@ def refined_ap(array,names,file_name,damping,iterations,convergence,preference,p
     
 ########################################################################################
 def run_checkM(bins,threads):
-	output = open("checkm_lineagewf-binsanity.out","w")   
-	subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),"binsanity-checkm"],stdout=output)
+    output = open("checkm_lineagewf-binsanity.out","w")   
+    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),"binsanity-checkm"],stdout=output)
 ########################################################################################
 def checkm_analysis(file_,fasta,path):
     checkm = list(csv.reader(open(file_,'rb')))
@@ -249,7 +249,7 @@ def checkm_analysis(file_,fasta,path):
     High_redundancy = []
     Strain_variation = []
     for list_ in new_2:
-        elif float(list_[12]) >95 and (float(list_[13])<10):
+        if float(list_[12]) >95 and (float(list_[13])<10):
             High_completion.append(list_[0])
         elif float(list_[12]) > 80 and (float(list_[13])<=5):
             High_completion.append(list_[0])
@@ -394,15 +394,15 @@ if __name__ == '__main__':
         checkm_analysis("checkm_lineagewf-binsanity.out",".fna",str(args.outputdir))
 ##############################Refining Bins#######################################
         start_time = time.time()
-	
+
         location = os.path.join(str(args.outputdir),"high_redundancy")
         location2 = os.path.join(str(args.outputdir),"low_completion")
 	with open("low_completion.fna","wb") as outfile:
-	    for filename in glob.glob(str(location2)+"/*.fna"):
-		if filename == "low_completion.fna":
-			continue
-		with open(filename,"rb") as readfile:
-			shutil.copyfileobj(readfile,outfile)
+    		for filename in glob.glob(str(location2)+"/*.fna"):
+        		if filename == "low_completion.fna":
+            			continue
+			with open(filename,"rb") as readfile:
+    				shutil.copyfileobj(readfile,outfile)
 	shutil.move("low_completion.fna", str(location))
 	shutil.rmtree(str(location2))
 	for redundant_bin in os.listdir(location):
@@ -449,5 +449,16 @@ if __name__ == '__main__':
             print("""
             --------------------------------------------------------
                 --- Ammended Bins Computed in %s seconds ---
-            --------------------------------------------------------""" % (time.time() - refine_time))       
-
+            --------------------------------------------------------""" % (time.time() - refine_time))
+    
+	os.mkdir("BinSanity-Final-bins")
+	os.rename(str(args.outputdir),"Binsanity-records")
+	for files in os.listdir("Binsanity-records/high_completion"):
+		shutil.copy(os.path.join("Binsanity-records/high_completion",files),"BinSanity-Final-bins")
+	for files in os.listdir(os.path.join("Binsanity-records/REFINED-BINS")):
+		shutil.copy(os.path.join("Binsanity-records/REFINED-BINS",files),"BinSanity-Final-bins")
+	shutil.move("tetra-GC-out","Binsanity-records/")
+	shutil.move("tetramer-frequencies","Binsanity-records/")
+	shutil.move("GC_count","Binsanity-records/")
+	shutil.move("checkm_lineagewf-binsanity.out","Binsanity-records/")
+	shutil.move("binsanity-checkm","Binsanity-records/")
