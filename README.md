@@ -1,4 +1,3 @@
-
 #BinSanity v0.2.1#
 
 Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
@@ -40,6 +39,19 @@ $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
 * to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
+
+## FAQ
+<p>
+**Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?**
+<p>
+Binsanity implements Affinity Propagation (AP), an algorithm that identifies exemplars among data points and forms clusters of data points around these exemplars. This is done by considering every data point as a potential exemplar and exchanges messages until a good set of clusters emerges. AP is a [deterministic algorithm](https://en.wikipedia.org/wiki/Deterministic_algorithm) in which time and memory requirements scale linearly with the number of similarities. 
+<p>
+BinSanity's accuracy is due in part to the biphasic approach in which BinSanity separates coverage and composition during clustering, but also relies heavily on the implementation of AP. Unfortunately our attempts to use other clustering algorithms that were less computatonally intensive ultimately sacrificed accuracy. We are currently working on methods to solve the current memory limitations. 
+<p>
+**How much memory will BinSanity Require?**
+<p>
+On a Dell PowerEdge R920 with 1TB of available RAM and Intel Xeon 2.3GHz processors, it took 191 minutes and ~ 54 GB RAM to run 27,643 contigs. Due to the linear increase of memory we have chosen to cap contigs at 100,000 by choosing appropiate size cut-offs for use of this machine. Please contact us with any questions regarding this or suggestions on the best way to implement BinSanity using whatever computer cluster you have access to.
+<p>
 
 ##Script Usage##
 
