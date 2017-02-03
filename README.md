@@ -2,6 +2,7 @@
 BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
 ##Scripts:##
+> 
 <p>
 `Binsanity`
 * BinSanity implements Affinity Propagation to cluster contigs into putative genomes using contig coverage as an input
