@@ -1,0 +1,181 @@
+#! /usr/bin/env python
+
+from Bio import SeqIO
+import sys, subprocess, argparse
+import glob
+import csv, time, pandas,os
+import numpy as np
+from argparse import RawTextHelpFormatter
+
+def format_for_feature(inputfile,sam):
+    for file_ in os.listdir(sam):
+        if file_.endswith(".bam"):
+            outname=str(file_).lstrip('.bam')
+            handle = open(str(outname)+".saf",'w')
+            handle.write('GeneID   Chr     Start   End     Strand\n')
+            for record in SeqIO.parse(inputfile,'fasta'):
+                    seqLen = len(record.seq)
+                    start, stop = 1, seqLen
+                    geneId, Chr = str(record.description), str(record.description)
+                    outLine = [geneId, Chr, str(start), str(stop), '+']
+                    outLine = '\t'.join(outLine)
+                    handle.write(outLine + "\n")
+            
+def feature_counts(sam):
+    for file_ in os.listdir(sam):
+        outname=str(file_).lstrip('.bam')
+        sam_file = os.path.join(sam,file_)
+        subprocess.call(["featureCounts","-M","-O", "-F", "SAF","-a", str(outname)+".saf","-o", str(outname)+".readcounts",str(sam_file)], stdout=subprocess.PIPE)
+
+
+def make_coverage(ids,outfile):
+    cov_data = {}
+    
+    for line in open(str(ids), "r"):
+            line = line.rstrip()
+            cov_data[line] = []
+    
+    count_filenames = glob.glob("*.readcounts")
+    
+    for i in count_filenames:
+        for line in open(i, "r"):
+                if line[0] != "#" or line[:6] != "Geneid":
+                        line = line.rstrip()
+                        data = line.split()
+                        print data
+                        try:
+                            length = len(cov_data[data[0]])
+                            if length == 0:
+                                cov_data[data[0]] = [data[5], data[6]]
+                            if length > 0:
+                                cov_data[data[0]].append(data[6])
+                        except KeyError:
+                                continue
+    out1 = open(str(outfile)+".cov", "w")
+
+    for k in cov_data:
+        contig_length = cov_data[k].pop(0)
+        coverage_list = [float(x) / float(contig_length) for x in cov_data[k]]
+        coverage_list[:] = [str("%.10f" % (i)) for i in coverage_list]
+        out1.write(k +"\t"+ str("\t".join(coverage_list))+"\n")
+
+def get_log(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = np.log10(((float(list_[num_])))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)
+    
+def get_multiple(file_,outfile,num):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = float(list_[num_])*int(num)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)  
+
+def get_squareroot(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = np.sqrt(((float(list_[num_])))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)
+def get_100x_log(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = np.log10((float(list_[num_])*int(100))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)     
+class SmartFormatter(argparse.HelpFormatter):
+    def _split_lines(self, text, width):
+        if text.startswith('R|'):
+            return text[2:].splitlines()  
+        return argparse.HelpFormatter._split_lines(self, text, width)
+        
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(prog='Binsanity-profile', usage='%(prog)s -i fasta_file -s {sam,bam}_file --id contig_ids.txt -c output_file',description="""
+    Binsanity clusters contigs based on coverage and refines these 'bins' using tetramer frequencies and GC content. 
+    ----------------------------------------------------------------------------------------------------------------
+    Binsanity-profile is used to generate coverage files for 
+    input to BinSanity. This uses Featurecounts to generate a
+    a coverage profile and transforms data for input into Binsanity, 
+    Binsanity-refine, and Binsanity-wf
+    """,formatter_class=RawTextHelpFormatter)    
+    parser.add_argument("-i", dest="inputfile", help="Specify fasta file being profiled")
+    parser.add_argument("-s", dest="inputSAM", help="""
+    identify location of SAM/BAM files
+    If you are using BAM files make sure they are indexed and sorted""") 
+    parser.add_argument("--ids",dest="inputids",help="""
+    Identify file containing contig ids""")
+    parser.add_argument("-c",dest="outputfile",help="""
+    Identify name of output file for coverage information""")
+    parser.add_argument("--transform",dest="transform", default = "scale", help ="""
+    Indicate what type of data transformation you want in the final file (default is log):
+    scale --> Scaled by multiplying by 100 and log transforming
+    log --> Log transform
+    None --> Raw Coverage Values
+    X5 --> Multiplication by 5
+    X10 --> Multiplication by 10
+    X100 --> Multiplication by 100
+    SQR --> Square root
+    We recommend using a scaled log transformation for initial testing. 
+    Other transformations can be useful on a case by case basis""")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.4')
+    args=parser.parse_args()  
+    if len(sys.argv)<3:
+        parser.print_help()    
+    elif args.inputfile and args.inputids is None:
+        print "Need to identify tab delimited file containing contig ids using '--ids' and fasta file using '-i'"
+    elif args.inputfile and args.inputSAM is None:
+        print "Need to identify fasta file using '-i' and directory containing SAM/BAM files using '-s'."
+    elif args.inputfile and args.outputfile is None:
+        print "Need to identify fasta file using '-i' and output file for coverage profile using '-c'."        
+    elif args.inputfile is None:
+        print "Need to identify fasta file using '-i'."
+    elif args.outputfile is None:
+        print "Need to identify the output file using '-c'"
+    elif args.inputids is None:
+        print "Need to identify tab delimited file containing contig ids using '--ids'"
+    elif args.inputSAM is None:
+        print "Need to identify directory containing SAM files using '-s'"
+###########################################
+    else:
+        format_for_feature(args.inputfile,args.inputSAM)
+        
+        print("""
+        ******************************************************
+                    Contigs formated to generate counts
+        ******************************************************
+        """)
+        feature_counts(args.inputSAM)
+        
+        make_coverage(args.inputids,args.outputfile)
+###########################################
+        x = str(args.outputfile)+".cov"
+        if args.transform =="scale":
+            get_100x_log(x,x+".x100.lognorm")
+        elif args.transform == "log":
+            print "Transforming your combined coverage profile"
+            get_log(x, x+".lognorm")
+        elif args.transform =="X5":
+            print "Transforming your combined coverage profile"            
+            get_multiple(x,x+".x5", int(5))
+        elif args.transform =="X10":
+            print "Transforming your combined coverage profile"            
+            get_multiple(x,x+".x10", int(10))
+        elif args.transform =="X100":
+            print "Transforming your combined coverage profile"
+            get_multiple(x,x+".x100", int(100))       
+        elif args.transform =="SQR":
+            print "Transforming your combined coverage profile"            
+            get_squareroot(x, x+".sqrt")
+        print """
+        
+        ********************************************************
+                        Coverage profile produced
+        ********************************************************
+        
+        """
