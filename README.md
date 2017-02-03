@@ -1,16 +1,40 @@
-#BinSanity v0.2.1#
+#BinSanity v0.2.4#
+BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
-Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
+##Scripts:##
+<p>
+> `Binsanity`
+* BinSanity implements Affinity Propagation to cluster contigs into putative genomes using contig coverage as an input
+<p>
+> `Binsanity-refine`
+* BinSanity-refine incorporates tetranucleotide frequencies, GC%, and optionally incorporates the coverage profile
+<p>
+> `Binsanity-wf`
+* Binsanity-wf runs Binsanity and Binsanity-refine sequentially to optimize cluster results
+<p>
+> `Binsanity-profile`
+* Binsanity-profile uses [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) to produce the coverage profiles requires in Binsanity, Binsanity-refine, and Binsanity-wf
+<p>
+> `Binsanity-lc`
+* Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity.
+<p>
+> `checkm_analysis`
+* checkm_analysis uses [CheckM](http://ecogenomics.github.io/CheckM/) to evaluate completion, redundancy, and strain heterogeneity and subsets clusters to aid downstream refinement efforts.
+<p>
+> `transform-coverage-profile`
+* If Binsanity-profile is not used to generate the coverage profile transform-coverage-profile is provided to transform a raw coverage matrix via one of the provided methods.
+<p>
 
-##BinSanity ##
-###Dependencies###
->Versions used at time of last update to script are provided in parenthesis.
+##Dependencies##
+
+> Versions used at time of last update to script are provided in parenthesis.
 
 * [Numpy](http://www.numpy.org/) (v1.11.1)
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
 * [Pandas] (http://pandas.pydata.org/) (v0.13.1)
+* [FeatureCounts](http://bioinf.wehi.edu.au/featureCounts/)(v1.5.0-p2)
 
 >Programs used to prepare input files for BinSanity and associated utility scripts include:
 
@@ -25,10 +49,7 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 ```
 $ pip install numpy
 ```
-* Install the latest stable version via pip
-```
-$ pip install BinSanity
-```
+
 * If you want to use the BinSanity workflow `Binsanity-wf` you will also need to download [HMMER](http://hmmer.org/) and [pplacer](http://matsen.fhcrc.org/pplacer/)
 * HMMER can be downloaded like this:
 ```
@@ -38,8 +59,31 @@ $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
-* to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
+> to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html) or do the following:
 
+* Go to the [pplacer webpage](http://matsen.fredhutch.org/pplacer/) and click on `latest release`. This will take you to the github page and contain source code. Download the file `pplacer-linux-v1.1.alpha19.zip`. In that file are pre-compiled version of `pplacer`, `guppy`, and `rppr`. The location of these need to be exported to your path.
+
+```
+$ export PATH=/path/to/directory/with/pplacer:$PATH
+```
+> If you want to use `Binsanity-profile` you will need to download [featureCounts](http://bioinf.wehi.edu.au/featureCounts/)
+
+* To do this download the latest [subread](https://sourceforge.net/projects/subread/files/) package (subread-1.x.x-source.tar.gz)
+
+```
+$ tar zxvf subread-1.*.*-source.tar.gz
+$ cd subread-1.*.*-source/src
+$ make -f Makefile.Linux ; cd ../
+```
+* This will produce a directory called `bin` in the `subread-1.x.x-source` file containing the executables for `featureCounts`. These should be copied into your path. 
+```
+$ sudo cp -r bin
+```
+
+* Install the latest stable version via pip
+```
+$ pip install BinSanity
+```
 ## FAQ
 <p>
 **Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?**
