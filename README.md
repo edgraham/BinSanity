@@ -12,7 +12,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 * `Binsanity-profile`
   * Binsanity-profile uses [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) to produce the coverage profiles requires in Binsanity, Binsanity-refine, and Binsanity-wf
 * `Binsanity-lc`
-  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity.
+  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity
 * `checkm_analysis`
   * checkm_analysis uses [CheckM](http://ecogenomics.github.io/CheckM/) to evaluate completion, redundancy, and strain heterogeneity and subsets clusters to aid downstream refinement efforts.
 * `transform-coverage-profile`
@@ -91,7 +91,7 @@ On a Dell PowerEdge R920 with 1TB of available RAM and Intel Xeon 2.3GHz process
 <p>
 **If Binsanity-lc uses less memory then why not implement this all the time?**
 <p> 
-Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy.
+Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy. 
 
 ##Script Usage##
 
