@@ -1,0 +1,320 @@
+#! /usr/bin/env python
+
+import collections
+import os, sys, time, argparse
+import pandas
+import numpy as np
+from Bio import SeqIO
+from Bio.Seq import Seq
+from sklearn.cluster import AffinityPropagation
+from Bio.SeqUtils import GC
+from argparse import RawTextHelpFormatter
+import csv
+##########################Get GC Count#######################################
+def GC_Fasta_file(b,name):
+    """Makes a tab-delimeted output indicating the GC count associated with each contig"""
+    GC_dict = {}
+    input_file = open(os.path.join(b,name), 'r') 
+    output_file = open('GC_count','w')
+    output_file.write("%s\t%s\n" % ('contig','GC'))
+    for cur_record in SeqIO.parse(input_file, "fasta") :
+        gene_name = cur_record.id 
+        GC_percent = float(GC(cur_record.seq))
+        GC_dict.setdefault(gene_name,[])
+        GC_dict[gene_name].append(GC_percent) 
+        output_line = '%s\t%i\n' % \
+        (gene_name, GC_percent) 
+        output_file.write(output_line)
+
+        
+    output_file.close() 
+    input_file.close()
+###########################Get tetramer frequencies#####################################
+
+def kmer_list(dna, k):
+    """Makes list of k-mers based on input of k and the dna sequence"""
+    result = []
+    dna = dna.upper()
+    dna_edit = Seq(str(dna))
+    reverse_complement = (dna_edit).reverse_complement()
+    for x in range(len(dna)+1-k):
+        result.append(dna[x:x+k])
+    for x in range(len(reverse_complement)+1-k):
+        result.append(reverse_complement[x:x+k])
+    result= [s for s in result if not s.strip('AGTC')]
+    return result
+
+
+def kmer_counts(kmer,b,name):
+    kmer_dict = {}
+    for record in SeqIO.parse(os.path.join(b,name), "fasta"):
+        id_=record.id
+        seq = record.seq
+        length = len(seq)
+        tetra = kmer_list(seq,kmer)           
+        c = collections.Counter(tetra)
+        c = dict(c)
+        val = list(c.values())
+        val_edit = []
+        for freq in val:
+            freq= (float(freq)/float(length))
+            val_edit.append(freq)
+    
+        keys = []
+        for key in c:
+            keys.append(str(key))
+        c_edit = dict(zip(keys,val_edit))
+        kmer_dict.setdefault(str(id_),[])
+        kmer_dict[str(id_)].append(c_edit)
+    return kmer_dict
+    
+def output(a):
+    """Builds tab-delimeted file based on dictionary of tetramers"""
+    topleft = 'contig' 
+    headers = sorted(set(key
+                        for row in a.values()
+                        for key in row[0]))
+    writer = csv.writer(open('tetramer-frequencies','wb'), delimiter='\t')
+    writer.writerow([topleft] + headers)
+    for key in a:
+        row = [key]
+        for header in headers:
+            row.append(a[key][0].get(header, 0))
+        writer.writerow(row)
+#########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
+def get_contigs(c):
+    GC = open("GC_count","r")
+    dataframe =pandas.read_csv(GC,sep="\t")
+    dataframe=dataframe.set_index("contig")
+    dataframe *= 100
+    dataframe +=1  
+    dataframe = np.log10(dataframe)
+    tetra = open("tetramer-frequencies","r")
+    dataframe2=pandas.read_csv(tetra,sep="\t")
+    dataframe2=dataframe2.set_index("contig")
+    dataframe2*=100
+    dataframe2 += 1
+    dataframe2 = np.log10(dataframe2)
+    cov = open(str(c),"r")
+    reader =list(csv.reader(cov,delimiter='\t'))
+    titles = ["contig"]
+    reader.insert(0,titles)
+    dataframe3=pandas.DataFrame(reader)
+    dataframe3.columns = dataframe3.iloc[0]
+    dataframe3 = dataframe3[1:]
+    dataframe3=dataframe3.set_index("contig")
+    result = pandas.concat([dataframe, dataframe2,dataframe3],axis=1,join='inner')
+    result.to_csv(path_or_buf=str("tetra-GC-out"),header=None,sep ="\t")
+
+
+##########################Run AP for refinement##############################    
+def create_fasta_dict(fastafile):
+    """makes dictionary using fasta files to be binned"""
+    fasta_dict = {}
+    for record in SeqIO.parse(fastafile, "fasta"):
+        fasta_dict[record.id] = record.seq
+    return fasta_dict
+
+
+def get_cov_data(h):
+    """Makes a dictionary of coverage values for affinity propagation"""
+    all_cov_data = {}
+    #for line in open(str(sys.argv[1]), "r"):
+    for line in open(str(h), "r"):
+        line = line.rstrip()
+        cov_data = line.split()
+        all_cov_data[cov_data[0]] = cov_data
+    return all_cov_data
+
+
+def cov_array(a,b,name,size):
+    """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
+    names = []
+    c = 0
+    cov_array = []
+    for record in SeqIO.parse(os.path.join(b,name), "fasta"):
+        if len(record.seq) >= int(size):
+            if record.id in a.keys():
+                data = a[record.id]
+                names.append(data[0])
+                data.remove(data[0])
+                line = " ".join(data)
+                if c == 1:
+                    temparray = np.fromstring(line, dtype=float, sep=' ')
+                    cov_array = np.vstack((cov_array, temparray))
+                if c == 0:
+                    cov_array = np.fromstring(line, dtype=float, sep=' ')
+                    c += 1
+    print cov_array.shape
+    return cov_array, names    
+
+def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
+    """Uses affinity propagation to make putative bins"""    
+    if os.path.isdir(str(output_directory)) is False:
+        os.mkdir(output_directory)
+    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+    print"""-------------------------------------------------------
+                            --Creating Bins--
+            -------------------------------------------------------"""
+    outfile_data = {}
+    i = 0
+    while i < len(names):
+        if apclust[i] in outfile_data.keys():
+            outfile_data[apclust[i]].append(names[i])
+        if apclust[i] not in outfile_data.keys():
+            outfile_data[apclust[i]] = [names[i]]
+        i += 1
+    out_name = file_name.rsplit(".",1)[0]
+    with open(os.path.join(path,file_name),"r") as input2_file: 
+        fasta_dict = create_fasta_dict(input2_file)                
+        count = 0                
+        for k in outfile_data:
+            if len(outfile_data[k]) >= 5:
+                output_file = open(os.path.join(output_directory,str(out_name)+"-refined_%s.fna" % (k)), "w" )
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+                count = count + 1
+            elif len(outfile_data[k]) < 5:
+                if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
+                    output_file = open(os.path.join(output_directory,str(out_name)+"-refined_%s.fna" % (k)), "w" )
+                    for x in outfile_data[k]:
+                        output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                    output_file.close()
+                    count = count +1
+            print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
+        print ("""Total Number of Bins: %i""" % count)
+                
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open("cluster-log.txt", "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)  
+
+    def flush(self):
+        pass  
+
+    
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='Binsanity-refine', description="""
+    Binsanity clusters contigs based on coverage and refines these 'bins' using tetramer frequencies and GC content. 
+    ----------------------------------------------------------------------------------------------------------------
+    Binsanity-refine uses combined coverage and composition 
+    (in the form of tetramer frequencies and GC%) to cluster 
+    contigs. The published workflow uses this to refine bins 
+    initially clustered soley on coverage.
+    
+    Binsanity-refine can be used as a stand alone script if you don't have more than 2 sample replicates 
+    
+    """,formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-c", dest="inputCovFile", help="""
+    Specify a Coverage File
+    """)
+    parser.add_argument("-f", dest="inputContigFiles", help="""
+    Specify directory containing your contigs
+    """)
+    parser.add_argument("-p", type=float, dest="preference", default=-25, help="""
+    Specify a preference (default is -25)
+    Note: decreasing the preference leads to more lumping, 
+    increasing will lead to more splitting. If your range
+    of coverages are low you will want to decrease the 
+    preference, if you have 10 or less replicates increasing
+    the preference could benefit you. For complex datasets
+    with low abundance organisms a preference
+    of -25 was found to be optimal
+    """)
+    parser.add_argument("-m", type=int, dest="maxiter", default=4000, help="""
+    Specify a max number of iterations (default is 4000)
+    """)
+    parser.add_argument("-v", type=int, dest="conviter",default=400, help="""
+    Specify the convergence iteration number (default is 200)
+    e.g Number of iterations with no change in the number
+    of estimated clusters that stops the convergence.
+    """)
+    parser.add_argument("-kmer",type=int,dest="inputKmer",default=4,help="""
+    Specify a number for kmer calculation. Default is 4. 
+    Tetramer frequencies are recommended
+    """)
+    parser.add_argument("-d",default=0.95, type=float, dest="damp", help="""
+    Specify a damping factor between 0.5 and 1, default is 0.9
+    """)
+    parser.add_argument("-l",dest="fastafile", help="""
+    Specify the fasta file containing contigs you want to cluster
+    """)
+    parser.add_argument("-x",dest="ContigSize", type=int, default=1000,help="""
+    Specify the contig size cut-off (Default 1000 bp)
+    """)
+    parser.add_argument("-o",dest="outputdir", default="BINSANITY-REFINEMENT", help="""
+    Give a name to the directory BinSanity results will be output in 
+    [Default is 'BINSANITY-REFINEMENT']
+    """)
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.4')
+
+
+    args = parser.parse_args()
+    if len(sys.argv)<3:
+        parser.print_help()    
+    if args.inputCovFile is None:
+        if (args.inputContigFiles is None) and (args.fastafile is None):
+            parser.print_help()
+    if (args.inputCovFile is None):
+        print "Please indicate -c coverage file"
+    if args.inputContigFiles is None:
+        print "Please indicate -f directory containing your contigs"
+    elif args.inputContigFiles and not args.fastafile:
+        parser.error('-l Need to identify file to be clustered')
+
+    else:
+        start_time = time.time()
+        sys.stdout = Logger()
+        print """
+        -------------------------------------------------------
+                     Calculating GC content
+        -------------------------------------------------------"""
+        GC_time = time.time()
+        GC_Fasta_file(args.inputContigFiles, args.fastafile)
+        print "GC content calculated in %s seconds" % (time.time() - GC_time)
+        
+        print """
+        -------------------------------------------------------
+                     Calculating tetramer frequencies
+        -------------------------------------------------------"""
+        kmer_time = time.time()
+        output(kmer_counts(args.inputKmer,args.inputContigFiles,args.fastafile))
+        print "tertamer frequency calculated in %s seconds" % (time.time()- kmer_time)
+        
+        print """
+        ------------------------------------------------------
+          Creating Combined Composition and Coverage Profile
+        ------------------------------------------------------"""
+        combine_time = time.time()
+        print "Combined profile created in %s seconds" % (time.time()- combine_time)
+       
+        get_contigs(args.inputCovFile)
+        print """ -------------------------------------------------------
+                Reclustering on Composition and Coverage
+        -------------------------------------------------------"""
+        print "Preference: " + str(args.preference)
+        print "Maximum Iterations: " + str(args.maxiter)
+        print "Convergence Iterations: " + str(args.conviter)
+        print "Contig Cut-Off: " + str(args.ContigSize)
+        print "Damping Factor: " + str(args.damp)
+        print "Coverage File: " + str(args.inputCovFile)
+        print "Fasta File: " + str(args.fastafile)
+
+        val1, val2 = cov_array((get_cov_data('tetra-GC-out')), args.inputContigFiles, args.fastafile,args.ContigSize)
+
+        print """
+        
+        -------------------------------------------------------
+                        Re-clustering contigs
+        -------------------------------------------------------""" 
+        affinity_propagation(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.outputdir)
+  
+        print("""
+        --------------------------------------------------------
+              --- Ammended Bins Computed in %s seconds ---
+        --------------------------------------------------------""" % (time.time() - start_time))

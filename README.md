@@ -1,16 +1,33 @@
-#BinSanity v0.2.1#
+#BinSanity v0.2.4#
+BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
-Program implements Affinity Propagation to cluster contigs into putative genomes. BinSanity uses contig coverage as an input, while BinSanity-refine incorporates tetranucleotide frequencies, GC content, and an optional input of coverage. All relevant scripts to produce inputs for BinSanity are provided here.
+##Scripts:##
+> More detailed descriptions of each script is given under the **Usage** section
+* `Binsanity`
+  * BinSanity implements Affinity Propagation to cluster contigs into putative genomes using contig coverage as an input
+* `Binsanity-refine`
+  * BinSanity-refine incorporates tetranucleotide frequencies, GC%, and optionally incorporates the coverage profile
+* `Binsanity-wf`
+  * Binsanity-wf runs Binsanity and Binsanity-refine sequentially to optimize cluster results
+* `Binsanity-profile`
+  * Binsanity-profile uses [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) to produce the coverage profiles requires in Binsanity, Binsanity-refine, and Binsanity-wf
+* `Binsanity-lc`
+  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity
+* `checkm_analysis`
+  * checkm_analysis uses [CheckM](http://ecogenomics.github.io/CheckM/) to evaluate completion, redundancy, and strain heterogeneity and subsets clusters to aid downstream refinement efforts.
+* `transform-coverage-profile`
+  * If Binsanity-profile is not used to generate the coverage profile transform-coverage-profile is provided to transform a raw coverage matrix via one of the provided methods.
 
-##BinSanity ##
-###Dependencies###
->Versions used at time of last update to script are provided in parenthesis.
+##Dependencies##
+
+> Versions used at time of last update to script are provided in parenthesis.
 
 * [Numpy](http://www.numpy.org/) (v1.11.1)
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
 * [Pandas] (http://pandas.pydata.org/) (v0.13.1)
+* [FeatureCounts](http://bioinf.wehi.edu.au/featureCounts/)(v1.5.0-p2)
 
 >Programs used to prepare input files for BinSanity and associated utility scripts include:
 
@@ -25,10 +42,7 @@ Program implements Affinity Propagation to cluster contigs into putative genomes
 ```
 $ pip install numpy
 ```
-* Install the latest stable version via pip
-```
-$ pip install BinSanity
-```
+
 * If you want to use the BinSanity workflow `Binsanity-wf` you will also need to download [HMMER](http://hmmer.org/) and [pplacer](http://matsen.fhcrc.org/pplacer/)
 * HMMER can be downloaded like this:
 ```
@@ -38,9 +52,32 @@ $ cd hmmer-3.1b2
 $ ./configure && make && sudo make install
 $ cd easel && make check && sudo make install
 ```
-* to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html)<p>
+> to download pplacer follow the instructions [here](http://matsen.github.io/pplacer/compiling.html) or do the following:
 
-## FAQ
+* Go to the [pplacer webpage](http://matsen.fredhutch.org/pplacer/) and click on `latest release`. This will take you to the github page and contain source code. Download the file `pplacer-linux-v1.1.alpha19.zip`. In that file are pre-compiled version of `pplacer`, `guppy`, and `rppr`. The location of these need to be exported to your path.
+
+```
+$ export PATH=/path/to/directory/with/pplacer:$PATH
+```
+> If you want to use `Binsanity-profile` you will need to download [featureCounts](http://bioinf.wehi.edu.au/featureCounts/)
+
+* To do this download the latest [subread](https://sourceforge.net/projects/subread/files/) package (subread-1.x.x-source.tar.gz)
+
+```
+$ tar zxvf subread-1.*.*-source.tar.gz
+$ cd subread-1.*.*-source/src
+$ make -f Makefile.Linux ; cd ../
+```
+* This will produce a directory called `bin` in the `subread-1.x.x-source` file containing the executables for `featureCounts`. These should be copied into your path. 
+```
+$ sudo cp -r bin
+```
+
+**Install the latest stable version of the BinSanity suite of scripts via pip**
+```
+$ sudo pip install BinSanity
+```
+## FAQ ##
 <p>
 **Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?**
 <p>
@@ -52,59 +89,54 @@ BinSanity's accuracy is due in part to the biphasic approach in which BinSanity 
 <p>
 On a Dell PowerEdge R920 with 1TB of available RAM and Intel Xeon 2.3GHz processors, it took 191 minutes and ~ 54 GB RAM to run 27,643 contigs. Due to the linear increase of memory we have chosen to cap contigs at 100,000 by choosing appropiate size cut-offs for use of this machine. Please contact us with any questions regarding this or suggestions on the best way to implement BinSanity using whatever computer cluster you have access to.
 <p>
+**If Binsanity-lc uses less memory then why not implement this all the time?**
+<p> 
+Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy. 
 
 ##Script Usage##
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
 To generate input files for BinSanity the script `Binsanity-profile` is provided:
-* `Binsanity-profile` generates a `.cov` file containing both average contig coverage from a `.BAM` file calculated via multiBamCov in Bedtools. In our tests we used Bowtie2 to produce a `.SAM` file.  To maintain consistency we used the `.cov`suffix for all files output from this script.
-*There are multiple transformation options identified by the flag `--transform`. We recommend the Scaled option.
-* Scale --> Scaled by multiplying by 100 and log transformed
-* log --> Log transform
-* None --> Raw Coverage Values
-* X5 --> Multiplication by 5 
-* X10 --> Multiplication by 10
-* SQR --> Square root<br />
+* `Binsanity-profile` generates a `.cov` file containing both average contig coverage from a `.BAM` file calculated via featureCounts. In our tests we used Bowtie2 to produce a `.SAM` file, and the converted to a `bam` file using SamTools.  To maintain consistency we used the `.cov` suffix for all files output from this script. The script also takes as input the contig ids to be used in generating a profile. This is to reduce the size of the file by excluding contigs that wont be clustered (for example if you wanted to cluster only contigs greater than 1000 bp you would have a list of contig ids greater than 1000bp).
+
+* There are multiple transformation options identified by the flag `--transform`. We recommend the scaled option.
+  * scale --> Scaled by multiplying by 100 and log transformed
+  * log --> Log transform
+  * None --> Raw Coverage Values
+  * X5 --> Multiplication by 5 
+  * X10 --> Multiplication by 10
+  * X100 --> multiplication by 100
+  * SQR --> Square root<br />
+* The `--ids` flag should indicate a file containing the contig ids. This can easily be generated via bash, or through our utilites script `get-ids`. This has parameters `-f` to identify directory containing assembly file, `-l` to identify name of fasta file,`-o` to identify name for output file containing contig ids,  `-x` containign the size cutoff for inclusion in the final coverage profile.
+```
+contig-1
+contig-2
+contig-3
+.....
+```
 <p> Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low
 
 ```
-$ Binsanity-profile -o Infant-gut-assembly --contigs contigs_of_interest.txt -i igm.fa -s /path/to/bam/files --transform Scale
+$ Binsanity-profile -i assembly.fa -s directory/to/BAM/files --ids ids.txt
 ```
-
-The standard output:
-```
- ---------------------------------------------------------
-                       Formating BED File
- ---------------------------------------------------------
-
-  ---------------------------------------------------------
-                    Generating Read Counts
-  ---------------------------------------------------------
-
-  
-  ---------------------------------------------------------
-                   Combining all Readcount Files
-  ---------------------------------------------------------
-   ---------------------------------------------------------
-                   Transforming Coverage Profile
-  ---------------------------------------------------------
-```
-* This script will output two files. The raw `Infant-gut-assembly.cov` file and the transformed `Infant-gut-assembly.cov.x100.lognorm` coverage profile.
+* Note that it will read in ALL BAM files in the directory indicated and try to incorporate those into the coverage profile
+* This script will output two files. The raw `.cov` file and the transformed `.cov.x100.lognorm` coverage profile.
 
 ```
-$less Infant-gut-assembly.cov.x100.lognorm
+$less assmebly.cov.x100.lognorm
 
-con-1  1.2 0.4
-con-2  1.0 0.4
-con-3  1.3 4.2
-con-4  1.1 5.1
+contig-1  1.2 0.4
+contig-2  1.0 0.4
+contig-3  1.3 4.2
+contig-4  1.1 5.1
 ....
 ```
 ###Running BinSanity###
-* Three scripts are available to run Binsanity: `Binsanity`,`Binsanity-refine`,`Binsanity-wf`
-* `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
-* `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
-* `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. ```
+* Four scripts are available to run Binsanity: `Binsanity`,`Binsanity-refine`,`Binsanity-wf`, `Binsanity-lc`
+  * `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
+  * `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
+  * `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. 
+  * `Binsanity-lc` combines both K-means and Affinity Propagation to reduce memory intensity (**BETA VERSION**)
 
 ####Running the Binsanity Workflow####
 The help menu for `Binsanity-wf` is shown below:
@@ -115,12 +147,16 @@ usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
                     [--threads THREADS] [--kmer KMER]
                     [--refine-preference INPUTREFINEDPREF] [--version]
 
-Script designed to use Affinity Propagation to split
-    metagenomic data into bins using contig coverage values.
-    It takes as input a coverage file and files containing
-    the contigs to be binned, then outputs clusters of contigs in putative bins.
-
-optional arguments:
+    Binsanity clusters contigs based on coverage and refines these 'bins' using tetramer frequencies and GC content.
+    ----------------------------------------------------------------------------------------------------------------
+    Binsanity-wf is a workflow script that runs Binsanity and Binsanity-refine sequenctially.
+    The following is including in the workflow:
+    STEP 1. Run Binsanity
+    STEP 2: Run CheckM to estimate completeness for Refinement
+    STEP 3: Run Binsanity-refine
+    STEP 4: Creat Final BinSanity Clusters
+  
+  Arguments:
   -h, --help            show this help message and exit
   -c INPUTCOVFILE       Specify a Coverage File
 
@@ -158,16 +194,17 @@ optional arguments:
 ```
 Using the Infant Gut Metagenome (available in the Examples file) the command would be as follows:
 ```
-$ Binsanity-wf -f /path/to/fasta -l ifm.fa -c Infant_gut_assembly.cov.x100.lognorm 
+$ Binsanity-wf -f /path/to/fasta -l igm.fa -c Infant_gut_assembly.cov.x100.lognorm 
 ```
 
-The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
+The default preference for the initial binning and refinement step are -3 and -25 respectively. In most cases these work well, but modifications can be made relative to the sample type and expected level of diversity. 
 <p>
 This workflow will do the following:
 <p>
 * run`Binsanity` solely with coverage. 
 * run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
 * run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
+<p>
 #####Setting Completion and Redundnacy Estimates for refinement#####
 
 For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
@@ -189,7 +226,7 @@ CheckM is also only one means of evaluating bins. This script is provided as a m
 To run the test use the following command using the igm.fa and Infant_gut_assembly.cov.x100.lognorm
 
 ```
-$ Binsanity -f . -l igm.fa -p -10
+$ Binsanity -f . -l igm.fa -p -10 -c Infant_gut_assembly.cov.x100.lognorm     
 ```
 The output should be as follows:
 ```

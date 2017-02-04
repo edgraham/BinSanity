@@ -1,0 +1,14 @@
+README.rst
+setup.py
+Bin/Binsanity
+Bin/Binsanity-profile
+Bin/Binsanity-refine
+Bin/Binsanity-wf
+Binsani2.egg-info/PKG-INFO
+Binsani2.egg-info/SOURCES.txt
+Binsani2.egg-info/dependency_links.txt
+Binsani2.egg-info/requires.txt
+Binsani2.egg-info/top_level.txt
+Utils/bin_evaluation
+Utils/checkm_analysis
+Utils/transform-coverage-profile

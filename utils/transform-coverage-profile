@@ -1,0 +1,78 @@
+#! /usr/bin/env python
+
+import argparse, csv, time, pandas
+import numpy as np
+from argparse import RawTextHelpFormatter
+
+def get_log(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+       for num_ in range(1,len(list_)):
+            list_[num_] = np.log10(((float(list_[num_])))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)
+    
+def get_multiple(file_,outfile,num):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = float(list_[num_])*int(num)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)  
+
+def get_squareroot(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+       for num_ in range(1,len(list_)):
+            list_[num_] = np.sqrt(((float(list_[num_])))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)
+def get_100x_log(file_,outfile):
+    cov_file = list(csv.reader(open(str(file_), 'rb'), delimiter='\t'))
+    for list_ in cov_file:
+        for num_ in range(1,len(list_)):
+            list_[num_] = np.log10((float(list_[num_])*int(100))+1)
+    pd = pandas.DataFrame(cov_file)
+    pd.to_csv(outfile,sep="\t",index=False,header=False)     
+class SmartFormatter(argparse.HelpFormatter):
+    def _split_lines(self, text, width):
+        if text.startswith('R|'):
+            return text[2:].splitlines()  
+        return argparse.HelpFormatter._split_lines(self, text, width)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='transform-coverage-profile', usage='%(prog)s -c Output -t transform',formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-c", dest="inputoutput", help="Specify the cov")
+    parser.add_argument("-t",dest="transform", default = "norm", help ="""
+    Indicate what type of data transformation you want in the final file (default is log):
+    scale --> Multiplication by 100 and log transform
+    log --> Log transform
+    X5 --> Multiplication by 5
+    X10 --> Multiplication by 10
+    SQR --> Square root
+    We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low""")
+    args = parser.parse_args()
+    if args.inputoutput is None:
+        parser.error('-o output fasta file needed')
+    else:
+        start_time = time.time()
+        print"""
+        ---------------------------------------------------------------------
+        Getting Coverage.....
+        """
+
+        x = str(args.inputoutput)
+        if args.transform =="scale":
+            get_100x_log(x,x+".x100.lognorm")
+        elif args.transform == "log":
+            print "Transforming your combined covergae profile"
+            get_log(x, x+".lognorm")
+        elif args.transform =="X5":
+            print "Transforming your combined covergae profile"            
+            get_multiple(x,x+".x5", int(5))
+        elif args.transform =="X10":
+            print "Transforming your combined covergae profile"            
+            get_multiple(x,x+".x10", int(10))
+        elif args.transform =="SQR":
+            print "Transforming your combined covergae profile"            
+            get_squareroot(x, x+".sqrt")

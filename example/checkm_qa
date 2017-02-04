@@ -1,0 +1,26 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Bin Id                                 Marker lineage          # genomes   # markers   # marker sets    0     1    2    3    4   5+   Completeness   Contamination   Strain heterogeneity  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  INFANT-GUT-ASSEMBLY.afprop.8    o__Actinomycetales (UID1530)      622         259           152         0    259   0    0    0   0       100.00           0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.1    o__Lactobacillales (UID544)       293         475           267         1    474   0    0    0   0       99.63            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.5     o__Clostridiales (UID1120)       304         250           143         2    248   0    0    0   0       98.95            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.9     g__Staphylococcus (UID298)        56         805           176         59   737   9    0    0   0       97.26            2.42              44.44          
+  INFANT-GUT-ASSEMBLY.afprop.2     g__Staphylococcus (UID301)        45         940           178         50   874   16   0    0   0       95.02            0.66              18.75          
+  INFANT-GUT-ASSEMBLY.afprop.3     g__Staphylococcus (UID294)        60         773           178         73   700   0    0    0   0       89.06            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.16   f__Leuconostocaceae (UID486)       29         443           178        159   277   7    0    0   0       62.94            2.57              42.86          
+  INFANT-GUT-ASSEMBLY.afprop.14       k__Bacteria (UID203)          5449        104            58         29    31   31   13   0   0       60.89           26.92               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.15       k__Bacteria (UID203)          5449        104            58         67    36   1    0    0   0       58.07            1.72               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.19    o__Clostridiales (UID1125)       128         313           164        189   122   2    0    0   0       32.54            0.29               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.21    g__Streptococcus (UID576)         61         704           251        516   178   10   0    0   0       25.31            1.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.18    o__Clostridiales (UID1125)       128         313           164        268    43   2    0    0   0       11.02            1.22               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.20        k__Archaea (UID2)            207         149           107        140    9    0    0    0   0        6.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.4            root (UID1)               5656         56            24         55    1    0    0    0   0        4.17            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.12           root (UID1)               5656         56            24         55    1    0    0    0   0        4.17            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.7            root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.6            root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.17           root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.13           root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.11           root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.10           root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+  INFANT-GUT-ASSEMBLY.afprop.0            root (UID1)               5656         56            24         56    0    0    0    0   0        0.00            0.00               0.00          
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
