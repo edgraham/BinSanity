@@ -73,7 +73,7 @@ $ make -f Makefile.Linux ; cd ../
 $ sudo cp -r bin
 ```
 
-* Install the latest stable version of the BinSanity suite of scripts via pip
+**Install the latest stable version of the BinSanity suite of scripts via pip**
 ```
 $ sudo pip install BinSanity
 ```
