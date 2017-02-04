@@ -133,10 +133,10 @@ contig-4  1.1 5.1
 ```
 ###Running BinSanity###
 * Four scripts are available to run Binsanity: `Binsanity`,`Binsanity-refine`,`Binsanity-wf`, `Binsanity-lc`
-* `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
-* `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
-* `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. 
-* `Binsanity-lc` combines both K-means and Affinity Propagation to reduce memory intensity (**BETA VERSION**)
+  * `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
+  * `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
+  * `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. 
+  * `Binsanity-lc` combines both K-means and Affinity Propagation to reduce memory intensity (**BETA VERSION**)
 
 ####Running the Binsanity Workflow####
 The help menu for `Binsanity-wf` is shown below:
@@ -147,12 +147,16 @@ usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
                     [--threads THREADS] [--kmer KMER]
                     [--refine-preference INPUTREFINEDPREF] [--version]
 
-Script designed to use Affinity Propagation to split
-    metagenomic data into bins using contig coverage values.
-    It takes as input a coverage file and files containing
-    the contigs to be binned, then outputs clusters of contigs in putative bins.
-
-optional arguments:
+    Binsanity clusters contigs based on coverage and refines these 'bins' using tetramer frequencies and GC content.
+    ----------------------------------------------------------------------------------------------------------------
+    Binsanity-wf is a workflow script that runs Binsanity and Binsanity-refine sequenctially.
+    The following is including in the workflow:
+    STEP 1. Run Binsanity
+    STEP 2: Run CheckM to estimate completeness for Refinement
+    STEP 3: Run Binsanity-refine
+    STEP 4: Creat Final BinSanity Clusters
+  
+  Arguments:
   -h, --help            show this help message and exit
   -c INPUTCOVFILE       Specify a Coverage File
 
@@ -193,13 +197,14 @@ Using the Infant Gut Metagenome (available in the Examples file) the command wou
 $ Binsanity-wf -f /path/to/fasta -l igm.fa -c Infant_gut_assembly.cov.x100.lognorm 
 ```
 
-The default preference for the initial binning and refinement step are -3 and -25 respectively. We feel these are the best settings in most cases, but modifications can be made relative to the sample type and expected level of diversity.
+The default preference for the initial binning and refinement step are -3 and -25 respectively. In most cases these work well, but modifications can be made relative to the sample type and expected level of diversity. 
 <p>
 This workflow will do the following:
 <p>
 * run`Binsanity` solely with coverage. 
 * run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
 * run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
+<p>
 #####Setting Completion and Redundnacy Estimates for refinement#####
 
 For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
@@ -221,7 +226,7 @@ CheckM is also only one means of evaluating bins. This script is provided as a m
 To run the test use the following command using the igm.fa and Infant_gut_assembly.cov.x100.lognorm
 
 ```
-$ Binsanity -f . -l igm.fa -p -10
+$ Binsanity -f . -l igm.fa -p -10 -c Infant_gut_assembly.cov.x100.lognorm     
 ```
 The output should be as follows:
 ```
