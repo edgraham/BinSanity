@@ -1,0 +1,39 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+from Bio import SeqIO
+import glob
+import argparse
+import time
+import os, sys
+
+def bin_output(path,file_name,outfile,length):
+    contig_names_bin = []
+    for record in SeqIO.parse(os.path.join(path, file_name), "fasta"):        
+        if len(record.seq) > length:
+            contig_names_bin.append(record.id)
+    file_ = open(str(outfile), 'w')
+    for id_name in contig_names_bin:
+        file_.write("%s\n" % id_name)
+
+            
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(prog='bin_output.py', usage='%(prog)s -b Putative Genomes > output')
+    parser.add_argument("-f", dest="inputPutative", help="Specify the directory containing fasta file")
+    parser.add_argument("-o", dest="inputOUTPUT", help="Specify the output file")
+    parser.add_argument("-l",dest="inputFasta",help="Specify fasta file")
+    parser.add_argument("-x",dest="inputLength",type=int,help="Specify minimum length to be incorporated")
+
+    args = parser.parse_args()
+    if args.inputPutative is None:
+        print "Identify directory where fasta file is using -f"
+    if args.inputFasta is None:
+        print "Identify fasta file is using -l"
+    if args.inputOUTPUT is None:
+        print "Use -o to specify and output file"
+    elif len(sys.argv) is None:
+        print parser.print_help()
+    
+    
+    else:
+        bin_output(args.inputPutative,args.inputFasta,args.inputOUTPUT,args.inputLength)
+
