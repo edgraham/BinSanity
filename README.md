@@ -154,7 +154,7 @@ usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
     STEP 1. Run Binsanity
     STEP 2: Run CheckM to estimate completeness for Refinement
     STEP 3: Run Binsanity-refine
-    STEP 4: Creat Final BinSanity Clusters
+    STEP 4: Create Final BinSanity Clusters
   
   Arguments:
   -h, --help            show this help message and exit
@@ -211,7 +211,8 @@ For the purposes of our analysis we used CheckM as a means of generally indicati
 
 Currently the thresholds written into the script place bins into categories using the following parameters:<p>
 * High completion: greater than 95% complete with < 10% redundancy, greater than 80% with <5% redundancy,  or > 50% with < 2% redundacy
-* Low completion: less than 50% complete with > 90% strain heterogeneity
+* Low completion: less than 50% complete with <5%redundancy
+* Strain redundancy: greater than 90% complete with > 90% strain heterogeneity
 * High Redundancy: 80% complete with >10% redundacy, or 50% complete > 5% redundacy
 <p>
 The program is written in to the script `Binsanity-wf`, but can also be called as a stand alone script available in the Utils. It is run as: <p>
