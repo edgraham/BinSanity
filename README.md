@@ -1,4 +1,4 @@
-#BinSanity v0.2.5#
+#BinSanity v0.2.5.1#
 BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
 ##Scripts:##
@@ -12,7 +12,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 * `Binsanity-profile`
   * Binsanity-profile uses [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) to produce the coverage profiles requires in Binsanity, Binsanity-refine, and Binsanity-wf
 * `Binsanity-lc`
-  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity
+  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity **(*BetaVersion*)**
 * `checkm_analysis`
   * checkm_analysis uses [CheckM](http://ecogenomics.github.io/CheckM/) to evaluate completion, redundancy, and strain heterogeneity and subsets clusters to aid downstream refinement efforts.
 * `transform-coverage-profile`
@@ -202,10 +202,10 @@ The default preference for the initial binning and refinement step are -3 and -2
 This workflow will do the following:
 <p>
 * run`Binsanity` solely with coverage. 
-* run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundnacy)
+* run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundancy)
 * run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
 
-#### Setting Completion and Redundnacy Estimates for refinement ####
+#### Setting Completion and Redundancy Estimates for refinement ####
 
 For the purposes of our analysis we used CheckM as a means of generally indicating high and low redundancy bins to use the refinement script on. To speed up this process a script was written `checkm_analysis` to parse the output of checkM qa and separate Binsanity produced bins into categories of high redundancy, low completion, high completion, and strain redundacy.<p>
 
