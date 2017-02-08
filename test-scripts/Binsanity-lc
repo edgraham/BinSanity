@@ -226,7 +226,7 @@ if __name__ == '__main__':
             if args.ClusterNum is None:
                 cluster_number = int(val4/10000)
                 print "cluster number for k means is: ", cluster_number
-                kmean(val1,val2,args.fastafiles,val3,args.inputContigFiles,cluster_number)
+                kmean(val1,val2,args.fastafile,val3,args.inputContigFiles,cluster_number)
             
                 print """
                 -------------------------------------------------------
@@ -247,7 +247,7 @@ if __name__ == '__main__':
                 cluster_number = args.ClusterNum
                 print "cluster number for k means is: ", cluster_number
             
-                kmean(val1,val2,args.fastafiles,val3,args.inputContigFiles,cluster_number)
+                kmean(val1,val2,args.fastafile,val3,args.inputContigFiles,cluster_number)
             
                 print """
                 -------------------------------------------------------
