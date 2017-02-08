@@ -52,7 +52,7 @@ def cov_array(a,b,filename,size):
 def kmean(array,names,filename,unused,path,clusters):
     """Uses kmeans to make putative bins"""
     os.mkdir("KMEAN-BINS")
-    average_linkage = KMeans(n_clusters=clusters, n_jobs=-1,n_init=500)
+    average_linkage = KMeans(n_clusters=clusters, n_jobs=-1,n_init=10000)
     apclust = average_linkage.fit_predict(array)
     outfile_data = {}
     i = 0
