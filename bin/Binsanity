@@ -146,7 +146,7 @@ if __name__ == '__main__':
     Give a name to the directory BinSanity results will be output in 
     [Default is 'BINSANITY-RESULTS']
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
 
     args = parser.parse_args()
     if len(sys.argv)<3:

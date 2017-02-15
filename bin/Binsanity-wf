@@ -348,7 +348,7 @@ if __name__ == '__main__':
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""
     Specify a preference for refinement. The Default is -25
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
 
     args = parser.parse_args()
     if len(sys.argv) is None:

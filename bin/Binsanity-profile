@@ -106,8 +106,8 @@ if __name__ == "__main__":
     """,formatter_class=RawTextHelpFormatter)    
     parser.add_argument("-i", dest="inputfile", help="Specify fasta file being profiled")
     parser.add_argument("-s", dest="inputSAM", help="""
-    identify location of SAM/BAM files
-    If you are using BAM files make sure they are indexed and sorted""") 
+    identify location of BAM files
+    BAM files should be indexed and sorted""") 
     parser.add_argument("--ids",dest="inputids",help="""
     Identify file containing contig ids""")
     parser.add_argument("-c",dest="outputfile",help="""
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     SQR --> Square root
     We recommend using a scaled log transformation for initial testing. 
     Other transformations can be useful on a case by case basis""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
     args=parser.parse_args()  
     if len(sys.argv)<3:
         parser.print_help()    

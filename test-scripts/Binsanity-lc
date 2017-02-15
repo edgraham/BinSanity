@@ -67,18 +67,23 @@ def kmean(array,names,filename,unused,path,clusters):
         count = 0    
         for k in outfile_data:
             if len(outfile_data[k]) >= 5:
-                output_file = open(os.path.join("KMEAN-BINS","kmean_%s.fna" % (k)), "w" )
+                output_file = open(os.path.join("KMEAN-BINS","Binsanity_%s.fna" % (k)), "w" )
                 for x in outfile_data[k]:
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
             elif len(outfile_data[k]) < 5:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
-                    output_file = open(os.path.join("KMEAN-BINS","kmean_%s.fna" % (k)), "w" )
+                    output_file = open(os.path.join("KMEAN-BINS","Binsanity_%s.fna" % (k)), "w" )
                     for x in outfile_data[k]:
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
+            else:
+                output_file=open(os.path.join("KMEAN-BINS","kmean-unclustered.fna"),"w")
+                for x in outfile_Data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
 
@@ -88,9 +93,9 @@ def conduct_AP(array,names,file_name,damping,iterations,convergence,preference,p
     if os.path.isdir(str(output_directory)) is False:
         os.mkdir(output_directory)
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
-    print"""-------------------------------------------------------
+    print"""------------------------------------------------------
                             --Creating Bins--
-            -------------------------------------------------------"""
+            ------------------------------------------------------"""
     outfile_data = {}
     i = 0
     while i < len(names):
@@ -99,7 +104,7 @@ def conduct_AP(array,names,file_name,damping,iterations,convergence,preference,p
         if apclust[i] not in outfile_data.keys():
             outfile_data[apclust[i]] = [names[i]]
         i += 1
-    out_name = file_name.split(".")[0]
+    out_name=file_name.rsplit(".",1)[0]
     with open(os.path.join(path,file_name),"r") as input2_file: 
         fasta_dict = create_fasta_dict(input2_file)                
         count = 0                
@@ -119,8 +124,9 @@ def conduct_AP(array,names,file_name,damping,iterations,convergence,preference,p
                     count = count +1
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
-        
+           
 
+######################################################################################## 
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
@@ -144,7 +150,7 @@ if __name__ == '__main__':
     your current computer.
     
     *****************NOTE THIS IS A BETA VERSION AND HAS NOT BEEN FULLY VETTED YET*****************""",formatter_class=RawTextHelpFormatter)
-    parser.add_argument("-tcov", dest="inputTCov", help="""
+    parser.add_argument("-c", dest="inputTCov", help="""
     Specify the transformed Coverage File
     e.g log normalized""")
     parser.add_argument("-f", dest="inputContigFiles", help="""
@@ -168,13 +174,10 @@ if __name__ == '__main__':
     parser.add_argument("-o",dest="outputdir", default="BINSANITY-RESULTS", help="""
     Give a name to the directory BinSanity 
     results will be output in [Default is 'BINSANITY-RESULTS']""")
-    parser.add_argument("-c", dest="inputCovFile", help="""
-    Specify a Raw Coverage File""")
     parser.add_argument("-n",dest="ClusterNum",type=int, default=None,help="""
-    Specify the number of initial bins for hierarchical clustering""")    
+    Specify the number of initial bins for KMEAN clustering""")    
     args = parser.parse_args()
-    if args.inputCovFile is None:
-        if (args.inputContigFiles is None) and (args.fastafile is None):
+    if (args.inputContigFiles is None) and (args.fastafile is None):
             parser.print_help()
     if (args.inputTCov is None):
         print "Please indicate -tcov coverage file"
@@ -192,7 +195,6 @@ if __name__ == '__main__':
         """
         val1, val2, val3,val4 = cov_array(get_cov_data(args.inputTCov), args.inputContigFiles, args.fastafile,args.ContigSize)
 
-
         print """
         -------------------------------------------------------
                         ---Initial K-mean Clustering---
@@ -201,16 +203,21 @@ if __name__ == '__main__':
         if args.ClusterNum is None:
             cluster_number = int(val4/10000)
             print "cluster number for k means is: ", cluster_number
+
             kmean(val1,val2,args.fastafile,val3,args.inputContigFiles,cluster_number)
             print """
             -------------------------------------------------------
                     ---Affinity Propagation---
             -------------------------------------------------------        
             """
+            file_list = []
             for binname in os.listdir("KMEAN-BINS"):
-                if "kmean" in binname:
-                    val5, val6, val7,val8 = cov_array((get_cov_data(args.inputCovFile)),"KMEAN-BINS/",binname,args.ContigSize)
-                    conduct_AP(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.outputdir)
+                file_list.append(binname)
+            for binname in file_list:
+                print "Clustering %s" % str(binname)
+                val1, val2, val3,val4 = cov_array(get_cov_data(args.inputTCov), "KMEAN-BINS", str(binname),args.ContigSize)
+                conduct_AP(val1, val2, str(binname), args.damp, args.maxiter, args.conviter,args.preference,"KMEAN-BINS",args.outputdir)
+                print "Finished Clustering %s" %str(binname)
             print("""
         
             --------------------------------------------------------
@@ -228,15 +235,16 @@ if __name__ == '__main__':
                         ---Affinity Propagation---
             -------------------------------------------------------        
             """
+            file_list = []
             for binname in os.listdir("KMEAN-BINS"):
-                array = (get_cov_data(args.inputCovFile)) 
-
-                val5, val6, val7,val8 = cov_array(array,"KMEAN-BINS",binname,args.ContigSize)
-                conduct_AP(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter, args.preference,args.inputContigFiles,args.outputdir)
-    
+                file_list.append(binname)
+            for binname in file_list:
+                val1, val2, val3,val4 = cov_array(get_cov_data(args.inputTCov), "KMEAN-BINS", str(binname),args.ContigSize)
+                conduct_AP(val1, val2, str(binname), args.damp, args.maxiter, args.conviter, args.preference,"KMEAN-BINS",args.outputdir)
+                print "Finished Clustering %s" %str(binname)
             print("""
         
             --------------------------------------------------------
                 --- Putative Bins Computed in %s seconds ---
             --------------------------------------------------------""" % (time.time() - start_time))
-            os.move("KMEAN-BINS",args.outputdir)
+            shutil.move("KMEAN-BINS",args.outputdir)
