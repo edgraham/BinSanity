@@ -139,7 +139,7 @@ contig-4  1.1 5.1
   * `Binsanity-lc` combines both K-means and Affinity Propagation to reduce memory intensity (**BETA VERSION**)
 
 ####Running the Binsanity Workflow####
-The help menu for `Binsanity-wf` is shown below:
+The help menu for `Binsanity-wf` is shown below (Notation is shared for `Binsanity`, `Binsanity-refine`, and `Binsanity-lc`):
 ```
 usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
                     [-p PREFERENCE] [-m MAXITER] [-v CONVITER] [-d DAMP]
