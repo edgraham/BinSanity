@@ -223,7 +223,7 @@ if __name__ == '__main__':
             --------------------------------------------------------
                 --- Putative Bins Computed in %s seconds ---
             --------------------------------------------------------""" % (time.time() - start_time))        
-            os.move("KMEAN-BINS",args.outputdir)
+            shutil.move("KMEAN-BINS",args.outputdir)
         else:
             cluster_number = args.ClusterNum
             print "cluster number for k means is: ", cluster_number
