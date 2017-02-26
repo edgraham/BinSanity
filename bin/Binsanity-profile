@@ -127,6 +127,8 @@ if __name__ == "__main__":
     args=parser.parse_args()  
     if len(sys.argv)<3:
         parser.print_help()    
+    elif args.inputids is None:
+        print "Need to identify file containing contig ids `--id`"
     elif args.inputfile and args.inputids is None:
         print "Need to identify tab delimited file containing contig ids using '--ids' and fasta file using '-i'"
     elif args.inputfile and args.inputSAM is None:
