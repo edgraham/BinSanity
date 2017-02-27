@@ -24,6 +24,8 @@ matrix via one of the provided methods.
 * [Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5) * [Samtools] (http://www.htslib.org/) (v1.2)
 >Program used by us to putatively analyze bin completion and redundancy for refinement:
 * [CheckM] (https://github.com/Ecogenomics/CheckM)
+<p>
+
 #Installation#
 * Usage of BinSanity requires installation of numpy ``` $ pip install numpy ``` * If you want to use the BinSanity workflow 
 `Binsanity-wf` you will also need to download [HMMER](http://hmmer.org/) and [pplacer](http://matsen.fhcrc.org/pplacer/) * HMMER can be 
@@ -37,7 +39,11 @@ and `rppr`. The location of these need to be exported to your path. ``` $ export
 * To do this download the latest [subread](https://sourceforge.net/projects/subread/files/) package (subread-1.x.x-source.tar.gz) ``` $ 
 tar zxvf subread-1.*.*-source.tar.gz $ cd subread-1.*.*-source/src $ make -f Makefile.Linux ; cd ../ ``` * This will produce a directory 
 called `bin` in the `subread-1.x.x-source` file containing the executables for `featureCounts`. These should be copied into your path. 
-``` $ sudo cp -r bin ``` **Install the latest stable version of the BinSanity suite of scripts via pip** ``` $ sudo pip install BinSanity 
+``` $ sudo cp -r bin ``` 
+**Install the latest stable version of the BinSanity suite of scripts via pip** 
+
+``` 
+$ sudo pip install BinSanity 
 ```
 ## FAQ ##
 <p> **Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?** <p> Binsanity implements Affinity Propagation 
