@@ -17,7 +17,7 @@ def bin_output(path,file_name,outfile,length):
 
             
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='get-ids', usage='%(prog)s -f /path/to/fasta -l /inputfasta/ -o output')
+    parser = argparse.ArgumentParser(prog='get-ids', usage='%(prog)s -f /path/to/fasta/file -l fastafile -o output')
     parser.add_argument("-f", dest="inputPutative", help="Specify the directory containing fasta file")
     parser.add_argument("-o", dest="inputOUTPUT", help="Specify the output file")
     parser.add_argument("-l",dest="inputFasta",help="Specify fasta file")

@@ -209,7 +209,7 @@ if __name__ == '__main__':
     
     Binsanity-refine can be used as a stand alone script if you don't have more than 2 sample replicates 
     
-    """,,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -kmer [kmer type] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] =x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
+    """,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -kmer [kmer type] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] =x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
     parser.add_argument("-c", dest="inputCovFile", help="""
     Specify a Coverage File
     """)

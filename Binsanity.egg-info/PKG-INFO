@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: Binsanity
-Version: 0.2.2
+Version: 0.2.5.4
 Summary: Method to cluster contigs based a biphasic method with coverage and composition
 Home-page: https://github.com/edgraham/BinSanity
 Author: Elaina Graham

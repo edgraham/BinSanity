@@ -6,7 +6,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 setup(
     name='Binsanity',    # This is the name of your PyPI-package.
-    version='0.2.5.4',
+    version='0.2.5.5',
     description='Method to cluster contigs based a biphasic method with coverage and composition',
     url="https://github.com/edgraham/BinSanity",
     author="Elaina Graham",
