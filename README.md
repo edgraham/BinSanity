@@ -21,7 +21,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 ##Dependencies##
 
 > Versions used at time of last update to script are provided in parenthesis.
-* [Python](https://www.python.org/ (v2.7.6)
+* [Python](https://www.python.org/) (v2.7.6)
 * [Numpy](http://www.numpy.org/) (v1.11.1)
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
