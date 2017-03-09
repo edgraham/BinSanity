@@ -21,7 +21,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 ##Dependencies##
 
 > Versions used at time of last update to script are provided in parenthesis.
-
+* [Python](https://www.python.org/ (v2.7.6)
 * [Numpy](http://www.numpy.org/) (v1.11.1)
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
@@ -287,6 +287,6 @@ As this project is actively being improved any comments or suggestions are welco
 * [Binsanity Forum](https://groups.google.com/forum/#!forum/binsanity)
 
 ##Citation##
-Graham, E., Heidelberg, J. & Tully, B. BinSanity: Unsupervised Clustering of Environmental Microbial Assemblies Using Coverage and Affinity Propagation. bioRxiv, doi:10.1101/069567 (2016).
+Graham ED, Heidelberg JF, Tully BJ. (2017) BinSanity: unsupervised clustering of environmental microbial assemblies using coverage and affinity propagation. PeerJ 5:e3035 https://doi.org/10.7717/peerj.3035
 
 
