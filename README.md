@@ -78,22 +78,15 @@ $ sudo cp -r bin
 $ sudo pip install BinSanity
 ```
 ## FAQ ##
-<p>
-**Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?**
-<p>
-Binsanity implements Affinity Propagation (AP), an algorithm that identifies exemplars among data points and forms clusters of data points around these exemplars. This is done by considering every data point as a potential exemplar and exchanges messages until a good set of clusters emerges. AP is a [deterministic algorithm](https://en.wikipedia.org/wiki/Deterministic_algorithm) in which time and memory requirements scale linearly with the number of similarities. 
-<p>
-BinSanity's accuracy is due in part to the biphasic approach in which BinSanity separates coverage and composition during clustering, but also relies heavily on the implementation of AP. Unfortunately our attempts to use other clustering algorithms that were less computatonally intensive ultimately sacrificed accuracy. We are currently working on methods to solve the current memory limitations. 
-<p>
-**How much memory will BinSanity Require?**
-<p>
-On a Dell PowerEdge R920 with 1TB of available RAM and Intel Xeon 2.3GHz processors, it took 191 minutes and ~ 54 GB RAM to run 27,643 contigs. Due to the linear increase of memory we have chosen to cap contigs at 100,000 by choosing appropiate size cut-offs for use of this machine. Please contact us with any questions regarding this or suggestions on the best way to implement BinSanity using whatever computer cluster you have access to.
-<p>
-**If Binsanity-lc uses less memory then why not implement this all the time?**
-<p> 
-Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy. 
 
-##Script Usage##
+> Why does Binsanity use more memory than other programs like CONCOCT or MetaBat?
+* Binsanity implements Affinity Propagation (AP), an algorithm that identifies exemplars among data points and forms clusters of data points around these exemplars. This is done by considering every data point as a potential exemplar and exchanges messages until a good set of clusters emerges. AP is a [deterministic algorithm](https://en.wikipedia.org/wiki/Deterministic_algorithm) in which time and memory requirements scale linearly with the number of similarities. BinSanity's accuracy is due in part to the biphasic approach in which BinSanity separates coverage and composition during clustering, but also relies heavily on the implementation of AP. Unfortunately our attempts to use other clustering algorithms that were less computatonally intensive ultimately sacrificed accuracy. We are currently working on methods to solve the current memory limitations. 
+> How much memory will BinSanity Require?
+* On a Dell PowerEdge R920 with 1TB of available RAM and Intel Xeon 2.3GHz processors, it took 191 minutes and ~ 54 GB RAM to run 27,643 contigs. Due to the linear increase of memory we have chosen to cap contigs at 100,000 by choosing appropiate size cut-offs for use of this machine. Please contact us with any questions regarding this or suggestions on the best way to implement BinSanity using whatever computer cluster you have access to.
+> If Binsanity-lc uses less memory then why not implement this all the time?
+* Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy. 
+
+## Script Usage ##
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
 To generate input files for BinSanity the script `Binsanity-profile` is provided:
@@ -138,7 +131,7 @@ contig-4  1.1 5.1
   * `Binsanity-wf` is an automated workflow that combines the Binsanity and Binsanity-refine step. 
   * `Binsanity-lc` combines both K-means and Affinity Propagation to reduce memory intensity (**BETA VERSION**)
 
-####Running the Binsanity Workflow####
+#### Running the Binsanity Workflow ####
 The help menu for `Binsanity-wf` is shown below (Notation is shared for `Binsanity`, `Binsanity-refine`, and `Binsanity-lc`):
 ```
 usage: Binsanity-wf [-h] [-c INPUTCOVFILE] [-f INPUTCONTIGFILES]
