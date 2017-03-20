@@ -1,7 +1,7 @@
-#BinSanity v0.2.5.5#
+# BinSanity v0.2.5.5 #
 BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
-##Scripts:##
+## Scripts: ##
 > More detailed descriptions of each script is given under the **Usage** section
 * `Binsanity`
   * BinSanity implements Affinity Propagation to cluster contigs into putative genomes using contig coverage as an input
@@ -18,7 +18,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 * `transform-coverage-profile`
   * If Binsanity-profile is not used to generate the coverage profile transform-coverage-profile is provided to transform a raw coverage matrix via one of the provided methods.
 
-##Dependencies##
+## Dependencies ##
 
 > Versions used at time of last update to script are provided in parenthesis.
 * [Python](https://www.python.org/) (v2.7.6)
@@ -37,7 +37,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 >Program used by us to putatively analyze bin completion and redundancy for refinement:
 * [CheckM] (https://github.com/Ecogenomics/CheckM)
 
-#Installation#
+# Installation #
 * Usage of BinSanity requires installation of numpy 
 ```
 $ pip install numpy
@@ -131,7 +131,7 @@ contig-3  1.3 4.2
 contig-4  1.1 5.1
 ....
 ```
-###Running BinSanity###
+### Running BinSanity ###
 * Four scripts are available to run Binsanity: `Binsanity`,`Binsanity-refine`,`Binsanity-wf`, `Binsanity-lc`
   * `Binsanity` runs the coverage based clustering and takes as input a transformed coverage profile.
   * `Binsanity-refine` is used to refine bins using tetranucleotide frequencies, GC content, and Coverage.
@@ -221,7 +221,7 @@ The program is written in to the script `Binsanity-wf`, but can also be called a
 It should be noted that selection of the high and low redundancy values are an arbitrary cut off and the values of generally accepted redundancy, completion, and strain heterogeneity are up for debate so it is recommended that if you use the script that you decide what the best cut off values are for your purposes. For example if you are looking for members of the [candidate phyla radiation (CPR)](doi:10.1038/nature14486) the completion estimates may place the bin below accepted thresholds within this context of 'high completion' and 'low completion'. <p>
 CheckM is also only one means of evaluating bins. This script is provided as a means to make refinement using BinSanity slightly simpler by quickly moving bins produced during a first pass of BinSanity into smaller categories for further analysis (Note this isn't really necessary if you have a small enough data, but for example in cases where we have produced 100's of bins using BinSanity it becomes increasingly more time consuming to manually separate the high and low redundancy bins.)
 
-##Example Problem##
+## Example Problem ##
 >The Infant Gut Metagenome collected and curated by [Sharon et al. (2013)](http://dx.doi.org/10.1101/gr.142315.112) was clustered by us to test BinSanity. To confirm you have BinSanity working we have provided a folder `Example` containing the fasta file (`INFANT-GUT-ASSEMBLY.fa`) containing contigs for the Infant Gut Metagenome provided by [Eren et al. (2015)](https://doi.org/10.7717/peerj.1319). All files associated with our BinSanity run are also provided, which includes the combined coverage profile (produced using Bowtie2 v2.2.5 on defaults, `contig-coverage-bam.py`, and `cov-combine.py`.
 
 To run the test use the following command using the igm.fa and Infant_gut_assembly.cov.x100.lognorm
@@ -279,7 +279,7 @@ Cluster 21: 551
         --------------------------------------------------------
 ```
 
-##Issues##
+## Issues ##
 
 If an issue arises in the process of utilizing BinSanity please create an issue and we will address is as soon as possible. To expedite a response please provide any associated error messages. 
 As this project is actively being improved any comments or suggestions are welcome.
