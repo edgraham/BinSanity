@@ -26,7 +26,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 * [SciKit](http://scikit-learn.org/stable/install.html) (v0.17.1)
 * [Biopython](http://biopython.org/wiki/Download) (v1.66)
 * [BedTools](http://bedtools.readthedocs.io/en/latest/content/installation.html) (v2.17.0)
-* [Pandas] (http://pandas.pydata.org/) (v0.13.1)
+* [Pandas](http://pandas.pydata.org/) (v0.13.1)
 * [FeatureCounts](http://bioinf.wehi.edu.au/featureCounts/)(v1.5.0-p2)
 
 >Programs used to prepare input files for BinSanity and associated utility scripts include:
