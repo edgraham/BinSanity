@@ -279,7 +279,7 @@ As this project is actively being improved any comments or suggestions are welco
 
 * [Binsanity Forum](https://groups.google.com/forum/#!forum/binsanity)
 
-##Citation##
+## Citation ##
 Graham ED, Heidelberg JF, Tully BJ. (2017) BinSanity: unsupervised clustering of environmental microbial assemblies using coverage and affinity propagation. PeerJ 5:e3035 https://doi.org/10.7717/peerj.3035
 
 
