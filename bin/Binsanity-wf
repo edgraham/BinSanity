@@ -66,7 +66,6 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             outfile_data[apclust[i]] = [names[i]]
         i += 1
     out_name = file_name.rsplit(".",1)[0]
-    unbinned_file = open(os.path.join(output_directory,str(out_name)+".unbinned.fna"),"w")
     with open(os.path.join(path,file_name),"r") as input2_file: 
         fasta_dict = create_fasta_dict(input2_file)                
         count = 0                
@@ -84,9 +83,6 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
-            else:
-                for x in outfile_data[k]:
-                    unbinned_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
     
@@ -425,10 +421,11 @@ if __name__ == '__main__':
             for filename in glob.glob(str(location2)+"/*.fna"):
                 if filename == "low_completion.fna":
                     continue
-        with open(filename,"rb") as readfile:
-            shutil.copyfileobj(readfile,outfile)
-            shutil.move("low_completion.fna", str(location))
-            shutil.rmtree(str(location2))
+        	else:
+			with open(filename,"rb") as readfile:
+            			shutil.copyfileobj(readfile,outfile)
+        shutil.move("low_completion.fna", str(location))
+        shutil.rmtree(str(location2))
         for redundant_bin in os.listdir(location):
             print """
             -------------------------------------------------------
