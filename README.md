@@ -31,11 +31,11 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 
 >Programs used to prepare input files for BinSanity and associated utility scripts include:
 
-* [Bowtie2] (https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
-* [Samtools] (http://www.htslib.org/) (v1.2)
+* [Bowtie2](https://sourceforge.net/projects/bowtie-bio/) (v2.2.5)
+* [Samtools](http://www.htslib.org/) (v1.2)
 
 >Program used by us to putatively analyze bin completion and redundancy for refinement:
-* [CheckM] (https://github.com/Ecogenomics/CheckM)
+* [CheckM](https://github.com/Ecogenomics/CheckM)
 
 # Installation #
 * Usage of BinSanity requires installation of numpy 
