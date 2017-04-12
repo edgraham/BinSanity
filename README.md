@@ -87,6 +87,14 @@ $ sudo pip install BinSanity
 * Binsanity-lc reduces memory complexity by subseting the contigs into groups based on roughly clustering contigs using k-means. In some cases Binsanity-lc will produce identical results to Binsanity, but in some cases Binsanity-lc will lead to incorrect contig assignment. Unlike Affinity Propagation, K-means clustering requires human input of information criteria that dictate the ultimate number of clusters (N). You could estimate this number by using single copy genes to estiamte how many genomes you may have in an assembly (such as [here](http://merenlab.org/2015/12/07/predicting-number-of-genomes/)) and use this as a guide to initialize clustering. Methods that require a priori identification of cluster numbers (N) in some cases can mis-cluster contigs because they can end up forcing a contig to fit in one of N number of bins when a fit may not exists. So in essence the most memory efficient route isn't always the best one. The computational intensity of Affinity Propagation may make the method more difficult to implement, but ultimately maintains a consistent level of accuracy. 
 
 ## Script Usage ##
+** NOTE That the BinSanity Profile step will fail if fasta headers aren't simplified.
+This means that the headers should have a single word with no spaces as a descriptor as follows **
+```
+>contig_1
+ATCAGTACGTAGCTGCGTCAGTCAGGCTAGCTAGCTAGCTAGCTGATCGTAGCTCGTAGCTTATATATATATATTTTTTT
+>contig_2
+...
+```
 
 First you need to generate input files for Binsanity (e.g the coverage profile).
 To generate input files for BinSanity the script `Binsanity-profile` is provided:
