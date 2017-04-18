@@ -202,8 +202,11 @@ The default preference for the initial binning and refinement step are -3 and -2
 <p>
 This workflow will do the following:
 <p>
-* run`Binsanity` solely with coverage. 
-* run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundancy)
+
+* Run `Binsanity` solely with coverage. 
+
+* Run CheckM to determine completion and redundancy (Values used to make the distinction between completion and redundant are given below, we provide the uncoupled scripts so that the user can optionally use their own methods to discern completion and redundancy)
+
 * run `Binsanity-refine` to recluster redundant bins and refine bins with low completion.
 
 #### Setting Completion and Redundancy Estimates for refinement ####
