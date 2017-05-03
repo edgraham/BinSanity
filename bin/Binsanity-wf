@@ -66,6 +66,8 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             outfile_data[apclust[i]] = [names[i]]
         i += 1
     out_name = file_name.rsplit(".",1)[0]
+    output_directory=output_directory+"/BINSANITY-INITIAL"
+    os.mkdir(output_directory)
     with open(os.path.join(path,file_name),"r") as input2_file: 
         fasta_dict = create_fasta_dict(input2_file)                
         count = 0                
@@ -344,7 +346,7 @@ if __name__ == '__main__':
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""
     Specify a preference for refinement. The Default is -25
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
 
     args = parser.parse_args()
     if len(sys.argv) is None:
@@ -410,22 +412,26 @@ if __name__ == '__main__':
         --------------------------------------------------------
         
         """)
-        run_checkM(str(args.outputdir),str(args.threads))
-        checkm_analysis("checkm_lineagewf-binsanity.out",".fna",str(args.outputdir))
+        out_1= args.outputdir+'/BINSANITY-INITIAL'
+        run_checkM(str(out_1),str(args.threads))
+        checkm_analysis("checkm_lineagewf-binsanity.out",".fna",str(out_1))
 ##############################Refining Bins#######################################
         start_time = time.time()
 
-        location = os.path.join(str(args.outputdir),"high_redundancy")
-        location2 = os.path.join(str(args.outputdir),"low_completion")
+        location = os.path.join(out_1,"high_redundancy")
+        location2 = os.path.join(out_1,"low_completion")
         with open("low_completion.fna","wb") as outfile:
             for filename in glob.glob(str(location2)+"/*.fna"):
                 if filename == "low_completion.fna":
                     continue
-        	else:
-			with open(filename,"rb") as readfile:
-            			shutil.copyfileobj(readfile,outfile)
-        shutil.move("low_completion.fna", str(location))
-        shutil.rmtree(str(location2))
+                else:
+                    with open(filename,"rb") as readfile:
+                        shutil.copyfileobj(readfile,outfile)
+        if os.stat("low_completion.fna").st_size ==0:
+            os.remove("low_completion.fna")
+        else:
+            shutil.move("low_completion.fna", str(location))
+            shutil.rmtree(str(location2))
         for redundant_bin in os.listdir(location):
             print """
             -------------------------------------------------------
@@ -471,15 +477,18 @@ if __name__ == '__main__':
             --------------------------------------------------------
                 --- Ammended Bins Computed in %s seconds ---
             --------------------------------------------------------""" % (time.time() - refine_time))
-    
-        os.mkdir("BinSanity-Final-bins")
-        os.rename(str(args.outputdir),"Binsanity-records")
-        for files in os.listdir("Binsanity-records/high_completion"):
-            shutil.copy(os.path.join("Binsanity-records/high_completion",files),"BinSanity-Final-bins")
-        for files in os.listdir(os.path.join("Binsanity-records/REFINED-BINS")):
-            shutil.copy(os.path.join("Binsanity-records/REFINED-BINS",files),"BinSanity-Final-bins")
-        shutil.move("tetra-GC-out","Binsanity-records/")
-        shutil.move("tetramer-frequencies","Binsanity-records/")
-        shutil.move("GC_count","Binsanity-records/")
-        shutil.move("checkm_lineagewf-binsanity.out","Binsanity-records/")
-        shutil.move("binsanity-checkm","Binsanity-records/")
+        final_out = os.path.join(str(args.outputdir),"BinSanity-Final-bins")
+        initial_out = os.path.join(str(args.outputdir),"BINSANITY-INITIAL")
+        os.mkdir(str(final_out))
+        os.rename(initial_out,os.path.join(str(args.outputdir),"Binsanity-records"))
+        shutil.move(os.path.join(str(args.outputdir),"REFINED-BINS"),os.path.join(str(args.outputdir),"Binsanity-records"))
+        path1 = os.path.join(args.outputdir,"Binsanity-records/high_completion")
+        for files in os.listdir(path1):
+            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/high_completion"),files),str(final_out))
+        for files in os.listdir(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS")):
+            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS"),files),str(final_out))
+        shutil.move("tetra-GC-out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move("tetramer-frequencies",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move("GC_count",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move("checkm_lineagewf-binsanity.out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move("binsanity-checkm",os.path.join(str(args.outputdir),"Binsanity-records/"))

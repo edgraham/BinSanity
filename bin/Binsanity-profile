@@ -20,6 +20,17 @@ def format_for_feature(inputfile,sam):
                     outLine = [geneId, Chr, str(start), str(stop), '+']
                     outLine = '\t'.join(outLine)
                     handle.write(outLine + "\n")
+	if file_.endswith(".sam"):
+	    outname=str(file_).lstrip('.sam')
+            handle = open(str(outname)+".saf",'w')
+            handle.write('GeneID   Chr     Start   End     Strand\n')
+            for record in SeqIO.parse(inputfile,'fasta'):
+                    seqLen = len(record.seq)
+                    start, stop = 1, seqLen
+                    geneId, Chr = str(record.description), str(record.description)
+                    outLine = [geneId, Chr, str(start), str(stop), '+']
+                    outLine = '\t'.join(outLine)
+                    handle.write(outLine + "\n")
             
 def feature_counts(sam):
     for file_ in os.listdir(sam):
@@ -42,7 +53,6 @@ def make_coverage(ids,outfile):
                 if line[0] != "#" or line[:6] != "Geneid":
                         line = line.rstrip()
                         data = line.split()
-                        print data
                         try:
                             length = len(cov_data[data[0]])
                             if length == 0:
@@ -123,7 +133,7 @@ if __name__ == "__main__":
     SQR --> Square root
     We recommend using a scaled log transformation for initial testing. 
     Other transformations can be useful on a case by case basis""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
     args=parser.parse_args()  
     if len(sys.argv)<3:
         parser.print_help()

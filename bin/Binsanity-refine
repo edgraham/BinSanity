@@ -251,7 +251,7 @@ if __name__ == '__main__':
     Give a name to the directory BinSanity results will be output in 
     [Default is 'BINSANITY-REFINEMENT']
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
 
 
     args = parser.parse_args()
