@@ -1,4 +1,4 @@
-# BinSanity v0.2.5.8 #
+# BinSanity v0.2.5.9 #
 BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
 ## Scripts: ##
