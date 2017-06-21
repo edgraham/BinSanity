@@ -1,4 +1,4 @@
-# BinSanity v0.2.5.9 #
+# BinSanity v0.2.5.10 #
 BinSanity contains a suite a scripts designed to cluster contigs generated from metagenomic assembly into putative genomes. 
 
 ## Scripts: ##
@@ -12,7 +12,7 @@ BinSanity contains a suite a scripts designed to cluster contigs generated from 
 * `Binsanity-profile`
   * Binsanity-profile uses [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) to produce the coverage profiles requires in Binsanity, Binsanity-refine, and Binsanity-wf
 * `Binsanity-lc`
-  * Binsanity-lc is an experimental script for large metagenomic assemblies where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs before implementing Binsanity **(*BetaVersion*)**
+  * Binsanity-lc is written for large metagenomic assemblies (e.g >100,000 contigs) where Binsanity and Binsanity-refine become to memory intensive. It uses K-means to subset contigs based on coverage  before implementing Binsanity **(*BetaVersion*)**
 * `checkm_analysis`
   * checkm_analysis uses [CheckM](http://ecogenomics.github.io/CheckM/) to evaluate completion, redundancy, and strain heterogeneity and subsets clusters to aid downstream refinement efforts.
 * `transform-coverage-profile`

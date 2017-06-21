@@ -332,15 +332,16 @@ class Logger(object):
 ###################################################################
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='Binsanity-wf',usage='%(prog)s -f [/path/to/fasta] -l [fastafile] --threads [threads for checkM] -c [coverage file] --refine-preference [Preference for Refinement] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] =x [contig size] -o [output directory]', description="""
+    parser = argparse.ArgumentParser(prog='Binsanity-lc',usage='%(prog)s -f [/path/to/fasta] -l [fastafile] --threads [threads for checkM] -c [coverage file] --refine-preference [Preference for Refinement] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] -x [contig size] -o [output directory]', description="""
     Binsanity clusters contigs based on coverage and refines these 'bins' using tetramer frequencies and GC content. 
     ----------------------------------------------------------------------------------------------------------------
-    Binsanity-wf is a workflow script that runs Binsanity and Binsanity-refine sequenctially.
+    Binsanity-lc is a workflow script that will subset assemblies larger than 100,000 contigs using coverage prior to running Binsanity and Binsanity-refine sequentially.
     The following is including in the workflow:
-    STEP 1. Run Binsanity
-    STEP 2: Run CheckM to estimate completeness for Refinement
-    STEP 3: Run Binsanity-refine
-    STEP 4: Creat Final BinSanity Clusters
+    Step 1: Use Coverage to Subsample contigs with K-mean Clustering	
+    STEP 2: Run Binsanity
+    STEP 3: Run CheckM to estimate completeness for Refinement
+    STEP 4: Run Binsanity-refine
+    STEP 5: Creat Final BinSanity Clusters
     """,formatter_class=RawTextHelpFormatter)
     parser.add_argument("-c", dest="inputCovFile", help="""
     Specify a Transformed Coverage File
