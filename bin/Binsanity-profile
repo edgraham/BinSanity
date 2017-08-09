@@ -133,7 +133,7 @@ if __name__ == "__main__":
     SQR --> Square root
     We recommend using a scaled log transformation for initial testing. 
     Other transformations can be useful on a case by case basis""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.11')
     args=parser.parse_args()  
     if len(sys.argv)<3:
         parser.print_help()

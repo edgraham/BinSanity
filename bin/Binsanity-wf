@@ -8,6 +8,7 @@ from sklearn.cluster import AffinityPropagation
 import collections
 from Bio.SeqUtils import GC
 from Bio.Seq import Seq
+from Bio.Alphabet import IUPAC
 import pandas
 
 def create_fasta_dict(fastafile):
@@ -88,11 +89,11 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
     
-def GC_Fasta_file(b,name):
+def GC_Fasta_file(b,name,prefix):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
     GC_dict = {}
     input_file = open(os.path.join(b,name), 'r') 
-    output_file = open('GC_count','w')
+    output_file = open(str(prefix)+'-GC_count','w')
     output_file.write("%s\t%s\n" % ('contig','GC'))
     for cur_record in SeqIO.parse(input_file, "fasta") :
         gene_name = cur_record.id 
@@ -111,9 +112,11 @@ def GC_Fasta_file(b,name):
 def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
-    dna = dna.upper()
-    dna_edit = Seq(str(dna))
+    dna = dna.upper()	
+    dna_edit = Seq(str(dna),IUPAC.unambiguous_dna)
     reverse_complement = (dna_edit).reverse_complement()
+    dna_edit = str(dna_edit)
+    reverse_complement = str(reverse_complement)
     for x in range(len(dna)+1-k):
         result.append(dna[x:x+k])
     for x in range(len(reverse_complement)+1-k):
@@ -145,13 +148,13 @@ def kmer_counts(kmer,b,name):
     return kmer_dict
                    
          
-def output(a):
+def output(a,prefix):
     """Builds tab-delimeted file based on dictionary of tetramers"""
     topleft = 'contig' 
     headers = sorted(set(key
                         for row in a.values()
                         for key in row[0]))
-    writer = csv.writer(open('tetramer-frequencies','wb'), delimiter='\t')
+    writer = csv.writer(open(str(prefix)+'-tetramer-frequencies','wb'), delimiter='\t')
     writer.writerow([topleft] + headers)
     for key in a:
         row = [key]
@@ -159,14 +162,14 @@ def output(a):
             row.append(a[key][0].get(header, 0))
         writer.writerow(row)
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
-def get_contigs(c):
-    GC = open("GC_count","r")
+def get_contigs(c,prefix):
+    GC = open(str(prefix)+"-GC_count","r")
     dataframe =pandas.read_csv(GC,sep="\t")
     dataframe=dataframe.set_index("contig")
     dataframe *= 100
     dataframe += 1
     dataframe = np.log10(dataframe)
-    tetra = open("tetramer-frequencies","r")
+    tetra = open(str(prefix)+"-tetramer-frequencies","r")
     dataframe2=pandas.read_csv(tetra,sep="\t")
     dataframe2=dataframe2.set_index("contig")
     dataframe2*=100
@@ -181,7 +184,7 @@ def get_contigs(c):
     dataframe3 = dataframe3[1:]
     dataframe3=dataframe3.set_index("contig")
     result = pandas.concat([dataframe, dataframe2,dataframe3],axis=1,join='inner')
-    result.to_csv(path_or_buf=str("tetra-GC-out"),header=None,sep ="\t")
+    result.to_csv(path_or_buf=str(prefix)+"-tetra-GC-out",header=None,sep ="\t")
 
 def refined_ap(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
     """Uses affinity propagation to make putative bins"""    
@@ -222,9 +225,9 @@ def refined_ap(array,names,file_name,damping,iterations,convergence,preference,p
         print ("""Total Number of Bins: %i""" % count)
     
 ########################################################################################
-def run_checkM(bins,threads):
-    output = open("checkm_lineagewf-binsanity.out","w")   
-    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),"binsanity-checkm"],stdout=output)
+def run_checkM(bins,threads,prefix):
+    output = open(str(prefix)+"-checkm_lineagewf-binsanity.out","w")   
+    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),str(prefix)+"-binsanity-checkm"],stdout=output)
 ########################################################################################
 def checkm_analysis(file_,fasta,path):
     checkm = list(csv.reader(open(file_,'rb')))
@@ -277,9 +280,11 @@ def checkm_analysis(file_,fasta,path):
         
 ########################################################################################     
 class Logger(object):
-    def __init__(self):
+    def __init__(self,filename):
+	self.filename = filename
+	out = filename.rsplit(".",1)[0]
         self.terminal = sys.stdout
-        self.log = open("Binsanity-log.txt", "a")
+        self.log = open(str(out)+"-Binsanity-log.txt", "a")
 
     def write(self, message):
         self.terminal.write(message)
@@ -300,7 +305,7 @@ if __name__ == '__main__':
     STEP 1. Run Binsanity
     STEP 2: Run CheckM to estimate completeness for Refinement
     STEP 3: Run Binsanity-refine
-    STEP 4: Creat Final BinSanity Clusters
+    STEP 4: Create Final BinSanity Clusters
     """,formatter_class=RawTextHelpFormatter)
     parser.add_argument("-c", dest="inputCovFile", help="""
     Specify a Transformed Coverage File
@@ -343,11 +348,12 @@ if __name__ == '__main__':
     parser.add_argument("--kmer",dest="kmer",type=int,default=4,help="""
     Indicate a number for the kmer calculation, the default is 4
     """)
+    parser.add_argument("--Prefix",dest="prefix",default="_", help="""
+    Specifyy a prefix to append to the start of all directories generated during Binsanity""")
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""
     Specify a preference for refinement. The Default is -25
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
-
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.11')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -369,7 +375,7 @@ if __name__ == '__main__':
         parser.error('-l Need to identify file to be clustered')
     else:
         start_time = time.time()
-        sys.stdout = Logger()
+        sys.stdout = Logger(args.prefix)
         print """
         -------------------------------------------------------
                           Running Binsanity
@@ -413,8 +419,8 @@ if __name__ == '__main__':
         
         """)
         out_1= args.outputdir+'/BINSANITY-INITIAL'
-        run_checkM(str(out_1),str(args.threads))
-        checkm_analysis("checkm_lineagewf-binsanity.out",".fna",str(out_1))
+        run_checkM(str(out_1),str(args.threads),args.prefix)
+        checkm_analysis(args.prefix+"-checkm_lineagewf-binsanity.out",".fna",str(out_1))
 ##############################Refining Bins#######################################
         start_time = time.time()
 
@@ -438,7 +444,7 @@ if __name__ == '__main__':
                 Calculating GC content for redundant bin %s
             -------------------------------------------------------""" % str(redundant_bin)
             GC_time = time.time()
-            GC_Fasta_file(location, redundant_bin)
+            GC_Fasta_file(location, redundant_bin,args.prefix)
             print "GC content calculated in %s seconds" % (time.time() - GC_time)
             
             print """
@@ -446,7 +452,7 @@ if __name__ == '__main__':
              Calculating tetramer frequencies for redundant bin %s
             -------------------------------------------------------"""% str(redundant_bin)
             kmer_time = time.time()
-            output(kmer_counts(args.kmer,location,redundant_bin))
+            output(kmer_counts(args.kmer,location,redundant_bin),args.prefix)
             print "tertamer frequency calculated in %s seconds" % (time.time()- kmer_time)
          
             print """
@@ -454,7 +460,7 @@ if __name__ == '__main__':
                     Creating Profile for redundant bin %s
             ------------------------------------------------------""" % str(redundant_bin)
             combine_time = time.time()
-            get_contigs(args.inputCovFile)
+            get_contigs(args.inputCovFile,args.prefix)
             print "Combined profile created in %s seconds" % (time.time()- combine_time)
             refine_time=time.time()
             print """ 
@@ -469,7 +475,7 @@ if __name__ == '__main__':
             print "Coverage File: " + str(args.inputCovFile)
             print "Fasta File: " + str(redundant_bin)
     
-            val1, val2 = cov_array((get_cov_data('tetra-GC-out')), location, redundant_bin,args.ContigSize)
+            val1, val2 = cov_array((get_cov_data(str(args.prefix)+'-tetra-GC-out')), location, redundant_bin,args.ContigSize)
     
             refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter, args.conviter, args.inputrefinedpref,location,args.outputdir)
     
@@ -487,8 +493,11 @@ if __name__ == '__main__':
             shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/high_completion"),files),str(final_out))
         for files in os.listdir(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS")):
             shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS"),files),str(final_out))
-        shutil.move("tetra-GC-out",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("tetramer-frequencies",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("GC_count",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("checkm_lineagewf-binsanity.out",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("binsanity-checkm",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        #for files in os.listdir('.'): 
+	#	if files.endswith("tetra-GC-out") or files.endswith("tetramer-frequencies") or files.endswith("checkm_linagewf-binsanity.out") or files.endswith("binsanity-checkm"):
+	#		shutil.move(files,os.path.join(str(args.outputdir),"Binsanity-records/"))
+	shutil.move(str(args.prefix)+"-tetra-GC-out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-tetramer-frequencies",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-GC_count",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-checkm_lineagewf-binsanity.out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-binsanity-checkm",os.path.join(str(args.outputdir),"Binsanity-records/"))

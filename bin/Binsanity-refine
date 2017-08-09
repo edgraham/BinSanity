@@ -8,6 +8,7 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from sklearn.cluster import AffinityPropagation
 from Bio.SeqUtils import GC
+from Bio.Alphabet import IUPAC
 from argparse import RawTextHelpFormatter
 import csv
 ##########################Get GC Count#######################################
@@ -35,10 +36,12 @@ def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
     dna = dna.upper()
-    dna_edit = Seq(str(dna))
+    dna_edit = Seq(dna,IUPAC.unambiguous_dna)
     reverse_complement = (dna_edit).reverse_complement()
-    for x in range(len(dna)+1-k):
-        result.append(dna[x:x+k])
+    dna_edit = str(dna_edit)
+    reverse_complement = str(reverse_complement)	
+    for x in range(len(dna_edit)+1-k):
+        result.append(dna_edit[x:x+k])
     for x in range(len(reverse_complement)+1-k):
         result.append(reverse_complement[x:x+k])
     result= [s for s in result if not s.strip('AGTC')]
@@ -48,8 +51,8 @@ def kmer_list(dna, k):
 def kmer_counts(kmer,b,name):
     kmer_dict = {}
     for record in SeqIO.parse(os.path.join(b,name), "fasta"):
-        id_=record.id
-        seq = record.seq
+        id_=str(record.id)
+        seq = str(record.seq)
         length = len(seq)
         tetra = kmer_list(seq,kmer)           
         c = collections.Counter(tetra)
@@ -209,7 +212,7 @@ if __name__ == '__main__':
     
     Binsanity-refine can be used as a stand alone script if you don't have more than 2 sample replicates 
     
-    """,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -kmer [kmer type] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] =x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
+    """,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -kmer [kmer type] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] -x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
     parser.add_argument("-c", dest="inputCovFile", help="""
     Specify a Coverage File
     """)
@@ -251,7 +254,7 @@ if __name__ == '__main__':
     Give a name to the directory BinSanity results will be output in 
     [Default is 'BINSANITY-REFINEMENT']
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.11')
 
 
     args = parser.parse_args()

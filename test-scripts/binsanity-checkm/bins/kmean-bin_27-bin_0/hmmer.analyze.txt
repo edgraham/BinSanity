@@ -1,0 +1,20 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig532_5 -             67 S1                   PF00575.18    74   5.2e-05   17.4   0.1   1   1   5.3e-07     6e-05   17.2   0.1    14    66    10    58     3    63 0.87 # 5024 # 5224 # 1 # ID=25_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.383
+Day17a_QCcontig234_3 -            122 S1                   PF00575.18    74     0.015    9.5   5.8   1   1    0.0009       0.1    6.8   5.8    39    70    45    76     7    80 0.88 # 3353 # 3718 # 1 # ID=11_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.243
+Day17a_QCcontig209_3 -            396 Ribosomal_L29        PF00831.18    58    0.0014   12.4   0.2   1   1   1.6e-05    0.0036   11.1   0.0     9    34    29    54    26    59 0.92 # 2651 # 3838 # -1 # ID=9_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.347
+Day17a_QCcontig143_4 -            124 TIGR00329            TIGR00329    305   5.5e-17   55.7   0.2   1   1   3.2e-19   7.2e-17   55.3   0.2    95   145     1    50     1    58 0.94 # 6177 # 6548 # -1 # ID=5_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.344
+Day17a_QCcontig532_5 -             67 CSD                  PF00313.17    66   9.4e-33  105.9   3.1   1   1   4.5e-35     1e-32  105.8   3.1     2    65     3    65     2    66 0.98 # 5024 # 5224 # 1 # ID=25_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.383
+Day17a_QCcontig532_5 -             67 OB_RNB               PF08206.6     58   0.00016   15.3   0.2   1   1   1.2e-06   0.00027   14.5   0.2     7    26    12    30     4    35 0.82 # 5024 # 5224 # 1 # ID=25_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.383
+Day17a_QCcontig289_2 -            439 UvrC_HhH_N           PF08459.6    155   2.2e-57  187.0   0.0   1   1   1.8e-59   4.1e-57  186.1   0.0     6   155   221   370   216   370 0.96 # 933 # 2249 # 1 # ID=33_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.339
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/411f2c18-8cfa-43bb-8f04-839f38cda0df
+# Target file:     binsanity-checkm/bins/kmean-bin_27-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_27-bin_0/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/411f2c18-8cfa-43bb-8f04-839f38cda0df binsanity-checkm/bins/kmean-bin_27-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:27:27 2017
+# [ok]

@@ -1,0 +1,14 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig366_2 -            188 GHMP_kinases_N       PF00288.21    67     1e-10   33.9   4.5   1   1   3.2e-12   2.1e-10   32.9   4.5     8    49     1    42     1    53 0.88 # 1974 # 2537 # 1 # ID=6_2;partial=01;start_type=GTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.388
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/2ab1d84f-f3d5-41d0-aee6-ba9284f90fb0
+# Target file:     binsanity-checkm/bins/kmean-bin_1-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_1-bin_0/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/2ab1d84f-f3d5-41d0-aee6-ba9284f90fb0 binsanity-checkm/bins/kmean-bin_1-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:27:27 2017
+# [ok]

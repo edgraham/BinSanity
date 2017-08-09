@@ -1,0 +1,22 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_6       PF00562.23   386  4.9e-167  547.2   0.0   1   2     0.002     0.094    3.1   0.0     4    30   622   648   619   658 0.87 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_6       PF00562.23   386  4.9e-167  547.2   0.0   2   2  5.3e-167  2.4e-165  541.6   0.0     2   386   673  1069   672  1069 0.97 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_4 -            711 RNA_pol_Rpb1_2       PF00623.15   166   1.8e-56  182.4   0.1   1   1   5.4e-57   2.5e-55  178.7   0.1     1   165   333   474   333   475 0.96 # 4941 # 7073 # 1 # ID=11_4;partial=01;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.351
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_7       PF04560.15    82   1.9e-32  103.3   0.1   1   1   1.9e-33   8.6e-32  101.2   0.0     1    81  1071  1146  1071  1147 0.97 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_2       PF04561.9    190   8.8e-39  124.6   0.1   1   2   5.4e-33   2.5e-31  100.3   0.0     1   155   140   289   140   295 0.96 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_2       PF04561.9    190   8.8e-39  124.6   0.1   2   2   7.4e-09   3.4e-07   21.6   0.0   155   190   373   409   363   409 0.89 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_1       PF04563.10   203   2.7e-40  129.2   0.0   1   1   1.1e-41     5e-40  128.4   0.0     1   203    28   464    28   464 0.99 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_3 -           1184 RNA_pol_Rpb2_3       PF04565.11    68   2.4e-31   99.2   0.0   1   1   1.1e-32   5.2e-31   98.1   0.0     1    68   468   537   468   537 0.99 # 1227 # 4778 # 1 # ID=11_3;partial=00;start_type=TTG;rbs_motif=AGGA/GGAG/GAGG;rbs_spacer=11-12bp;gc_cont=0.369
+Day17a_QCcontig230_4 -            711 RNA_pol_Rpb1_1       PF04997.7    337  1.2e-101  332.1   0.1   1   1  1.9e-102  8.6e-101  329.3   0.0     3   337     6   331     4   331 0.93 # 4941 # 7073 # 1 # ID=11_4;partial=01;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.351
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/a6ec9a19-a4dc-4998-8a17-ee700876d44e
+# Target file:     binsanity-checkm/bins/kmean-bin_16-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_16-bin_0/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/a6ec9a19-a4dc-4998-8a17-ee700876d44e binsanity-checkm/bins/kmean-bin_16-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:16:04 2017
+# [ok]

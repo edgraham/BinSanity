@@ -1,0 +1,19 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig666_35 -            132 SSB                  PF00436.20   104   5.4e-35  113.0   0.2   1   1   5.7e-37   8.8e-35  112.3   0.2     1   104     1   102     1   102 0.98 # 26352 # 26747 # -1 # ID=7_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 tRNA_anti_2          PF13742.1     99   0.00022   14.6   0.0   1   1   1.9e-06    0.0003   14.2   0.0    50    84    46    79    18    95 0.86 # 26352 # 26747 # -1 # ID=7_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 tRNA_anti-codon      PF01336.20    75   6.7e-06   19.5   0.1   1   1   7.2e-08   1.1e-05   18.8   0.1    27    73    46   100    34   102 0.83 # 26352 # 26747 # -1 # ID=7_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 tRNA_anti-like       PF12869.2    144   0.00037   13.5   0.3   1   1     1e-05   0.00078   12.5   0.1    94   132    42    79    24    95 0.78 # 26352 # 26747 # -1 # ID=7_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig598_4  -             82 tRNA_anti-like       PF12869.2    144     0.036    7.1  10.1   1   2    0.0036      0.27    4.2   0.2     1    23     1    23     1    29 0.86 # 3488 # 3733 # 1 # ID=6_4;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.333
+Day17a_QCcontig598_4  -             82 tRNA_anti-like       PF12869.2    144     0.036    7.1  10.1   2   2    0.0017      0.13    5.3   4.2     5    27    28    49    25    81 0.85 # 3488 # 3733 # 1 # ID=6_4;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.333
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/e3cc5199-7adb-4bf5-90c2-95db9a2e78b2
+# Target file:     binsanity-checkm/bins/kmean-bin_17-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_17-bin_0/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/e3cc5199-7adb-4bf5-90c2-95db9a2e78b2 binsanity-checkm/bins/kmean-bin_17-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:27:27 2017
+# [ok]

@@ -110,7 +110,7 @@ if __name__ == '__main__':
     above. If you have greater than this number of contigs we recommend 
     trying the beta-version for our script binsanity-lc. 
 
-    """,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] =x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
+    """,usage='%(prog)s -f [/path/to/fasta] -l [fastafile] -c [coverage file] -p [preference] -m [maxiter] -v [convergence iterations] -d [damping factor] -x [contig size] -o [output directory]',formatter_class=RawTextHelpFormatter)
     parser.add_argument("-c", dest="inputCovFile", help="""Specify a Coverage File
     """)
     parser.add_argument("-f", dest="inputContigFiles", help="""Specify directory 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
     Give a name to the directory BinSanity results will be output in 
     [Default is 'BINSANITY-RESULTS']
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.11')
 
     args = parser.parse_args()
     if len(sys.argv)<3:

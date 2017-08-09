@@ -1,0 +1,19 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig3210_2 -             94 Ribosomal_L11        PF00298.14    69   6.1e-22   73.6   2.1   1   1   8.8e-25   7.7e-22   73.2   2.1     1    55    39    93    39    94 0.98 # 759 # 1040 # 1 # ID=216_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.333
+Day17a_QCcontig3110_1 -             93 RNA_pol_Rpb2_6       PF00562.23   386     1e-38  129.1   0.0   1   1   1.3e-41   1.1e-38  128.9   0.0   242   325     1    84     1    92 0.96 # 3 # 281 # -1 # ID=205_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=10bp;gc_cont=0.416
+Day17a_QCcontig3713_1 -             33 RNA_pol_Rpb6         PF01192.17    57   0.00099   14.8   0.0   1   1   1.1e-06   0.00099   14.8   0.0    26    54     3    30     1    32 0.82 # 3 # 101 # 1 # ID=253_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.333
+Day17a_QCcontig3026_1 -             68 Ribosomal_S5_C       PF03719.10    74   4.9e-24   79.4   0.1   1   1   6.3e-27   5.5e-24   79.3   0.1    17    74     2    59     1    59 0.98 # 3 # 206 # 1 # ID=190_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.373
+Day17a_QCcontig3210_2 -             94 Ribosomal_L11_N      PF03946.9     60   4.6e-12   41.2   0.1   1   1   9.4e-15   8.2e-12   40.4   0.1    27    60     2    34     1    34 0.95 # 759 # 1040 # 1 # ID=216_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.333
+Day17a_QCcontig2738_1 -             51 RNA_pol_Rpb2_1       PF04563.10   203   0.00018   16.4   0.0   1   1     2e-07   0.00018   16.4   0.0   132   149     6    23     2    46 0.81 # 2 # 154 # -1 # ID=152_1;partial=10;start_type=ATG;rbs_motif=CCCCCC;rbs_spacer=15bp;gc_cont=0.353
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/20aa096d-0521-4b02-8165-33d03749d2d9
+# Target file:     binsanity-checkm/bins/kmean-bin_28-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_28-bin_0/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/20aa096d-0521-4b02-8165-33d03749d2d9 binsanity-checkm/bins/kmean-bin_28-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:16:06 2017
+# [ok]

@@ -1,0 +1,29 @@
+#                                                                             --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name         accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+# ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig1813_3 -            108 Ribosom_S12_S23      PF00164.20   122   0.00094   13.9   1.6   1   1   2.2e-06    0.0012   13.6   1.6    68   104    64   102    22   107 0.83 # 703 # 1026 # -1 # ID=126_3;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.386
+Day17a_QCcontig1377_12 -            245 Ribosomal_S3_C       PF00189.15    85   8.3e-32  104.6   0.5   1   1     3e-34   1.6e-31  103.7   0.1     1    85   119   202   119   202 0.96 # 4430 # 5164 # -1 # ID=83_12;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.352
+Day17a_QCcontig1377_13 -            113 Ribosomal_L22        PF00237.14   105   4.7e-40  131.1   0.2   1   1   9.7e-43   5.4e-40  131.0   0.2     1   105     5   109     5   109 0.99 # 5176 # 5514 # -1 # ID=83_13;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.333
+Day17a_QCcontig1377_9 -            123 Ribosomal_L14        PF00238.14   122   2.6e-52  171.1   0.7   1   1   5.1e-55   2.8e-52  170.9   0.7     1   122     1   122     1   122 0.99 # 3112 # 3480 # -1 # ID=83_9;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.369
+Day17a_QCcontig1377_11 -            148 Ribosomal_L16        PF00252.13   133   9.6e-55  179.3   0.7   1   1     2e-57   1.1e-54  179.1   0.7     1   132     4   132     4   133 0.99 # 3965 # 4408 # -1 # ID=83_11;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.390
+Day17a_QCcontig1377_7 -            181 Ribosomal_L5         PF00281.14    56   2.8e-27   89.6   0.5   1   1   1.1e-29   5.9e-27   88.6   0.5     1    56    25    81    25    81 0.99 # 2224 # 2766 # -1 # ID=83_7;partial=00;start_type=TTG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.328
+Day17a_QCcontig1377_2 -            169 Ribosomal_S5         PF00333.15    67     9e-33  107.2   3.7   1   1   2.8e-35   1.6e-32  106.5   3.7     1    66    12    77    12    78 0.98 # 202 # 708 # -1 # ID=83_2;partial=00;start_type=TTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.379
+Day17a_QCcontig1377_5 -            132 Ribosomal_S8         PF00410.14   129   1.8e-51  168.7   0.1   1   1   3.6e-54     2e-51  168.5   0.1     1   129     4   131     4   131 0.98 # 1615 # 2010 # -1 # ID=83_5;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.333
+Day17a_QCcontig861_4 -            136 Ribosomal_S11        PF00411.14   110   4.1e-50  163.9   0.0   1   1   9.6e-53   5.3e-50  163.6   0.0     1   110    25   134    25   134 0.99 # 1447 # 1854 # -1 # ID=29_4;partial=00;start_type=TTG;rbs_motif=AGxAGG/AGGxGG;rbs_spacer=5-10bp;gc_cont=0.380
+Day17a_QCcontig1377_7 -            181 Ribosomal_L5_C       PF00673.16    95   2.2e-43  141.3   0.1   1   1   7.1e-46     4e-43  140.5   0.1     1    95    85   179    85   179 0.99 # 2224 # 2766 # -1 # ID=83_7;partial=00;start_type=TTG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.328
+Day17a_QCcontig1377_10 -             62 Ribosomal_L29        PF00831.18    58   8.4e-22   72.0   1.1   1   1   1.8e-24     1e-21   71.8   1.1     2    48     4    50     3    51 0.98 # 3790 # 3975 # -1 # ID=83_10;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.306
+Day17a_QCcontig1377_3 -             51 Ribosomal_L18p       PF00861.17   119   2.3e-18   61.9   0.3   1   1   4.4e-21   2.4e-18   61.8   0.3    71   119     2    50     1    50 0.98 # 729 # 881 # -1 # ID=83_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.379
+Day17a_QCcontig1939_3 -            304 SRP_SPB              PF02978.14   104   3.5e-36  119.0   7.0   1   2     0.034        19    0.9   0.1    24    54   147   176   135   182 0.66 # 1162 # 2073 # -1 # ID=141_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.342
+Day17a_QCcontig1939_3 -            304 SRP_SPB              PF02978.14   104   3.5e-36  119.0   7.0   2   2   6.2e-39   3.5e-36  119.0   7.0     1   104   183   281   183   281 0.96 # 1162 # 2073 # -1 # ID=141_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.342
+Day17a_QCcontig1377_2 -            169 Ribosomal_S5_C       PF03719.10    74   1.5e-33  109.3   1.0   1   1   4.2e-36   2.3e-33  108.7   1.0     1    74    87   160    87   160 0.99 # 202 # 708 # -1 # ID=83_2;partial=00;start_type=TTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.379
+Day17a_QCcontig1636_3 -            318 TIGR00344            TIGR00344    847   5.3e-05   16.6   0.0   1   1   1.3e-07     7e-05   16.2   0.0   556   679    72   201    48   207 0.80 # 2144 # 3097 # -1 # ID=111_3;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.325
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/20f1195f-c46f-4cca-860f-6a0d26bbb009
+# Target file:     binsanity-checkm/bins/kmean-bin_42-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_42-bin_0/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/20f1195f-c46f-4cca-860f-6a0d26bbb009 binsanity-checkm/bins/kmean-bin_42-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:16:07 2017
+# [ok]

@@ -48,7 +48,6 @@ def cov_array(a,path,file_name,size):
                     c += 1 
     print cov_array.shape
     return cov_array, names  
-
 def affinity_propagation(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
     """Uses affinity propagation to make putative bins"""
     if os.path.isdir(str(output_directory)) is False:
@@ -69,9 +68,9 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
     output_directory=output_directory+"/BINSANITY-INITIAL"
     if os.path.isdir(output_directory) is False:
         os.mkdir(output_directory)
-    with open(os.path.join(path,file_name),"r") as input2_file: 
-        fasta_dict = create_fasta_dict(input2_file)                
-        count = 0                
+    with open(os.path.join(path,file_name),"r") as input2_file:
+        fasta_dict = create_fasta_dict(input2_file)
+        count = 0
         for k in outfile_data:
             if len(outfile_data[k]) >= 5:
                 output_file = open(os.path.join(output_directory,str(out_name)+"-bin_%s.fna" % (k)), "w")
@@ -89,11 +88,11 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
             print "Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""Total Number of Bins: %i""" % count)
     
-def GC_Fasta_file(b,name):
+def GC_Fasta_file(b,name,prefix):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
     GC_dict = {}
     input_file = open(os.path.join(b,name), 'r') 
-    output_file = open('GC_count','w')
+    output_file = open(str(prefix)+'-GC_count','w')
     output_file.write("%s\t%s\n" % ('contig','GC'))
     for cur_record in SeqIO.parse(input_file, "fasta") :
         gene_name = cur_record.id 
@@ -103,16 +102,15 @@ def GC_Fasta_file(b,name):
         output_line = '%s\t%i\n' % \
         (gene_name, GC_percent) 
         output_file.write(output_line)
-
-        
     output_file.close() 
     input_file.close()
+
 ###########################Get tetramer frequencies#####################################
-def kmean(array,names,filename,path,clusters,path2):
+def kmean(array,names,filename,path,clusters,path2,prefix):
     """Uses kmeans to make putative bins"""
     if os.path.isdir(str(path)) is False:
         os.mkdir(path)
-    os.mkdir(os.path.join(path,"KMEAN-BINS"))
+    os.mkdir(os.path.join(path,str(prefix)+"-KMEAN-BINS"))
     average_linkage = KMeans(n_clusters=int(clusters), n_jobs=-1,n_init=5000)
     apclust = average_linkage.fit_predict(array)
     outfile_data = {}
@@ -128,20 +126,20 @@ def kmean(array,names,filename,path,clusters,path2):
         count = 0    
         for k in outfile_data:
             if len(outfile_data[k]) >= 5:
-                output_file = open(os.path.join(os.path.join(path,"KMEAN-BINS"),"kmean-bin_%s.fna" % (k)), "w" )
+                output_file = open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-bin_%s.fna" % (prefix,k)), "w" )
                 for x in outfile_data[k]:
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
             elif len(outfile_data[k]) < 5:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
-                    output_file = open(os.path.join(os.path.join(path,"KMEAN-BINS"),"kmean-bin_%s.fna" % (k)), "w" )
+                    output_file = open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-bin_%s.fna" % (prefix,k)), "w" )
                     for x in outfile_data[k]:
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
             else:
-                output_file=open(os.path.join(os.path.join(path,"KMEAN-BINS"),"kmean-unclustered.fna"),"w")
+                output_file=open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix),"w"))
                 for x in outfile_Data[k]:
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
@@ -185,13 +183,14 @@ def kmer_counts(kmer,b,name):
     return kmer_dict
                    
          
-def output(a):
+def output(a,prefix):
     """Builds tab-delimeted file based on dictionary of tetramers"""
-    topleft = 'contig' 
+    topleft = 'contig'
+	 
     headers = sorted(set(key
                         for row in a.values()
                         for key in row[0]))
-    writer = csv.writer(open('tetramer-frequencies','wb'), delimiter='\t')
+    writer = csv.writer(open(str(prefix)+'-tetramer-frequencies','wb'), delimiter='\t')
     writer.writerow([topleft] + headers)
     for key in a:
         row = [key]
@@ -199,14 +198,14 @@ def output(a):
             row.append(a[key][0].get(header, 0))
         writer.writerow(row)
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
-def get_contigs(c):
-    GC = open("GC_count","r")
+def get_contigs(c,prefix):
+    GC = open(str(prefix)+"-GC_count","r")
     dataframe =pandas.read_csv(GC,sep="\t")
     dataframe=dataframe.set_index("contig")
     dataframe *= 100
     dataframe += 1
     dataframe = np.log10(dataframe)
-    tetra = open("tetramer-frequencies","r")
+    tetra = open(str(prefix)+"-tetramer-frequencies","r")
     dataframe2=pandas.read_csv(tetra,sep="\t")
     dataframe2=dataframe2.set_index("contig")
     dataframe2*=100
@@ -221,13 +220,13 @@ def get_contigs(c):
     dataframe3 = dataframe3[1:]
     dataframe3=dataframe3.set_index("contig")
     result = pandas.concat([dataframe, dataframe2,dataframe3],axis=1,join='inner')
-    result.to_csv(path_or_buf=str("tetra-GC-out"),header=None,sep ="\t")
+    result.to_csv(path_or_buf=str(str(prefix)+"-tetra-GC-out"),header=None,sep ="\t")
 
-def refined_ap(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
+def refined_ap(array,names,file_name,damping,iterations,convergence,preference,path,output_directory,prefix):
     """Uses affinity propagation to make putative bins"""    
-    if os.path.isdir(os.path.join(str(output_directory),"REFINED-BINS")) is False:
-        os.mkdir(os.path.join(str(output_directory),"REFINED-BINS"))
-    name_of_output_file = os.path.join(str(output_directory),"REFINED-BINS")
+    if os.path.isdir(os.path.join(str(output_directory),str(prefix)+"-REFINED-BINS")) is False:
+        os.mkdir(os.path.join(str(output_directory),str(prefix)+"-REFINED-BINS"))
+    name_of_output_file = os.path.join(str(output_directory),str(prefix)+"-REFINED-BINS")
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     print"""-------------------------------------------------------
                             --Creating Bins--
@@ -262,11 +261,11 @@ def refined_ap(array,names,file_name,damping,iterations,convergence,preference,p
         print ("""Total Number of Bins: %i""" % count)
     
 ########################################################################################
-def run_checkM(bins,threads):
-    output = open("checkm_lineagewf-binsanity.out","w")   
-    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),"binsanity-checkm"],stdout=output)
+def run_checkM(bins,threads,prefix):
+    output = open(str(prefix)+"-checkm_lineagewf-binsanity.out","w")   
+    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),str(prefix)+"-binsanity-checkm"],stdout=output)
 ########################################################################################
-def checkm_analysis(file_,fasta,path):
+def checkm_analysis(file_,fasta,path,prefix):
     checkm = list(csv.reader(open(file_,'rb')))
     new = []
     for list_ in checkm:
@@ -301,25 +300,27 @@ def checkm_analysis(file_,fasta,path):
         else:
             High_redundancy.append(list_[0])
 
-    os.makedirs(os.path.join(path,"high_completion"))
-    os.makedirs(os.path.join(path,"low_completion"))
-    os.makedirs(os.path.join(path,"high_redundancy"))
-    os.makedirs(os.path.join(path,"strain_redundancy"))
+    os.makedirs(os.path.join(path,str(prefix)+"-high_completion"))
+    os.makedirs(os.path.join(path,str(prefix)+"-low_completion"))
+    os.makedirs(os.path.join(path,str(prefix)+"-high_redundancy"))
+    os.makedirs(os.path.join(path,str(prefix)+"-strain_redundancy"))
     
     for name in High_completion:
-        shutil.move(os.path.join(path,(str(name)+fasta)), os.path.join(path,"high_completion"))
+        shutil.move(os.path.join(path,(str(name)+fasta)), os.path.join(path,str(prefix)+"-high_completion"))
     for name in Low_completion:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"low_completion"))
+        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"-low_completion"))
     for name in High_redundancy:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"high_redundancy"))
+        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"-high_redundancy"))
     for name in Strain_variation:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"strain_redundancy"))
+        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"-strain_redundancy"))
         
 ########################################################################################     
 class Logger(object):
-    def __init__(self):
+    def __init__(self,filename):
+	self.filename = filename
+	out = filename.rsplit(".",1)[0]
         self.terminal = sys.stdout
-        self.log = open("Binsanity-log.txt", "a")
+        self.log = open(str(out)+"-Binsanity-log.txt", "a")
 
     def write(self, message):
         self.terminal.write(message)
@@ -390,7 +391,9 @@ if __name__ == '__main__':
     parser.add_argument("--clusters",dest="cluster",type=int,default=50,help="""
     Indicate a number of initial clusters for kmean, default is 50. 
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.8')
+    parser.add_argument("--Prefix",dest="prefix",default="_", help="""
+    Specifyy a prefix to append to the start of all directories generated during Binsanity""")
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.5.11')
 
     args = parser.parse_args()
     if len(sys.argv) is None:
@@ -414,7 +417,7 @@ if __name__ == '__main__':
     elif args.inputContigFiles and not args.fastafile:
         parser.error('-l Need to identify file to be clustered')
     else:
-        sys.stdout = Logger()
+        sys.stdout = Logger(args.prefix)
         print("""
         -------------------------------------------------------
                          Running Binsanity
@@ -435,8 +438,8 @@ if __name__ == '__main__':
                   Initializing clustering via K-means
         ------------------------------------------------------
         """)
-        kmean(val1,val2,args.fastafile,args.outputdir,args.cluster,args.inputContigFiles)
-        location_kmean = os.path.join(args.outputdir,"KMEAN-BINS")
+        kmean(val1,val2,args.fastafile,args.outputdir,args.cluster,args.inputContigFiles,args.prefix)
+        location_kmean = os.path.join(args.outputdir,str(args.prefix)+"-KMEAN-BINS")
         count = 1 
         for clust in os.listdir(location_kmean):
             start_time = time.time()
@@ -471,13 +474,13 @@ if __name__ == '__main__':
         
         """)
         out_1= args.outputdir+'/BINSANITY-INITIAL'
-        run_checkM(str(out_1),str(args.threads))
-        checkm_analysis("checkm_lineagewf-binsanity.out",".fna",str(out_1))
+        run_checkM(str(out_1),str(args.threads),args.prefix)
+        checkm_analysis(str(args.prefix)+"-checkm_lineagewf-binsanity.out",".fna",str(out_1),args.prefix)
 ##############################Refining Bins#######################################
         start_time = time.time()
 
-        location = os.path.join(out_1,"high_redundancy")
-        location2 = os.path.join(out_1,"low_completion")
+        location = os.path.join(out_1,str(args.prefix)+"-high_redundancy")
+        location2 = os.path.join(out_1,str(args.prefix)+"-low_completion")
         with open("low_completion.fna","wb") as outfile:
             for filename in glob.glob(str(location2)+"/*.fna"):
                 if filename == "low_completion.fna":
@@ -496,7 +499,7 @@ if __name__ == '__main__':
                  Calculating GC content for redundant bin %s
             -------------------------------------------------------""" % str(redundant_bin)
             GC_time = time.time()
-            GC_Fasta_file(location, redundant_bin)
+            GC_Fasta_file(location, redundant_bin,args.prefix)
             print "GC content calculated in %s seconds" % (time.time() - GC_time)
                 
             print """
@@ -504,7 +507,7 @@ if __name__ == '__main__':
               Calculating tetramer frequencies for redundant bin %s
             -------------------------------------------------------"""% str(redundant_bin)
             kmer_time = time.time()
-            output(kmer_counts(args.kmer,location,redundant_bin))
+            output(kmer_counts(args.kmer,location,redundant_bin),args.prefix)
             print "tertamer frequency calculated in %s seconds" % (time.time()- kmer_time)
              
             print """
@@ -512,7 +515,7 @@ if __name__ == '__main__':
                     Creating Profile for redundant bin %s
             ------------------------------------------------------""" % str(redundant_bin)
             combine_time = time.time()
-            get_contigs(args.inputCovFile)
+            get_contigs(args.inputCovFile,args.prefix)
             print "Combined profile created in %s seconds" % (time.time()- combine_time)
             refine_time=time.time()
             print """ 
@@ -527,9 +530,9 @@ if __name__ == '__main__':
             print "Coverage File: " + str(args.inputCovFile)
             print "Fasta File: " + str(redundant_bin)
         
-            val1, val2 = cov_array((get_cov_data('tetra-GC-out')), location, redundant_bin,args.ContigSize)
+            val1, val2 = cov_array((get_cov_data(args.prefix +'-tetra-GC-out')), location, redundant_bin,args.ContigSize)
         
-            refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter, args.conviter, args.inputrefinedpref,location,args.outputdir)
+            refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter, args.conviter, args.inputrefinedpref,location,args.outputdir,args.prefix)
         
             print("""
             --------------------------------------------------------
@@ -539,14 +542,14 @@ if __name__ == '__main__':
         initial_out = os.path.join(str(args.outputdir),"BINSANITY-INITIAL")
         os.mkdir(str(final_out))
         os.rename(initial_out,os.path.join(str(args.outputdir),"Binsanity-records"))
-        shutil.move(os.path.join(str(args.outputdir),"REFINED-BINS"),os.path.join(str(args.outputdir),"Binsanity-records"))
-        path1 = os.path.join(args.outputdir,"Binsanity-records/high_completion")
+        shutil.move(os.path.join(str(args.outputdir),str(args.prefix)+"-REFINED-BINS"),os.path.join(str(args.outputdir),"Binsanity-records"))
+        path1 = os.path.join(args.outputdir,"Binsanity-records/"+args.prefix+"-high_completion")
         for files in os.listdir(path1):
-            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/high_completion"),files),str(final_out))
-        for files in os.listdir(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS")):
-            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS"),files),str(final_out))
-        shutil.move("tetra-GC-out",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("tetramer-frequencies",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("GC_count",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("checkm_lineagewf-binsanity.out",os.path.join(str(args.outputdir),"Binsanity-records/"))
-        shutil.move("binsanity-checkm",os.path.join(str(args.outputdir),"Binsanity-records/"))
+            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/"+args.prefix+"-high_completion"),files),str(final_out))
+        for files in os.listdir(os.path.join(str(args.outputdir),"Binsanity-records/"+str(args.prefix)+"-REFINED-BINS")):
+            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/"+str(args.prefix)+"-REFINED-BINS"),files),str(final_out))
+        shutil.move(str(args.prefix)+"-tetra-GC-out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-tetramer-frequencies",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-GC_count",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-checkm_lineagewf-binsanity.out",os.path.join(str(args.outputdir),"Binsanity-records/"))
+        shutil.move(str(args.prefix)+"-binsanity-checkm",os.path.join(str(args.outputdir),"Binsanity-records/"))

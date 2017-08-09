@@ -1,0 +1,29 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+from Bio import SeqIO
+import argparse
+def simplfy_fasta(fasta,out):
+	count = 1
+	x = open(out,"a")
+	for record in SeqIO.parse(fasta,"fasta"):
+		recordid = ">contig_"+str(count)
+		recordseq =record.seq
+		x.write(recordid)
+		x.write("\n")
+		x.write(str(recordseq))
+		x.write("\n")
+		count = count +1
+	x.close()
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(prog='simplify-fasta', usage='%(prog)s -i inputFasta -o outputFasta')
+	parser.add_argument("-i", dest="inputFASTA", help="Specify the name of the input file")
+    	parser.add_argument("-o",dest="inputOUT",help="Specify the name for the output file")
+    	args = parser.parse_args()
+    	if args.inputFASTA is None and args.inputOUT is None:
+		print("You haven't specified an input or output silly")
+    	elif args.inputFASTA is None:
+		print("You can't give an output without an input")
+    	elif args.inputOUT is None:
+		print("Provide and output file")
+	else:
+		simplfy_fasta(args.inputFASTA,args.inputOUT)

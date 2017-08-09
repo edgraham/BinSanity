@@ -1,0 +1,15 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig276_2 -            335 Ribosomal_L11        PF00298.14    69   0.00055   12.7   1.6   1   1   2.1e-05    0.0016   11.1   0.1    16    43    23    51    17    62 0.91 # 845 # 1849 # -1 # ID=10_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.289
+Day17a_QCcontig282_4 -           1025 TIGR00392            TIGR00392    861  5.6e-288  949.9  16.5   1   1  9.5e-290  7.3e-288  949.5  16.5    10   857     7   825     1   828 0.97 # 4649 # 7723 # -1 # ID=1_4;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.287
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/235455d5-cb15-42c6-9958-ec65d42957b6
+# Target file:     binsanity-checkm/bins/kmean-bin_34-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_34-bin_0/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/235455d5-cb15-42c6-9958-ec65d42957b6 binsanity-checkm/bins/kmean-bin_34-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:27:27 2017
+# [ok]

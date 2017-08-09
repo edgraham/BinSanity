@@ -1,0 +1,17 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig3658_3 -             65 Calcipressin         PF04847.7    185   0.00016   15.5   0.0   1   1   6.3e-07   0.00016   15.5   0.0    92   128     7    44     2    54 0.83 # 550 # 744 # 1 # ID=86_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.431
+Day17a_QCcontig3251_2 -            139 eIF-5a               PF01287.15    69     1e-29   96.6   0.5   1   1   5.6e-32   1.4e-29   96.1   0.5     1    69    64   131    64   131 0.98 # 729 # 1145 # 1 # ID=41_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.372
+Day17a_QCcontig3251_2 -            139 EFP_N                PF08207.7     58   0.00041   14.5   0.0   1   1   2.4e-06   0.00063   13.9   0.0     3    49     4    51     2    57 0.86 # 729 # 1145 # 1 # ID=41_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.372
+Day17a_QCcontig3251_2 -            139 KOW                  PF00467.24    32   2.2e-06   21.6   0.6   1   1   1.8e-08   4.6e-06   20.5   0.6     1    31     8    39     8    40 0.92 # 729 # 1145 # 1 # ID=41_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.372
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/0f1efcee-e675-400e-b44d-ce3c099155fa
+# Target file:     binsanity-checkm/bins/kmean-bin_20-bin_0/genes.faa
+# Option settings: hmmsearch --domtblout binsanity-checkm/bins/kmean-bin_20-bin_0/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/0f1efcee-e675-400e-b44d-ce3c099155fa binsanity-checkm/bins/kmean-bin_20-bin_0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/test-scripts
+# Date:            Wed Jun 28 08:27:27 2017
+# [ok]
