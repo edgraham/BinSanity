@@ -1,5 +1,7 @@
 #! /usr/bin/env python
+from argparse import RawTextHelpFormatter
 from Bio import SeqIO
+import sys
 import numpy as np
 import os 
 import argparse
@@ -32,15 +34,23 @@ def concat_alignments(directory,extension,prefix,output,num):
                 new.writelines([">%s\n"%str(org),tmp+"\n"])
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='concat-seqs',usage='%(prog)s -f directory -e Alignment Extension --Prefix file linker -o output', description="""
-    This will concatenate multiple alignments""")
-    parser.add_argument("-f",dest="inputDir",help="Specify directory where alignments are")
-    parser.add_argument("-e",dest ="inputExtension",help = "Specify the extension for your alignments (must be in Fasta format)")
-    parser.add_argument("--Prefix",dest ="inputPrefix",help="Specify the prefix that links your alignments (ex: if you have two alignments TOBG_RpL10, TOBG_RpL24, the --Prefix would be TOBG")
-    parser.add_argument("-o", dest = "inputOutFile",help="Specify output file")
-    parser.add_argument("-N",dest="number",help="Specify the minimum number of sequences needed to be included in concatonation")	
+    parser = argparse.ArgumentParser(prog='concat',usage='%(prog)s -f directory -e Alignment Extension --Prefix file linker -o output', description="""
+    *****************************************************************************
+    *********************************BinSanity***********************************
+    **     The `concat` script is used to concatenate multiple sequence        **
+    **     alignments for conducting a phylogenomic analysis. Note that you    **
+    **     receive an error if there are any duplicate sequence ids in an      **
+    **     alignment. 
+    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-f",metavar="",dest="inputDir",help="Specify directory where alignments are")
+    parser.add_argument("-e",metavar="",dest ="inputExtension",help = "Specify the extension for your alignments (must be in Fasta format)")
+    parser.add_argument("--Prefix",metavar="",dest ="inputPrefix",help="Specify the prefix that links your alignments (ex: if you have two alignments TOBG_RpL10, TOBG_RpL24, the --Prefix would be TOBG")
+    parser.add_argument("-o", dest = "inputOutFile",metavar="",help="Specify output file")
+    parser.add_argument("-N",dest="number",metavar="",help="Specify the minimum number of sequences needed to be included in concatenation")	
     args = parser.parse_args()
-    if os.path.isfile(args.inputOutFile):
+    if len(sys.argv)<2:
+	print parser.print_help()
+    elif os.path.isfile(args.inputOutFile):
         print "Your Output File Already Exists and We don't want to overwrite it"
     else:
         concat_alignments(args.inputDir,args.inputExtension,args.inputPrefix,args.inputOutFile,args.number)

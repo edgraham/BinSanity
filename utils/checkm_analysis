@@ -2,7 +2,7 @@
 
 import csv, re
 import os, shutil, argparse
-
+from argparse import RawTextHelpFormatter
 def checkm_analysis(file_,fasta):
     checkm = list(csv.reader(open(file_,'rb')))
     new = []
@@ -38,11 +38,14 @@ def checkm_analysis(file_,fasta):
         else:
             High_contamination.append(list_[0])
 
-
-    os.makedirs("high_completion")
-    os.makedirs("low_completion")
-    os.makedirs("high_redundancy")
-    os.makedirs("strain_redundancy")
+    if os.path.isdir("high_completion") is False:
+    	os.makedirs("high_completion")
+    if os.path.isdir("low_completion") is False:
+    	os.makedirs("low_completion")
+    if os.path.isdir("high_redundancy") is False:
+    	os.makedirs("high_redundancy")
+    if os.path.isdir("strain_redundancy") is False:    
+	os.makedirs("strain_redundancy")
     
     for name in High_completion:
         shutil.move((str(name)+fasta), "high_completion")
@@ -55,7 +58,15 @@ def checkm_analysis(file_,fasta):
         
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='checkm_analysis', usage='%(prog)s -checkM checkm_qa -f fasta suffix [.fa,.fasta,.fna]',description="""Script pulls CheckM qa results and separates files into low completion, high completion, and high redundancy""")
+    parser = argparse.ArgumentParser(prog='checkm_analysis', usage='%(prog)s -checkM checkm_qa -f fasta suffix [.fa,.fasta,.fna]',description="""
+    *****************************************************************************
+    *********************************BinSanity***********************************
+    **   The script `checkm_analysis` is a simple parser that extracts the     **
+    **   completion, contamination, and strain heterogeneity values from the   **
+    **   output of `checkm qa`. Then it splits the corresponding genomes into  **
+    **   categories of high completion, low completion, and high redundancy    **
+    **   prior to moving the bins into appropriate subfolders.                 **
+    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
     parser.add_argument("-checkM", dest="inputqa", help="Specify a checkM file")
     parser.add_argument("-f", dest="inputfa", type=str, default=".fna",help="Identify what your suffix for fasta file is [default: .fna]")
     args = parser.parse_args()

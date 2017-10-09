@@ -5,7 +5,7 @@ import glob
 import argparse
 import time
 import os, sys
-
+from argparse import RawTextHelpFormatter
 def bin_output(path,file_name,outfile,length):
     contig_names_bin = []
     for record in SeqIO.parse(os.path.join(path, file_name), "fasta"):        
@@ -17,18 +17,25 @@ def bin_output(path,file_name,outfile,length):
 
             
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='get-ids', usage='%(prog)s -f /path/to/fasta/file -l fastafile -o output')
-    parser.add_argument("-f", dest="inputPutative", help="Specify the directory containing fasta file")
-    parser.add_argument("-o", dest="inputOUTPUT", help="Specify the output file")
-    parser.add_argument("-l",dest="inputFasta",help="Specify fasta file")
-    parser.add_argument("-x",dest="inputLength",type=int,help="Specify minimum length to be incorporated")
-
+    parser = argparse.ArgumentParser(prog='get-ids', usage='%(prog)s -f directory/with/fasta -l fasta/file/ -o outputName -x contig/length',description="""
+    *****************************************************************************
+    *********************************BinSanity***********************************
+    **    The `get-ids` script is built to generate a file containing contig   **
+    **    names of all contigs greater than size the size indicated by `-x`    **
+    **    for input into Binsanity-profile.                                    **
+    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-f", dest="inputPutative",metavar="", help="Specify the directory containing fasta file")
+    parser.add_argument("-o", dest="inputOUTPUT", metavar="",help="Specify the output file")
+    parser.add_argument("-l",dest="inputFasta",metavar="",help="Specify fasta file")
+    parser.add_argument("-x",dest="inputLength",metavar="",type=int,help="Specify minimum length to be incorporated")
     args = parser.parse_args()
-    if args.inputPutative is None:
+    if len(sys.argv) < 2:
+    	print parser.print_help()
+    elif args.inputPutative is None:
         print "Identify directory where fasta file is using -f"
-    if args.inputFasta is None:
+    elif args.inputFasta is None:
         print "Identify fasta file is using -l"
-    if args.inputOUTPUT is None:
+    elif args.inputOUTPUT is None:
         print "Use -o to specify and output file"
     elif len(sys.argv) is None:
         print parser.print_help()

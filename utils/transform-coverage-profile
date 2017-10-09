@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import argparse, csv, time, pandas
+import argparse, csv, time, pandas,sys
 import numpy as np
 from argparse import RawTextHelpFormatter
 
@@ -41,7 +41,14 @@ class SmartFormatter(argparse.HelpFormatter):
         return argparse.HelpFormatter._split_lines(self, text, width)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='transform-coverage-profile', usage='%(prog)s -c Output -t transform',formatter_class=RawTextHelpFormatter)
+    parser = argparse.ArgumentParser(prog='transform-coverage-profile', usage='%(prog)s -c Output -t transform',formatter_class=RawTextHelpFormatter,description="""
+        *****************************************************************************
+        ********************************BinSanity************************************
+        **       The `transform-coverage-profile` script is made to expedite the   **
+        **       transformation of a raw coverage profile without re-running       **
+        **       Binsanity-profile. The script takes as input the `.cov` file      **
+        **       output from Binsanity-profile (or another coverage profile)       ** 
+        *****************************************************************************""")
     parser.add_argument("-c", dest="inputoutput", help="Specify the cov")
     parser.add_argument("-t",dest="transform", default = "norm", help ="""
     Indicate what type of data transformation you want in the final file (default is log):
@@ -52,6 +59,8 @@ if __name__ == '__main__':
     SQR --> Square root
     We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low""")
     args = parser.parse_args()
+    if len(sys.argv)<2:
+    	print parser.print_help()
     if args.inputoutput is None:
         parser.error('-o output fasta file needed')
     else:

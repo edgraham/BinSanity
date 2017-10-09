@@ -5,15 +5,16 @@ import argparse
 import os
 from sklearn import metrics
 from collections import OrderedDict
-
+from argparse import RawTextHelpFormatter
 def bin_output(b,l):
     contig_names_bin = []
     file_names = []
     for filename in os.listdir(b):
-        file_names.append(str(filename))
-        if any((files.endswith(l)) for files in file_names):
-                for record in SeqIO.parse(os.path.join(b,filename), "fasta"):
-                    contig_names_bin.append(record.id)
+        if filename.endswith(l):
+        	file_names.append(str(filename))
+    for filename in file_names:
+	for record in SeqIO.parse(os.path.join(b,filename), "fasta"):
+		contig_names_bin.append(record.id)
         else:
             print "No file's with this Suffix exist in this directory: " , b
                 
@@ -27,16 +28,32 @@ def bin_output(b,l):
     
 
 def ari(a,b):
-    print "------------------------------------------------------------------------------------"
+    print "_______________________________________________________________________________________"
     print "Adjusted-Rand-Index: " , metrics.adjusted_rand_score(a,b)
     print "Homogeneity, completeness, V-measure: " , metrics.homogeneity_completeness_v_measure(a,b)
-    
+    print "_______________________________________________________________________________________"
            
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='bin_evaluation.py', usage='%(prog)s -b Putative Genomes -r reference genomes -l suffix of fasta files')
-    parser.add_argument("-b", dest="inputPutative", help="Specify the directory containing Putative genomes")
-    parser.add_argument("-r", dest="inputreference", help="Specify directory containing reference genomes")
-    parser.add_argument("-l", dest="inputSuffix", help="specify suffix of bins e.g .fa, .fna, .fasta, etc.")
+    parser = argparse.ArgumentParser(prog='bin_evaluation', usage='%(prog)s -b Putative Genomes -r reference genomes -l suffix of fasta files',description="""
+    *****************************************************************************
+    *********************************BinSanity***********************************
+    **   The script `bin_evaluation` uses sklearn metrics                      **  
+    **   (http://scikit-learn.org/stable/modules/classes.html) to calculate    **
+    **   the adjusted rand index, homogeneity, completeness, and v-measure to  **
+    **   evaluate clustering results compared to a of known clusters. See the  **
+    **   BinSanity paper ( https://doi.org/10.7717/peerj.3035) for a full      **
+    **   description of how these are used.                                    ** 
+    **                                                                         **
+    **   The `bin_evaluation` script can be used to compare the statistical    **
+    **   accuracy of multiple clustering methods on a set of contigs with      **
+    **   known identity. To use it you must have two directories. One          **
+    **   containing genome with the expected cluster outcomes (identified with **
+    **   `-r`), and the other containing genomes generated with clustering     **
+    **   method you wish to evaluate (identified with `-b`).                   ** 
+    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-b", dest="inputPutative",metavar="", help="Specify the directory containing Putative genomes")
+    parser.add_argument("-r", dest="inputreference",metavar="", help="Specify directory containing reference genomes")
+    parser.add_argument("-l", dest="inputSuffix",metavar="", help="specify suffix of bins e.g .fa, .fna, .fasta, etc.")
 
     args = parser.parse_args()
     
@@ -50,8 +67,6 @@ if __name__ == '__main__':
         print "Need to specify Suffix linking putative genomes/reference genomes"
         parser.print_help()
             
-    
-    
     else: 
         val1 = bin_output(args.inputPutative, args.inputSuffix)
         val2 = bin_output(args.inputreference, args.inputSuffix)
