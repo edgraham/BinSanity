@@ -1,5 +1,7 @@
 
-#BinSanity v.0.2.6
+# BinSanity v.0.2.6.1 #
+<p>
+
 Please see the new Wiki for usage and installation requirements:
 
 https://github.com/edgraham/BinSanity/wiki
