@@ -69,13 +69,24 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
-            elif len(outfile_data[k]) < 5:
+            elif len(outfile_data[k]) < 5 and len(outfile_data[k]) > 1:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
-                    output_file = open(os.path.join(output_directory,str(out_name)+"-%s.fna" % (k)), "w")
+                    output_file = open(os.path.join(output_directory,str(out_name)+"-bin_%s.fna" % (k)), "w")
                     for x in outfile_data[k]:
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
+            else:
+                output_file=open(os.path.join(output_directory,'unclustered.fna'),'a')
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+            if os.path.isfile(os.path.join(output_directory,'unclustered.fna')) is True:
+                contig_number = 0
+                for record in SeqIO.parse(os.path.join(output_directory,'unclustered.fna'),"fasta"):
+                        contig_number +=1
+                if contig_number < 2:
+                        os.remove(os.path.join(output_directory,'unclustered.fna'))
             print "          Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""          Total Number of Bins: %i""" % count)
     
@@ -141,7 +152,7 @@ if __name__ == '__main__':
     Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument("--log",dest="logfile",default="binsanity-logfile.txt",help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.1')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.2')
 
     args = parser.parse_args()
     if len(sys.argv)<3:

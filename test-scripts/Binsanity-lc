@@ -77,16 +77,26 @@ def affinity_propagation(array,names,file_name,damping,iterations,convergence,pr
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
-            elif len(outfile_data[k]) < 5:
+            elif len(outfile_data[k]) < 5 and len(outfile_data[k]) > 1:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
                     output_file = open(os.path.join(output_directory,str(out_name)+"-bin_%s.fna" % (k)), "w")
                     for x in outfile_data[k]:
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
+            else:
+                output_file=open(os.path.join(output_directory,'unclustered.fna'),'a')
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+            if os.path.isfile(os.path.join(output_directory,'unclustered.fna')) is True:
+		contig_number = 0
+	    	for record in SeqIO.parse(os.path.join(output_directory,'unclustered.fna'),"fasta"):
+                	contig_number +=1
+           	if contig_number < 2:
+                	os.remove(os.path.join(output_directory,'unclustered.fna'))
             print "          Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""          Total Number of Bins: %i""" % count)
-    
 def GC_Fasta_file(b,name,prefix,location):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
     GC_dict = {}
@@ -128,7 +138,7 @@ def kmean(array,names,filename,path,clusters,path2,prefix):
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
                 count = count + 1
-            elif len(outfile_data[k]) < 5:
+            elif len(outfile_data[k]) < 5 and len(outfile_data[k]) > 1:
                 if any((len(fasta_dict[x])>50000) for x in outfile_data[k]):
                     output_file = open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-bin_%s.fna" % (prefix,k)), "w" )
                     for x in outfile_data[k]:
@@ -136,13 +146,19 @@ def kmean(array,names,filename,path,clusters,path2,prefix):
                     output_file.close()
                     count = count +1
             else:
-                output_file=open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix),"w"))
-                for x in outfile_Data[k]:
+                output_file=open(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix)),"w")
+                for x in outfile_data[k]:
                     output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                 output_file.close()
+	    if os.path.isfile(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix))) is True:
+            	count = 0
+	    	for record in SeqIO.parse(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix)),"fasta"):
+			count +=1
+		if count <2:
+			os.remove(os.path.join(os.path.join(path,str(prefix)+"-KMEAN-BINS"),"%s-kmean-unclustered.fna" % str(prefix)))
             print "          Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""          Total Number of Bins: %i""" % count)
-
+	
 def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
@@ -251,9 +267,19 @@ def refined_ap(array,names,file_name,damping,iterations,convergence,preference,p
                         output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
                     output_file.close()
                     count = count +1
+            else:
+                output_file=open(os.path.join(output_directory,'unclustered.fna'),'a')
+                for x in outfile_data[k]:
+                    output_file.write(">"+str(x)+"\n"+str(fasta_dict[x])+"\n")
+                output_file.close()
+            if os.path.isfile(os.path.join(output_directory,'unclustered.fna')) is True:
+                contig_number = 0
+                for record in SeqIO.parse(os.path.join(output_directory,'unclustered.fna'),"fasta"):
+                        contig_number +=1
+                if contig_number < 2:
+                        os.remove(os.path.join(output_directory,'unclustered.fna'))
             print "          Cluster "+str(k)+": "+str(len(outfile_data[k]))
         print ("""          Total Number of Bins: %i""" % count)
-    
 ########################################################################################
 def run_checkM(bins,threads,prefix):
     output = open(str(prefix)+"-checkm_lineagewf-binsanity.out","w")   
@@ -379,7 +405,7 @@ if __name__ == '__main__':
     """)
     parser.add_argument("--Prefix",dest="prefix",metavar="Prefix",default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.1')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.2')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -459,7 +485,7 @@ if __name__ == '__main__':
             ____________________________________________________""" % (time.time() - start_time))
 ##########################Finding Bin Metrics####################################
     
-        print ("""
+	print ("""
            ____________________________________________________
           |                                                    |
           |     Evaluating Initial Genome Bins With CheckM     |
