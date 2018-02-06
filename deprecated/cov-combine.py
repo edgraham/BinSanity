@@ -37,7 +37,7 @@ def get_coverage(a,b,c):
             log = ((float(n)))
             coverage_log.append(str(log))
     
-        data = zip(contig,coverage_log)
+        data = list(zip(contig,coverage_log))
         data = dict(data)
         for name in all_:
             if name not in contig:
@@ -46,7 +46,7 @@ def get_coverage(a,b,c):
                 elif name not in coverage_log_all:
                     coverage_log_all.setdefault(name, [])
                     coverage_log_all[name].append('0')
-        for key in data.viewkeys():
+        for key in data.keys():
             if key in all_: 
                 if key in coverage_log_all:
                     coverage_log_all[key].append(data[key])
@@ -56,7 +56,7 @@ def get_coverage(a,b,c):
 
                 
     out = open(str(b), 'w')
-    for key, value in coverage_log_all.iteritems():
+    for key, value in coverage_log_all.items():
         out.write('%s\t%s\n' % (key,'\t'.join(value)))
     out.close()
     
@@ -104,31 +104,31 @@ if __name__ == '__main__':
         parser.error('-c suffic linking coverage profiles needed')
     else:
         start_time = time.time()
-        print"""
+        print("""
         ---------------------------------------------------------------------
         Getting Coverage.....
-        """
+        """)
 
         get_coverage(get_contigs(args.inputCoverage),args.inputoutput,args.inputCoverage)
         
         x = str(args.inputoutput)
         if args.transform == "log":
-            print "Transforming your combined covergae profile"
+            print("Transforming your combined covergae profile")
             get_log(x, x+".lognorm")
         elif args.transform =="X5":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_multiple(x,x+".x5", int(5))
         elif args.transform =="x10":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_multiple(x,x+".x5", int(10))
         elif args.transform =="SQR":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_squareroot(x, x+".sqrt")
             
             
       
         
-        print ("""
+        print(("""
         --------------------------------------------------------------------
                  Finished combined coverage profiles in %s seconds
-        ____________________________________________________________________""" % (time.time() - start_time))
+        ____________________________________________________________________""" % (time.time() - start_time)))
