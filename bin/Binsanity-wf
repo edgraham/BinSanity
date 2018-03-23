@@ -349,7 +349,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix",dest="prefix",default="BinSanityWf", help="""Specify a prefix to append to the start of all files generated during Binsanity""")
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""Specify a preference for refinement. [Default: -25]""")
     parser.add_argument("--binPrefix",dest="binprefix",default=None,metavar="BinPrefix",help="""Sepcify what prefix you want appended to final Bins {optional}""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.2')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.3')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -430,9 +430,9 @@ if __name__ == '__main__':
         checkm_analysis(os.path.join(args.outputdir,str(args.prefix)+"_checkm_lineagewf-results.txt"),".fna",str(out_1))
 ##############################Refining Bins#######################################
         start_time = time.time()
-
         location = os.path.join(out_1,"high_redundancy")
         location2 = os.path.join(out_1,"low_completion")
+	location4 =  os.path.join(out_1,"high_completion")
         with open("low_completion.fna","wb") as outfile:
             for filename in glob.glob(str(location2)+"/*.fna"):
                 if filename == "low_completion.fna":
@@ -445,6 +445,9 @@ if __name__ == '__main__':
         else:
             shutil.move("low_completion.fna", str(location))
             shutil.rmtree(str(location2))
+	location3 = os.path.join(out_1,"strain_redundancy")
+        for filename in glob.glob(str(location3)+"/*.fna"):
+		shutil.move(filename, str(location4))
 	print """
         *|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*|*
     	 _____________________________________________________

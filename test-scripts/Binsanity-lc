@@ -405,7 +405,7 @@ if __name__ == '__main__':
     """)
     parser.add_argument("--Prefix",dest="prefix",metavar="Prefix",default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.2')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.3')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -499,6 +499,7 @@ if __name__ == '__main__':
 
         location = os.path.join(out_1,str(args.prefix)+"-high_redundancy")
         location2 = os.path.join(out_1,str(args.prefix)+"-low_completion")
+        location4 = os.path.join(out_1,str(args.prefix)+"-high_completion")
         with open("low_completion.fna","wb") as outfile:
             for filename in glob.glob(str(location2)+"/*.fna"):
                 if filename == "low_completion.fna":
@@ -511,6 +512,9 @@ if __name__ == '__main__':
         else:
             shutil.move("low_completion.fna", str(location))
             shutil.rmtree(str(location2))
+        location3 = os.path.join(out_1,"strain_redundancy")
+        for filename in glob.glob(str(location3)+"/*.fna"):
+                shutil.move(filename, str(location4))
         for redundant_bin in os.listdir(location):
             print """
             ____________________________________________________
