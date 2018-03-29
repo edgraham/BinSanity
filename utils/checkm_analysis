@@ -29,9 +29,7 @@ def checkm_analysis(file_,fasta):
             High_completion.append(list_[0])
         elif float(list_[12]) > 50 and (float(list_[13])<=2):
             High_completion.append(list_[0])
-        elif float(list_[12]) < 50:
-            Low_completion.append(list_[0])
-        elif float(list_[12])>80 and (float(list_[13])>10) and (float(list_[13])<=50):
+        elif float(list_[12]) < 50 and (float(list_[13])<=2):
             Low_completion.append(list_[0])
         elif float(list_[13])>50 and float(list_[14])>90:
             Strain_variation.append(list_[0])
