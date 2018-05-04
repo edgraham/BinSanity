@@ -1,0 +1,35 @@
+
+        ******************************************************
+        **********************BinSanity***********************
+        |____________________________________________________|
+        |                                                    |
+        |             Computing Coverage Array               |
+        |____________________________________________________|
+        
+          Preference: -1.0
+          Maximum Iterations: 4000
+          Convergence Iterations: 400
+          Contig Cut-Off: 1000
+          Damping Factor: 0.95
+          Coverage File: /media/acclomator/egraham/applications/BinSanity/example/Infant_gut_assembly.cov.x100.lognorm
+          Fasta File: PASS7-Bin-2.fna
+          Output directory: ../../PASS8
+          logfile: BinSanity-LogFiles/PASS7-Bin-2.fna.binsanity.log
+          (318, 11)
+
+         ______________________________________________________
+        |                                                      |
+        |                 Clustering Contigs                   |
+        |______________________________________________________|
+
+        
+          Cluster 0: 222
+          Cluster 1: 96
+          Total Number of Bins: 2
+
+
+         _____________________________________________________
+
+                       Putative Bins Computed
+                       in 2.57639288902 seconds
+         _____________________________________________________

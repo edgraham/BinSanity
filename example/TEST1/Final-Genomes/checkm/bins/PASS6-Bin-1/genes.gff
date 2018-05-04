@@ -1,0 +1,66 @@
+##gff-version  3
+# Sequence Data: seqnum=1;seqlen=1344;seqhdr="Day17a_QCcontig1931"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="17|Desulfotomaculum_acetoxidans_DSM_771|B|41.5|11|1";gc_cont=41.60;transl_table=11;uses_sd=1
+Day17a_QCcontig1931	Prodigal_v2.6.3	CDS	943	1101	7.2	+	0	ID=1_1;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.484;conf=83.99;score=7.21;cscore=-1.78;sscore=8.99;rscore=7.24;uscore=0.48;tscore=1.77;
+# Sequence Data: seqnum=2;seqlen=6217;seqhdr="Day17a_QCcontig2049"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig2049	Prodigal_v2.6.3	CDS	927	4202	115.4	-	0	ID=2_1;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.395;conf=100.00;score=116.61;cscore=111.40;sscore=5.21;rscore=2.56;uscore=-2.00;tscore=3.47;
+Day17a_QCcontig2049	Prodigal_v2.6.3	CDS	4189	6015	181.2	-	0	ID=2_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.427;conf=99.99;score=181.21;cscore=180.38;sscore=0.83;rscore=-4.87;uscore=2.23;tscore=3.47;
+# Sequence Data: seqnum=3;seqlen=1560;seqhdr="Day17a_QCcontig2539"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="24|Ignisphaera_aggregans_DSM_17230|A|35.7|11|1";gc_cont=35.70;transl_table=11;uses_sd=1
+Day17a_QCcontig2539	Prodigal_v2.6.3	CDS	1063	1374	0.4	-	0	ID=3_1;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.343;conf=52.52;score=0.44;cscore=-1.22;sscore=1.66;rscore=3.82;uscore=2.57;tscore=-4.23;
+# Sequence Data: seqnum=4;seqlen=1457;seqhdr="Day17a_QCcontig2689"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="46|Tropheryma_whipplei_TW08_27|B|46.3|11|1";gc_cont=46.30;transl_table=11;uses_sd=1
+Day17a_QCcontig2689	Prodigal_v2.6.3	CDS	427	1455	93.6	-	0	ID=4_1;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.471;conf=100.00;score=93.57;cscore=90.36;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=5;seqlen=5846;seqhdr="Day17a_QCcontig2840"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	1092	1619	29.3	+	0	ID=5_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.388;conf=99.88;score=29.35;cscore=27.65;sscore=1.69;rscore=-4.87;uscore=3.09;tscore=3.47;
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	1616	2536	36.1	+	0	ID=5_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.345;conf=100.00;score=48.25;cscore=43.49;sscore=4.76;rscore=-4.87;uscore=-6.02;tscore=3.47;
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	2710	3030	23.8	+	0	ID=5_3;partial=00;start_type=ATG;rbs_motif=TAA;rbs_spacer=4bp;gc_cont=0.383;conf=99.58;score=23.79;cscore=19.68;sscore=4.11;rscore=1.85;uscore=-1.21;tscore=3.47;
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	4170	4499	7.4	+	0	ID=5_4;partial=00;start_type=TTG;rbs_motif=TAAA;rbs_spacer=8bp;gc_cont=0.382;conf=82.48;score=6.74;cscore=15.25;sscore=-8.51;rscore=1.89;uscore=-0.12;tscore=-9.63;
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	4486	4782	1.1	+	0	ID=5_5;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=11bp;gc_cont=0.377;conf=62.96;score=2.31;cscore=-1.97;sscore=4.27;rscore=2.56;uscore=-2.44;tscore=3.47;
+Day17a_QCcontig2840	Prodigal_v2.6.3	CDS	5323	5670	17.8	-	0	ID=5_6;partial=00;start_type=GTG;rbs_motif=AATAA;rbs_spacer=15bp;gc_cont=0.348;conf=98.36;score=17.82;cscore=13.59;sscore=4.23;rscore=6.54;uscore=2.66;tscore=-4.96;
+# Sequence Data: seqnum=6;seqlen=2259;seqhdr="Day17a_QCcontig2889"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="49|_Nostoc_azollae__0708|B|38.5|11|1";gc_cont=38.40;transl_table=11;uses_sd=1
+Day17a_QCcontig2889	Prodigal_v2.6.3	CDS	1	2259	241.7	+	0	ID=6_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.357;conf=99.99;score=241.75;cscore=240.14;sscore=1.61;rscore=0.00;uscore=0.00;tscore=1.61;
+# Sequence Data: seqnum=7;seqlen=2037;seqhdr="Day17a_QCcontig2934"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="49|_Nostoc_azollae__0708|B|38.5|11|1";gc_cont=38.40;transl_table=11;uses_sd=1
+Day17a_QCcontig2934	Prodigal_v2.6.3	CDS	48	431	46.0	-	0	ID=7_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.443;conf=100.00;score=45.33;cscore=41.48;sscore=3.85;rscore=-1.19;uscore=1.48;tscore=4.21;
+Day17a_QCcontig2934	Prodigal_v2.6.3	CDS	445	693	1.4	+	0	ID=7_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.386;conf=57.83;score=1.37;cscore=-0.16;sscore=1.53;rscore=-1.21;uscore=-0.90;tscore=4.14;
+Day17a_QCcontig2934	Prodigal_v2.6.3	CDS	590	817	9.5	-	0	ID=7_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.390;conf=89.87;score=9.50;cscore=6.47;sscore=3.03;rscore=-1.32;uscore=0.56;tscore=3.79;
+# Sequence Data: seqnum=8;seqlen=3715;seqhdr="Day17a_QCcontig3008"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="2|Mycoplasma_suis_Illinois|B|31.1|4|0";gc_cont=31.10;transl_table=4;uses_sd=0
+Day17a_QCcontig3008	Prodigal_v2.6.3	CDS	3	239	12.2	-	0	ID=8_1;partial=10;start_type=ATG;rbs_motif=TAA;rbs_spacer=8bp;gc_cont=0.380;conf=94.25;score=12.17;cscore=8.61;sscore=3.56;rscore=2.54;uscore=-2.23;tscore=3.25;
+# Sequence Data: seqnum=9;seqlen=1676;seqhdr="Day17a_QCcontig3104"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig3104	Prodigal_v2.6.3	CDS	1204	1674	39.7	+	0	ID=9_1;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.308;conf=99.99;score=39.75;cscore=41.74;sscore=-1.99;rscore=-4.87;uscore=-0.59;tscore=3.47;
+# Sequence Data: seqnum=10;seqlen=1829;seqhdr="Day17a_QCcontig3126"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig3126	Prodigal_v2.6.3	CDS	109	861	61.1	-	0	ID=10_1;partial=00;start_type=ATG;rbs_motif=AAAA;rbs_spacer=3bp;gc_cont=0.388;conf=100.00;score=61.83;cscore=52.72;sscore=9.11;rscore=3.70;uscore=1.26;tscore=3.47;
+Day17a_QCcontig3126	Prodigal_v2.6.3	CDS	916	1689	70.4	-	0	ID=10_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.384;conf=100.00;score=70.43;cscore=75.33;sscore=-4.90;rscore=-4.87;uscore=-3.50;tscore=3.47;
+# Sequence Data: seqnum=11;seqlen=2363;seqhdr="Day17a_QCcontig3211"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig3211	Prodigal_v2.6.3	CDS	2	121	9.9	-	0	ID=11_1;partial=10;start_type=ATG;rbs_motif=TAA;rbs_spacer=12bp;gc_cont=0.400;conf=89.36;score=9.26;cscore=1.34;sscore=7.91;rscore=6.07;uscore=-0.97;tscore=3.47;
+Day17a_QCcontig3211	Prodigal_v2.6.3	CDS	808	1491	52.6	+	0	ID=11_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.365;conf=100.00;score=52.56;cscore=68.52;sscore=-15.96;rscore=-4.87;uscore=-1.46;tscore=-9.63;
+Day17a_QCcontig3211	Prodigal_v2.6.3	CDS	1559	2362	82.9	-	0	ID=11_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.430;conf=100.00;score=82.88;cscore=79.66;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=12;seqlen=2175;seqhdr="Day17a_QCcontig3276"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig3276	Prodigal_v2.6.3	CDS	3	2174	144.9	+	0	ID=12_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.387;conf=100.00;score=144.86;cscore=143.25;sscore=1.61;rscore=0.00;uscore=0.00;tscore=1.61;
+# Sequence Data: seqnum=13;seqlen=1024;seqhdr="Day17a_QCcontig3279"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="0|Mycoplasma_bovis_PG45|B|29.3|4|1";gc_cont=29.30;transl_table=4;uses_sd=1
+# Sequence Data: seqnum=14;seqlen=2614;seqhdr="Day17a_QCcontig3381"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="1|Mycoplasma_pneumoniae_M129|B|40.0|4|0";gc_cont=40.00;transl_table=4;uses_sd=0
+Day17a_QCcontig3381	Prodigal_v2.6.3	CDS	741	1331	36.8	+	0	ID=14_1;partial=00;start_type=GTG;rbs_motif=AAAAA;rbs_spacer=13bp;gc_cont=0.421;conf=99.98;score=36.80;cscore=37.07;sscore=-0.27;rscore=2.94;uscore=0.76;tscore=-3.98;
+Day17a_QCcontig3381	Prodigal_v2.6.3	CDS	1349	2614	38.1	+	0	ID=14_2;partial=01;start_type=TTG;rbs_motif=TTAA;rbs_spacer=13bp;gc_cont=0.407;conf=99.99;score=39.17;cscore=46.98;sscore=-7.81;rscore=3.87;uscore=-0.36;tscore=-12.41;
+# Sequence Data: seqnum=15;seqlen=3248;seqhdr="Day17a_QCcontig3494"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="35|Pyrobaculum_aerophilum_IM2|A|51.4|11|0";gc_cont=51.40;transl_table=11;uses_sd=0
+Day17a_QCcontig3494	Prodigal_v2.6.3	CDS	1	654	53.4	-	0	ID=15_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.472;conf=100.00;score=53.44;cscore=51.30;sscore=2.14;rscore=0.48;uscore=-2.58;tscore=4.24;
+Day17a_QCcontig3494	Prodigal_v2.6.3	CDS	796	1893	50.3	-	0	ID=15_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.485;conf=100.00;score=49.68;cscore=46.49;sscore=3.20;rscore=0.48;uscore=-0.87;tscore=4.24;
+Day17a_QCcontig3494	Prodigal_v2.6.3	CDS	2151	2561	14.6	+	0	ID=15_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.487;conf=96.64;score=14.61;cscore=14.30;sscore=0.31;rscore=0.48;uscore=-4.41;tscore=4.24;
+Day17a_QCcontig3494	Prodigal_v2.6.3	CDS	2662	3072	21.3	-	0	ID=15_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.494;conf=99.26;score=21.33;cscore=18.05;sscore=3.28;rscore=0.48;uscore=-1.44;tscore=4.24;
+# Sequence Data: seqnum=16;seqlen=1387;seqhdr="Day17a_QCcontig3576"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="49|_Nostoc_azollae__0708|B|38.5|11|1";gc_cont=38.40;transl_table=11;uses_sd=1
+Day17a_QCcontig3576	Prodigal_v2.6.3	CDS	1	1377	138.2	-	0	ID=16_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.417;conf=100.00;score=138.17;cscore=134.98;sscore=3.19;rscore=-1.19;uscore=0.17;tscore=4.21;
+# Sequence Data: seqnum=17;seqlen=1826;seqhdr="Day17a_QCcontig3588"
+# Model Data: version=Prodigal.v2.6.3;run_type=Metagenomic;model="11|Candidatus_Amoebophilus_asiaticus_5a2|B|35.0|11|0";gc_cont=35.00;transl_table=11;uses_sd=0
+Day17a_QCcontig3588	Prodigal_v2.6.3	CDS	117	1685	163.6	-	0	ID=17_1;partial=00;start_type=GTG;rbs_motif=AAAA;rbs_spacer=4bp;gc_cont=0.370;conf=100.00;score=163.55;cscore=166.53;sscore=-2.97;rscore=3.70;uscore=-1.72;tscore=-4.96;

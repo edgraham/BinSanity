@@ -1,0 +1,16 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig3444_2 -            186 Ribosomal_L22        PF00237.14   105   6.5e-34  112.3   0.1   1   1     9e-37   9.5e-34  111.8   0.1     1   105    17   152    17   152 0.99 # 199 # 756 # -1 # ID=214_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.355
+Day17a_QCcontig2188_2 -             97 Ribosomal_L1         PF00687.16   220   5.6e-15   51.5   2.4   1   1   6.2e-17   3.3e-14   49.0   2.4    77   146     4    84     2    96 0.74 # 242 # 532 # -1 # ID=47_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.227
+Day17a_QCcontig2188_1 -             79 Ribosomal_L1         PF00687.16   220   4.9e-11   38.6   0.3   1   1   9.7e-14   5.1e-11   38.5   0.3   146   199    13    72     1    78 0.85 # 1 # 237 # -1 # ID=47_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.186
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/366a1deb-846e-470e-9256-02a7c119bbcf
+# Target file:     PASS1/BinSanityWf_binsanity_checkm/bins/igm_Bin-7/genes.faa
+# Option settings: hmmsearch --domtblout PASS1/BinSanityWf_binsanity_checkm/bins/igm_Bin-7/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 3 /tmp/366a1deb-846e-470e-9256-02a7c119bbcf PASS1/BinSanityWf_binsanity_checkm/bins/igm_Bin-7/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/TEST1
+# Date:            Mon Apr 16 08:36:57 2018
+# [ok]

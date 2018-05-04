@@ -266,16 +266,16 @@ def checkm_analysis(file_,fasta,path):
     High_redundancy = []
     Strain_variation = []
     for list_ in new_2:
-        if float(list_[12]) >95 and (float(list_[13])<10):
+        if float(list_[12]) >90 and (float(list_[13])<12):
             High_completion.append(list_[0])
-        elif float(list_[12]) > 80 and (float(list_[13])<=5):
+        elif float(list_[12]) > 80 and (float(list_[13])<=10):
             High_completion.append(list_[0])
-        elif float(list_[12]) > 50 and (float(list_[13])<=2):
+        elif float(list_[12]) > 50 and (float(list_[13])<=5):
             High_completion.append(list_[0])
-        elif float(list_[12]) < 50:
+        elif float(list_[12]) < 50 and (float(list_[13])<=5):
             Low_completion.append(list_[0])
         elif float(list_[12])>80 and (float(list_[13])>10) and (float(list_[13])<=50):
-            Low_completion.append(list_[0])
+            High_redundancy.append(list_[0])
         elif float(list_[13])>50 and float(list_[14])>90:
             Strain_variation.append(list_[0])
         else:

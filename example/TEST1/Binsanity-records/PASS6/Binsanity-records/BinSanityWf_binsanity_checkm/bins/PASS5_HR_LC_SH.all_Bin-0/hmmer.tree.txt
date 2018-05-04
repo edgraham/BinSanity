@@ -1,0 +1,13 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+#
+# Program:         hmmsearch
+# Version:         3.1b2 (February 2015)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/a7904545-6519-4791-bfa5-242f00c54aa0
+# Target file:     ./BinSanityWf_binsanity_checkm/bins/PASS5_HR_LC_SH.all_Bin-0/genes.faa
+# Option settings: hmmsearch --domtblout ./BinSanityWf_binsanity_checkm/bins/PASS5_HR_LC_SH.all_Bin-0/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 25 /tmp/a7904545-6519-4791-bfa5-242f00c54aa0 ./BinSanityWf_binsanity_checkm/bins/PASS5_HR_LC_SH.all_Bin-0/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/TEST1/PASS6
+# Date:            Mon Apr 16 12:55:22 2018
+# [ok]
