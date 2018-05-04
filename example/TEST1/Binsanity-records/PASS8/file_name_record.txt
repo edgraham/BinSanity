@@ -1,3 +1,0 @@
-PASS7-Bin-2_Bin-0_Bin-refined_0.fna 	 PASS8-Bin-1
-PASS7-Bin-2_Bin-0_Bin-refined_1.fna 	 PASS8-Bin-2
-PASS7-Bin-2_Bin-1.fna 	 PASS8-Bin-3

@@ -1,3 +1,0 @@
-PASS1_HR_LC_SH.all_Bin-0-refined_0.fna 	 PASS2-Bin-1
-PASS1_HR_LC_SH.all_Bin-0-refined_1.fna 	 PASS2-Bin-2
-PASS1_HR_LC_SH.all_Bin-1-refined_0.fna 	 PASS2-Bin-3

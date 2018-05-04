@@ -1,2 +1,0 @@
-low_completion-refined_0.fna 	 PASS5-Bin-1
-PASS4_HR_LC_SH.all_Bin-0-refined_0.fna 	 PASS5-Bin-2
