@@ -349,7 +349,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix",dest="prefix",default="BinSanityWf", help="""Specify a prefix to append to the start of all files generated during Binsanity""")
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""Specify a preference for refinement. [Default: -25]""")
     parser.add_argument("--binPrefix",dest="binprefix",default=None,metavar="BinPrefix",help="""Sepcify what prefix you want appended to final Bins {optional}""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.7')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()

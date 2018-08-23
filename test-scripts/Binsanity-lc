@@ -115,10 +115,10 @@ def GC_Fasta_file(b,name,prefix,location):
     input_file.close()
 
 
-def kmean(array,names,filename,path,clusters,path2,prefix):
+def kmean(array,names,filename,path,clusters,path2,prefix,threads):
     """Uses kmeans to make putative bins"""
     os.mkdir(os.path.join(path,str(prefix)+"-KMEAN-BINS"))
-    average_linkage = KMeans(n_clusters=int(clusters), n_jobs=-1,n_init=5000)
+    average_linkage = KMeans(n_clusters=int(clusters),n_jobs=threads,algorithm="full",n_init=5000,max_iter=10000)
     apclust = average_linkage.fit_predict(array)
     outfile_data = {}
     i = 0
@@ -405,7 +405,7 @@ if __name__ == '__main__':
     """)
     parser.add_argument("--Prefix",dest="prefix",metavar="Prefix",default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.6.4')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.7')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -455,7 +455,7 @@ if __name__ == '__main__':
        |        Initializing clustering via K-means         |
        |____________________________________________________|
         """)
-        kmean(val1,val2,args.fastafile,args.outputdir,args.cluster,args.inputContigFiles,args.prefix)
+        kmean(val1,val2,args.fastafile,args.outputdir,args.cluster,args.inputContigFiles,args.prefix,args.threads)
         location_kmean = os.path.join(args.outputdir,str(args.prefix)+"-KMEAN-BINS")
         count = 1 
         for clust in os.listdir(location_kmean):
