@@ -4,6 +4,13 @@ import numpy as np
 from Bio import SeqIO
 from argparse import RawTextHelpFormatter
 from sklearn.cluster import AffinityPropagation
+
+
+__author__ = "Elaina Graham"
+__license__ = "GPL 3.0"
+__maintainer__ = "Elaina Graham"
+__email__ = "egraham147@gmail.com"
+
 ###############################################################################################################
 def create_fasta_dict(fastafile):
     """makes dictionary using fasta files to be binned"""
@@ -152,7 +159,7 @@ if __name__ == '__main__':
     Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument("--log",dest="logfile",default="binsanity-logfile.txt",help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.7')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.8')
 
     args = parser.parse_args()
     if len(sys.argv)<3:

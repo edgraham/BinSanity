@@ -11,6 +11,19 @@ from Bio.SeqUtils import GC
 from Bio.Alphabet import IUPAC
 from argparse import RawTextHelpFormatter
 import csv
+
+
+
+
+
+__author__ = "Elaina Graham"
+__license__ = "GPL 3.0"
+__maintainer__ = "Elaina Graham"
+__email__ = "egraham147@gmail.com"
+
+
+
+
 ##########################Get GC Count#######################################
 def GC_Fasta_file(b,name,outdir):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
@@ -267,7 +280,7 @@ if __name__ == '__main__':
     """)
     parser.add_argument("--log",dest="LogFile",default="binsanity-refine.log",help="""
     Specify an output name for the log file. [Default: binsanity-refine.log]""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.7')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.8')
     parser.add_argument("--outPrefix",dest="outname",default=None,help="""
     Sepcify what prefix you want appended to final Bins {optional}""")
 
