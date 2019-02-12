@@ -1,5 +1,5 @@
 
-# BinSanity v.0.2.7 #
+# BinSanity v.0.2.8 #
 <p>
 
 Please see the new Wiki for usage and installation requirements:
