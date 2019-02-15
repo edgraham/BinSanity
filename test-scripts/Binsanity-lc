@@ -590,8 +590,8 @@ if __name__ == '__main__':
             	    except:
                     	print("BinSanity failed when refining you genomes :/. The Bin that it failed at was the following bin: %s")%str(redundant_bin)
                 	with open("error_code.txt","w") as out_file:
-                        	out_file.write("5")
-				out_file.write("%s")%str(redundant_bin)
+                        	out_file.write("5\n")
+				out_file.write("%s"%str(redundant_bin))
 	    		sys.exit(1) 
             	    print("""
            	     ____________________________________________________
