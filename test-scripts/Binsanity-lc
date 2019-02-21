@@ -539,30 +539,29 @@ if __name__ == '__main__':
 	if len(os.listdir(location3)) != 0:
         	for filename in glob.glob(str(location3)+"/*.fna"):
                 	shutil.move(filename, str(location4))
-        try:
+        if len(os.listdir(location)) != 0:
 		for redundant_bin in os.listdir(location):
         	    print """
-        	    ____________________________________________________
-
-        	             Calculating GC content for 
-        	             redundant bin %s
-        	    ____________________________________________________""" % str(redundant_bin)
-        	    GC_time = time.time()
-        	    GC_Fasta_file(location, redundant_bin,args.prefix,args.outputdir)
-        	    print "           GC content calculated in %s seconds" % (time.time() - GC_time)
-        	        
-        	    print("""
-        	    ____________________________________________________
-              
-        	            Calculating %smer frequencies for 
-        	            redundant bin %s
-        	    ____________________________________________________""")% (args.kmer,redundant_bin)
-        	    kmer_time = time.time()
-           	    output(kmer_counts(args.kmer,location,redundant_bin),args.prefix,args.kmer,args.outputdir)
+       		    ____________________________________________________	
+	        	             Calculating GC content for 
+	        	             redundant bin %s
+	       	    ____________________________________________________""" % str(redundant_bin)
+	       	    GC_time = time.time()
+	       	    GC_Fasta_file(location, redundant_bin,args.prefix,args.outputdir)
+	       	    print "           GC content calculated in %s seconds" % (time.time() - GC_time)
+	        	        
+	       	    print("""
+	       	    ____________________________________________________
+	             
+	       	            Calculating %smer frequencies for 
+	       	            redundant bin %s
+       		    ____________________________________________________""")% (args.kmer,redundant_bin)
+       		    kmer_time = time.time()
+          	    output(kmer_counts(args.kmer,location,redundant_bin),args.prefix,args.kmer,args.outputdir)
            	    print("          kmer frequency calculated in %s seconds" % (time.time()- kmer_time))
              
             	    print("""
-           	     ____________________________________________________
+           	    ____________________________________________________
                     
                     	Creating Profile for 
                     	redundant bin %s
@@ -573,10 +572,10 @@ if __name__ == '__main__':
             	    refine_time=time.time()
             	    print(""" 
         	    ____________________________________________________
-
-              		Reclustering redundant bin %s
-            	    ____________________________________________________""")% str(redundant_bin)
-            	    print("          Preference: " + str(args.inputrefinedpref))
+	
+	             	Reclustering redundant bin %s
+	            ____________________________________________________""")% str(redundant_bin)
+        	    print("          Preference: " + str(args.inputrefinedpref))
                     print("          Maximum Iterations: " + str(args.maxiter))
                     print("          Convergence Iterations: " + str(args.conviter))
                     print("          Contig Cut-Off: " + str(args.ContigSize))
@@ -590,15 +589,15 @@ if __name__ == '__main__':
             	    except:
                     	print("BinSanity failed when refining you genomes :/. The Bin that it failed at was the following bin: %s")%str(redundant_bin)
                 	with open("error_code.txt","w") as out_file:
-                        	out_file.write("5\n")
+                       		out_file.write("5\n")
 				out_file.write("%s"%str(redundant_bin))
 	    		sys.exit(1) 
             	    print("""
-           	     ____________________________________________________
+                     ____________________________________________________
                     
-                    		Ammended Bins Computed in %s seconds
-            	     ____________________________________________________""" % (time.time() - refine_time))
-        except:
+                    	Ammended Bins Computed in %s seconds
+                     ____________________________________________________""" % (time.time() - refine_time))
+        else:
 		print("All bins pass initial quality check and there are no bins to refine.")
 	final_out = os.path.join(str(args.outputdir),"BinSanity-Final-bins")
         initial_out = os.path.join(str(args.outputdir),"BINSANITY-INITIAL")
