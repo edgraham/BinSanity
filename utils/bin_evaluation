@@ -16,22 +16,22 @@ def bin_output(b,l):
 	for record in SeqIO.parse(os.path.join(b,filename), "fasta"):
 		contig_names_bin.append(record.id)
         else:
-            print "No file's with this Suffix exist in this directory: " , b
+            print("No file's with this Suffix exist in this directory: " , b)
                 
         
-    new_ = dict(zip(contig_names_bin, file_names))
+    new_ = dict(list(zip(contig_names_bin, file_names)))
     files_sorted = []
     od = dict(OrderedDict(sorted(new_.items())))
-    for key , value in od.iteritems():
+    for key , value in od.items():
         files_sorted.append(value)
     return files_sorted
     
 
 def ari(a,b):
-    print "_______________________________________________________________________________________"
-    print "Adjusted-Rand-Index: " , metrics.adjusted_rand_score(a,b)
-    print "Homogeneity, completeness, V-measure: " , metrics.homogeneity_completeness_v_measure(a,b)
-    print "_______________________________________________________________________________________"
+    print("_______________________________________________________________________________________")
+    print("Adjusted-Rand-Index: " , metrics.adjusted_rand_score(a,b))
+    print("Homogeneity, completeness, V-measure: " , metrics.homogeneity_completeness_v_measure(a,b))
+    print("_______________________________________________________________________________________")
            
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='bin_evaluation', usage='%(prog)s -b Putative Genomes -r reference genomes -l suffix of fasta files',description="""
@@ -58,13 +58,13 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     if args.inputPutative is None:
-        print "Need to specify directory containing putative genomes"
+        print("Need to specify directory containing putative genomes")
         parser.print_help()
     elif args.inputreference is None:
-        print "Need to specify directory containing reference genomes"
+        print("Need to specify directory containing reference genomes")
         parser.print_help()
     elif args.inputSuffix is None:
-        print "Need to specify Suffix linking putative genomes/reference genomes"
+        print("Need to specify Suffix linking putative genomes/reference genomes")
         parser.print_help()
             
     else: 

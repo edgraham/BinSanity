@@ -30,15 +30,15 @@ if __name__ == '__main__':
     parser.add_argument("-x",dest="inputLength",metavar="",type=int,help="Specify minimum length to be incorporated")
     args = parser.parse_args()
     if len(sys.argv) < 2:
-    	print parser.print_help()
+    	print(parser.print_help())
     elif args.inputPutative is None:
-        print "Identify directory where fasta file is using -f"
+        print("Identify directory where fasta file is using -f")
     elif args.inputFasta is None:
-        print "Identify fasta file is using -l"
+        print("Identify fasta file is using -l")
     elif args.inputOUTPUT is None:
-        print "Use -o to specify and output file"
+        print("Use -o to specify and output file")
     elif len(sys.argv) is None:
-        print parser.print_help()
+        print(parser.print_help())
     
     
     else:

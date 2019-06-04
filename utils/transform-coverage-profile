@@ -60,28 +60,28 @@ if __name__ == '__main__':
     We recommend using a log transformation for initial testing. Other transformations can be useful in cases where there is an extremely low range distribution of coverages and when coverage values are low""")
     args = parser.parse_args()
     if len(sys.argv)<2:
-    	print parser.print_help()
+    	print(parser.print_help())
     if args.inputoutput is None:
         parser.error('-o output fasta file needed')
     else:
         start_time = time.time()
-        print"""
+        print("""
         ---------------------------------------------------------------------
         Getting Coverage.....
-        """
+        """)
 
         x = str(args.inputoutput)
         if args.transform =="scale":
             get_100x_log(x,x+".x100.lognorm")
         elif args.transform == "log":
-            print "Transforming your combined covergae profile"
+            print("Transforming your combined covergae profile")
             get_log(x, x+".lognorm")
         elif args.transform =="X5":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_multiple(x,x+".x5", int(5))
         elif args.transform =="X10":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_multiple(x,x+".x10", int(10))
         elif args.transform =="SQR":
-            print "Transforming your combined covergae profile"            
+            print("Transforming your combined covergae profile")            
             get_squareroot(x, x+".sqrt")

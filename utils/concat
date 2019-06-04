@@ -56,9 +56,9 @@ if __name__ == '__main__':
     parser.add_argument("-N",dest="number",metavar="",help="Specify the minimum number of sequences needed to be included in concatenation")	
     args = parser.parse_args()
     if len(sys.argv)<2:
-	print parser.print_help()
+	print(parser.print_help())
     elif os.path.isfile(args.inputOutFile):
-        print "Your Output File Already Exists and We don't want to overwrite it"
+        print("Your Output File Already Exists and We don't want to overwrite it")
     else:
         concat_alignments(args.inputDir,args.inputExtension,args.inputPrefix,args.inputOutFile,args.number)
         

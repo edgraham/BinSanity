@@ -14,7 +14,7 @@ def bin_output(b,o):
             contig_names_bin.append(record.id)
 	    file2 = filename.rsplit('.',1)[0]
             file_names.append(str(file2))
-    new_ = zip(contig_names_bin, file_names)
+    new_ = list(zip(contig_names_bin, file_names))
     with open(str(o), 'w') as file:
         file.writelines('\t'.join(i) + '\n' for i in new_)
 
@@ -31,5 +31,5 @@ if __name__ == '__main__':
     
     
     else:
-        print 
+        print() 
         bin_output(args.inputPutative,args.inputOUTPUT)

@@ -28,7 +28,7 @@ if __name__ == '__main__':
     	parser.add_argument("-o",metavar="",dest="inputOUT",help="Specify the name for the output file")
     	args = parser.parse_args()
         if len(sys.argv) < 2:
-        	print parser.print_help()
+        	print(parser.print_help())
     	if args.inputFASTA is None and args.inputOUT is None:
 		print("You haven't specified an input or output silly")
     	elif args.inputFASTA is None:
