@@ -161,7 +161,7 @@ if __name__ == '__main__':
     Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument("--log",dest="logfile",default="binsanity-logfile.txt",help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.9')
 
     args = parser.parse_args()
     if len(sys.argv)<3:

@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 from __future__ import print_function, division
-
 from argparse import RawTextHelpFormatter
 import glob,os, sys, time, argparse,shutil,re,csv
 import numpy as np
@@ -11,14 +10,13 @@ import collections
 from Bio.SeqUtils import GC
 from Bio.Seq import Seq
 from Bio.Alphabet import IUPAC
-import pandas, tarfile
+import tarfile
+import pandas as pd
 
 __author__ = "Elaina Graham"
 __license__ = "GPL 3.0"
 __maintainer__ = "Elaina Graham"
 __email__ = "egraham147@gmail.com"
-
-
 
 def make_tarfile(output_filename, source_dir):
     with tarfile.open(output_filename, "w:gz") as tar:
@@ -186,21 +184,21 @@ def output(a,prefix,kmer,location):
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
 def get_contigs(c,prefix,kmer,location):
     GC = open(os.path.join(location,str(prefix)+"-GC.txt"),"r")
-    dataframe =pandas.read_csv(GC,sep="\t")
+    dataframe =pd.read_csv(GC,sep="\t")
     dataframe=dataframe.set_index("contig")
     dataframe *= 100
     dataframe += 1
     dataframe = np.log10(dataframe)
     tetra = open(os.path.join(location,str(prefix)+"-%smerFrequencies.txt"%(str(kmer))),"r")
-    dataframe2=pandas.read_csv(tetra,sep="\t")
+    dataframe2=pd.read_csv(tetra,sep="\t")
     dataframe2=dataframe2.set_index("contig")
     dataframe2*=100
     dataframe2+=1
     dataframe2 = np.log10(dataframe2)
     cov = open(str(c),"r")
-    dataframe3=pandas.read_csv(cov,sep="\t",header=None,index_col=0)
+    dataframe3=pd.read_csv(cov,sep="\t",header=None,index_col=0)
     dataframe3.index.name='contig'
-    result = pandas.concat([dataframe, dataframe2,dataframe3],axis=1,join='inner')
+    result = pd.concat([dataframe, dataframe2,dataframe3],axis=1,join='inner')
     result.to_csv(path_or_buf=str(os.path.join(location,str(prefix)+"-kmerGC.txt")),header=None,sep ="\t")
 
 def refined_ap(array,names,file_name,damping,iterations,convergence,preference,path,output_directory):
@@ -251,57 +249,33 @@ def refined_ap(array,names,file_name,damping,iterations,convergence,preference,p
 
 ########################################################################################
 def run_checkM(bins,threads,prefix,directory):
-    output = open(os.path.join(directory,str(prefix)+"_checkm_lineagewf-results.txt"),"w")
-    subprocess.call(["checkm","lineage_wf","-x","fna","-t",str(threads),str(bins),os.path.join(directory,str(prefix)+"_binsanity_checkm")],stdout=output)
+        output = str(os.path.join(directory,str(prefix)+"_checkm_lineagewf-results.txt"))
+        logfile=open(os.path.join(directory,str(prefix)+".checkm.logfile"),"w")
+        subprocess.call(["checkm","lineage_wf","--tab_table","-f",str(output),"-x","fna","-t",str(threads),str(bins),os.path.join(directory,str(prefix)+"_binsanity_checkm")],stdout=logfile)
 ########################################################################################
-def checkm_analysis(file_,fasta,path):
-    checkm = list(csv.reader(open(file_,'rb')))
-    new = []
-    for list_ in checkm:
-        for string in list_:
-            x = re.sub(' +',' ',str(re.split(r'\t+', string.rstrip('\t'))))
-            new.append(x)
-
-    del new[0], new[1], new[(len(new)-1)]
-    new_2 = []
-    for list_ in new:
-        x = list_.strip("['']")
-        x_2 = x.split()
-        new_2.append(x_2)
-    del new_2[0]
-    High_completion = []
-    Low_completion = []
-    High_redundancy = []
-    Strain_variation = []
-    for list_ in new_2:
-        if float(list_[12]) >90 and (float(list_[13])<12):
-            High_completion.append(list_[0])
-        elif float(list_[12]) > 80 and (float(list_[13])<=10):
-            High_completion.append(list_[0])
-        elif float(list_[12]) > 50 and (float(list_[13])<=5):
-            High_completion.append(list_[0])
-        elif float(list_[12]) < 50 and (float(list_[13])<=5):
-            Low_completion.append(list_[0])
-        elif float(list_[12])>80 and (float(list_[13])>10) and (float(list_[13])<=50):
-            High_redundancy.append(list_[0])
-        elif float(list_[13])>50 and float(list_[14])>90:
-            Strain_variation.append(list_[0])
-        else:
-            High_redundancy.append(list_[0])
-
-    os.makedirs(os.path.join(path,"high_completion"))
-    os.makedirs(os.path.join(path,"low_completion"))
-    os.makedirs(os.path.join(path,"high_redundancy"))
-    os.makedirs(os.path.join(path,"strain_redundancy"))
-
-    for name in High_completion:
-        shutil.move(os.path.join(path,(str(name)+fasta)), os.path.join(path,"high_completion"))
-    for name in Low_completion:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"low_completion"))
-    for name in High_redundancy:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"high_redundancy"))
-    for name in Strain_variation:
-        shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,"strain_redundancy"))
+def checkm_analysis(file_,fasta,path,prefix):
+	df = pd.read_csv(file_,sep="\t")
+	highCompletion =list(set(list(df.loc[(df['Completeness']>=95)&(df['Contamination']<=10),'Bin Id'].values) + list(df.loc[(df['Completeness']>=80)&(df['Contamination']<=5), 'Bin Id'].values)+list(df.loc[(df['Completeness']>=50)&(df['Contamination']<=2), 'Bin Id'].values)))
+	lowCompletion = list(set(df.loc[(df['Completeness']<=50)&(df['Contamination']<=2), 'Bin Id'].values))
+	strainRedundancy = list(set(df.loc[(df['Completeness']>=50)&(df['Contamination']>=10)&(df['Strain heterogeneity']>=90),'Bin Id'].values))
+	all = df['Bin Id'].tolist()
+	highRedundancy = np.setdiff1d(all,(highCompletion+lowCompletion))
+	if os.path.isdir("high_completion") is False:
+ 		os.makedirs(os.path.join(path,str(prefix)+"_high_completion"))
+ 	if os.path.isdir("low_completion") is False:
+		os.makedirs(os.path.join(path,str(prefix)+"_low_completion"))
+	if os.path.isdir("high_redundancy") is False:
+		os.makedirs(os.path.join(path,str(prefix)+"_high_redundancy"))
+	if os.path.isdir("strain_redundancy") is False:
+		os.makedirs(os.path.join(path,str(prefix)+"_strain_redundancy"))
+	for name in highCompletion:
+		shutil.move(os.path.join(path,(str(name)+fasta)), os.path.join(path,str(prefix)+"_high_completion"))
+	for name in lowCompletion:
+		shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"_low_completion"))
+	for name in highRedundancy:
+		shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"_high_redundancy"))
+	for name in strainRedundancy:
+		shutil.move(os.path.join(path,(str(name)+fasta)),os.path.join(path,str(prefix)+"_strain_redundancy"))
 ########################################################################################
 class Logger(object):
     def __init__(self,logfile,location):
@@ -357,17 +331,17 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix",dest="prefix",default="BinSanityWf", help="""Specify a prefix to append to the start of all files generated during Binsanity""")
     parser.add_argument("--refine-preference", dest="inputrefinedpref", type=float,default=-25,help="""Specify a preference for refinement. [Default: -25]""")
     parser.add_argument("--binPrefix",dest="binprefix",default=None,metavar="BinPrefix",help="""Sepcify what prefix you want appended to final Bins {optional}""")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.9')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
-    if os.path.isfile("high_completion"):
+    if os.path.isfile(str(args.prefix)+"_high_completion"):
         print("File name 'high_completion' already exists and Binsanity does not like overwritting files")
-    if os.path.isfile("low_completion"):
+    if os.path.isfile(str(args.prefix)+"_low_completion"):
         print("File name 'low_completion' already exists and Binsanity does not like overwritting files")
-    if os.path.isfile("high_redundancy"):
+    if os.path.isfile(str(args.prefix)+"_high_redundancy"):
         print("File name 'high_redundancy' already exists and Binsanity does not like overwritting files")
-    if os.path.isfile("strain_redundancy"):
+    if os.path.isfile(str(args.prefix)+"_strain_redundancy"):
         print(" File name 'strain_redundancy' already exists and Binsanity does not like overwritting files")
     elif len(sys.argv)<4:
         parser.print_help()
@@ -450,12 +424,12 @@ if __name__ == '__main__':
             with open("error_code.txt","w") as out_file:
                 out_file.write("3")
             sys.exit(1)
-        checkm_analysis(os.path.join(args.outputdir,str(args.prefix)+"_checkm_lineagewf-results.txt"),".fna",str(out_1))
+        checkm_analysis(os.path.join(args.outputdir,str(args.prefix)+"_checkm_lineagewf-results.txt"),".fna",str(out_1),args.prefix)
 ##############################Refining Bins#######################################
         start_time = time.time()
-        location = os.path.join(out_1,"high_redundancy")
-        location2 = os.path.join(out_1,"low_completion")
-        location4 =  os.path.join(out_1,"high_completion")
+        location = os.path.join(out_1,str(args.prefix)+"_high_redundancy")
+        location2 = os.path.join(out_1,str(args.prefix)+"_low_completion")
+        location4 =  os.path.join(out_1,str(args.prefix)+"_high_completion")
         if len(os.listdir(location2)) != 0:
             with open("low_completion.fna","wb") as outfile:
                 for filename in glob.glob(str(location2)+"/*.fna"):
@@ -467,7 +441,7 @@ if __name__ == '__main__':
 
             shutil.move("low_completion.fna", str(location))
             shutil.rmtree(str(location2))
-        location3 = os.path.join(out_1,"strain_redundancy")
+        location3 = os.path.join(out_1,str(args.prefix)+"_strain_redundancy")
         if len(os.listdir(location3)) != 0:
             for filename in glob.glob(str(location3)+"/*.fna"):
                 shutil.move(filename, str(location4))
@@ -555,9 +529,9 @@ if __name__ == '__main__':
             shutil.move(os.path.join(str(args.outputdir),"REFINED-BINS"),os.path.join(str(args.outputdir),"Binsanity-records"))
         except:
             pass
-        path1 = os.path.join(args.outputdir,"Binsanity-records/high_completion")
+        path1 = os.path.join(args.outputdir,"Binsanity-records/"+str(args.prefix)+"_high_completion")
         for files in os.listdir(path1):
-            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/high_completion"),files),str(final_out))
+            shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/"+str(args.prefix)+"_high_completion"),files),str(final_out))
         try:
             for files in os.listdir(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS")):
                 shutil.copy(os.path.join(os.path.join(str(args.outputdir),"Binsanity-records/REFINED-BINS"),files),str(final_out))

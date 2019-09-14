@@ -138,7 +138,7 @@ if __name__ == "__main__":
     Other transformations can be useful on a case by case basis""")
     parser.add_argument('-T',dest='Threads',default=1,type=int,help="Specify Number of Threads For Feature Counts [Default: 1]")
     parser.add_argument('-o',dest="outDirectory",default=".",help="Specify directory for output files to be deposited [Default: Working Directory]")
-    parser.add_argument('--version', action='version', version='%(prog)s v0.2.8')
+    parser.add_argument('--version', action='version', version='%(prog)s v0.2.9')
     args=parser.parse_args()
     if len(sys.argv)<3:
         parser.print_help()
