@@ -1,0 +1,54 @@
+{% set version = "2_master" %}
+
+package:
+  name: Binsanity
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/edgraham/BinSanity
+  git_rev: HEAD
+  git_depth: 1
+
+build:
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python ==3.6
+    - numpy ==1.17.1
+    - setuptools ==41.2.0
+    - wheel ==0.33.6
+    - pip ==19.2.3
+    - biopython
+    - checkm-genome
+    - pandas >=0.25.1
+    - scipy >=1.3.1
+  run:
+    - biopython
+    - checkm-genome
+    - pandas >=0.13.0
+    - python
+    - scipy >=0.13.0
+    - python ==3.6
+    - numpy ==1.17.1
+    - scipy ==1.3.1
+    - scikit-learn ==0.21.2
+    - pandas ==0.25.1
+    - matplotlib ==2.2.3
+
+test:
+  commands:
+    - Binsanity --help
+    - Binsanity-profile --help
+    - Binsanity-lc --version
+about:
+  home: "https://github.com/edgraham/BinSanity"
+  license: "GPL3"
+  license_family: "GPL3"
+  license_file: ""
+  summary: "Method to cluster contigs based a biphasic method with coverage and composition"
+
+extra:
+  recipe-maintainers:
+    - edgraham
