@@ -9,13 +9,12 @@ from argparse import RawTextHelpFormatter
 def bin_output(path,file_name,outfile,length):
     contig_names_bin = []
     for record in SeqIO.parse(os.path.join(path, file_name), "fasta"):        
-        if len(record.seq) > length:
+        if int(len(record.seq))>=int(length):
             contig_names_bin.append(record.id)
     file_ = open(str(outfile), 'w')
     for id_name in contig_names_bin:
         file_.write("%s\n" % id_name)
 
-            
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='get-ids', usage='%(prog)s -f directory/with/fasta -l fasta/file/ -o outputName -x contig/length',description="""
     *****************************************************************************
@@ -27,7 +26,7 @@ if __name__ == '__main__':
     parser.add_argument("-f", dest="inputPutative",metavar="", help="Specify the directory containing fasta file")
     parser.add_argument("-o", dest="inputOUTPUT", metavar="",help="Specify the output file")
     parser.add_argument("-l",dest="inputFasta",metavar="",help="Specify fasta file")
-    parser.add_argument("-x",dest="inputLength",metavar="",type=int,help="Specify minimum length to be incorporated")
+    parser.add_argument("-x",dest="inputLength",metavar="",type=int,help="Specify minimum length to be incorporated",default=2000)
     args = parser.parse_args()
     if len(sys.argv) < 2:
     	print(parser.print_help())
