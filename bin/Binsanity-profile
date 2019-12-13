@@ -1,31 +1,20 @@
 #! /usr/bin/env python
 from __future__ import print_function, division
-
 from Bio import SeqIO
-import sys
-import subprocess
-import argparse
-import glob
-import csv
-import time
-import pandas
-import os
+import sys, subprocess, argparse,glob, csv, time
+import pandas, os
 import numpy as np
 from argparse import RawTextHelpFormatter
-
-
 __author__ = "Elaina Graham"
 __license__ = "GPL 3.0"
 __maintainer__ = "Elaina Graham"
 __email__ = "egraham147@gmail.com"
-
-
 def format_for_feature(inputfile, mapfile, outputpath):
     for file_ in os.listdir(mapfile):
         if file_.endswith(".bam"):
             outname = str(file_).lstrip('.bam')
             handle = open(os.path.join(outputpath, str(outname)+".saf"), 'w')
-            handle.write('GeneID   Chr     Start   End     Strand\n')
+            handle.write('GeneID\tChr\tStart\tEnd\tStrand\n')
             for record in SeqIO.parse(inputfile, 'fasta'):
                 seqLen = len(record.seq)
                 start, stop = 1, seqLen
@@ -33,8 +22,7 @@ def format_for_feature(inputfile, mapfile, outputpath):
                 outLine = [geneId, Chr, str(start), str(stop), '+']
                 outLine = '\t'.join(outLine)
                 handle.write(outLine + "\n")
-
-
+            handle.close()
 def feature_counts(mapfile, outputdir, threads):
     for file_ in os.listdir(mapfile):
         if file_.endswith('.bam'):
@@ -42,13 +30,10 @@ def feature_counts(mapfile, outputdir, threads):
             mapfile_file = os.path.join(mapfile, file_)
             subprocess.call(["featureCounts", "-M", "-O", "-F", "SAF", "-T", str(threads), "-a", os.path.join(outputdir, str(
                 outname)+".saf"), "-o", os.path.join(outputdir, str(outname)+".readcounts"), str(mapfile_file)], stdout=subprocess.PIPE)
-
-
-def make_coverage(ids, outfile, outputdir):
+def make_coverage(fasta,outfile, outputdir):
     cov_data = {}
-    for line in open(str(ids), "r"):
-        line = line.rstrip()
-        cov_data[line] = []
+    for record in SeqIO.parse(fasta,"fasta"):
+        cov_data[record.id]=[]
     count_filenames = [f for f in os.listdir(
         outputdir) if f.endswith('.readcounts')]
     for i in count_filenames:
@@ -65,14 +50,12 @@ def make_coverage(ids, outfile, outputdir):
                 except KeyError:
                     continue
     out1 = open(str(outfile)+".cov", "w")
-
     for k in cov_data:
         contig_length = cov_data[k].pop(0)
         coverage_list = [float(x) / float(contig_length) for x in cov_data[k]]
         coverage_list[:] = [str("%.10f" % (i)) for i in coverage_list]
         out1.write(k + "\t" + str("\t".join(coverage_list))+"\n")
-
-
+    out1.close()
 def get_log(file_, outfile):
     cov_file = list(csv.reader(open(str(file_), 'r'), delimiter='\t'))
     for list_ in cov_file:
@@ -80,8 +63,6 @@ def get_log(file_, outfile):
             list_[num_] = np.log10(((float(list_[num_])))+1)
     pd = pandas.DataFrame(cov_file)
     pd.to_csv(outfile, sep="\t", index=False, header=False)
-
-
 def get_multiple(file_, outfile, num):
     cov_file = list(csv.reader(open(str(file_), 'r'), delimiter='\t'))
     for list_ in cov_file:
@@ -89,8 +70,6 @@ def get_multiple(file_, outfile, num):
             list_[num_] = float(list_[num_])*int(num)
     pd = pandas.DataFrame(cov_file)
     pd.to_csv(outfile, sep="\t", index=False, header=False)
-
-
 def get_squareroot(file_, outfile):
     cov_file = list(csv.reader(open(str(file_), 'r'), delimiter='\t'))
     for list_ in cov_file:
@@ -98,8 +77,6 @@ def get_squareroot(file_, outfile):
             list_[num_] = np.sqrt(((float(list_[num_])))+1)
     pd = pandas.DataFrame(cov_file)
     pd.to_csv(outfile, sep="\t", index=False, header=False)
-
-
 def get_100x_log(file_, outfile):
     cov_file = list(csv.reader(open(str(file_), 'r'), delimiter='\t'))
     for list_ in cov_file:
@@ -108,8 +85,6 @@ def get_100x_log(file_, outfile):
     pd = pandas.DataFrame(cov_file)
     pd.to_csv(outfile, sep="\t", index=False, header=False)
 ########################################################################################
-
-
 class Logger(object):
     def __init__(self, logfile, location):
         self.terminal = sys.stdout
@@ -121,8 +96,6 @@ class Logger(object):
 
     def flush(self):
         pass
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='Binsanity-profile', usage='%(prog)s -i fasta_file -s {sam,bam}_file --id contig_ids.txt -c output_file', description="""
     ***********************************************************************
@@ -140,8 +113,6 @@ if __name__ == "__main__":
     parser.add_argument("-s", dest="inputMapLoc", help="""
     identify location of BAM files
     BAM files should be indexed and sorted""")
-    parser.add_argument("--ids", dest="inputIds", help="""
-    Identify file containing contig ids""")
     parser.add_argument("-c", dest="outCov", help="""
     Identify name of output file for coverage information""")
     parser.add_argument("--transform", dest="transform", default="scale", help="""
@@ -160,14 +131,12 @@ if __name__ == "__main__":
     parser.add_argument('-o', dest="outDirectory", default=".",
                         help="Specify directory for output files to be deposited [Default: Working Directory]")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.2.9.5')
+                        version='%(prog)s v0.3')
     args = parser.parse_args()
     if len(sys.argv) < 3:
         parser.print_help()
-    elif args.inputIds is None:
-        print("Need to identify file with contig ids `--ids`")
-    elif args.inputFasta and args.inputIds is None:
-        print("Need to identify tab delimited file containing contig ids using '--ids' and fasta file using '-i'")
+    elif args.inputFasta is None:
+        print("Need to identify fasta file using '-i'")
     elif args.inputFasta and args.inputMapLoc is None:
         print("Need to identify fasta file using '-i' and directory containing SAM/BAM files using '-s'.")
     elif args.inputFasta and args.outCov is None:
@@ -176,8 +145,6 @@ if __name__ == "__main__":
         print("Need to identify fasta file using '-i'.")
     elif args.outCov is None:
         print("Need to identify the output file using '-c'")
-    elif args.inputIds is None:
-        print("Need to identify tab delimited file containing contig ids using '--ids'")
     elif args.inputMapLoc is None:
         print("Need to identify directory containing SAM files using '-s'")
 ###########################################
@@ -196,7 +163,7 @@ if __name__ == "__main__":
         """)
         feature_counts(args.inputMapLoc, args.outDirectory, args.Threads)
 
-        make_coverage(args.inputIds, args.outCov, args.outDirectory)
+        make_coverage(args.inputFasta, args.outCov, args.outDirectory)
 ###########################################
         x = os.path.join(args.outCov+".cov")
         if args.transform == "scale":

@@ -1,14 +1,8 @@
 #! /usr/bin/env python
 from __future__ import print_function, division
 from argparse import RawTextHelpFormatter
-import glob
-import os
-import sys
-import time
-import argparse
-import shutil
-import re
-import csv
+import glob, os, sys, time, argparse
+import shutil, re, csv
 import numpy as np
 import subprocess
 from Bio import SeqIO
@@ -24,32 +18,26 @@ __author__ = "Elaina Graham"
 __license__ = "GPL 3.0"
 __maintainer__ = "Elaina Graham"
 __email__ = "egraham147@gmail.com"
-
-
 def make_tarfile(output_filename, source_dir):
     with tarfile.open(output_filename, "w:gz") as tar:
         tar.add(source_dir, arcname=os.path.sep)
     shutil.rmtree(source_dir)
-
-
 def create_fasta_dict(fastafile):
     """makes dictionary using fasta files to be binned"""
     fasta_dict = {}
     for record in SeqIO.parse(fastafile, "fasta"):
         fasta_dict[record.id] = record.seq
     return fasta_dict
-
-
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
-    for line in open(str(h), "r"):
+    inf =open(str(h),"r")
+    for line in inf:
         line = line.rstrip()
         cov_data = line.split()
         all_cov_data[cov_data[0]] = cov_data
+    inf.close()
     return all_cov_data
-
-
 def cov_array(a, path, file_name, size):
     """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
     count = 0
@@ -72,8 +60,6 @@ def cov_array(a, path, file_name, size):
                     c += 1
     print(("          %s" % (cov_array.shape,)))
     return cov_array, names
-
-
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, binname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
@@ -126,9 +112,7 @@ def affinity_propagation(array, names, file_name, damping, iterations, convergen
                     os.remove(os.path.join(
                         output_directory, 'unclustered.fna'))
             print(("          Cluster "+str(k)+": "+str(len(outfile_data[k]))))
-        print(("""          Total Number of Bins: %i""" % count))
-
-
+        print(("          Total Number of Bins: %i"%int(count)))
 def GC_Fasta_file(b, name, prefix, location):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
     GC_dict = {}
@@ -146,8 +130,6 @@ def GC_Fasta_file(b, name, prefix, location):
     output_file.close()
     input_file.close()
 ###########################Get tetramer frequencies#####################################
-
-
 def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
@@ -162,8 +144,6 @@ def kmer_list(dna, k):
         result.append(reverse_complement[x:x+k])
     result = [s for s in result if not s.strip('AGTC')]
     return result
-
-
 def kmer_counts(kmer, b, name):
     kmer_dict = {}
     for record in SeqIO.parse(os.path.join(b, name), "fasta"):
@@ -186,8 +166,6 @@ def kmer_counts(kmer, b, name):
         kmer_dict.setdefault(str(id_), [])
         kmer_dict[str(id_)].append(c_edit)
     return kmer_dict
-
-
 def output(a, prefix, kmer, location):
     """Builds tab-delimeted file based on dictionary of tetramers"""
     topleft = 'contig'
@@ -196,7 +174,7 @@ def output(a, prefix, kmer, location):
                          for key in row[0]))
     name = str(kmer)
     writer = csv.writer(open(os.path.join(location, str(
-        prefix)+'-%smerFrequencies.txt' % (name)), 'wb'), delimiter='\t')
+        prefix)+'-%smerFrequencies.txt' % (name)), 'w'), delimiter='\t')
     writer.writerow([topleft] + headers)
     for key in a:
         row = [key]
@@ -204,8 +182,6 @@ def output(a, prefix, kmer, location):
             row.append(a[key][0].get(header, 0))
         writer.writerow(row)
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
-
-
 def get_contigs(c, prefix, kmer, location):
     GC = open(os.path.join(location, str(prefix)+"-GC.txt"), "r")
     dataframe = pd.read_csv(GC, sep="\t")
@@ -227,8 +203,6 @@ def get_contigs(c, prefix, kmer, location):
                        axis=1, join='inner')
     result.to_csv(path_or_buf=str(os.path.join(
         location, str(prefix)+"-kmerGC.txt")), header=None, sep="\t")
-
-
 def refined_ap(array, names, file_name, damping, iterations, convergence, preference, path, output_directory):
     """Uses affinity propagation to make putative bins"""
     if os.path.isdir(os.path.join(str(output_directory), "REFINED-BINS")) is False:
@@ -279,11 +253,8 @@ def refined_ap(array, names, file_name, damping, iterations, convergence, prefer
                     os.remove(os.path.join(
                         output_directory, 'unclustered.fna'))
             print(("Cluster "+str(k)+": "+str(len(outfile_data[k]))))
-        print(("""Total Number of Bins: %i""" % count))
-
+        print(("Total Number of Bins: %i"%int(count)))
 ########################################################################################
-
-
 def run_checkM(bins, threads, prefix, directory):
     output = str(os.path.join(directory, str(
         prefix)+"_checkm_lineagewf-results.txt"))
@@ -291,8 +262,6 @@ def run_checkM(bins, threads, prefix, directory):
     subprocess.call(["checkm", "lineage_wf", "--tab_table", "-f", str(output), "-x", "fna", "-t", str(
         threads), str(bins), os.path.join(directory, str(prefix)+"_binsanity_checkm")], stdout=logfile)
 ########################################################################################
-
-
 def checkm_analysis(file_, fasta, path, prefix):
     df = pd.read_csv(file_, sep="\t")
     highCompletion = list(set(list(df.loc[(df['Completeness'] >= 95) & (df['Contamination'] <= 10), 'Bin Id'].values) + list(df.loc[(df['Completeness'] >= 80) & (
@@ -324,8 +293,6 @@ def checkm_analysis(file_, fasta, path, prefix):
         shutil.move(os.path.join(path, (str(name)+fasta)),
                     os.path.join(path, str(prefix)+"_strain_redundancy"))
 ########################################################################################
-
-
 class Logger(object):
     def __init__(self, logfile, location):
         self.terminal = sys.stdout
@@ -392,7 +359,7 @@ if __name__ == '__main__':
     parser.add_argument("--binPrefix", dest="binprefix", default=None, metavar="BinPrefix",
                         help="""Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.2.9.5')
+                        version='%(prog)s v0.3')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -524,7 +491,7 @@ if __name__ == '__main__':
 
                               Calculating GC content for
                               redundant bin %s
-                 ______________________________________________________""") % str(redundant_bin))
+                 ______________________________________________________""" % str(redundant_bin)))
                 GC_time = time.time()
                 GC_Fasta_file(location, redundant_bin,
                               args.prefix, args.outputdir)
@@ -536,7 +503,7 @@ if __name__ == '__main__':
 
                            Calculating %smer frequencies for
                            redundant bin %s
-                 ______________________________________________________""") % (args.kmer, str(redundant_bin)))
+                 ______________________________________________________""" % (args.kmer, str(redundant_bin))))
                 kmer_time = time.time()
                 output(kmer_counts(args.kmer, location, redundant_bin),
                        args.prefix, args.kmer, args.outputdir)
@@ -548,7 +515,7 @@ if __name__ == '__main__':
 
                           Creating Profile for
                               redundant bin %s
-                ______________________________________________________""") % str(redundant_bin))
+                ______________________________________________________""" % str(redundant_bin)))
                 combine_time = time.time()
                 try:
                     get_contigs(args.inputCovFile, args.prefix,
@@ -564,7 +531,7 @@ if __name__ == '__main__':
                  ______________________________________________________
 
                     Reclustering redundant bin %s
-                 ______________________________________________________""") % str(redundant_bin))
+                 ______________________________________________________""" % str(redundant_bin)))
                 print(("          Preference: " + str(args.inputrefinedpref)))
                 print(("          Maximum Iterations: " + str(args.maxiter)))
                 print(("          Convergence Iterations: " + str(args.conviter)))

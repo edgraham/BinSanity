@@ -18,8 +18,6 @@ __maintainer__ = "Elaina Graham"
 __email__ = "egraham147@gmail.com"
 
 ###############################################################################################################
-
-
 def create_fasta_dict(fastafile):
     """makes dictionary using fasta files to be binned"""
     fasta_dict = {}
@@ -27,8 +25,6 @@ def create_fasta_dict(fastafile):
         fasta_dict[record.id] = record.seq
     return fasta_dict
 #################################################################################################################
-
-
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
@@ -38,8 +34,6 @@ def get_cov_data(h):
         all_cov_data[cov_data[0]] = cov_data
     return all_cov_data
 ###################################################################################################################
-
-
 def cov_array(a, path, file_name, size):
     """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
     count = 0
@@ -63,8 +57,6 @@ def cov_array(a, path, file_name, size):
     print("          %s" % (cov_array.shape,))
     return cov_array, names
 ################################################################################################################
-
-
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
@@ -115,9 +107,7 @@ def affinity_propagation(array, names, file_name, damping, iterations, convergen
                     os.remove(os.path.join(
                         output_directory, 'unclustered.fna'))
             print("          Cluster "+str(k)+": "+str(len(outfile_data[k])))
-        print(("""          Total Number of Bins: %i""" % count))
-
-
+        print(("          Total Number of Bins: %i"%int(count)))
 ########################################################################################
 class Logger(object):
     def __init__(self, logfile, location):
@@ -130,10 +120,7 @@ class Logger(object):
 
     def flush(self):
         pass
-
 ###################################################################
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='Binsanity', description="""
     *****************************************************************************
@@ -181,7 +168,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="logfile", default="binsanity-logfile.txt", help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.2.9.5')
+                        version='%(prog)s v0.3')
 
     args = parser.parse_args()
     if len(sys.argv) < 3:

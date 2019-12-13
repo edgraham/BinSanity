@@ -14,14 +14,10 @@ from Bio.SeqUtils import GC
 from Bio.Alphabet import IUPAC
 from argparse import RawTextHelpFormatter
 import csv
-
-
 __author__ = "Elaina Graham"
 __license__ = "GPL 3.0"
 __maintainer__ = "Elaina Graham"
 __email__ = "egraham147@gmail.com"
-
-
 ##########################Get GC Count#######################################
 def GC_Fasta_file(b, name, outdir):
     """Makes a tab-delimeted output indicating the GC count associated with each contig"""
@@ -41,8 +37,6 @@ def GC_Fasta_file(b, name, outdir):
     output_file.close()
     input_file.close()
 ###########################Get tetramer frequencies#####################################
-
-
 def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
@@ -57,8 +51,7 @@ def kmer_list(dna, k):
         result.append(reverse_complement[x:x+k])
     result = [s for s in result if not s.strip('AGTC')]
     return result
-
-
+#####################################
 def kmer_counts(kmer, b, name):
     kmer_dict = {}
     for record in SeqIO.parse(os.path.join(b, name), "fasta"):
@@ -81,8 +74,7 @@ def kmer_counts(kmer, b, name):
         kmer_dict.setdefault(str(id_), [])
         kmer_dict[str(id_)].append(c_edit)
     return kmer_dict
-
-
+##################################
 def output(a, outdir, kmer):
     """Builds tab-delimeted file based on dictionary of tetramers"""
     topleft = 'contig'
@@ -98,8 +90,6 @@ def output(a, outdir, kmer):
             row.append(a[key][0].get(header, 0))
         writer.writerow(row)
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
-
-
 def get_contigs(c, outdir, kmer):
     GC = open(os.path.join(outdir, "GC_count.txt"), "r")
     dataframe = pandas.read_csv(GC, sep="\t", index_col=0, header=None)
@@ -129,8 +119,6 @@ def get_contigs(c, outdir, kmer):
         [dataframe, dataframe2, dataframe3], axis=1, join='inner')
     result.to_csv(path_or_buf=str(os.path.join(
         outdir, "kmer-GC-out.txt")), header=None, sep="\t")
-
-
 ##########################Run AP for refinement##############################
 def create_fasta_dict(fastafile):
     """makes dictionary using fasta files to be binned"""
@@ -138,19 +126,17 @@ def create_fasta_dict(fastafile):
     for record in SeqIO.parse(fastafile, "fasta"):
         fasta_dict[record.id] = record.seq
     return fasta_dict
-
-
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
-    # for line in open(str(sys.argv[1]), "r"):
-    for line in open(str(h), "r"):
+    inf=open(str(h),"r")
+    for line in inf:
         line = line.rstrip()
         cov_data = line.split()
         all_cov_data[cov_data[0]] = cov_data
+    inf.close()
     return all_cov_data
-
-
+#####################
 def cov_array(a, b, name, size):
     """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
     names = []
@@ -171,8 +157,7 @@ def cov_array(a, b, name, size):
                     c += 1
     print("          %s" % (cov_array.shape,))
     return cov_array, names
-
-
+#################################
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
@@ -223,9 +208,7 @@ def affinity_propagation(array, names, file_name, damping, iterations, convergen
                     os.remove(os.path.join(
                         output_directory, 'unclustered.fna'))
             print("          Cluster "+str(k)+": "+str(len(outfile_data[k])))
-        print(("""          Total Number of Bins: %i""" % count))
-
-
+        print(("          Total Number of Bins: %i" %int(count)))
 class Logger(object):
     def __init__(self, logfile, location):
         self.terminal = sys.stdout
@@ -237,8 +220,6 @@ class Logger(object):
 
     def flush(self):
         pass
-
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='Binsanity-refine', description="""
     ***********************************************************************
@@ -296,7 +277,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="LogFile", default="binsanity-refine.log", help="""
     Specify an output name for the log file. [Default: binsanity-refine.log]""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.2.9.5')
+                        version='%(prog)s v0.3')
     parser.add_argument("--outPrefix", dest="outname", default=None, help="""
     Sepcify what prefix you want appended to final Bins {optional}""")
 
