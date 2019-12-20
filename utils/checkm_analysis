@@ -10,15 +10,15 @@ def checkm_analysis(file_,fasta):
     lowCompletion = list(set(df.loc[(df['Completeness']<=50)&(df['Contamination']<=2), 'Bin Id'].values))
     strainRedundancy = list(set(df.loc[(df['Completeness']>=50)&(df['Contamination']>=10)&(df['Strain heterogeneity']>=90),'Bin Id'].values))
     all = df['Bin Id'].tolist()
-    highRedundancy = np.setdiff1d(all,(highCompletion+lowCompletion))
+    highRedundancy = np.setdiff1d(all,(highCompletion+lowCompletion+strainRedundancy))
     if os.path.isdir("high_completion") is False:
-    	os.makedirs("high_completion")
+        os.makedirs("high_completion")
     if os.path.isdir("low_completion") is False:
-    	os.makedirs("low_completion")
+        os.makedirs("low_completion")
     if os.path.isdir("high_redundancy") is False:
-    	os.makedirs("high_redundancy")
-    if os.path.isdir("strain_redundancy") is False:    
-	os.makedirs("strain_redundancy")
+        os.makedirs("high_redundancy")
+    if os.path.isdir("strain_redundancy") is False:
+        os.makedirs("strain_redundancy")
     for name in highCompletion:
         shutil.move((str(name)+fasta), "high_completion")
     for name in lowCompletion:
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     parser.add_argument("-f", dest="inputfa", type=str, default=".fna",help="Identify what your suffix for fasta file is [default: .fna]")
     args = parser.parse_args()
     if args.inputqa is None:
-        print parser.print_help()
+        print(parser.print_help())
     else:
         checkm_analysis(args.inputqa,args.inputfa)
 

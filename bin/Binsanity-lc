@@ -327,7 +327,7 @@ def checkm_analysis(file_, fasta, path, prefix):
     strainRedundancy = list(set(df.loc[(df['Completeness'] >= 50) & (
         df['Contamination'] >= 10) & (df['Strain heterogeneity'] >= 90), 'Bin Id'].values))
     all = df['Bin Id'].tolist()
-    highRedundancy = np.setdiff1d(all, (highCompletion+lowCompletion))
+    highRedundancy = np.setdiff1d(all, (highCompletion+lowCompletion+strainRedundancy))
     if os.path.isdir("high_completion") is False:
         os.makedirs(os.path.join(path, str(prefix)+"_high_completion"))
     if os.path.isdir("low_completion") is False:
@@ -421,7 +421,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3')
+                        version='%(prog)s v0.3.2')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
