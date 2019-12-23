@@ -421,7 +421,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.2')
+                        version='%(prog)s v0.3.3')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -612,8 +612,7 @@ if __name__ == '__main__':
                     refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter, args.conviter,
                                args.inputrefinedpref, location, args.outputdir, args.prefix)
                 except:
-                    print(
-                        "BinSanity failed when refining you genomes :/. The Bin that it failed at was the following bin: %s") % str(redundant_bin)
+                    print("BinSanity failed when refining you genomes :/. The Bin that it failed at was the following bin: %s" % str(redundant_bin))
                     with open("error_code.txt", "w") as out_file:
                         out_file.write("5\n")
                         out_file.write("%s" % str(redundant_bin))

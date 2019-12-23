@@ -131,7 +131,7 @@ if __name__ == "__main__":
     parser.add_argument('-o', dest="outDirectory", default=".",
                         help="Specify directory for output files to be deposited [Default: Working Directory]")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.2')
+                        version='%(prog)s v0.3.3')
     args = parser.parse_args()
     if len(sys.argv) < 3:
         parser.print_help()
