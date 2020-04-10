@@ -25,15 +25,15 @@ if __name__ == '__main__':
         **    will rename your fasta ids as `>contig_1`, `>contig_2`, and so on.   **
         *****************************************************************************""",formatter_class=RawTextHelpFormatter)
 	parser.add_argument("-i",metavar="", dest="inputFASTA", help="Specify the name of the input file")
-    	parser.add_argument("-o",metavar="",dest="inputOUT",help="Specify the name for the output file")
-    	args = parser.parse_args()
-        if len(sys.argv) < 2:
+	parser.add_argument("-o",metavar="",dest="inputOUT",help="Specify the name for the output file")
+	args = parser.parse_args()
+	if len(sys.argv) < 2:
         	print(parser.print_help())
-    	if args.inputFASTA is None and args.inputOUT is None:
+	if args.inputFASTA is None and args.inputOUT is None:
 		print("You haven't specified an input or output silly")
-    	elif args.inputFASTA is None:
+	elif args.inputFASTA is None:
 		print("You can't give an output without an input")
-    	elif args.inputOUT is None:
+	elif args.inputOUT is None:
 		print("Provide and output file")
 	else:
 		simplfy_fasta(args.inputFASTA,args.inputOUT)

@@ -271,7 +271,7 @@ def checkm_analysis(file_, fasta, path, prefix):
     strainRedundancy = list(set(df.loc[(df['Completeness'] >= 50) & (
         df['Contamination'] >= 10) & (df['Strain heterogeneity'] >= 90), 'Bin Id'].values))
     all = df['Bin Id'].tolist()
-    highRedundancy = np.setdiff1d(all, (highCompletion+lowCompletion++strainRedundancy))
+    highRedundancy = np.setdiff1d(all, (highCompletion+lowCompletion+strainRedundancy))
     if os.path.isdir("high_completion") is False:
         os.makedirs(os.path.join(path, str(prefix)+"_high_completion"))
     if os.path.isdir("low_completion") is False:
@@ -359,7 +359,7 @@ if __name__ == '__main__':
     parser.add_argument("--binPrefix", dest="binprefix", default=None, metavar="BinPrefix",
                         help="""Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.3')
+                        version='%(prog)s v0.3.4')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
