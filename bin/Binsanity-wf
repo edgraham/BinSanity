@@ -359,7 +359,7 @@ if __name__ == '__main__':
     parser.add_argument("--binPrefix", dest="binprefix", default=None, metavar="BinPrefix",
                         help="""Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.4')
+                        version='%(prog)s v0.3.6')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
