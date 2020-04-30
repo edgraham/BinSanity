@@ -277,7 +277,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="LogFile", default="binsanity-refine.log", help="""
     Specify an output name for the log file. [Default: binsanity-refine.log]""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.7')
+                        version='%(prog)s v0.3.8')
     parser.add_argument("--outPrefix", dest="outname", default=None, help="""
     Sepcify what prefix you want appended to final Bins {optional}""")
 

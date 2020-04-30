@@ -8,8 +8,7 @@ import argparse
 
 
 def concat_alignments(directory, extension, prefix, output, num):
-    fileNames = [f for f in os.listdir(directory) if f.endswith(
-        extension) and str(prefix) in f]
+    fileNames = [f for f in os.listdir(directory) if f.endswith(extension) and str(prefix) in f]
     org_names = []
     for f in fileNames:
         for record in SeqIO.parse(f, "fasta"):
@@ -23,7 +22,7 @@ def concat_alignments(directory, extension, prefix, output, num):
         different = np.setdiff1d(unique, record_ids)
         record_dict = SeqIO.index(f, "fasta")
         length = (len(record_dict[mutual[1]]))
-        if len(different) > 0:
+        if len(different)>=0:
             with open(ammended+".tmp", "a") as edit:
                 for dif in different:
                     seq = "-"*length
