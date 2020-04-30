@@ -2,15 +2,23 @@
 
 import pandas as pd
 import numpy as np
-import os, shutil, argparse
+import os
+import shutil
+import argparse
 from argparse import RawTextHelpFormatter
-def checkm_analysis(file_,fasta):
-    df = pd.read_csv(file_,sep="\t")
-    highCompletion =list(set(list(df.loc[(df['Completeness']>=95)&(df['Contamination']<=10),'Bin Id'].values) + list(df.loc[(df['Completeness']>=80)&(df['Contamination']<=5), 'Bin Id'].values)+list(df.loc[(df['Completeness']>=50)&(df['Contamination']<=2), 'Bin Id'].values)))
-    lowCompletion = list(set(df.loc[(df['Completeness']<=50)&(df['Contamination']<=2), 'Bin Id'].values))
-    strainRedundancy = list(set(df.loc[(df['Completeness']>=50)&(df['Contamination']>=10)&(df['Strain heterogeneity']>=90),'Bin Id'].values))
+
+
+def checkm_analysis(file_, fasta):
+    df = pd.read_csv(file_, sep="\t")
+    highCompletion = list(set(list(df.loc[(df['Completeness'] >= 95) & (df['Contamination'] <= 10), 'Bin Id'].values) + list(df.loc[(df['Completeness'] >= 80) & (
+        df['Contamination'] <= 5), 'Bin Id'].values)+list(df.loc[(df['Completeness'] >= 50) & (df['Contamination'] <= 2), 'Bin Id'].values)))
+    lowCompletion = list(set(df.loc[(df['Completeness'] <= 50) & (
+        df['Contamination'] <= 2), 'Bin Id'].values))
+    strainRedundancy = list(set(df.loc[(df['Completeness'] >= 50) & (
+        df['Contamination'] >= 10) & (df['Strain heterogeneity'] >= 90), 'Bin Id'].values))
     all = df['Bin Id'].tolist()
-    highRedundancy = np.setdiff1d(all,(highCompletion+lowCompletion+strainRedundancy))
+    highRedundancy = np.setdiff1d(
+        all, (highCompletion+lowCompletion+strainRedundancy))
     if os.path.isdir("high_completion") is False:
         os.makedirs("high_completion")
     if os.path.isdir("low_completion") is False:
@@ -22,14 +30,15 @@ def checkm_analysis(file_,fasta):
     for name in highCompletion:
         shutil.move((str(name)+fasta), "high_completion")
     for name in lowCompletion:
-        shutil.move((str(name)+fasta),"low_completion")
+        shutil.move((str(name)+fasta), "low_completion")
     for name in highRedundancy:
-        shutil.move((str(name)+fasta),"high_redundancy")
+        shutil.move((str(name)+fasta), "high_redundancy")
     for name in strainRedundancy:
-        shutil.move((str(name)+fasta),"strain_redundancy")
+        shutil.move((str(name)+fasta), "strain_redundancy")
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(prog='checkm_analysis', usage='%(prog)s -checkM checkm_qa -f fasta suffix [.fa,.fasta,.fna]',description="""
+    parser = argparse.ArgumentParser(prog='checkm_analysis', usage='%(prog)s -checkM checkm_qa -f fasta suffix [.fa,.fasta,.fna]', description="""
     *****************************************************************************
     *********************************BinSanity***********************************
     **   The script `checkm_analysis` is a simple parser that extracts the     **
@@ -37,12 +46,13 @@ if __name__ == "__main__":
     **   output of `checkm qa`. Then it splits the corresponding genomes into  **
     **   categories of high completion, low completion, and high redundancy    **
     **   prior to moving the bins into appropriate subfolders.                 **
-    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
-    parser.add_argument("-checkM", dest="inputqa", help="Specify the CHeckM output File (should be the one created using --tab_table")
-    parser.add_argument("-f", dest="inputfa", type=str, default=".fna",help="Identify what your suffix for fasta file is [default: .fna]")
+    *****************************************************************************""", formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-checkM", dest="inputqa",
+                        help="Specify the CHeckM output File (should be the one created using --tab_table")
+    parser.add_argument("-f", dest="inputfa", type=str, default=".fna",
+                        help="Identify what your suffix for fasta file is [default: .fna]")
     args = parser.parse_args()
     if args.inputqa is None:
         print(parser.print_help())
     else:
-        checkm_analysis(args.inputqa,args.inputfa)
-
+        checkm_analysis(args.inputqa, args.inputfa)

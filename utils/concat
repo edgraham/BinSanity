@@ -3,62 +3,72 @@ from argparse import RawTextHelpFormatter
 from Bio import SeqIO
 import numpy as np
 import sys
-import os 
+import os
 import argparse
-def concat_alignments(directory,extension,prefix,output,num):
-    fileNames = [f for f in os.listdir(directory) if f.endswith(extension) and str(prefix) in f]
+
+
+def concat_alignments(directory, extension, prefix, output, num):
+    fileNames = [f for f in os.listdir(directory) if f.endswith(
+        extension) and str(prefix) in f]
     org_names = []
     for f in fileNames:
-        for record in SeqIO.parse(f,"fasta"):
+        for record in SeqIO.parse(f, "fasta"):
             org_names.append(record.id)
     unique = list(set(org_names))
-    marker_number = {x:org_names.count(x) for x in org_names}
+    marker_number = {x: org_names.count(x) for x in org_names}
     for f in fileNames:
-	ammended = f.rsplit('.',1)[0]
-        record_ids= [record.id for record in SeqIO.parse(f,"fasta")]
-        mutual = np.intersect1d(unique,record_ids)
-        different = np.setdiff1d(unique,record_ids)
+        ammended = f.rsplit('.', 1)[0]
+        record_ids = [record.id for record in SeqIO.parse(f, "fasta")]
+        mutual = np.intersect1d(unique, record_ids)
+        different = np.setdiff1d(unique, record_ids)
         record_dict = SeqIO.index(f, "fasta")
         length = (len(record_dict[mutual[1]]))
         if len(different) > 0:
-            with open(ammended+".tmp","a") as edit:
+            with open(ammended+".tmp", "a") as edit:
                 for dif in different:
                     seq = "-"*length
-                    edit.writelines([">%s\n"%dif,seq+"\n"])
-		for mut in mutual:
-			edit.writelines([">%s\n"%str(record_dict[mut].id),str(record_dict[mut].seq)+"\n"])
-    with open(output,"a") as new:
+                    edit.writelines([">%s\n" % dif, seq+"\n"])
+                for mut in mutual:
+                    edit.writelines(
+                        [">%s\n" % str(record_dict[mut].id), str(record_dict[mut].seq)+"\n"])
+    with open(output, "a") as new:
         for org in unique:
             if marker_number[org] >= int(num):
                 tmp = ""
                 for f in fileNames:
-                    name = f.rsplit('.',1)[0]			
-                    record_dict = SeqIO.index(name+".tmp","fasta")
+                    name = f.rsplit('.', 1)[0]
+                    record_dict = SeqIO.index(name+".tmp", "fasta")
                     tmp = tmp+str(record_dict[org].seq)
-                new.writelines([">%s\n"%str(org),tmp+"\n"])
+                new.writelines([">%s\n" % str(org), tmp+"\n"])
     for f in fileNames:
-	tmp = f.rsplit(".",1)[0]
-	os.remove(tmp+".tmp")		
+        tmp = f.rsplit(".", 1)[0]
+        os.remove(tmp+".tmp")
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog='concat',usage='%(prog)s -f directory -e Alignment Extension --Prefix file linker -o output', description="""
+    parser = argparse.ArgumentParser(prog='concat', usage='%(prog)s -f directory -e Alignment Extension --Prefix file linker -o output', description="""
     *****************************************************************************
     *********************************BinSanity***********************************
     **     The `concat` script is used to concatenate multiple sequence        **
     **     alignments for conducting a phylogenomic analysis. Note that you    **
     **     receive an error if there are any duplicate sequence ids in an      **
     **     alignment. 
-    *****************************************************************************""",formatter_class=RawTextHelpFormatter)
-    parser.add_argument("-f",metavar="",dest="inputDir",help="Specify directory where alignments are")
-    parser.add_argument("-e",metavar="",dest ="inputExtension",help = "Specify the extension for your alignments (must be in Fasta format)")
-    parser.add_argument("--Prefix",metavar="",dest ="inputPrefix",help="Specify the prefix that links your alignments (ex: if you have two alignments TOBG_RpL10, TOBG_RpL24, the --Prefix would be TOBG")
-    parser.add_argument("-o", dest = "inputOutFile",metavar="",help="Specify output file")
-    parser.add_argument("-N",dest="number",metavar="",help="Specify the minimum number of sequences needed to be included in concatenation")	
+    *****************************************************************************""", formatter_class=RawTextHelpFormatter)
+    parser.add_argument("-f", metavar="", dest="inputDir",
+                        help="Specify directory where alignments are")
+    parser.add_argument("-e", metavar="", dest="inputExtension",
+                        help="Specify the extension for your alignments (must be in Fasta format)")
+    parser.add_argument("--Prefix", metavar="", dest="inputPrefix",
+                        help="Specify the prefix that links your alignments (ex: if you have two alignments TOBG_RpL10, TOBG_RpL24, the --Prefix would be TOBG")
+    parser.add_argument("-o", dest="inputOutFile",
+                        metavar="", help="Specify output file")
+    parser.add_argument("-N", dest="number", metavar="",
+                        help="Specify the minimum number of sequences needed to be included in concatenation")
     args = parser.parse_args()
-    if len(sys.argv)<2:
-	print(parser.print_help())
+    if len(sys.argv) < 2:
+        print(parser.print_help())
     elif os.path.isfile(args.inputOutFile):
         print("Your Output File Already Exists and We don't want to overwrite it")
     else:
-        concat_alignments(args.inputDir,args.inputExtension,args.inputPrefix,args.inputOutFile,args.number)
-        
+        concat_alignments(args.inputDir, args.inputExtension,
+                          args.inputPrefix, args.inputOutFile, args.number)
