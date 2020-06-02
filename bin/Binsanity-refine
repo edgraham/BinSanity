@@ -160,7 +160,7 @@ def cov_array(a, b, name, size):
 #################################
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
-    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
+    apclust = AffinityPropagation(damping=float(damping),random_state=0,max_iter=int(iterations), convergence_iter=int(
         convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     outfile_data = {}
     i = 0

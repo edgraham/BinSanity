@@ -66,7 +66,7 @@ def affinity_propagation(array, names, file_name, damping, iterations, convergen
     """Uses affinity propagation to make putative bins"""
     if os.path.isdir(str(output_directory)) is False:
         os.mkdir(output_directory)
-    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
+    apclust = AffinityPropagation(damping=float(damping),random_state=0,max_iter=int(iterations), convergence_iter=int(
         convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     outfile_data = {}
     i = 0
