@@ -262,7 +262,7 @@ def refined_ap(array, names, file_name, damping, iterations, convergence, prefer
                               str(prefix)+"-REFINED-BINS"))
     name_of_output_file = os.path.join(
         str(output_directory), str(prefix)+"-REFINED-BINS")
-    apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
+    apclust = AffinityPropagation(damping=float(damping),random_state=0, max_iter=int(iterations), convergence_iter=int(
         convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     outfile_data = {}
     i = 0
@@ -421,7 +421,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.3.8')
+                        version='%(prog)s v0.4.1')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
