@@ -60,7 +60,7 @@ def cov_array(a, path, file_name, size):
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
-        convergence), copy=True,random_state=0,preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+        convergence),copy=True,preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     outfile_data = {}
     i = 0
     while i < len(names):
@@ -168,7 +168,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="logfile", default="binsanity-logfile.txt", help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.4.2')
+                        version='%(prog)s v0.4.4')
 
     args = parser.parse_args()
     if len(sys.argv) < 3:

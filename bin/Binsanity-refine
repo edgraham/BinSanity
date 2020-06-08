@@ -160,7 +160,7 @@ def cov_array(a, b, name, size):
 #################################
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
-    apclust = AffinityPropagation(damping=float(damping),random_state=0,max_iter=int(iterations), convergence_iter=int(
+    apclust = AffinityPropagation(damping=float(damping),max_iter=int(iterations), convergence_iter=int(
         convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
     outfile_data = {}
     i = 0
@@ -277,7 +277,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="LogFile", default="binsanity-refine.log", help="""
     Specify an output name for the log file. [Default: binsanity-refine.log]""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.4.2')
+                        version='%(prog)s v0.4.4')
     parser.add_argument("--outPrefix", dest="outname", default=None, help="""
     Sepcify what prefix you want appended to final Bins {optional}""")
 
