@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 from __future__ import print_function, division
 import collections
 import os
@@ -11,7 +11,7 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from sklearn.cluster import AffinityPropagation
 from Bio.SeqUtils import GC
-from Bio.Alphabet import IUPAC
+#from Bio.Alphabet import IUPAC
 from argparse import RawTextHelpFormatter
 import csv
 __author__ = "Elaina Graham"
@@ -41,7 +41,7 @@ def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
     dna = dna.upper()
-    dna_edit = Seq(dna, IUPAC.unambiguous_dna)
+    dna_edit = Seq(dna)
     reverse_complement = (dna_edit).reverse_complement()
     dna_edit = str(dna_edit)
     reverse_complement = str(reverse_complement)
@@ -77,13 +77,12 @@ def kmer_counts(kmer, b, name):
 ##################################
 def output(a, outdir, kmer):
     """Builds tab-delimeted file based on dictionary of tetramers"""
-    topleft = 'contig'
-    headers = sorted(set(key
+    topleft='contig'
+    headers=sorted(set(key
                          for row in list(a.values())
                          for key in row[0]))
-    writer = csv.writer(open(os.path.join(
-        outdir, "%smer-frequencies.txt" % str(kmer)), 'wb'), delimiter='\t')
-    writer.writerow([topleft] + headers)
+    writer=csv.writer(open(os.path.join(outdir, "%smer-frequencies.txt" % str(kmer)), 'w'), delimiter='\t')
+    writer.writerow([str(topleft)] + headers)
     for key in a:
         row = [key]
         for header in headers:
@@ -92,16 +91,15 @@ def output(a, outdir, kmer):
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
 def get_contigs(c, outdir, kmer):
     GC = open(os.path.join(outdir, "GC_count.txt"), "r")
-    dataframe = pandas.read_csv(GC, sep="\t", index_col=0, header=None)
+    dataframe = pandas.read_csv(GC, sep="\t", index_col=0, header=None,low_memory=False)
     dataframe = dataframe.drop('contig')
     dataframe = dataframe.apply(pandas.to_numeric)
-    print(dataframe.head())
     dataframe *= 100
     dataframe += 1
     dataframe = np.log10(dataframe)
     tetra = open(os.path.join(outdir, '%smer-frequencies.txt' %
                               (str(kmer))), "r")
-    dataframe2 = pandas.read_csv(tetra, sep="\t", index_col=0, header=None)
+    dataframe2 = pandas.read_csv(tetra, sep="\t", index_col=0, header=None,low_memory=False)
     dataframe2 = dataframe2.drop('contig')
     dataframe2 = dataframe2.apply(pandas.to_numeric)
     dataframe2 *= 100
@@ -161,7 +159,7 @@ def cov_array(a, b, name, size):
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, outname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping),max_iter=int(iterations), convergence_iter=int(
-        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False, random_state=int(0)).fit_predict(array)
     outfile_data = {}
     i = 0
     while i < len(names):
@@ -277,7 +275,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="LogFile", default="binsanity-refine.log", help="""
     Specify an output name for the log file. [Default: binsanity-refine.log]""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.4.4')
+                        version='%(prog)s v0.5')
     parser.add_argument("--outPrefix", dest="outname", default=None, help="""
     Sepcify what prefix you want appended to final Bins {optional}""")
 
