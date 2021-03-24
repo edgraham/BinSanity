@@ -416,7 +416,7 @@ if __name__ == '__main__':
     parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanityLC", help="""Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.5')
+                        version='%(prog)s v0.5.1')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()

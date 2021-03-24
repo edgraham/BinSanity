@@ -449,7 +449,7 @@ if __name__ == '__main__':
     Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.5')
+                        version='%(prog)s v0.5.1')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -680,9 +680,9 @@ if __name__ == '__main__':
             pass
         shutil.move(os.path.join(args.outputdir, str(
             args.prefix)+"-kmerGC.txt"), os.path.join(args.outputdir, "Binsanity-records/"))
-        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smerFrequencies.txt" %
+        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smer-frequencies.txt" %
                                  (args.kmer)), os.path.join(str(args.outputdir), "Binsanity-records/"))
-        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC.txt"),
+        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC_count.txt"),
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"_checkm_lineagewf-results.txt"),
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
