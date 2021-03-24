@@ -449,7 +449,7 @@ if __name__ == '__main__':
     Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.5.1')
+                        version='%(prog)s v0.5.2')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()
@@ -663,7 +663,7 @@ if __name__ == '__main__':
         os.rename(initial_out, os.path.join(
             str(args.outputdir), "Binsanity-records"))
         try:
-            shutil.move(os.path.join(str(args.outputdir), "REFINED-BINS"),
+            shutil.move(os.path.join(str(args.outputdir),  str(args.prefix)+"-REFINED-BINS"),
                         os.path.join(str(args.outputdir), "Binsanity-records"))
         except:
             pass
@@ -673,20 +673,16 @@ if __name__ == '__main__':
             shutil.copy(os.path.join(os.path.join(str(args.outputdir), "Binsanity-records/" +
                                                   str(args.prefix)+"_high_completion"), files), str(final_out))
         try:
-            for files in os.listdir(os.path.join(str(args.outputdir), "Binsanity-records/REFINED-BINS")):
+            for files in os.listdir(os.path.join(str(args.outputdir), "Binsanity-records/%s-REFINED-BINS"%str(args.prefix))):
                 shutil.copy(os.path.join(os.path.join(
-                    str(args.outputdir), "Binsanity-records/REFINED-BINS"), files), str(final_out))
+                    str(args.outputdir), "Binsanity-records/%s-REFINED-BINS"%str(args.prefix)), files), str(final_out))
         except:
             pass
         shutil.move(os.path.join(args.outputdir, str(
             args.prefix)+"-kmerGC.txt"), os.path.join(args.outputdir, "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smer-frequencies.txt" %
                                  (args.kmer)), os.path.join(str(args.outputdir), "Binsanity-records/"))
-<<<<<<< HEAD
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC_count.txt"),
-=======
-        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC.txt"),
->>>>>>> 6b0755eb4ca1d9f010c0c1df2adad16fa201b0f8
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"_checkm_lineagewf-results.txt"),
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
