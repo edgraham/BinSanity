@@ -682,7 +682,11 @@ if __name__ == '__main__':
             args.prefix)+"-kmerGC.txt"), os.path.join(args.outputdir, "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smer-frequencies.txt" %
                                  (args.kmer)), os.path.join(str(args.outputdir), "Binsanity-records/"))
+<<<<<<< HEAD
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC_count.txt"),
+=======
+        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC.txt"),
+>>>>>>> 6b0755eb4ca1d9f010c0c1df2adad16fa201b0f8
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"_checkm_lineagewf-results.txt"),
                     os.path.join(str(args.outputdir), "Binsanity-records/"))

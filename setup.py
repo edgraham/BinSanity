@@ -13,4 +13,7 @@ setup(
     author_email="egraham147@gmail.com",
     license="GPL3",
     install_requires=['biopython','pandas>=0.13.0','scipy>=0.13.0','checkm-genome','scikit-learn>=0.23'],
-    scripts=['utils/identifyHMM','utils/concat','utils/simplify-fasta','utils/get-ids','bin/Binsanity2','bin/Binsanity-lc','bin/Binsanity','bin/Binsanity-refine','bin/Binsanity-wf',"bin/Binsanity-profile","utils/transform-coverage-profile","utils/bin_evaluation","utils/checkm_analysis","Binsanity2-Beta/Binsanity2-beta"], )
+
+    scripts=['utils/identifyHMM','utils/concat','utils/simplify-fasta','utils/get-ids','bin/Binsanity2','bin/Binsanity-lc','bin/Binsanity','bin/Binsanity-refine','bin/Binsanity-wf',"bin/Binsanity-profile","utils/transform-coverage-profile","utils/bin_evaluation","utils/checkm_analysis","Binsanity2-Beta/Binsanity2-beta"]      ,
+)
+
