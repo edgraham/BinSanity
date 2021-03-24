@@ -1,4 +1,0 @@
-[2021-03-24 09:12:42] INFO: CheckM v1.1.1
-[2021-03-24 09:12:42] INFO: checkm lineage_wf --pplacer_threads 50 --threads 50 -f checkm_lineageWF.qa.txt --tab_table bins checkm_lineageWF
-[2021-03-24 09:12:42] INFO: [CheckM - tree] Placing bins in reference genome tree.
-[2021-03-24 09:12:43] INFO: Identifying marker genes in 33 bins with 50 threads:
