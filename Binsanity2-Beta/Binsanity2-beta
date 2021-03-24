@@ -387,50 +387,66 @@ if __name__ == '__main__':
     **       ******                 FLAG '--skip-kmeans'                             ******       **
     ************************************************************************************************
     """, formatter_class=RawTextHelpFormatter)
-    parser.add_argument("-c", metavar="CoverageFile", dest="inputCovFile", help="""Specify a Coverage File
+    parser.add_argument("-c", metavar="CoverageFile", dest="inputCovFile", help="""
+    Specify a Coverage File
     """)
-    parser.add_argument("-f", metavar="FastaLocation", dest="inputContigFiles", help="""Specify directory containing Fasta File to be clustered
+    parser.add_argument("-f", metavar="FastaLocation", dest="inputContigFiles", help="""
+    Specify directory containing Fasta File to be clustered
     """)
-    parser.add_argument("-p", type=float, metavar="Preference", dest="preference", default=-3, help="""Specify a preference [Default: -3]
+    parser.add_argument("-p", type=float, metavar="Preference", dest="preference", default=-3, help="""
+    Specify a preference [Default: -3]
     Note: decreasing the preference leads to more lumping, 
     increasing will lead to more splitting. If your range
     of coverages are low you will want to decrease the
     preference, if you have 10 or less replicates increasing
     the preference could benefit you.
+    
     """)
-    parser.add_argument("-m", type=int, metavar="MaximumIterations", dest="maxiter", default=4000, help="""Specify a max number of iterations [Default: 4000]
+    parser.add_argument("-m", type=int, metavar="MaximumIterations", dest="maxiter", default=4000, help="""
+    Specify a max number of iterations [Default: 4000]
     """)
-    parser.add_argument("-v", type=int, metavar="ConvergenceIterations", dest="conviter", default=400, help="""Specify the convergence iteration number [Default:400]
+    parser.add_argument("-v", type=int, metavar="ConvergenceIterations", dest="conviter", default=400, help="""
+    Specify the convergence iteration number [Default:400]
     e.g Number of iterations with no change in the number 
     of estimated clusters that stops the convergence.
     """)
-    parser.add_argument("-d", default=0.95, metavar="DampeningFactor", type=float, dest="damp", help="""Specify a damping factor between 0.5 and 1 [Default: 0.95]
+    parser.add_argument("-d", default=0.95, metavar="DampeningFactor", type=float, dest="damp", help="""
+    Specify a damping factor between 0.5 and 1 [Default: 0.95]
     """)
-    parser.add_argument("-l", dest="fastafile", metavar="FastaFile Name", help="""Specify the fasta file containing contigs you want to cluster
+    parser.add_argument("-l", dest="fastafile", metavar="FastaFile Name", help="""
+    Specify the fasta file containing contigs you want to cluster
     """)
-    parser.add_argument("-x", dest="ContigSize", type=int, metavar="SizeCutOff", default=1000, help="""Specify the contig size cut-off [Default:1000 bp]
+    parser.add_argument("-x", dest="ContigSize", type=int, metavar="SizeCutOff", default=1000, help="""
+    Specify the contig size cut-off [Default:1000 bp]
     """)
-    parser.add_argument("-o", dest="outputdir", metavar="Output Directory", default="BINSANITY-RESULTS", help="""Give a name to the directory BinSanity results will be output in 
+    parser.add_argument("-o", dest="outputdir", metavar="Output Directory", default="BINSANITY-RESULTS", help="""
+    Give a name to the directory BinSanity results will be output in 
     [Default:'BINSANITY-RESULTS']
     """)
-    parser.add_argument("--checkm_threads", dest="threads", metavar="Threads", type=int, default=1, help="""Indicate how many threads you want dedicated to the subprocess CheckM [Default: 1]
+    parser.add_argument("--checkm_threads", dest="threads", metavar="Threads", type=int, default=1, help="""
+    Indicate how many threads you want dedicated to the subprocess CheckM [Default: 1]
     """)
-    parser.add_argument("--kmer", dest="kmer", metavar="Kmer", type=int, default=4, help="""Indicate a number for the kmer calculation [Default: 4]
+    parser.add_argument("--kmer", dest="kmer", metavar="Kmer", type=int, default=4, help="""
+    Indicate a number for the kmer calculation [Default: 4]
     """)
-    parser.add_argument("--refine-preference", metavar="", dest="inputrefinedpref", type=float, default=-25, help="""Specify a preference for refinement [Default: -25]
+    parser.add_argument("--refine-preference", metavar="", dest="inputrefinedpref", type=float, default=-25, help="""
+    Specify a preference for refinement [Default: -25]
     """)
     parser.add_argument("-C", dest="cluster", metavar="ClusterNumber", type=int, default=25, help="""
     Indicate a number of initial clusters for kmean [Default:25]
     """)
-    parser.add_argument('--skip-kmeans', dest="skip-kmeans" type=bool, action='store_true',"""
+    parser.add_argument('--skip-kmeans', dest="skipkmeans", action='store_true',help="""
     If you want to bypass kmeans clustering and ONLY us affinity propagation set this flag. 
     This will replicated the BinsanityWF functionality. The default action without this flag
     is to implement an initial kmeans clustering. The kmeans clustering step decreases the overall
     memory requirments for the script so skipping kmeans will lead to greater memory allocation. 
     It is recommended that users only implement this flag if they are working with small assemblies
-    that are < 50,000 contigs or if the user knows they have ample memory. For reference using this
-    flag with an assembly ~100,000 contigs used >600GB of RAM on our lab server."""
-    parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanity2", help="""Specify a prefix to append to the start of all directories generated during Binsanity
+    that are < 25,000 contigs or if the user knows they have ample memory. For reference using this
+    flag with an assembly ~100,000 contigs used >600GB of RAM on our lab server.
+    
+    """)
+    parser.add_argument("--Prefix", dest="prefix", metavar="Prefix", default="BinSanity2", help="""
+    Specify a prefix to append to the start of all directories generated during Binsanity
     """)
     parser.add_argument('--version', action='version',
                         version='%(prog)s v0.5')
@@ -494,9 +510,9 @@ if __name__ == '__main__':
         """)
         try:
             affinity_propagation(val1, val2, args.fastafile, args.damp, args.maxiter, args.conviter,
-                                 args.preference, args.inputContigFiles, args.outputdir, args.binprefix)
+                                 args.preference, args.inputContigFiles, args.outputdir)
         except:
-            print("Binsanity failed to complete clustering with affinity propagation. The most likely situation in which Binsanity fails here is a memory issue :(. You can eitehr try allocating more memory on your machine or try running Binsanity-lc")
+            print("Binsanity failed to complete clustering with affinity propagation. The most likely situation in which Binsanity fails here is a memory issue :(.")
             with open("error_code.txt", "w") as out_file:
                 out_file.write("2")
             sys.exit(1)
@@ -625,14 +641,14 @@ if __name__ == '__main__':
                           str(args.prefix))
                     sys.exit(1)
                 try:
-                    refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter,
-                               args.conviter, args.inputrefinedpref, location, args.outputdir)
+                    refined_ap(val1, val2, redundant_bin, args.damp, args.maxiter, args.conviter,
+                            args.inputrefinedpref, location, args.outputdir, args.prefix)
                 except:
                     print(
                         ("BinSanity failed when refining you genomes :/. The Bin that it failed at was the following bin: %s") % str(redundant_bin))
                     with open("error_code.txt", "w") as out_file:
                         out_file.write("4")
-                        out_file.write("%s") % str(redundant_bin)
+                        out_file.write("%s" % str(redundant_bin))
                     sys.exit(1)
                 print(("""
                   ______________________________________________________
@@ -664,7 +680,7 @@ if __name__ == '__main__':
             pass
         shutil.move(os.path.join(args.outputdir, str(
             args.prefix)+"-kmerGC.txt"), os.path.join(args.outputdir, "Binsanity-records/"))
-        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smerFrequencies.txt" %
+        shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-%smer-frequencies.txt" %
                                  (args.kmer)), os.path.join(str(args.outputdir), "Binsanity-records/"))
         shutil.move(os.path.join(args.outputdir, str(args.prefix)+"-GC.txt"),
                     os.path.join(str(args.outputdir), "Binsanity-records/"))
