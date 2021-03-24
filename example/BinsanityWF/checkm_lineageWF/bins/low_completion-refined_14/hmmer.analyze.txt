@@ -1,0 +1,21 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig666_35 -            132 tRNA_anti-like       PF12869.2    144    0.0006   13.5   0.3   1   2   5.1e-06    0.0013   12.5   0.1    94   132    42    79    24    95 0.78 # 26352 # 26747 # -1 # ID=32_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 tRNA_anti-like       PF12869.2    144    0.0006   13.5   0.3   2   2     0.057        14   -0.7   0.1    67   101    86   119    77   127 0.55 # 26352 # 26747 # -1 # ID=32_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig664_5 -            302 Fae                  PF08714.6    160    0.0017   12.2   0.0   1   1   1.7e-05    0.0043   11.0   0.0    33    77    34    78    23    82 0.92 # 3516 # 4421 # -1 # ID=4_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 tRNA_anti_2          PF13742.1     99   0.00036   14.6   0.0   1   1   1.9e-06   0.00048   14.2   0.0    50    84    46    79    18    95 0.86 # 26352 # 26747 # -1 # ID=32_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig666_35 -            132 SSB                  PF00436.20   104   8.7e-35  113.0   0.2   1   1   5.7e-37   1.4e-34  112.3   0.2     1   104     1   102     1   102 0.98 # 26352 # 26747 # -1 # ID=32_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+Day17a_QCcontig28_23 -            302 Stn1                 PF10451.4    256   0.00064   12.8   0.1   1   1   4.3e-06    0.0011   12.1   0.1   178   240    19    85    11   101 0.74 # 22177 # 23082 # -1 # ID=12_23;partial=00;start_type=GTG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.326
+Day17a_QCcontig28_35 -            114 Ribonuclease_P       PF00825.13   111   7.6e-31  100.5   4.6   1   1   3.4e-33   8.5e-31  100.4   4.6     1   110     1   106     1   107 0.96 # 35435 # 35776 # -1 # ID=12_35;partial=00;start_type=GTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.316
+Day17a_QCcontig666_35 -            132 tRNA_anti-codon      PF01336.20    75   1.1e-05   19.5   0.1   1   1   7.2e-08   1.8e-05   18.8   0.1    27    73    46   100    34   102 0.83 # 26352 # 26747 # -1 # ID=32_35;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.288
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/b2a536dd-ba3d-4e60-8bc8-c3fa06bb9c67
+# Target file:     checkm_lineageWF/bins/low_completion-refined_14/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineageWF/bins/low_completion-refined_14/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/b2a536dd-ba3d-4e60-8bc8-c3fa06bb9c67 checkm_lineageWF/bins/low_completion-refined_14/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/BinsanityWF
+# Date:            Fri Sep 25 15:45:47 2020
+# [ok]

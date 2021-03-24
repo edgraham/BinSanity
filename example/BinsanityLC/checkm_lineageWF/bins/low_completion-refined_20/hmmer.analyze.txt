@@ -1,0 +1,13 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/5bd350f4-4104-4525-83a9-85eb287ef86b
+# Target file:     checkm_lineageWF/bins/low_completion-refined_20/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineageWF/bins/low_completion-refined_20/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/5bd350f4-4104-4525-83a9-85eb287ef86b checkm_lineageWF/bins/low_completion-refined_20/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/BinsanityLC
+# Date:            Mon Sep 28 13:22:42 2020
+# [ok]

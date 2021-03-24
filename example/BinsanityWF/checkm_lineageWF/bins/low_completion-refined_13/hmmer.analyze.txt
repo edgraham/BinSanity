@@ -1,0 +1,15 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig1604_1 -             75 tRNA_anti_2          PF13742.1     99   1.3e-15   51.7   0.0   1   1   4.1e-18   1.4e-15   51.6   0.0     2    73     5    74     4    75 0.95 # 1 # 225 # -1 # ID=7_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.244
+Day17a_QCcontig3539_2 -             39 TIGR00755            TIGR00755    256   2.7e-12   40.8   0.3   1   1   7.9e-15   2.7e-12   40.8   0.3   123   160     1    38     1    39 0.95 # 1203 # 1319 # 1 # ID=54_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.385
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/68cb948b-dca8-4616-b530-c5dc4ee05f1a
+# Target file:     checkm_lineageWF/bins/low_completion-refined_13/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineageWF/bins/low_completion-refined_13/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/68cb948b-dca8-4616-b530-c5dc4ee05f1a checkm_lineageWF/bins/low_completion-refined_13/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/BinsanityWF
+# Date:            Fri Sep 25 15:45:46 2020
+# [ok]

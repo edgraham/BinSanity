@@ -1,0 +1,648 @@
+>Day17a_QCcontig1862_1 # 3 # 173 # 1 # ID=1_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.608
+PNLISLMAVLASCCCCCLPLSQLAFGSTCRAGLAMGCEWESRRSSGRCPMPFRSSA*
+>Day17a_QCcontig1862_2 # 956 # 1135 # 1 # ID=1_2;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.589
+MPQARTDASDAVVSKLSTVFDEFGIDAQVTGYSRGPTVTRYEVELGAAVKVEKVTALSKN
+>Day17a_QCcontig2030_1 # 1 # 66 # 1 # ID=2_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.576
+NWVNTSQVMPSRRAELSAPMT*
+>Day17a_QCcontig2030_2 # 63 # 176 # 1 # ID=2_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.535
+MTLEALYAKLVFLLSQGLHGKELKRWIETDIAGEISV*
+>Day17a_QCcontig2030_3 # 992 # 1081 # 1 # ID=2_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.511
+MVKSTFLNAVSAREKKFPTGLDFGYVSIAI
+>Day17a_QCcontig2045_1 # 3 # 95 # -1 # ID=3_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.581
+MITLDGSTGEVFASGLKFIPPQINADFQEVL
+>Day17a_QCcontig2045_2 # 883 # 1050 # 1 # ID=3_2;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.571
+MSQERKTASTARISCSRGSVVQFPPSCSFDSFLKVSTRPLRSSALRSVSDSTPFFS
+>Day17a_QCcontig3043_1 # 25 # 210 # -1 # ID=4_1;partial=00;start_type=TTG;rbs_motif=CCCC;rbs_spacer=10bp;gc_cont=0.538
+MPYGNYITVGGLVVEGRENPGRDARLSEGQSFTAKSSISRQPTGVFRLALTLKHVSANAS
+Q*
+>Day17a_QCcontig3043_2 # 158 # 259 # -1 # ID=4_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.471
+MHQDASEVHSSFPSNIVAVWKLYHSWGSGRGRS*
+>Day17a_QCcontig3043_3 # 228 # 368 # -1 # ID=4_3;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.532
+MAASRVLCPAGGEHRIAARKCRADSLGNALRPAHTEDASGCFGGPF*
+>Day17a_QCcontig3043_4 # 1049 # 1210 # 1 # ID=4_4;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.556
+MDCSGLGYVDGIDLQELIAPDRSLNEGAVRFPSFEPGTYRWKRLVCSGLFDPDV
+>Day17a_QCcontig2841_1 # 3 # 335 # 1 # ID=5_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.601
+QQDIQMVVNTLWSGGAEAMTIQGQRVISTTAVKCVGNTVVLHGVAYAPPYVIEAIGDLNA
+MQKALDTSEAVRIYKEYVSAYQLGWSVERAGQVTMPAYTGAVAVSHATPR*
+>Day17a_QCcontig2841_2 # 939 # 1076 # -1 # ID=5_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.587
+SSSRHRLEPTGGNLNPGKCRSEGPGRPRSKGPGDRQPGRLAKPSC*
+>Day17a_QCcontig2398_1 # 2 # 160 # -1 # ID=6_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.597
+MPASDSASAATKALAKAKIPHVLHSYDHDPSNHHFGDEGAAKLGFDPSIMLKT
+>Day17a_QCcontig2398_2 # 160 # 312 # -1 # ID=6_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.601
+MKHGEVLRAQGAWLLSSVRGVAPILSIDGHPVPQDEDMTHRLRTWAGFEN*
+>Day17a_QCcontig2398_3 # 1045 # 1248 # 1 # ID=6_3;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.554
+MSRIVGRQRSASQVDTMLLTDRGIINDGDASLVATTSDVPSWSSSRSPRKEGSGDGSQRW
+HRGCCAA*
+>Day17a_QCcontig513_1 # 1 # 96 # -1 # ID=7_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.552
+MSTSTIVFIPTSAERAHQLVAAPGKQVTAFTV
+>Day17a_QCcontig513_2 # 145 # 282 # -1 # ID=7_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.500
+MSSSCTQGQRMRYRKRKGCSGNLWTTLVSESFHHLGCREPIFART*
+>Day17a_QCcontig513_3 # 927 # 1025 # 1 # ID=7_3;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.657
+MGSTESAVTGLPPSSVTRPTCGPVSISRLNRNP
+>Day17a_QCcontig1539_1 # 3 # 140 # 1 # ID=8_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.551
+MITGQRLMSRSKVPRPVFSRLSGGTFSRLLRHQPVQINLAFRQRV*
+>Day17a_QCcontig1539_2 # 146 # 265 # -1 # ID=8_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.483
+MRKGIHPKSQRILSDSWMSVGQHRDDINLSVPKVVTFIA*
+>Day17a_QCcontig1539_3 # 211 # 327 # -1 # ID=8_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.547
+MIVRHGKRAPRSDNSLARRRACGRVFTRNLSAFSAILG*
+>Day17a_QCcontig1539_4 # 1052 # 1168 # 1 # ID=8_4;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.573
+MIPITTLRTEFTLPRPVECGDASCTVSLACAMTGRTCVL
+>Day17a_QCcontig1578_1 # 2 # 61 # -1 # ID=9_1;partial=10;start_type=ATG;rbs_motif=CCCC;rbs_spacer=9bp;gc_cont=0.600
+MPRPGTKGSMRKTRPTMNST
+>Day17a_QCcontig1578_2 # 83 # 178 # 1 # ID=9_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.552
+MDPRWLLHLPASRSIKGRARYRFCWLPRRQS*
+>Day17a_QCcontig1578_3 # 158 # 280 # -1 # ID=9_3;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.593
+MTSIVATHIMAIGPRSRVRGRVIPRILCPARERTSRLSTR*
+>Day17a_QCcontig1578_4 # 900 # 1112 # 1 # ID=9_4;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.582
+MNRQIRAVSLLAGLMFLALMVNLTGSAMFRQASLNNDPHNVRVRDAEFSQNRGNILVGSR
+PIATTTSSNGK
+>Day17a_QCcontig1600_1 # 1 # 129 # 1 # ID=10_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.597
+GHAGSIPSPQPPFRWQDPPGQGTCQCYSRRIHFFSVTKNTPR*
+>Day17a_QCcontig1600_2 # 69 # 176 # 1 # ID=10_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.472
+MSVLLTSDSLLQRDEKHAAVAKRQVVLMEFSEILR*
+>Day17a_QCcontig1600_3 # 173 # 376 # -1 # ID=10_3;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.505
+MDITSLMTMHRGPWPACSRPRDFPYSRPRRTESCMPSIISSTTLPLMFSHLSSSRHGNIR
+NNSRVST*
+>Day17a_QCcontig1600_4 # 896 # 1123 # 1 # ID=10_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.592
+MEVCSPVGGPDAMQIRSWAPPCVNQRRWLPHPSQKNALRLGVKGNRAPCNIGDTQSGSMA
+TRRLLLGTTGAGTKT*
+>Day17a_QCcontig1690_1 # 1 # 276 # -1 # ID=11_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.609
+MYARCLAADAVDANGNVVVEANSDLGDEEISRLIAAGISQIKVRSVLTCTAAQGCCARCY
+GRSLSTGHLVDVGEAVGIIAAQSIGEPGTQLT
+>Day17a_QCcontig1690_2 # 1023 # 1211 # 1 # ID=11_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.624
+MVSRITEPSARTVSSCGGTMPLRRSLILAPISSSPRSWAIMASASEVKARPSPLRPSRAI
+VR*
+>Day17a_QCcontig1690_3 # 1221 # 1388 # 1 # ID=11_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.613
+MIISCEGRATGRPSAGLMFVDNMRTRASAWASGLNGRCTAIWSPSKSALKAEQTSG
+>Day17a_QCcontig1729_1 # 1 # 96 # -1 # ID=12_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.604
+MRSANETTSRANCSRSMRPMASEGRASTRVPL
+>Day17a_QCcontig1729_2 # 940 # 1128 # -1 # ID=12_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.444
+PVGNAAFQIANVGFANEPTADVRPHVKGRAGQGIGDEIWCRKVCLNRIRDFGITNHFIIE
+IW*
+>Day17a_QCcontig2006_1 # 1 # 99 # -1 # ID=13_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.636
+MFWITELTVLRSASRPVPSLPVHHSRFPQALFT
+>Day17a_QCcontig2006_2 # 123 # 224 # 1 # ID=13_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.598
+MVYRSSRRRTRPAPRSATTSLSATDAPSAAPPK*
+>Day17a_QCcontig2534_1 # 30 # 128 # 1 # ID=14_1;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.485
+MVGLTRRITLDLGCPISRMNHQNHVVNLPTST*
+>Day17a_QCcontig2534_2 # 803 # 967 # 1 # ID=14_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.618
+MCRPVRCGICGKTTWAGCGEHIAHVKAQVPPSQWCDGTHTTAEKTAAQSPHSRS*
+>Day17a_QCcontig2534_3 # 909 # 1010 # 1 # ID=14_3;partial=00;start_type=ATG;rbs_motif=CCACC;rbs_spacer=14bp;gc_cont=0.608
+MEPTRLLRKLRPSHHIRAPEGGADSLIRGATLP*
+>Day17a_QCcontig2534_4 # 970 # 1086 # 1 # ID=14_4;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.632
+MALTRSFVAQPCPDLHFTVVCLHPPTTRGPVAVSPSSI*
+>Day17a_QCcontig2534_5 # 1468 # 1779 # 1 # ID=14_5;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.606
+MLRKALAKKLPLILVLNKVDRSDARIDEVVEETYDLFMDLSDDDDASLLDVPVVYASAKA
+GRASLNKPGDGELPDSPDLQPLFDCILENIPAPTYAEGGVLQAH
+>Day17a_QCcontig2692_1 # 2 # 238 # -1 # ID=15_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.591
+MSDSTVSQSSSLTAPTLMTMSISSAPSLTAALVSAALISLRCAPEGKPMTEHTRGACPAS
+SSAASLARGGLTQTVAKP*
+>Day17a_QCcontig2692_2 # 950 # 1183 # 1 # ID=15_2;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.568
+MSFLETSANTYSSMIGDRKHATLRLNISQTFTSLGFLGGALMGKFLVFTDGAALHERVAH
+AHTVAEREAVTAEALGRT
+>Day17a_QCcontig2809_1 # 2 # 178 # -1 # ID=16_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.588
+MKPARGGSSIGISRVTSPEHLETAIEMAREHDSKVLIEQGIRGREIECSVIDGRHGAAP
+>Day17a_QCcontig2809_2 # 815 # 1078 # -1 # ID=16_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.602
+YKEMTFPKLWPRKTMKLYCGTDVELSDLRGRHDLASVREATNRIMDAIDAQVARVRGEFP
+PPDRYDMRKGARIPKSIASARPVVDPH*
+>Day17a_QCcontig3001_1 # 58 # 165 # 1 # ID=17_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.565
+MLGLLRPNQGLMPTSRKEHHGRPCATRHGVRIQEF*
+>Day17a_QCcontig3001_2 # 939 # 1028 # 1 # ID=17_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.611
+MSACLRAFSSSGSCSGWWEPSASISTRAS*
+>Day17a_QCcontig3001_3 # 1031 # 1198 # 1 # ID=17_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MVKAPVESGQICGSQAFLTFAVHNVDVVVGRRNAVGNLSSTVRRIIISDQNVDVWV
+>Day17a_QCcontig3041_1 # 1 # 72 # -1 # ID=18_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.611
+MPDSTVCRLNHSCHMRSQRALSRV
+>Day17a_QCcontig3041_2 # 45 # 254 # -1 # ID=18_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.543
+MLLDFLLIALAWLVNPLDRCSGMFLLKGLDEPLEVGRELFVLERPGLELDAAFELGGRVN
+RCLTRRFVA*
+>Day17a_QCcontig3041_3 # 708 # 854 # 1 # ID=18_3;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.619
+MDHWLGLLPCRPQEERTETPPPRRHDHTHRRSSPVCAGHLRLRRLEEP*
+>Day17a_QCcontig3041_4 # 814 # 1041 # 1 # ID=18_4;partial=01;start_type=GTG;rbs_motif=CCCC;rbs_spacer=5bp;gc_cont=0.575
+MQGICVSADSKNPNLALAFAQYVTNNANQVDFVKLAQGFLPGTKEANENTNSFTSVISDP
+QMKKAAEALAGEMKSA
+>Day17a_QCcontig3614_1 # 3 # 173 # 1 # ID=19_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.561
+AIPPTQRGCPSRWVAIIRVLFASSRSCVAKKLTAVPARSCLRSVPSLTRESRRLRY*
+>Day17a_QCcontig3614_2 # 1043 # 1135 # 1 # ID=19_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.634
+MRKIDEGWRSMEHHPSCCSTSAPIRSGSLGQ
+>Day17a_QCcontig3744_1 # 3 # 167 # -1 # ID=20_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.606
+MGDALSPSKWCCLRCCPHPCRCCPFLHRCCLYLVWCCPMNRCENRACPEGRGRFT
+>Day17a_QCcontig3744_2 # 847 # 1218 # 1 # ID=20_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.570
+MRLRCVRRMLFAVTKFKRVMALLGVIYLVTVGGLYFVLADRSDNFIHDGQIIQGTVTAVY
+SHHAVSTGATKYLMHAEGGNVALISYTYDGATDTVWSNPYRDIKKYHVGQTADLVLRATP
+NHPD
+>Day17a_QCcontig554_1 # 3 # 107 # 1 # ID=21_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.590
+ANSGACHHARPSRCGVLVHAVAYGAGAFSLCHWW*
+>Day17a_QCcontig554_2 # 718 # 1065 # 1 # ID=21_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.566
+MQDASDDAATQANQLANAVSTSAKVVIVNPTDSDAVAPSVKALNKAKIPVITVDRSSSSG
+DVASFIASDNIAGGIDAAKKLAEIMGDKGEVIHLQGTPGASASRDRGKGFSEEIAK
+>Day17a_QCcontig908_1 # 9 # 98 # -1 # ID=22_1;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.522
+MLRLVSSWVRRVLRSAPELFCEESRPVLL*
+>Day17a_QCcontig908_2 # 46 # 189 # -1 # ID=22_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.590
+MLKIDGEVGNKKMYDPRSWGKKAGAGMAARIVEACEQLGSKGTSVSA*
+>Day17a_QCcontig908_3 # 1028 # 1123 # -1 # ID=22_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.646
+MVPASPTNVRCAAPMSVPGVGTDIGRVPAEE*
+>Day17a_QCcontig908_4 # 1078 # 1497 # -1 # ID=22_4;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.605
+QLSPVMWMLGAWVVLFLVLFVIQNLRLHAARKDLLDVGEGPALIVCSRGLLLRRALRCES
+EGPVATSMDEVRWDDLSAVKVGGSSIGSGPGLVVYADDGRQWEVPLSWLDSQLADIDAAI
+SGGAGWCRHRRLMCAAQHL*
+>Day17a_QCcontig1107_1 # 81 # 242 # -1 # ID=23_1;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.568
+MVKAEGTRRRWRASIASLLDKVHLLSPRYSEATDDADGPFTGHRYAMNNTGES*
+>Day17a_QCcontig1107_2 # 794 # 922 # 1 # ID=23_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.504
+MMLSLLWAQFSLLDRLVPASRLSIRSPLQLVRTPLVSGLLKG*
+>Day17a_QCcontig1107_3 # 935 # 1063 # 1 # ID=23_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.543
+MDLSEVLLPWCSIWRGTQRRSRPILDSPMRGKTEKLSQPSGR*
+>Day17a_QCcontig1107_4 # 1768 # 1839 # 1 # ID=23_4;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.542
+MPNNTLQHTEAPTYRVVTYGCQMN
+>Day17a_QCcontig1313_1 # 1 # 123 # -1 # ID=24_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.667
+MGSLPAPWAMSSLPPPRPPIGATPTLIRAPALAPAARADSV
+>Day17a_QCcontig1313_2 # 868 # 987 # -1 # ID=24_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.533
+MLYAFVDLTTSLSSRIEPTSLTDAPAGTRTKTSFSPSPR*
+>Day17a_QCcontig1313_3 # 1701 # 1979 # 1 # ID=24_3;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.566
+MTTFIGLLQIPTRALRRIPRRWPSTRKMSRNSKLGVRTTRGSARTIRADLGGLAMRCAVI
+GHPVAHSLSPAIHRAAYQVLGLEWSYQAIDVEP
+>Day17a_QCcontig1781_1 # 1 # 192 # -1 # ID=25_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.594
+MRVVNFTTEIASWAPAAFVERVLGPLQPRHVLVGQNFRFGRHAVGTPDALAEHGCFQVHA
+MDLV
+>Day17a_QCcontig1781_2 # 969 # 1178 # 1 # ID=25_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.490
+MDFLSWASMAGVDEILKLRFFNPYFGMAESLVALVKPAPASIPYKVLSYSSPMVLRSPIV
+RALESLLTAI
+>Day17a_QCcontig2299_1 # 3 # 143 # 1 # ID=26_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.525
+QLCVRLNHALFTLSHLTSPSFVKSLIQRRTRLTSTRDDGKNGSFDL*
+>Day17a_QCcontig2299_2 # 112 # 222 # 1 # ID=26_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.495
+MMVKMAVSISDITAPPSGLSLPHCEVMLHLLRIVLF*
+>Day17a_QCcontig2299_3 # 188 # 352 # -1 # ID=26_3;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.461
+MPAPIGAFLTTGGDWRAVVLCLVNILISTVIYYPFMRMYDRDQLKKERCEEGGA*
+>Day17a_QCcontig2299_4 # 1001 # 1141 # 1 # ID=26_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.489
+MSGYAYNRCASLQRPAALRSSQGIALLSLDFQAPHRFHLQVSLGSG*
+>Day17a_QCcontig2577_1 # 2 # 274 # -1 # ID=27_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.571
+MGDSRESRSPRHDSSNTSATPSAGGVHAPSRLQVEAQRRKGRSWLGSLQDPELPGLASRQ
+DQCPPHLGELRTFLAFPLRGRSQAPSKHYPV
+>Day17a_QCcontig2577_2 # 1042 # 1140 # 1 # ID=27_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.556
+MRTTASEDMLRDALLENLHRVQLNPLEEAAAYE
+>Day17a_QCcontig2628_1 # 3 # 143 # -1 # ID=28_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.546
+MAWGKLSGKVASKPLTLPGRNWINLGLLVVIIACGIWFSNVSGGIAW
+>Day17a_QCcontig2628_2 # 98 # 217 # -1 # ID=28_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MPAPSSFPRSGLASSLALLPSRDRWWPGASSRAKSLQSH*
+>Day17a_QCcontig2628_3 # 975 # 1232 # 1 # ID=28_3;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.574
+MAHRHSADDLVVKVKDELAVLFRGGQFKQIDEVGAVKLAGLTRQARRQISVTNNRHTVIG
+DIGLTGASQIAVATPQGSKVNDDAAR
+>Day17a_QCcontig2763_1 # 2 # 73 # -1 # ID=29_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MSLRQRCGVRHQSPFSGLRQHLVA
+>Day17a_QCcontig2763_2 # 70 # 264 # -1 # ID=29_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.574
+MGQVLRYEGINDGGMPVVDHIDPLSVDIDSDDAVMLGQQHGIGHSDVAQSCNGNLHGRSF
+RGSP*
+>Day17a_QCcontig2763_3 # 1105 # 1194 # -1 # ID=29_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.500
+MMTSQLALKKSRFLVTSEWKNSSPSKVGS*
+>Day17a_QCcontig2763_4 # 1830 # 1922 # 1 # ID=29_4;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.559
+MNNFTEDPHVRVLLSHRGQHRSPELRIDGIG
+>Day17a_QCcontig2777_1 # 1 # 216 # -1 # ID=30_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.597
+MSELIDKALADCGDTDVVVMGRNVLEETGRVFKELFGDAKVIIIADENTWAVAGEQTKAS
+LEAAGVERVERM
+>Day17a_QCcontig2777_2 # 893 # 1036 # 1 # ID=30_2;partial=00;start_type=GTG;rbs_motif=CCACC;rbs_spacer=15bp;gc_cont=0.674
+MDLGGGLAGEHVRGAGDESHRTGREHAETDLTGPGITKSLGNRDVGT*
+>Day17a_QCcontig2777_3 # 1023 # 1127 # 1 # ID=30_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.610
+MSGRRPNNWAGIVPRVPTGVPRSRTLPGILSKTSS
+>Day17a_QCcontig2827_1 # 1 # 273 # 1 # ID=31_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.615
+EMTMAGVNGARVCVHCRDRKVGKLRVWVRLADCPQLSALDTSGVVLELGVGGLGQVKPQC
+YCSQHIVDRLAAGTVAGDQFQTVGVGDLNR*
+>Day17a_QCcontig2827_2 # 963 # 1064 # 1 # ID=31_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.569
+MTTPVVMVSVLFAAVRGIHEAILPQLVAPVRLP*
+>Day17a_QCcontig2827_3 # 1018 # 1197 # 1 # ID=31_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.572
+MKLSCLNSLRLFDCHDAMTTYPRGQPTVPEGHVIHRLANAIGLAFAGSRVEVTSPQGRFA
+>Day17a_QCcontig2997_1 # 95 # 214 # -1 # ID=32_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.558
+MMKSPSGVVIGQSLGLGCVSYILCHARGCGRSCSASARR*
+>Day17a_QCcontig2997_2 # 940 # 1197 # -1 # ID=32_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.570
+GRQNKLGSRCHALVALRWGWVLAVSRTGTANAPRARLLDYVWDRHLSVHQRDVLRGRGIN
+LLSRHCVVAARTDFVPKTPGTRLPE*
+>Day17a_QCcontig2998_1 # 1 # 348 # -1 # ID=33_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.560
+MATADAHDTTRPPHPQYAGFYTWLSQVWKPDVIIHVGTHGTLEFLQGKENAVSAECFPDM
+LIGDIPHVYIYYCGNAAEGLIARRRAHAVLVSYQPPVMQPTRLDGELAEIDALIYE
+>Day17a_QCcontig2998_2 # 1051 # 1203 # 1 # ID=33_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.549
+MLIISFGAASLRSVRRASKDSPPAATMLMGTTQQSLRNESIKARTTSLLS*
+>Day17a_QCcontig2998_3 # 1172 # 1333 # -1 # ID=33_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.574
+QPLRASVHRGLVDTSPPSKNTARNVTLHTEDPLSSFFTAASHIPTTVTMSYAP*
+>Day17a_QCcontig3096_1 # 2 # 199 # -1 # ID=34_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.566
+MTLAVVGPQSSPKPRHKGLLDRFRVLRYLACRISGVLWAVPLGLCSGEGCSKNGVSAVVA
+LLHHDC
+>Day17a_QCcontig3096_2 # 1053 # 1187 # 1 # ID=34_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.585
+MGGKSWVVTELMAYSRHCSGGSGLPFSPFSNHRTEVPMMPRSRK*
+>Day17a_QCcontig635_1 # 1 # 99 # -1 # ID=35_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.576
+MPKATTTTRIPTPNCRSPGYSPTSRTDRRMLLP
+>Day17a_QCcontig635_2 # 874 # 1140 # 1 # ID=35_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.603
+MGIEVQVLPAALESAKRRGALVIAQVNPSMPYVFGDGIVDVDDIDIGVIVDTPLPTAAMP
+SPGPTAWRIGELVASRVPDGATLQVGIGD
+>Day17a_QCcontig917_1 # 2 # 88 # 1 # ID=36_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.540
+TRLTSLSRSVRSSCRNSRGMPRLTSVSR*
+>Day17a_QCcontig917_2 # 881 # 1099 # 1 # ID=36_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.594
+MTKIIERNTTIPTKRSEVFTTAEDNQPSVMIQVFQGEREFVRDNKSLGNFELTGLMPAPR
+GIPQLEVPFDIAA
+>Day17a_QCcontig990_1 # 1 # 321 # -1 # ID=37_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.517
+MQIVAANGFAKPLHMSTTEVTAAATFYLLGQVLGALFFGKLTDRIGRKKLFTLTLLVYLL
+GSGIAGLSFSTWFLYVCRFIAGSGIGGEYSAINSAIDELILAQYRGR
+>Day17a_QCcontig990_2 # 1032 # 1226 # -1 # ID=37_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.569
+MSTWRSTPSHVWSVPLRVTSVTKRAVSLPKLCGVAPTRLSCSTRWKRLIPTSLTFCCRCS
+TTVV*
+>Day17a_QCcontig1314_1 # 3 # 398 # -1 # ID=38_1;partial=10;start_type=TTG;rbs_motif=CCACC;rbs_spacer=15bp;gc_cont=0.571
+MSITFFEMGNSIMAFPNTAQKVAAAGMEIGNHTVTHPNLPAKTPDRIRRELEHNSQLIKQ
+FTGATPLLFRPPYGAHNDTVDKVAKDNGMAIIQWQIDSEDWKNRNPEMTYKNVMPALPYT
+APIVLEHDTQNA
+>Day17a_QCcontig1314_2 # 984 # 1142 # 1 # ID=38_2;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.623
+MTSEAFCCQESRSMRPLTTSTAVLRFRAVAKRGKMALTFSGAALKVMSVAPA*
+>Day17a_QCcontig1314_3 # 1129 # 1245 # 1 # ID=38_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.624
+MPRPERLESSPRWRLIRQQWRNCRTGWGSSHRYGRSRR*
+>Day17a_QCcontig1314_4 # 1185 # 1352 # 1 # ID=38_4;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.595
+MEELPDWLGFFTSLWEEQALSARQVVSATAVTRRGRLGFGNMEETLPRMCGSPKQ*
+>Day17a_QCcontig1314_5 # 2018 # 2257 # 1 # ID=38_5;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.613
+MCGDLLRPFGVAAPWVDGNATTVAHDAGNGSRVLSAVGLDGETTHGVPEEEHLFAGVFLV
+GDLHELVHVVDEVAPIVDVA
+>Day17a_QCcontig1426_1 # 12 # 206 # -1 # ID=39_1;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.579
+MLAPRQAVLTRIRRYETVCAISKTRSGRLSAELTDRCGLTPLITAASLVVEAVVWPTRRQ
+RPVR*
+>Day17a_QCcontig1426_2 # 891 # 989 # -1 # ID=39_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.586
+MEPLRKRSWTNAERSSLTPNVTRLSLEMVWLP*
+>Day17a_QCcontig1426_3 # 938 # 1066 # -1 # ID=39_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.597
+RRALLEVHQPVLGTHPAPDHRLDGYSWSRCARGPGQTRSEAL*
+>Day17a_QCcontig1515_1 # 2 # 145 # -1 # ID=40_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.639
+MWKATGELNSRVEEAYSGHALVKTFGRSRAVAQEFHERNEELRQATAK
+>Day17a_QCcontig1515_2 # 901 # 1113 # -1 # ID=40_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.568
+PRDCRLPAIDRGGGMTGKDAQQAPTRNEQAEIARASSQQGHRGSQVTENPFLLDPPSNDC
+SANSNPIALR*
+>Day17a_QCcontig1640_1 # 3 # 230 # -1 # ID=41_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.557
+MLTALSKHSGIDMTITTSGDVEIDGHHSIEDTAIALGQALAQALGDKCGITRFGDAVVPL
+DEALAQCVVDVAGRPW
+>Day17a_QCcontig1640_2 # 831 # 1001 # 1 # ID=41_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.573
+MVSVPAHTSSMTATGIVVPVGLFGVVSKTTSGLTSSIADSISSVVSPQEALRGRVT*
+>Day17a_QCcontig1640_3 # 1786 # 1869 # 1 # ID=41_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.571
+MTMADCLDVSEVRMRSECNVALTIGASS
+>Day17a_QCcontig1764_1 # 3 # 131 # -1 # ID=42_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.519
+MPADRRKHVLGALIKAHSENEFLIPPLPNTQFTRDTTAWIFGG
+>Day17a_QCcontig1764_2 # 631 # 729 # 1 # ID=42_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.455
+MGKQVPCHGNHRSTVGLPSYITDCVYIYEFPH*
+>Day17a_QCcontig1764_3 # 745 # 1182 # -1 # ID=42_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.578
+MWITNIVSQICLVMTVLWDGAYLAMATLAAALILVPYLLSAAFALKMVIKGETYENGPRS
+QRVRDAVVATVATLYGIWLVVAAGADALMLAALLYLPGAAVFVWAKREQRAKRIFKPYEI
+GVLVLLALISVVSIISIVTGRLSLT*
+>Day17a_QCcontig1764_4 # 1607 # 1777 # 1 # ID=42_4;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.503
+MTPPEVLGKHTNIERNSTNGNECYQRHNLGNCGDRVDKSSSTNSSQNESVGQPQQN*
+>Day17a_QCcontig1764_5 # 1759 # 1950 # -1 # ID=42_5;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.557
+MPMPRRDLVISSGSTRRGAIGSLPSLATSGIWCCFSRPLASLFLLSRVVTPCGRCLRRQF
+CCG*
+>Day17a_QCcontig1764_6 # 2826 # 2975 # -1 # ID=42_6;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.513
+MRVASGLRNIQWFVRISYSAVHGKTCEFRYVIVSSEQPKNELMTKVVGR*
+>Day17a_QCcontig1764_7 # 2966 # 3148 # -1 # ID=42_7;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.536
+GTARFLTVIVTSLRTRRWSLVKIRPRPLPQPSGCSTYYVFESRYVSERPGIISAWDEACA
+*
+>Day17a_QCcontig1820_1 # 3 # 338 # -1 # ID=43_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.551
+MLEYQKSVVDPFWREMDLRAQDAGAKLALELHPHNLVFTPVNFLEFAERIDARNIGVNMD
+PSHLMWQGMDIIAAIELLGDHIFHVHAKDTVILPGIATRGVLDSSFGPVPDD
+>Day17a_QCcontig1820_2 # 1099 # 1203 # 1 # ID=43_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.562
+MISPERARSNEARTWVPKTSNSIELGRPNATRETK
+>Day17a_QCcontig1863_1 # 1 # 273 # -1 # ID=44_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.586
+MMRATPDEVRMMLVDPMRVELTQYEGIPHLVTPIITSAKKAAEALQWVVREMDQRYDDLA
+AFGFRHVKDFNKAVQAGEVTLPPGSTRVLAP
+>Day17a_QCcontig1863_2 # 1063 # 1182 # 1 # ID=44_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MIDEGIPHQRGVIGATRLNFTRLNHGPVRSATNVGYTVN*
+>Day17a_QCcontig2028_1 # 27 # 191 # -1 # ID=45_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.648
+MRDLGGGLRDLVKARSVTVRAVTVDRHAHEATTSGRHNVDAIKFEPDLGHDRFQ*
+>Day17a_QCcontig2028_2 # 916 # 1107 # 1 # ID=45_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.630
+MTSAPESSSSLTAIPGPFASTWAHWRALCLRRNRFPGRNIPMGVVSVCTSWPCARKPAAR
+RSLS
+>Day17a_QCcontig2174_1 # 1 # 240 # -1 # ID=46_1;partial=10;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.600
+MAAIGLLKADLGITLGLGVLIAIPTVVVAGPLFSRLAARWVPVDAPDLFLNSDENGRCGI
+VPGRPRFSVTLMTVLLPVVL
+>Day17a_QCcontig2174_2 # 984 # 1112 # 1 # ID=46_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.581
+MSWTNELRIALEPTAARLAAERADGTDLKGLQDAVSGMTEAIR
+>Day17a_QCcontig2328_1 # 3 # 113 # -1 # ID=47_1;partial=10;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.613
+MSVLVASQPTRGVDVGAIEFLHKRVVEERDNGTAVLI
+>Day17a_QCcontig2328_2 # 848 # 937 # 1 # ID=47_2;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.556
+MARYFRISTRCWTPTGRFSMTESGLTSKW*
+>Day17a_QCcontig2328_3 # 931 # 1062 # 1 # ID=47_3;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.576
+MVAIRQFAHLCASPSHRQDASGRFFPPQRNVLSHREYVDEHEVL
+>Day17a_QCcontig2411_1 # 3 # 191 # -1 # ID=48_1;partial=10;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.630
+MQLPPGGILLPDSEAPNQLRRRHRIPDRPGKYYRWLVPSGRQAWSDRPQQSRCLRGPNPS
+EDQ
+>Day17a_QCcontig2411_2 # 877 # 969 # -1 # ID=48_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.538
+MRSPRWAMSLRAGRPRLLTSTCTLWKIPTR*
+>Day17a_QCcontig2411_3 # 972 # 1076 # 1 # ID=48_3;partial=01;start_type=TTG;rbs_motif=CCACC;rbs_spacer=15bp;gc_cont=0.571
+MRRYQAAPFQSRIRVTRRPTSSTSPSTSLIFTASP
+>Day17a_QCcontig2425_1 # 1 # 195 # -1 # ID=49_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.595
+MLGWFFAVQNTSTGYGTLLLLAFLCGVGGGSFSGYMPSTGYFFPKSKQGTALGVQAGIGN
+LGMST
+>Day17a_QCcontig2425_2 # 799 # 1026 # 1 # ID=49_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.592
+MTNRRLDAVILAGGCAHRLGGVAKANLRVGTRRLLDVVLDAVDGAREGLEGSNVVVARES
+VEVPWSVIRTMEHPPG
+>Day17a_QCcontig2428_1 # 1 # 84 # -1 # ID=50_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MTAKWRATGRPRISAGLVDPKIAAKGDV
+>Day17a_QCcontig2428_2 # 56 # 169 # -1 # ID=50_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.509
+MSAIKTTEASLFDCPSHLLPGFVDKRFNVDCQMESHR*
+>Day17a_QCcontig2428_3 # 187 # 321 # 1 # ID=50_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.526
+MVVVIILSCVLHNLDCVGHIWGAELRFTQAPGRQGSRASRRCYL*
+>Day17a_QCcontig2428_4 # 2476 # 2826 # 1 # ID=50_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.598
+MAAVKKALAEAQKMPDLKPNDVATFYTKTKLSRVLRQIRFDRNTCVLPFKRLGTIYFMSR
+ALLKATGVLMEPLVRVSEVDQAITDVKAAYQDALKAPNRLLTPAVPSVCLPAPAAS*
+>Day17a_QCcontig2434_1 # 26 # 136 # -1 # ID=51_1;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.604
+MPRLPVSARRLLAILTISSSRPTPRPLVRPMIPTVV*
+>Day17a_QCcontig2434_2 # 827 # 925 # -1 # ID=51_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.495
+MGALENLVLVAWMAVGILLTSFAINRWGSRCG*
+>Day17a_QCcontig2434_3 # 868 # 1071 # -1 # ID=51_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.569
+EYPLDGPIHSSSDRLLGTGRPHGESKGLTYVAWSLSISSSPRHRVATLMWEPWKISFWLH
+GWQWGSC*
+>Day17a_QCcontig2557_1 # 1 # 237 # -1 # ID=52_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.582
+MTQNQLAEILKTSQSAIHRVESGTQNLSLEYINRIAEALESPIITQPGSGTMNYRIEGGP
+QLSGSIEVRSSKHAAVALL
+>Day17a_QCcontig2557_2 # 1080 # 1172 # 1 # ID=52_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.527
+MNFSIVWSRTRTRRSRPSWLRPTRNSALRC*
+>Day17a_QCcontig2557_3 # 1981 # 2097 # 1 # ID=52_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.615
+MIEVEVARQALLDLRQEDGGMTIGEAGVLDDDMGAERW*
+>Day17a_QCcontig2557_4 # 2128 # 2355 # 1 # ID=52_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.588
+MNRSHMVKVHKMVSHLIKVEGGGRNLHQYPPRLAKEGPRSAEHKTTDNKGGNGIRTGPSG
+RHNDQARHQGADEPE*
+>Day17a_QCcontig2598_1 # 1 # 168 # 1 # ID=53_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+GLAPGLRRLSSAYSYGGSSDLPLSSSVVRTVTRRFRASLGITFRLKCSTPSFLSS*
+>Day17a_QCcontig2598_2 # 960 # 1133 # 1 # ID=53_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.580
+MLLMFATPLFSGFANFFMPLQIGAPDVAFPRINQFAYWLYLFGSLMACSGFLSPGGAA
+>Day17a_QCcontig2599_1 # 934 # 1056 # 1 # ID=54_1;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.667
+MAGSNGTFSAARVRCIPIPAWVATHATTSCSRRKRTMRAW*
+>Day17a_QCcontig2599_2 # 1020 # 1160 # 1 # ID=54_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.596
+MLTQEANDAGVVTTFSALIMEAVPLNLKGVPVGDVTVVVNLCDGYHR
+>Day17a_QCcontig2603_1 # 1 # 177 # -1 # ID=55_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.616
+MRYPRARLSHVSLAMMGDGDAQDGRDGSSTRHDQARHVAGTSYSWFHHCRRLVHRWCRP
+>Day17a_QCcontig2603_2 # 1000 # 1080 # 1 # ID=55_2;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.519
+MGLTGDGDSVVRLGFGSIRLKLSPSRY
+>Day17a_QCcontig2641_1 # 88 # 495 # -1 # ID=56_1;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.591
+MCDDFGVVGVEEDFSLGGVQGTWVGLRCGPGDVVGVVEEHPQVAQSSNASFRAHCWLSDF
+QPWIAQCAFGFAAVMVEEHLLVRAAGHTHAPAATMVLVDKDDSILGTLVDRPRWAGRNTC
+RVEAVFADARQIEHE*
+>Day17a_QCcontig2641_2 # 1189 # 1326 # 1 # ID=56_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.587
+MGVFLGAPRIPVSTHVDASLAQRRVVHMATSLLLDYPDEQLTQIIT
+>Day17a_QCcontig2699_1 # 879 # 998 # -1 # ID=57_1;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.600
+MVPSLISGCAISLPQELRVASPVISPRLTGLSRRCTTPR*
+>Day17a_QCcontig2699_2 # 983 # 1078 # -1 # ID=57_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MVGRQWRRVPRLQLLWFPAWESRGHDAWYLR*
+>Day17a_QCcontig2699_3 # 1819 # 1926 # 1 # ID=57_3;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.639
+MVHEVIAATVTAPLRSSKERPSARVTGTAAPGLVV*
+>Day17a_QCcontig2699_4 # 1954 # 2049 # 1 # ID=57_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.573
+MASEIRMRSCGRFGPAMEGLTVERSSSMYSE*
+>Day17a_QCcontig2699_5 # 2058 # 2234 # 1 # ID=57_5;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.582
+MLRIVPHTLGLSIGLDELDLGLVATGKTQVVQGDIVDRKDSNSRPVFGAHIAQRSAVS*
+>Day17a_QCcontig2699_6 # 2231 # 2305 # -1 # ID=57_6;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.520
+RCCVSIRSSVNSSSFTVLALLLCR*
+>Day17a_QCcontig2754_1 # 1 # 240 # -1 # ID=58_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.621
+MFTKGLPQEPRRPDPVTKNPGPGRFTASGDEISQPGDDFVFGVAGLGEGEGETLGAMSHA
+TDCCQFYRHPGVLELVLPRA
+>Day17a_QCcontig2754_2 # 1117 # 1263 # -1 # ID=58_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.585
+VTLGDRSRNTVSRYSDVLSGVCAKNTGLGGVRVLWCVMHPSTGIFRTG*
+>Day17a_QCcontig2766_1 # 2 # 115 # -1 # ID=59_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.553
+MLRCKANATTTATTRMTMIIAQSQLELRPLSCSRWPFP
+>Day17a_QCcontig2766_2 # 125 # 220 # -1 # ID=59_2;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.635
+MAAEELADGVVDFSFQAETGVDDELRSGSAL*
+>Day17a_QCcontig2766_3 # 886 # 1065 # 1 # ID=59_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.572
+MWVRRRRPDVARITLKIAANSVTKSASSWRPSLPCTAPDTYLAFIDEEERHEPRHAHTT*
+>Day17a_QCcontig2822_1 # 3 # 158 # 1 # ID=60_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+VARFEVRSSSLAVRFTLCQVCETLSRASSTVRLTRTSPQTALSYTWLWEQP*
+>Day17a_QCcontig2822_2 # 141 # 248 # -1 # ID=60_2;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.556
+MAWIGKSRFEYERVVNVSQFPRDLPVQTLTSGLLP*
+>Day17a_QCcontig2822_3 # 914 # 1084 # -1 # ID=60_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.550
+MRPASAGRTTSRPVSFSKARRTALLRKVPPWTTTLFPSCAGSVSLMTLYKALRTTE*
+>Day17a_QCcontig2822_4 # 1023 # 1130 # -1 # ID=60_4;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.648
+GMNPGVSGQASSIGSHEASLSGTNDLATGELFEGT*
+>Day17a_QCcontig2862_1 # 3 # 233 # -1 # ID=61_1;partial=10;start_type=TTG;rbs_motif=CCCC;rbs_spacer=9bp;gc_cont=0.567
+MMLPLLHRSWPTRDNIHRCPRKIQLGALHILNRLLRRLKNVLHSRRFRSRRIWSGGNNRS
+TIRADNTATTVVVLRNL
+>Day17a_QCcontig2862_2 # 677 # 802 # -1 # ID=61_2;partial=00;start_type=TTG;rbs_motif=CCCC;rbs_spacer=8bp;gc_cont=0.619
+MRSPASAQGMVPQMAPQVRTRTRSAWKARASAPTHHPTAAQ*
+>Day17a_QCcontig2883_1 # 1 # 306 # -1 # ID=62_1;partial=10;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.611
+MVDAMLWQSGAFREGAEVEKRVMDSMDLEREKGITILAKNTAVKHVMSDGEEITLNIIDT
+PGHADFGGEVERGLEMVDGVILLVDASEGPLPQTRYALRKAL
+>Day17a_QCcontig2883_2 # 860 # 1153 # 1 # ID=62_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.643
+MTVVKEHPSSSLCWALLAEGSLLSDTDAADVAAYAYARTGRDLGLEQLRDAGWDGEGPVD
+WGYLPNQGVFRCLHALAMAAERLGFGGEADGGDTLLRE
+>Day17a_QCcontig2926_1 # 1 # 78 # -1 # ID=63_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.590
+MTRYGDASVCRGDHNRSVGKRITTMR
+>Day17a_QCcontig2926_2 # 75 # 194 # -1 # ID=63_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.525
+MLVVSNLLRPSSIDNHRDKVGDPSYENDSDEDSLEGLHK*
+>Day17a_QCcontig2926_3 # 1007 # 1078 # -1 # ID=63_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+QCPNNAATLPHLGNPRHATNHSA*
+>Day17a_QCcontig2942_1 # 972 # 1151 # 1 # ID=64_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.589
+MTRTIRYRGSVHNPVLADIAPNSGGASVVPTYAAAIWMPMIACELCAPKVVGVEWMIAG*
+>Day17a_QCcontig2942_2 # 1106 # 1204 # 1 # ID=64_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.636
+MRAKGGWGGVDDRRVDRCGPKPCDDQNCQGDP*
+>Day17a_QCcontig2942_3 # 1176 # 1268 # 1 # ID=64_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.591
+MTRTARATHDGTPGNPTRITPTPTVMNTPRT
+>Day17a_QCcontig2976_1 # 1 # 207 # -1 # ID=65_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.628
+MTSSVDAGDSTVIAGFPLDGPYTVNAARVRGAITARGENIYGDDDVVREILSLRGPVQPG
+NSGRPLLTT
+>Day17a_QCcontig2976_2 # 823 # 1062 # 1 # ID=65_2;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.633
+MIRDTMSPDAHSPTQTPPIKPMRLAIPEIAPRVHPRRARRMRITARVMSRMCAMALPSGV
+GGRISSVSIVPRRRHWANIV
+>Day17a_QCcontig3014_1 # 3 # 116 # -1 # ID=66_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.544
+MTITDLARESKLHVNTIREPLNVLVSLGLVEREKLPAA
+>Day17a_QCcontig3014_2 # 868 # 1074 # -1 # ID=66_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.560
+REALEVIRSALVTASSPYAHLLEGLCLILSPLDKKTLARYQKLISQGPPVEMVGLAATDP
+VSTLGRQL*
+>Day17a_QCcontig3088_1 # 6 # 299 # -1 # ID=67_1;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.554
+MQRDHEQGCRIDTVYATAREQFAVVSKVRRVCQAGPEARKIFGRIQKRGTRNSGRSEIVR
+LKFLRIWMSCERPMVNLQNGSTQRCTSHPMRFWTFNT*
+>Day17a_QCcontig3088_2 # 1003 # 1131 # -1 # ID=67_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.589
+SLWAPGDTRSCWRVMGSTPWRWPSITSRTSFCWISGCRVWTG*
+>Day17a_QCcontig3093_1 # 3 # 122 # 1 # ID=68_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.575
+AFMSRMQWWLRDMSRTVMKPSATGCQTENRPMCQGAAWH*
+>Day17a_QCcontig3093_2 # 699 # 800 # 1 # ID=68_2;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.608
+MAHSYRGPSYWQPAYRSLLRVAGESGTPAEQGH*
+>Day17a_QCcontig3093_3 # 874 # 1176 # 1 # ID=68_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.571
+MSNVADYLAIGIDPTLTTIFTHSALPALNQLLLPFLSLVTDAELRRNPTVKDELATSERP
+MSGLMLTFPVHQAADILFCKANLVPVGRDQLPHIEQTRVIA
+>Day17a_QCcontig3129_1 # 3 # 125 # 1 # ID=69_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.553
+TGMADLTFEPHRVVHSGASVPALPGFNHVIRTFSSCTLTS*
+>Day17a_QCcontig3129_2 # 932 # 1108 # 1 # ID=69_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.542
+MQLLQRNITAWVQELLDISPIVVIEGARQVGKSTLTGMIDNANTTFTTMDDALTRTFAH
+>Day17a_QCcontig3164_1 # 4 # 144 # -1 # ID=70_1;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.567
+MAVRKTARTVGWFIRICLMTSRPSKSDSLMSRTMTSGRVACASWTA*
+>Day17a_QCcontig3164_2 # 1047 # 1133 # 1 # ID=70_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.540
+MCQKDAHELIDMATDFMNRRPQLSRGGHF
+>Day17a_QCcontig3219_1 # 1 # 84 # 1 # ID=71_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.476
+GPGDILSQRILALVCAMLPTFSLTADV*
+>Day17a_QCcontig3219_2 # 81 # 242 # 1 # ID=71_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.444
+MRDGSCIGNSWCDYSDAFQISENPLISGSFVAAWLLIRKGCCVKFVLKPRDLW*
+>Day17a_QCcontig3219_3 # 908 # 1072 # 1 # ID=71_3;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.594
+MLCTRLSATICALWQQLSVSSRAIPRMGELELRRSRPISVGGRRSRLLMFPTPA*
+>Day17a_QCcontig3225_1 # 16 # 189 # -1 # ID=72_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.523
+MAAGKVWTAWPTGNLWQYRINKRVHERRSDGMDYDGGTSDLLKAFDPSQTRISCGLR*
+>Day17a_QCcontig3225_2 # 821 # 1030 # 1 # ID=72_2;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.610
+MAELKDLAVQRRTLAEEVVAKSTALSDAKMEQKRIEGDLEPARARMERNQKTVDACTITD
+HKALRGLTEE
+>Day17a_QCcontig3590_1 # 1 # 111 # 1 # ID=73_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.568
+MVSPSHVTSASNRRFRDTMPSRSVIRQPLRKAGTRS*
+>Day17a_QCcontig3590_2 # 124 # 300 # 1 # ID=73_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.514
+MCIIIRLGGRQSHDVEISGVVHRVIAGFRGFGTQIVVPLDIRKGTHTCRCESLSSEVV*
+>Day17a_QCcontig3590_3 # 302 # 466 # -1 # ID=73_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.552
+MTSYISIRPDLENAGVSWVDKELFRCPGNGWVLLTSRNPNDLPAFAKALVDEIS*
+>Day17a_QCcontig3590_4 # 1326 # 1508 # -1 # ID=73_4;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.579
+RRWLAHLTARRISISASPMPRISRFSTPWLAMVWTSFSRVTLMADRYACPSPEPLSPTVI
+*
+>Day17a_QCcontig3696_1 # 1 # 366 # -1 # ID=74_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.519
+MLRTVLGMFSRHGVSQGSATVVPPTLAQLLCARKSCMSTQRVIAHRGLSSRAPENTMSAF
+RAAVEAGIKWIETDVDIIGDGTAVLIHDSSLDRTTNCRGRYNELTASDLPAIDAGRWFSP
+QF
+>Day17a_QCcontig3897_1 # 2 # 220 # 1 # ID=75_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.603
+ASCVTCGYFVRLQHSLGRVFGVCSNEYSPSDGSVVHVDHGCGGHSDVVEKRRGIELPEPV
+FDTISVDESLFD*
+>Day17a_QCcontig3897_2 # 957 # 1139 # 1 # ID=75_2;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.563
+MFVLTGVREMIFRAVPNSLRSAISVGIGLFIAFVGFVDSGVIRPGSGIPVTLGVGGSLEG
+W
+>Day17a_QCcontig932_1 # 3 # 152 # -1 # ID=76_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.620
+MMALVMVGLGTAACGADEDSTGATGGITPVASVAPAQSPILTPSAEAPKF
+>Day17a_QCcontig932_2 # 939 # 1223 # 1 # ID=76_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.593
+MGAKYLDINVDALAIGGRLDIIGMQGGIKGELNIAKLLNKRALVTATSLRPRPLEEKAKI
+CQRVREVAWPLYTNGSIKPAPVESFPMSEAGQGHA
+>Day17a_QCcontig1461_1 # 2 # 187 # -1 # ID=77_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.624
+MVCLRAGSGGMVGEAWAGWDRVAPVASAMNMADKAASGRLIMDASTVGLIPSTCLGSRHR
+IS
+>Day17a_QCcontig1461_2 # 914 # 1051 # 1 # ID=77_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.543
+MAGALIIGIIIAALVGRSRSKTLRDEVWNKEHTGASEAHKDVGNES
+>Day17a_QCcontig1703_1 # 1 # 135 # -1 # ID=78_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.570
+MGILKGCRVLGDSGELRRGVPAGGVQEFLLSWLQETLHDRIGDRQ
+>Day17a_QCcontig1703_2 # 978 # 1124 # 1 # ID=78_2;partial=01;start_type=TTG;rbs_motif=CCCC;rbs_spacer=10bp;gc_cont=0.544
+MLVSATKSNGGLYSGNPFWFHDFSLAENFTDIVHRDGGIYFRWLRNSIF
+>Day17a_QCcontig1766_1 # 3 # 254 # -1 # ID=79_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.599
+MGISLGLPRLLAPILSRGELSSSRSVPSAVLVAVNTEEDRATSEVIASALRSRGIPCEVA
+PKADKFGKQIKHADRRGIPFVWFP
+>Day17a_QCcontig1766_2 # 991 # 1161 # 1 # ID=79_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.579
+MRVGVQPVDDVDFFVDLSLASELFHRLDGASTNRCEAMKLEGLLKNPGHMVLYHLS*
+>Day17a_QCcontig1766_3 # 1146 # 1235 # -1 # ID=79_3;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.522
+MYSTFRRISSWPVSSPCPVFPSSCPQDRW*
+>Day17a_QCcontig1766_4 # 2023 # 2136 # 1 # ID=79_4;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.561
+MNTFGSLSGKMGRMSHAQAPQSFGRVDDDGTVYVRTSD
+>Day17a_QCcontig1811_1 # 3 # 83 # 1 # ID=80_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.580
+HRQGHQRFHKFLQDTSRGRRSPTDRA*
+>Day17a_QCcontig1811_2 # 48 # 185 # -1 # ID=80_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.580
+MGRDTTMSRANPHSMKPIGIIEINTTVRTTETGRSRSVSGTSPPS*
+>Day17a_QCcontig1811_3 # 882 # 1094 # 1 # ID=80_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.634
+MLATGLIVGESIFGVIYAAMIAAAGSEDAIAIAPESWDSGAGIVGVITFAAAIAFLYRWT
+KRQAKERVEA*
+>Day17a_QCcontig1811_4 # 1055 # 1174 # 1 # ID=80_4;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.633
+MDQAPGERARRSVRGAITECTRPPRGAITEAGQAPRRSA*
+>Day17a_QCcontig1811_5 # 1879 # 1941 # 1 # ID=80_5;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.619
+MWVHPASRTSWRMLIAISRSG
+>Day17a_QCcontig2029_1 # 2 # 139 # -1 # ID=81_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.630
+MPTVCWPTPSASAPTSLTWLEFSTRALTRARSCFLRAPRPIILTLT
+>Day17a_QCcontig2029_2 # 985 # 1107 # -1 # ID=81_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.618
+MVNPRRWPSFLWTRTRPWWQKPCRLVPPLETTPSPQQCHR*
+>Day17a_QCcontig2180_1 # 2 # 154 # -1 # ID=82_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.601
+MFPAQIRCTREPILARSADPLLAPARRVINHRLGQVSNSPTWDALSSISPA
+>Day17a_QCcontig2180_2 # 971 # 1204 # 1 # ID=82_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.585
+MIAGAGTGKTTVMAARVVWLVASRLVSPEEILGLTFTNKATAELSERIESNLTRVGLLTS
+EQPRPTVATYDSFVGTLV
+>Day17a_QCcontig2338_1 # 3 # 137 # -1 # ID=83_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.600
+MNATSSTGIPHGMAYFLAEPGFSPSLPGNLVKQFDDDLHGARKVP
+>Day17a_QCcontig2338_2 # 134 # 247 # -1 # ID=83_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.605
+MPFALGVHGTDCSQGSRQGLLPLLRQVCLLSPHCSHR*
+>Day17a_QCcontig2338_3 # 898 # 1017 # 1 # ID=83_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.467
+MERSCSLVVHASESRGSEPKSSLTLLHVPAESDEVKKIR*
+>Day17a_QCcontig2338_4 # 1690 # 1857 # 1 # ID=83_4;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.565
+MTIDQFAGSVRIFLGCRVMRREHDGATLLIFSKCAQQFKDHLGIAPIELASRLIG*
+>Day17a_QCcontig2349_1 # 8 # 106 # -1 # ID=84_1;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.566
+MRRISVSALSALTVLGRETTARTSWDTRLVRI*
+>Day17a_QCcontig2349_2 # 757 # 846 # 1 # ID=84_2;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.622
+MTRILVSPRRRPIRLGCSGLRGSEKNSSA*
+>Day17a_QCcontig2349_3 # 804 # 1007 # 1 # ID=84_3;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.608
+MQWPAGEREELFGMSARASGPAVTDSRADIYVDGSREVAVWRYPDDPDLPGLSRAAYPEQ
+MAAIISDL
+>Day17a_QCcontig2456_1 # 1 # 87 # 1 # ID=85_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.598
+YAANIGWSCDQACVIPTGARVVYGYDGA*
+>Day17a_QCcontig2456_2 # 72 # 197 # -1 # ID=85_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.492
+MTSKITERKISNCPRINFIFGVLGIPSGHACNKPRRVYAPS*
+>Day17a_QCcontig2456_3 # 887 # 1090 # -1 # ID=85_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.475
+TDTSLSTIPDIQRSLLTRTATSRKAPMSLSGIEKYSQFVDIIDATNIIRVEMNSDDDSYE
+FSHKPPY*
+>Day17a_QCcontig2563_1 # 1 # 96 # -1 # ID=86_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.552
+MRKCHTDTCPVGVATQNPELREKFAGDPDHIV
+>Day17a_QCcontig2563_2 # 959 # 1165 # 1 # ID=86_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.623
+MVGVATELLVVIGTRSQLQPEYRLGIDEMLLPLPTPLVVAARLEGTVGQTHPCLRIGAGV
+TSQNLLSDL
+>Day17a_QCcontig2585_1 # 2 # 277 # -1 # ID=87_1;partial=10;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.620
+MLRPHFKRCCNSKCRWVVRNVHHTSRFIPHRDYGHPASGEGAGLIHRHNVDTAGPFQGPR
+TFNNDSQPGTATRASKQGHGGRQAQGTGARND
+>Day17a_QCcontig2585_2 # 924 # 1088 # 1 # ID=87_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.558
+MFWAFAYNVIAIPVAAVGLLSPVIAAAAMAFSSIFVVTNSMRLVRWHPGMSDSN*
+>Day17a_QCcontig2585_3 # 1058 # 1129 # 1 # ID=87_3;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.583
+MASWDERFKLRTWDGSTAGVSSGE
+>Day17a_QCcontig2590_1 # 2 # 112 # -1 # ID=88_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.595
+MSLVSMLCIETGMRSMAARVRTSAPIWLYPVEVWLAP
+>Day17a_QCcontig2590_2 # 52 # 228 # -1 # ID=88_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.605
+MLGLARYWAKFMRASLVGRYPSHGGSTTVPTRTRYADGRCPWSQCCASRPGCAAWLPG*
+>Day17a_QCcontig2590_3 # 953 # 1051 # -1 # ID=88_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.525
+MTAIPMLPHARPNLDLCHVMHTYTLCRVTWAR*
+>Day17a_QCcontig2634_1 # 2 # 115 # -1 # ID=89_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.491
+MQSPDSQSKGLITMAKIANDVTELIGNTPLVKINKLFP
+>Day17a_QCcontig2634_2 # 983 # 1138 # 1 # ID=89_2;partial=01;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.647
+MQCDGAPFVLDPTTLISRILPAELLRKLFKTPLGEAHRFRNFRISQDTRGSV
+>Day17a_QCcontig2659_1 # 48 # 161 # -1 # ID=90_1;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.570
+MKIGGFRREHAVAHLQGVLHRLRRDDKHLSDETTQHS*
+>Day17a_QCcontig2659_2 # 895 # 1056 # 1 # ID=90_2;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.586
+MDKALAVSWVRVEADECDRLGMQEADISGLRRAVVRLGVEPGYVLSDGFPVDGL
+>Day17a_QCcontig2708_1 # 2 # 100 # -1 # ID=91_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.556
+MSEEDNRRAFRILCEHWRDFAGTAMRYLLVDQL
+>Day17a_QCcontig2708_2 # 863 # 970 # 1 # ID=91_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.481
+MREPTKMKPSTVAKDRFVVSDSISDDSLESMRTTM*
+>Day17a_QCcontig2768_1 # 5 # 121 # -1 # ID=92_1;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.556
+MDVSGSHKLQHGTPIVIERRRLIKTCHVPLRSRFLELG*
+>Day17a_QCcontig2768_2 # 112 # 201 # -1 # ID=92_2;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.567
+MTVHALTRKPASLNCATLRSVSAESSGWM*
+>Day17a_QCcontig2768_3 # 878 # 1132 # 1 # ID=92_3;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.584
+MNVVVIGALALWSGHTTTVMRGFAIAYTLVLVPLIFALLRRVPKNAVAGDAAGKGESANV
+EALKGLVAVLIKPRVWLAGLAGLCV
+>Day17a_QCcontig2780_1 # 2 # 130 # -1 # ID=93_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.612
+MHDGGVVLAAKFGADLGQREVSELAAQVHRNLSGCDKGLSAGG
+>Day17a_QCcontig2780_2 # 971 # 1078 # 1 # ID=93_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.593
+MPAATGTVDASVFSRAVAQVVVAAGRDELLPVFTGV
+>Day17a_QCcontig2782_1 # 2 # 70 # 1 # ID=94_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.580
+WTSCETSGLNAAGCLRLRVRCW*
+>Day17a_QCcontig2782_2 # 45 # 188 # -1 # ID=94_2;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.611
+MARGSISYSAVTHPSPDPLRQRGTPSVTEALHSTVVRPKLTNTEPSA*
+>Day17a_QCcontig2782_3 # 1002 # 1127 # 1 # ID=94_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.563
+MMSATFSCCLIRLLTFRMSDVTVGSYVRWLSSTRTAPRSPRW
+>Day17a_QCcontig2893_1 # 899 # 1111 # 1 # ID=95_1;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.549
+MVLIPIVFPPGWVAVLTMLIGVNIGPNLSCAGLLATLLWRRIIEAHDRPARQVYSPRRTH
+GPRKHPHLGMH
+>Day17a_QCcontig2956_1 # 3 # 110 # -1 # ID=96_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.574
+MSSVCILLEATVVAHPVAELVTPDWAEALTGVEPRI
+>Day17a_QCcontig2956_2 # 55 # 180 # -1 # ID=96_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.548
+MGSFQNSVVGLRSQKARSQGSVMHVIRMYSLGGHRGCSSRC*
+>Day17a_QCcontig2956_3 # 947 # 1084 # 1 # ID=96_3;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.558
+MSVAIGALTFILAFVPIVGALTAGVVAVGVVLVTLGFFKAFIMLIV
+>Day17a_QCcontig3116_1 # 1 # 78 # 1 # ID=97_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.577
+TNVTSTGQVSNYGFAVMVADKQAGQ*
+>Day17a_QCcontig3116_2 # 925 # 1053 # 1 # ID=97_2;partial=00;start_type=GTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.566
+MVAPSSRLPTKFSWADAAVVVTASKESATAAMAMLGRRGCHY*
+>Day17a_QCcontig3116_3 # 1153 # 1335 # 1 # ID=97_3;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.601
+MPYRRHQWGGVRGPELALGQVIAHMLSAIPTGGRLSLTCQQRHGTQEASVKAAAQDQWKL
+L
+>Day17a_QCcontig3137_1 # 88 # 177 # -1 # ID=98_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.578
+MMLENPDAINAVPMATTVAMTVAMRPTLT*
+>Day17a_QCcontig3137_2 # 181 # 414 # -1 # ID=98_2;partial=00;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.568
+MLTMISATNPTVAARNAVPWPGKLKTPARLITHTVTALSVPTTRPDQPACGVERFQNMPR
+INVANNGALKNPNNVCK*
+>Day17a_QCcontig3778_1 # 1 # 90 # -1 # ID=99_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.467
+MGYRKGGQLMALNGIDISNWQTGITLSAVP
+>Day17a_QCcontig3778_2 # 63 # 182 # -1 # ID=99_2;partial=00;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.450
+MNNTRKNYLDAQKAQASAIESAKKTSTVGNMWVIGKVDS*
+>Day17a_QCcontig3778_3 # 944 # 1042 # 1 # ID=99_3;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.465
+MRCRNCYVVNATSIIISHLLNHVGLTVILHQIL
+>Day17a_QCcontig3895_1 # 3 # 194 # -1 # ID=100_1;partial=10;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.589
+MTRPVRERSIDAIAQMVDGGLQATGLEEVGLLSLSSADHSEISDITKGLADRYEETNVSL
+SLPS
+>Day17a_QCcontig3895_2 # 890 # 1123 # 1 # ID=100_2;partial=01;start_type=ATG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.560
+MATPWLGWPTSYASGYIKTQPTSTSCHSLTMLLCSPPTYWMGLLTRDSSGSIRPRRSWVF
+TNGHARWSEPDHGITHHT
+>Day17a_QCcontig4032_1 # 2 # 142 # -1 # ID=101_1;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.440
+MIVLIYPFNPREIIKIQVCRSGWDFTSQNTPVRSVKNKAVLIFRRI*
+>Day17a_QCcontig4032_2 # 923 # 1015 # 1 # ID=101_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.516
+MALMVGVCLASLSRANLASKGLAFDMPTVE*
+>Day17a_QCcontig4032_3 # 1122 # 1241 # -1 # ID=101_3;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.408
+CHPGWMSTSQSIWKSRESFKTMAVQMIFILTLSMRALLT*
+>Day17a_QCcontig1934_1 # 2 # 115 # 1 # ID=102_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.482
+YGRQQWGILHNGGNPDAATPRDLEGLRVVKIFCIGRK*
+>Day17a_QCcontig1934_2 # 866 # 1033 # 1 # ID=102_2;partial=01;start_type=TTG;rbs_motif=CCCCC;rbs_spacer=15bp;gc_cont=0.494
+MGYTRATMAGTQGSKTVKLSKTQKACPSSDCTLQLECMKLELLVIVDQNATVNAFP

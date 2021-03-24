@@ -1,0 +1,25 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig1964_35 -            414 Ribosomal_S3_C       PF00189.15    85    0.0038   13.4   0.1   1   1     1e-05     0.009   12.2   0.1    37    81   307   350   302   351 0.87 # 30340 # 31581 # -1 # ID=23_35;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.363
+Day17a_QCcontig2110_7 -             92 Ribosomal_S19        PF00203.16    81     2e-25   84.3   0.1   1   1     3e-28   2.7e-25   83.8   0.1     1    78    11    83    11    86 0.88 # 7790 # 8065 # -1 # ID=27_7;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.373
+Day17a_QCcontig3444_1  -            186 Ribosomal_L22        PF00237.14   105   5.5e-34  112.3   0.1   1   1   1.8e-36     8e-34  111.8   0.1     1   105    17   152    17   152 0.99 # 199 # 756 # -1 # ID=103_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.355
+Day17a_QCcontig1044_52 -            289 Ribosomal_L22        PF00237.14   105   8.4e-24   79.6   0.9   1   1   2.6e-26   1.1e-23   79.1   0.2     4   104   151   251   148   252 0.95 # 57987 # 58853 # -1 # ID=7_52;partial=00;start_type=ATG;rbs_motif=AACAA;rbs_spacer=13bp;gc_cont=0.310
+Day17a_QCcontig3458_1 -            218 Ribosomal_S2         PF00318.15   211   2.8e-35  117.4   0.2   1   3   2.5e-14   2.2e-11   39.4   0.0    30    99     1    69     1    73 0.93 # 42 # 695 # -1 # ID=72_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.408
+Day17a_QCcontig3458_1 -            218 Ribosomal_S2         PF00318.15   211   2.8e-35  117.4   0.2   2   3   2.5e-25   2.3e-22   75.3   0.0   142   209    72   139    67   141 0.95 # 42 # 695 # -1 # ID=72_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.408
+Day17a_QCcontig3458_1 -            218 Ribosomal_S2         PF00318.15   211   2.8e-35  117.4   0.2   3   3     0.028        25   -0.0   0.0   142   164   153   176   148   181 0.81 # 42 # 695 # -1 # ID=72_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.408
+Day17a_QCcontig578_5 -            124 Ribosomal_L10        PF00466.15   100    0.0048   12.8   0.1   1   2   6.2e-05     0.055    9.4   0.0    25    56    67    98    63   102 0.91 # 4385 # 4756 # -1 # ID=1_5;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.344
+Day17a_QCcontig578_5 -            124 Ribosomal_L10        PF00466.15   100    0.0048   12.8   0.1   2   2     0.024        22    1.1   0.0     5    30    98   123    96   123 0.88 # 4385 # 4756 # -1 # ID=1_5;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.344
+Day17a_QCcontig1964_45 -            506 Ribosomal_L29        PF00831.18    58     0.002   13.8   0.1   1   2     0.032        28    0.5   0.0     5    20   260   275   259   277 0.86 # 43780 # 45297 # -1 # ID=23_45;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.381
+Day17a_QCcontig1964_45 -            506 Ribosomal_L29        PF00831.18    58     0.002   13.8   0.1   2   2   3.5e-05     0.031   10.0   0.1    37    54   365   382   360   383 0.85 # 43780 # 45297 # -1 # ID=23_45;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.381
+Day17a_QCcontig2639_9 -            564 SRP_SPB              PF02978.14   104    0.0022   14.2   0.1   1   1   9.3e-06    0.0083   12.4   0.1    12    80    82   150    74   183 0.77 # 10271 # 11962 # 1 # ID=38_9;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.322
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/a85d1e86-957b-4ed8-8e99-be1209cdca54
+# Target file:     checkm_lineageWF/bins/low_completion-refined_3/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineageWF/bins/low_completion-refined_3/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/a85d1e86-957b-4ed8-8e99-be1209cdca54 checkm_lineageWF/bins/low_completion-refined_3/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/BinsanityWF
+# Date:            Fri Sep 25 15:26:11 2020
+# [ok]

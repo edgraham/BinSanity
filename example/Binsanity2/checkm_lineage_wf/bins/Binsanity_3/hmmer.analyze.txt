@@ -1,0 +1,13 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/6484d3bd-0a93-4b56-b60f-6db587571804
+# Target file:     checkm_lineage_wf/bins/Binsanity_3/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineage_wf/bins/Binsanity_3/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/6484d3bd-0a93-4b56-b60f-6db587571804 checkm_lineage_wf/bins/Binsanity_3/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/Binsanity2
+# Date:            Mon Sep 28 13:21:42 2020
+# [ok]

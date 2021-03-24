@@ -1,0 +1,14 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig305_18 -            406 Ribosomal_L22        PF00237.14   105    0.0014   12.4   0.4   1   1   1.4e-05    0.0026   11.5   0.4    18    60   167   216   158   220 0.84 # 16141 # 17358 # -1 # ID=18_18;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.305
+#
+# Program:         hmmsearch
+# Version:         3.2 (June 2018)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/83134171-8b88-4a83-b769-73adb0fff1c6
+# Target file:     checkm_lineageWF/bins/igm_Bin-35/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineageWF/bins/igm_Bin-35/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/83134171-8b88-4a83-b769-73adb0fff1c6 checkm_lineageWF/bins/igm_Bin-35/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/Binsanity
+# Date:            Wed Mar 24 09:12:49 2021
+# [ok]

@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 from __future__ import print_function, division
 from argparse import RawTextHelpFormatter
 import glob, os, sys, time, argparse
@@ -10,7 +10,7 @@ from sklearn.cluster import AffinityPropagation
 import collections
 from Bio.SeqUtils import GC
 from Bio.Seq import Seq
-from Bio.Alphabet import IUPAC
+#from Bio.Alphabet import IUPAC
 import tarfile
 import pandas as pd
 
@@ -63,7 +63,7 @@ def cov_array(a, path, file_name, size):
 def affinity_propagation(array, names, file_name, damping, iterations, convergence, preference, path, output_directory, binname):
     """Uses affinity propagation to make putative bins"""
     apclust = AffinityPropagation(damping=float(damping),max_iter=int(iterations), convergence_iter=int(
-        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False,random_state=int(0)).fit_predict(array)
     outfile_data = {}
     i = 0
     while i < len(names):
@@ -73,7 +73,7 @@ def affinity_propagation(array, names, file_name, damping, iterations, convergen
             outfile_data[apclust[i]] = [names[i]]
         i += 1
     if binname is None:
-        out_name = file_name.rsplit(".", 1)[0]+"_Bin"
+        out_name = "Binsanity_Bin"
     else:
         out_name = binname+"_Bin"
     output_directory = output_directory+"/BINSANITY-INITIAL"
@@ -134,7 +134,7 @@ def kmer_list(dna, k):
     """Makes list of k-mers based on input of k and the dna sequence"""
     result = []
     dna = dna.upper()
-    dna_edit = Seq(str(dna), IUPAC.unambiguous_dna)
+    dna_edit = Seq(str(dna))
     reverse_complement = (dna_edit).reverse_complement()
     dna_edit = str(dna_edit)
     reverse_complement = str(reverse_complement)
@@ -184,20 +184,20 @@ def output(a, prefix, kmer, location):
 #########################Combine tetramer frequencies and GC counts in tab delimeted format and normalize################################
 def get_contigs(c, prefix, kmer, location):
     GC = open(os.path.join(location, str(prefix)+"-GC.txt"), "r")
-    dataframe = pd.read_csv(GC, sep="\t")
+    dataframe = pd.read_csv(GC, sep="\t",low_memory=False)
     dataframe = dataframe.set_index("contig")
     dataframe *= 100
     dataframe += 1
     dataframe = np.log10(dataframe)
     tetra = open(os.path.join(location, str(prefix) +
                               "-%smerFrequencies.txt" % (str(kmer))), "r")
-    dataframe2 = pd.read_csv(tetra, sep="\t")
+    dataframe2 = pd.read_csv(tetra, sep="\t",low_memory=False)
     dataframe2 = dataframe2.set_index("contig")
     dataframe2 *= 100
     dataframe2 += 1
     dataframe2 = np.log10(dataframe2)
     cov = open(str(c), "r")
-    dataframe3 = pd.read_csv(cov, sep="\t", header=None, index_col=0)
+    dataframe3 = pd.read_csv(cov, sep="\t", header=None, index_col=0,low_memory=False)
     dataframe3.index.name = 'contig'
     result = pd.concat([dataframe, dataframe2, dataframe3],
                        axis=1, join='inner')
@@ -209,7 +209,7 @@ def refined_ap(array, names, file_name, damping, iterations, convergence, prefer
         os.mkdir(os.path.join(str(output_directory), "REFINED-BINS"))
     name_of_output_file = os.path.join(str(output_directory), "REFINED-BINS")
     apclust = AffinityPropagation(damping=float(damping), max_iter=int(iterations), convergence_iter=int(
-        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False).fit_predict(array)
+        convergence), copy=True, preference=int(preference), affinity='euclidean', verbose=False,random_state=int(0)).fit_predict(array)
     outfile_data = {}
     i = 0
     while i < len(names):
@@ -263,7 +263,7 @@ def run_checkM(bins, threads, prefix, directory):
         threads), str(bins), os.path.join(directory, str(prefix)+"_binsanity_checkm")], stdout=logfile)
 ########################################################################################
 def checkm_analysis(file_, fasta, path, prefix):
-    df = pd.read_csv(file_, sep="\t")
+    df = pd.read_csv(file_, sep="\t",low_memory=False)
     highCompletion = list(set(list(df.loc[(df['Completeness'] >= 95) & (df['Contamination'] <= 10), 'Bin Id'].values) + list(df.loc[(df['Completeness'] >= 80) & (
         df['Contamination'] <= 5), 'Bin Id'].values)+list(df.loc[(df['Completeness'] >= 50) & (df['Contamination'] <= 2), 'Bin Id'].values)))
     lowCompletion = list(set(df.loc[(df['Completeness'] <= 50) & (
@@ -359,7 +359,7 @@ if __name__ == '__main__':
     parser.add_argument("--binPrefix", dest="binprefix", default=None, metavar="BinPrefix",
                         help="""Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.4.4')
+                        version='%(prog)s v0.5')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()

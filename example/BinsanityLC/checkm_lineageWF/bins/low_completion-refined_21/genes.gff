@@ -1,0 +1,311 @@
+##gff-version  3
+# Sequence Data: seqnum=1;seqlen=7562;seqhdr="Day17a_QCcontig88"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig88	Prodigal_v2.6.3	CDS	160	1038	205.1	+	0	ID=1_1;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.336;conf=99.99;score=205.11;cscore=192.51;sscore=12.60;rscore=10.03;uscore=0.89;tscore=1.68;
+Day17a_QCcontig88	Prodigal_v2.6.3	CDS	1043	1609	116.4	+	0	ID=1_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.347;conf=100.00;score=116.35;cscore=103.76;sscore=12.59;rscore=10.03;uscore=-0.35;tscore=1.68;
+Day17a_QCcontig88	Prodigal_v2.6.3	CDS	2987	3304	45.6	+	0	ID=1_3;partial=00;start_type=GTG;rbs_motif=AGxAG;rbs_spacer=5-10bp;gc_cont=0.286;conf=100.00;score=45.57;cscore=48.53;sscore=-2.96;rscore=0.36;uscore=-0.13;tscore=-2.54;
+Day17a_QCcontig88	Prodigal_v2.6.3	CDS	5632	7134	288.7	-	0	ID=1_4;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.301;conf=99.99;score=288.65;cscore=278.08;sscore=10.57;rscore=10.03;uscore=-1.14;tscore=1.68;
+# Sequence Data: seqnum=2;seqlen=2144;seqhdr="Day17a_QCcontig188"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig188	Prodigal_v2.6.3	CDS	3	98	0.9	+	0	ID=2_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.240;conf=54.91;score=0.86;cscore=-1.86;sscore=2.72;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig188	Prodigal_v2.6.3	CDS	1225	1815	123.6	+	0	ID=2_2;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.338;conf=100.00;score=123.59;cscore=130.64;sscore=-7.06;rscore=-4.60;uscore=0.74;tscore=-2.54;
+Day17a_QCcontig188	Prodigal_v2.6.3	CDS	1810	1998	36.4	-	0	ID=2_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.323;conf=99.98;score=36.41;cscore=27.26;sscore=9.15;rscore=7.46;uscore=0.44;tscore=1.25;
+# Sequence Data: seqnum=3;seqlen=1301;seqhdr="Day17a_QCcontig544"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig544	Prodigal_v2.6.3	CDS	1	522	100.5	+	0	ID=3_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.284;conf=100.00;score=100.53;cscore=97.31;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=4;seqlen=8156;seqhdr="Day17a_QCcontig367"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	2	85	11.7	+	0	ID=4_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.345;conf=93.59;score=11.67;cscore=8.45;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	1905	2627	150.2	+	0	ID=4_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.371;conf=100.00;score=150.16;cscore=140.56;sscore=9.60;rscore=-4.60;uscore=16.73;tscore=-1.88;
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	2640	3716	219.2	+	0	ID=4_3;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.349;conf=99.99;score=219.23;cscore=206.86;sscore=12.37;rscore=6.58;uscore=2.96;tscore=1.68;
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	4106	4294	6.0	-	0	ID=4_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.381;conf=79.81;score=5.98;cscore=3.63;sscore=2.34;rscore=-6.18;uscore=11.71;tscore=-2.52;
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	5752	7128	249.9	-	0	ID=4_5;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.330;conf=99.99;score=249.87;cscore=243.98;sscore=5.89;rscore=1.34;uscore=2.14;tscore=1.68;
+Day17a_QCcontig367	Prodigal_v2.6.3	CDS	7179	8156	217.8	-	0	ID=4_6;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.321;conf=99.99;score=217.83;cscore=214.61;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=5;seqlen=10154;seqhdr="Day17a_QCcontig282"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	382	573	1.7	+	0	ID=5_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.234;conf=59.52;score=1.68;cscore=6.81;sscore=-5.13;rscore=-6.09;uscore=-0.32;tscore=1.27;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	2113	2340	33.1	+	0	ID=5_2;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.285;conf=99.95;score=33.14;cscore=27.69;sscore=5.45;rscore=9.03;uscore=-0.84;tscore=-2.09;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	2295	2444	1.5	-	0	ID=5_3;partial=00;start_type=ATG;rbs_motif=GGxGG;rbs_spacer=5-10bp;gc_cont=0.333;conf=58.38;score=1.47;cscore=-0.71;sscore=2.19;rscore=1.46;uscore=0.24;tscore=0.99;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	2518	3687	143.4	-	0	ID=5_4;partial=00;start_type=TTG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.253;conf=100.00;score=143.39;cscore=142.19;sscore=1.19;rscore=6.58;uscore=-4.74;tscore=-1.88;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	3692	4579	152.0	-	0	ID=5_5;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.260;conf=100.00;score=152.03;cscore=147.97;sscore=4.06;rscore=1.34;uscore=1.04;tscore=1.68;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	4649	7723	602.0	-	0	ID=5_6;partial=00;start_type=TTG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.287;conf=99.99;score=602.00;cscore=592.75;sscore=9.25;rscore=11.86;uscore=-1.72;tscore=-1.88;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	7750	8496	120.9	-	0	ID=5_7;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.244;conf=100.00;score=120.86;cscore=105.21;sscore=15.65;rscore=10.03;uscore=2.65;tscore=1.68;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	8496	9629	214.8	-	0	ID=5_8;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.286;conf=99.99;score=214.83;cscore=200.12;sscore=14.70;rscore=11.86;uscore=0.01;tscore=1.68;
+Day17a_QCcontig282	Prodigal_v2.6.3	CDS	9641	10153	88.7	-	0	ID=5_9;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.242;conf=100.00;score=88.66;cscore=85.44;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=6;seqlen=2264;seqhdr="Day17a_QCcontig107"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig107	Prodigal_v2.6.3	CDS	390	593	25.5	+	0	ID=6_1;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.348;conf=99.72;score=25.51;cscore=37.74;sscore=-12.23;rscore=-5.72;uscore=-4.17;tscore=-2.34;
+Day17a_QCcontig107	Prodigal_v2.6.3	CDS	728	916	20.6	+	0	ID=6_2;partial=00;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.254;conf=99.13;score=20.58;cscore=17.87;sscore=2.71;rscore=8.64;uscore=-3.40;tscore=-2.52;
+# Sequence Data: seqnum=7;seqlen=2496;seqhdr="Day17a_QCcontig311"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig311	Prodigal_v2.6.3	CDS	1	84	6.7	+	0	ID=7_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.298;conf=82.29;score=6.68;cscore=3.46;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig311	Prodigal_v2.6.3	CDS	416	661	30.2	+	0	ID=7_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.285;conf=99.90;score=30.22;cscore=40.83;sscore=-10.61;rscore=-4.73;uscore=-3.29;tscore=-1.93;
+Day17a_QCcontig311	Prodigal_v2.6.3	CDS	670	1047	56.6	+	0	ID=7_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.294;conf=100.00;score=56.63;cscore=57.38;sscore=-0.74;rscore=-4.60;uscore=0.99;tscore=1.68;
+Day17a_QCcontig311	Prodigal_v2.6.3	CDS	2224	2496	48.4	+	0	ID=7_4;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.315;conf=100.00;score=48.39;cscore=56.92;sscore=-8.54;rscore=-4.60;uscore=-1.40;tscore=-1.88;
+# Sequence Data: seqnum=8;seqlen=1005;seqhdr="Day17a_QCcontig699"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig699	Prodigal_v2.6.3	CDS	2	664	116.4	-	0	ID=8_1;partial=10;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.261;conf=100.00;score=116.41;cscore=108.17;sscore=8.25;rscore=10.03;uscore=-4.65;tscore=1.68;
+Day17a_QCcontig699	Prodigal_v2.6.3	CDS	651	1004	40.0	-	0	ID=8_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.232;conf=99.99;score=39.97;cscore=36.75;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=9;seqlen=3828;seqhdr="Day17a_QCcontig197"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig197	Prodigal_v2.6.3	CDS	1	303	24.6	-	0	ID=9_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.330;conf=99.65;score=24.60;cscore=34.35;sscore=-9.75;rscore=-4.60;uscore=-2.62;tscore=-1.88;
+Day17a_QCcontig197	Prodigal_v2.6.3	CDS	350	3019	857.5	+	0	ID=9_2;partial=00;start_type=GTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.436;conf=99.99;score=857.48;cscore=847.26;sscore=10.22;rscore=11.61;uscore=1.15;tscore=-2.54;
+# Sequence Data: seqnum=10;seqlen=19060;seqhdr="Day17a_QCcontig207"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	11	775	118.1	-	0	ID=10_1;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.298;conf=100.00;score=118.08;cscore=111.64;sscore=6.43;rscore=-4.60;uscore=14.23;tscore=-2.54;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	1658	2167	90.1	-	0	ID=10_2;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.373;conf=100.00;score=90.10;cscore=81.06;sscore=9.04;rscore=6.58;uscore=-0.38;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	2179	2490	64.5	-	0	ID=10_3;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.324;conf=100.00;score=64.54;cscore=50.71;sscore=13.83;rscore=10.85;uscore=-1.64;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	2577	2927	61.0	-	0	ID=10_4;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.365;conf=100.00;score=61.00;cscore=48.67;sscore=12.33;rscore=11.86;uscore=-0.56;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	3449	5077	307.4	-	0	ID=10_5;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.350;conf=99.99;score=307.42;cscore=294.63;sscore=12.78;rscore=6.58;uscore=3.47;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	5099	6448	216.6	-	0	ID=10_6;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.347;conf=99.99;score=216.59;cscore=202.30;sscore=14.28;rscore=11.86;uscore=1.39;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	6682	8469	360.9	-	0	ID=10_7;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.345;conf=99.99;score=360.91;cscore=341.22;sscore=19.69;rscore=11.86;uscore=4.86;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	8469	8759	49.9	-	0	ID=10_8;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.330;conf=100.00;score=49.86;cscore=39.58;sscore=10.28;rscore=10.85;uscore=-1.60;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	8856	9947	195.7	+	0	ID=10_9;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.256;conf=99.99;score=195.69;cscore=197.97;sscore=-2.28;rscore=-4.60;uscore=0.63;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	10584	12074	313.2	+	0	ID=10_10;partial=00;start_type=TTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.285;conf=99.99;score=313.23;cscore=307.99;sscore=5.24;rscore=10.85;uscore=-3.08;tscore=-1.88;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	12698	13780	221.6	-	0	ID=10_11;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.331;conf=99.99;score=221.60;cscore=211.33;sscore=10.27;rscore=6.58;uscore=0.92;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	13799	14866	250.5	-	0	ID=10_12;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.319;conf=99.99;score=250.51;cscore=235.79;sscore=14.72;rscore=11.86;uscore=1.83;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	15005	15265	51.1	+	0	ID=10_13;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.287;conf=100.00;score=51.13;cscore=46.41;sscore=4.72;rscore=10.03;uscore=-3.43;tscore=-1.88;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	15262	16020	127.0	+	0	ID=10_14;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.299;conf=100.00;score=127.05;cscore=124.07;sscore=2.98;rscore=-4.60;uscore=-2.14;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	16081	16476	90.8	-	0	ID=10_15;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.361;conf=100.00;score=90.81;cscore=76.68;sscore=14.13;rscore=10.03;uscore=1.34;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	16495	16977	59.6	-	0	ID=10_16;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.342;conf=100.00;score=59.63;cscore=68.96;sscore=-9.33;rscore=-4.60;uscore=-1.53;tscore=-2.54;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	17587	17853	20.1	+	0	ID=10_17;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=3-4bp;gc_cont=0.330;conf=99.03;score=20.12;cscore=19.95;sscore=0.17;rscore=-4.52;uscore=3.01;tscore=1.68;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	17789	18103	39.1	-	0	ID=10_18;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.295;conf=99.99;score=39.08;cscore=31.41;sscore=7.68;rscore=10.03;uscore=-0.47;tscore=-1.88;
+Day17a_QCcontig207	Prodigal_v2.6.3	CDS	18253	19059	189.4	-	0	ID=10_19;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.291;conf=99.99;score=189.45;cscore=186.23;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=11;seqlen=8788;seqhdr="Day17a_QCcontig246"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	1	642	133.5	+	0	ID=11_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.333;conf=100.00;score=133.50;cscore=130.28;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	642	1280	76.9	+	0	ID=11_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.318;conf=100.00;score=76.87;cscore=62.48;sscore=14.39;rscore=10.03;uscore=1.39;tscore=1.68;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	1431	1661	34.2	+	0	ID=11_3;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.264;conf=99.96;score=34.24;cscore=26.87;sscore=7.37;rscore=10.59;uscore=-4.75;tscore=1.54;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	2349	2600	48.7	+	0	ID=11_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.361;conf=100.00;score=48.71;cscore=47.58;sscore=1.13;rscore=-4.62;uscore=8.29;tscore=-1.89;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	2722	3270	88.4	-	0	ID=11_5;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.291;conf=100.00;score=88.39;cscore=93.05;sscore=-4.66;rscore=-4.60;uscore=-1.10;tscore=1.68;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	3670	5175	284.3	+	0	ID=11_6;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.292;conf=99.99;score=284.28;cscore=275.47;sscore=8.81;rscore=10.85;uscore=-3.72;tscore=1.68;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	5251	6885	326.0	-	0	ID=11_7;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.287;conf=99.99;score=326.04;cscore=315.78;sscore=10.26;rscore=11.61;uscore=-3.03;tscore=1.68;
+Day17a_QCcontig246	Prodigal_v2.6.3	CDS	6969	8786	760.9	-	0	ID=11_8;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.453;conf=99.99;score=760.91;cscore=757.69;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=12;seqlen=16959;seqhdr="Day17a_QCcontig301"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	1	351	77.4	-	0	ID=12_1;partial=10;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.313;conf=100.00;score=77.45;cscore=74.61;sscore=2.84;rscore=1.34;uscore=-1.35;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	361	1011	124.6	-	0	ID=12_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.344;conf=100.00;score=124.56;cscore=118.39;sscore=6.16;rscore=10.03;uscore=-4.90;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	1178	2158	182.7	+	0	ID=12_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.316;conf=99.99;score=182.73;cscore=172.64;sscore=10.09;rscore=10.03;uscore=-1.62;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	2866	3132	61.9	+	0	ID=12_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.375;conf=100.00;score=61.93;cscore=55.46;sscore=6.47;rscore=-4.60;uscore=13.60;tscore=-1.88;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	3923	4102	8.5	+	0	ID=12_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.294;conf=87.47;score=8.45;cscore=7.88;sscore=0.58;rscore=7.68;uscore=-7.65;tscore=1.19;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	4395	5816	267.1	-	0	ID=12_6;partial=00;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.319;conf=99.99;score=267.11;cscore=251.91;sscore=15.19;rscore=11.61;uscore=6.12;tscore=-1.88;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	6004	6135	4.5	-	0	ID=12_7;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.212;conf=74.00;score=4.55;cscore=12.84;sscore=-8.29;rscore=-8.92;uscore=0.41;tscore=0.87;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	6604	7752	255.5	-	0	ID=12_8;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.371;conf=99.99;score=255.46;cscore=243.43;sscore=12.03;rscore=10.03;uscore=-0.93;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	7755	9128	247.9	-	0	ID=12_9;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.322;conf=99.99;score=247.87;cscore=244.63;sscore=3.23;rscore=1.34;uscore=0.21;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	9234	9881	122.2	-	0	ID=12_10;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.292;conf=100.00;score=122.20;cscore=114.05;sscore=8.15;rscore=10.03;uscore=-3.56;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	10002	10550	127.3	-	0	ID=12_11;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.339;conf=100.00;score=127.27;cscore=124.16;sscore=3.11;rscore=1.34;uscore=-1.17;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	10552	10857	91.1	-	0	ID=12_12;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.392;conf=100.00;score=91.06;cscore=77.90;sscore=13.16;rscore=-4.60;uscore=16.73;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	11293	12024	159.0	-	0	ID=12_13;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.333;conf=100.00;score=159.03;cscore=149.13;sscore=9.91;rscore=10.03;uscore=2.41;tscore=-1.88;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	12312	12671	80.0	+	0	ID=12_14;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.339;conf=100.00;score=80.04;cscore=70.63;sscore=9.40;rscore=10.03;uscore=1.25;tscore=-1.88;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	13445	13576	16.0	+	0	ID=12_15;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.288;conf=97.54;score=16.01;cscore=16.63;sscore=-0.62;rscore=-8.92;uscore=8.08;tscore=0.87;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	14401	14949	132.9	+	0	ID=12_16;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.346;conf=100.00;score=132.92;cscore=123.86;sscore=9.06;rscore=-4.60;uscore=16.19;tscore=-1.88;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	15093	15410	47.2	+	0	ID=12_17;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.286;conf=100.00;score=47.17;cscore=33.72;sscore=13.45;rscore=11.86;uscore=-0.09;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	15407	16699	211.4	+	0	ID=12_18;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.318;conf=99.99;score=211.38;cscore=205.97;sscore=5.41;rscore=1.34;uscore=1.10;tscore=1.68;
+Day17a_QCcontig301	Prodigal_v2.6.3	CDS	16715	16957	58.0	+	0	ID=12_19;partial=01;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.325;conf=100.00;score=58.02;cscore=42.66;sscore=15.36;rscore=11.61;uscore=0.96;tscore=1.68;
+# Sequence Data: seqnum=13;seqlen=4635;seqhdr="Day17a_QCcontig365"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig365	Prodigal_v2.6.3	CDS	2	265	42.3	+	0	ID=13_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.314;conf=99.99;score=42.27;cscore=39.05;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig365	Prodigal_v2.6.3	CDS	698	2221	366.3	+	0	ID=13_2;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.354;conf=99.99;score=366.29;cscore=355.47;sscore=10.82;rscore=11.86;uscore=-2.07;tscore=1.68;
+Day17a_QCcontig365	Prodigal_v2.6.3	CDS	2735	3196	79.8	+	0	ID=13_3;partial=00;start_type=ATG;rbs_motif=AGGAG/GGAGG;rbs_spacer=11-12bp;gc_cont=0.281;conf=100.00;score=79.84;cscore=76.00;sscore=3.84;rscore=4.82;uscore=-2.01;tscore=1.68;
+Day17a_QCcontig365	Prodigal_v2.6.3	CDS	3535	4635	232.9	+	0	ID=13_4;partial=01;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.344;conf=99.99;score=232.88;cscore=222.91;sscore=9.96;rscore=11.86;uscore=-2.93;tscore=1.68;
+# Sequence Data: seqnum=14;seqlen=3461;seqhdr="Day17a_QCcontig384"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig384	Prodigal_v2.6.3	CDS	2	217	46.9	-	0	ID=14_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.431;conf=100.00;score=46.92;cscore=43.10;sscore=3.82;rscore=-4.60;uscore=7.39;tscore=1.68;
+Day17a_QCcontig384	Prodigal_v2.6.3	CDS	2468	2716	6.2	+	0	ID=14_2;partial=00;start_type=TTG;rbs_motif=GGxGG;rbs_spacer=5-10bp;gc_cont=0.361;conf=80.72;score=6.23;cscore=8.07;sscore=-1.84;rscore=2.44;uscore=-2.37;tscore=-1.91;
+# Sequence Data: seqnum=15;seqlen=2754;seqhdr="Day17a_QCcontig397"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig397	Prodigal_v2.6.3	CDS	159	248	1.9	-	0	ID=15_1;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.344;conf=60.72;score=1.90;cscore=9.24;sscore=-7.35;rscore=0.46;uscore=-7.74;tscore=0.59;
+Day17a_QCcontig397	Prodigal_v2.6.3	CDS	1467	1754	26.8	+	0	ID=15_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.288;conf=99.79;score=26.85;cscore=28.73;sscore=-1.88;rscore=-4.60;uscore=1.04;tscore=1.68;
+Day17a_QCcontig397	Prodigal_v2.6.3	CDS	1889	2062	6.2	+	0	ID=15_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.385;conf=80.50;score=6.17;cscore=5.17;sscore=1.00;rscore=-6.73;uscore=11.44;tscore=-3.72;
+# Sequence Data: seqnum=16;seqlen=5786;seqhdr="Day17a_QCcontig419"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	1	156	34.5	-	0	ID=16_1;partial=10;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.301;conf=99.96;score=34.49;cscore=26.67;sscore=7.82;rscore=-4.60;uscore=15.62;tscore=-2.54;
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	996	1163	4.6	+	0	ID=16_2;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.310;conf=74.31;score=4.62;cscore=1.23;sscore=3.39;rscore=0.63;uscore=1.64;tscore=1.11;
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	2376	3581	210.5	-	0	ID=16_3;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.350;conf=99.99;score=210.53;cscore=202.87;sscore=7.66;rscore=6.58;uscore=0.04;tscore=1.68;
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	4015	4239	58.0	-	0	ID=16_4;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.360;conf=100.00;score=58.03;cscore=44.90;sscore=13.13;rscore=10.53;uscore=0.39;tscore=1.50;
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	4291	5343	187.1	-	0	ID=16_5;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.350;conf=99.99;score=187.10;cscore=184.22;sscore=2.88;rscore=1.34;uscore=-0.14;tscore=1.68;
+Day17a_QCcontig419	Prodigal_v2.6.3	CDS	5430	5711	33.6	-	0	ID=16_6;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.277;conf=99.96;score=33.62;cscore=23.87;sscore=9.75;rscore=10.03;uscore=-3.18;tscore=1.68;
+# Sequence Data: seqnum=17;seqlen=4312;seqhdr="Day17a_QCcontig515"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	2	82	5.8	-	0	ID=17_1;partial=10;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.222;conf=79.24;score=5.83;cscore=4.63;sscore=1.20;rscore=0.96;uscore=-0.80;tscore=1.68;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	436	618	18.9	+	0	ID=17_2;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.317;conf=98.73;score=18.93;cscore=21.49;sscore=-2.57;rscore=0.96;uscore=-0.92;tscore=-2.61;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	1335	1733	53.1	+	0	ID=17_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.321;conf=100.00;score=53.08;cscore=40.83;sscore=12.26;rscore=-4.60;uscore=15.82;tscore=1.68;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	1702	1947	17.7	+	0	ID=17_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.297;conf=98.32;score=17.70;cscore=24.44;sscore=-6.74;rscore=-4.73;uscore=-0.07;tscore=-1.93;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	2004	2510	103.4	+	0	ID=17_5;partial=00;start_type=TTG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.343;conf=100.00;score=103.42;cscore=95.60;sscore=7.83;rscore=11.86;uscore=-2.81;tscore=-1.88;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	2597	3784	234.9	-	0	ID=17_6;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.350;conf=99.99;score=234.87;cscore=219.81;sscore=15.06;rscore=10.03;uscore=2.05;tscore=1.68;
+Day17a_QCcontig515	Prodigal_v2.6.3	CDS	3781	4311	91.7	-	0	ID=17_7;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.373;conf=100.00;score=91.66;cscore=88.44;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=18;seqlen=1879;seqhdr="Day17a_QCcontig603"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig603	Prodigal_v2.6.3	CDS	13	417	89.8	+	0	ID=18_1;partial=00;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.249;conf=100.00;score=89.80;cscore=85.24;sscore=4.56;rscore=11.61;uscore=-5.17;tscore=-1.88;
+Day17a_QCcontig603	Prodigal_v2.6.3	CDS	418	1857	325.7	+	0	ID=18_2;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.247;conf=99.99;score=325.71;cscore=324.85;sscore=0.86;rscore=1.34;uscore=-3.43;tscore=1.68;
+# Sequence Data: seqnum=19;seqlen=1061;seqhdr="Day17a_QCcontig912"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig912	Prodigal_v2.6.3	CDS	772	1059	62.3	-	0	ID=19_1;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.413;conf=100.00;score=62.32;cscore=59.10;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+# Sequence Data: seqnum=20;seqlen=3954;seqhdr="Day17a_QCcontig78"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig78	Prodigal_v2.6.3	CDS	183	791	117.9	-	0	ID=20_1;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.353;conf=100.00;score=117.88;cscore=111.20;sscore=6.67;rscore=10.03;uscore=-4.39;tscore=1.68;
+Day17a_QCcontig78	Prodigal_v2.6.3	CDS	1003	3321	460.3	+	0	ID=20_2;partial=00;start_type=GTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.263;conf=99.99;score=460.30;cscore=453.36;sscore=6.94;rscore=11.61;uscore=-2.12;tscore=-2.54;
+Day17a_QCcontig78	Prodigal_v2.6.3	CDS	3412	3546	3.9	+	0	ID=20_3;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.341;conf=71.25;score=3.95;cscore=11.31;sscore=-7.36;rscore=-8.72;uscore=0.46;tscore=0.89;
+# Sequence Data: seqnum=21;seqlen=2410;seqhdr="Day17a_QCcontig108"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig108	Prodigal_v2.6.3	CDS	321	437	8.3	-	0	ID=21_1;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.162;conf=87.06;score=8.29;cscore=7.08;sscore=1.21;rscore=0.61;uscore=0.48;tscore=0.77;
+Day17a_QCcontig108	Prodigal_v2.6.3	CDS	637	828	27.5	+	0	ID=21_2;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.250;conf=99.82;score=27.46;cscore=23.72;sscore=3.74;rscore=4.98;uscore=-2.51;tscore=1.27;
+Day17a_QCcontig108	Prodigal_v2.6.3	CDS	1305	1703	48.1	+	0	ID=21_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.251;conf=100.00;score=48.13;cscore=56.17;sscore=-8.04;rscore=-4.60;uscore=-0.25;tscore=-2.54;
+Day17a_QCcontig108	Prodigal_v2.6.3	CDS	2076	2336	0.1	+	0	ID=21_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.333;conf=50.81;score=0.14;cscore=7.37;sscore=-7.23;rscore=-4.60;uscore=-0.10;tscore=-1.88;
+# Sequence Data: seqnum=22;seqlen=1366;seqhdr="Day17a_QCcontig251"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig251	Prodigal_v2.6.3	CDS	3	284	79.8	-	0	ID=22_1;partial=10;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.408;conf=100.00;score=79.82;cscore=64.41;sscore=15.42;rscore=11.61;uscore=2.78;tscore=1.68;
+Day17a_QCcontig251	Prodigal_v2.6.3	CDS	1085	1366	68.8	+	0	ID=22_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.355;conf=100.00;score=68.83;cscore=60.09;sscore=8.74;rscore=-4.60;uscore=15.89;tscore=-2.54;
+# Sequence Data: seqnum=23;seqlen=2024;seqhdr="Day17a_QCcontig355"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig355	Prodigal_v2.6.3	CDS	1	132	1.4	-	0	ID=23_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.242;conf=57.74;score=1.36;cscore=7.84;sscore=-6.48;rscore=-4.60;uscore=-4.49;tscore=1.68;
+Day17a_QCcontig355	Prodigal_v2.6.3	CDS	165	395	23.2	-	0	ID=23_2;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.264;conf=99.52;score=23.21;cscore=9.80;sscore=13.41;rscore=10.59;uscore=-2.30;tscore=1.54;
+Day17a_QCcontig355	Prodigal_v2.6.3	CDS	395	1126	95.9	-	0	ID=23_3;partial=00;start_type=GTG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.283;conf=100.00;score=95.93;cscore=87.48;sscore=8.45;rscore=11.86;uscore=-0.86;tscore=-2.54;
+# Sequence Data: seqnum=24;seqlen=1380;seqhdr="Day17a_QCcontig746"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig746	Prodigal_v2.6.3	CDS	1	357	73.3	-	0	ID=24_1;partial=10;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.359;conf=100.00;score=73.31;cscore=67.96;sscore=5.36;rscore=-4.60;uscore=11.84;tscore=-1.88;
+# Sequence Data: seqnum=25;seqlen=2821;seqhdr="Day17a_QCcontig484"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig484	Prodigal_v2.6.3	CDS	168	533	46.6	+	0	ID=25_1;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.240;conf=100.00;score=46.63;cscore=46.14;sscore=0.49;rscore=1.34;uscore=-2.53;tscore=1.68;
+Day17a_QCcontig484	Prodigal_v2.6.3	CDS	906	1103	5.8	-	0	ID=25_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.308;conf=79.30;score=5.84;cscore=10.75;sscore=-4.91;rscore=-5.90;uscore=0.33;tscore=1.31;
+Day17a_QCcontig484	Prodigal_v2.6.3	CDS	1160	1771	131.3	+	0	ID=25_3;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.279;conf=100.00;score=131.31;cscore=116.85;sscore=14.46;rscore=11.61;uscore=1.17;tscore=1.68;
+Day17a_QCcontig484	Prodigal_v2.6.3	CDS	1819	2676	175.5	-	0	ID=25_4;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.270;conf=100.00;score=175.54;cscore=163.25;sscore=12.29;rscore=11.61;uscore=-1.00;tscore=1.68;
+# Sequence Data: seqnum=26;seqlen=15854;seqhdr="Day17a_QCcontig167"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	1	381	93.0	-	0	ID=26_1;partial=10;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.299;conf=100.00;score=92.99;cscore=80.93;sscore=12.07;rscore=0.96;uscore=13.64;tscore=-1.88;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	707	1426	130.9	-	0	ID=26_2;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.281;conf=100.00;score=130.89;cscore=116.33;sscore=14.56;rscore=11.61;uscore=1.92;tscore=1.68;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	2341	2460	0.9	-	0	ID=26_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.325;conf=55.06;score=0.88;cscore=8.05;sscore=-7.17;rscore=-9.83;uscore=7.33;tscore=-4.01;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	3873	4031	24.2	-	0	ID=26_4;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.340;conf=99.62;score=24.18;cscore=14.27;sscore=9.91;rscore=4.11;uscore=5.40;tscore=1.05;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	4458	4640	25.5	+	0	ID=26_5;partial=00;start_type=TTG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.333;conf=99.71;score=25.48;cscore=23.05;sscore=2.43;rscore=4.74;uscore=0.30;tscore=-2.61;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	5105	5251	32.0	-	0	ID=26_6;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.313;conf=99.94;score=32.04;cscore=30.69;sscore=1.35;rscore=-7.99;uscore=9.02;tscore=0.97;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	6051	6287	0.6	-	0	ID=26_7;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.371;conf=53.36;score=0.59;cscore=0.61;sscore=-0.02;rscore=1.25;uscore=-0.28;tscore=-2.01;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	6311	7066	160.1	-	0	ID=26_8;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.276;conf=100.00;score=160.15;cscore=141.86;sscore=18.29;rscore=11.61;uscore=4.27;tscore=1.68;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	7118	7798	121.2	-	0	ID=26_9;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.314;conf=100.00;score=121.23;cscore=117.29;sscore=3.94;rscore=1.34;uscore=1.58;tscore=1.68;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	7995	8111	6.0	-	0	ID=26_10;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.376;conf=80.05;score=6.04;cscore=22.10;sscore=-16.06;rscore=-10.09;uscore=0.26;tscore=-5.58;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	9625	10005	71.3	-	0	ID=26_11;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.312;conf=100.00;score=71.30;cscore=67.62;sscore=3.68;rscore=-4.60;uscore=10.81;tscore=-1.88;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	10249	10359	5.2	-	0	ID=26_12;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.243;conf=76.68;score=5.18;cscore=7.54;sscore=-2.36;rscore=4.33;uscore=-7.42;tscore=0.73;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	10472	10588	9.1	-	0	ID=26_13;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.222;conf=89.00;score=9.10;cscore=4.79;sscore=4.30;rscore=4.57;uscore=-1.80;tscore=0.77;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	10636	10863	36.3	-	0	ID=26_14;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.232;conf=99.98;score=36.27;cscore=29.13;sscore=7.14;rscore=5.93;uscore=-0.30;tscore=1.52;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	10944	11198	58.5	-	0	ID=26_15;partial=00;start_type=GTG;rbs_motif=AGxAGG/AGGxGG;rbs_spacer=5-10bp;gc_cont=0.341;conf=100.00;score=58.51;cscore=55.02;sscore=3.49;rscore=4.24;uscore=2.45;tscore=-2.54;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	11581	11835	31.0	+	0	ID=26_16;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.392;conf=99.92;score=30.96;cscore=17.14;sscore=13.81;rscore=-4.60;uscore=16.73;tscore=1.68;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	12084	12194	4.3	-	0	ID=26_17;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.234;conf=72.82;score=4.29;cscore=6.65;sscore=-2.36;rscore=4.33;uscore=-7.42;tscore=0.73;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	12307	12699	65.7	-	0	ID=26_18;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.234;conf=100.00;score=65.69;cscore=65.65;sscore=0.04;rscore=1.34;uscore=-2.98;tscore=1.68;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	12782	13102	67.8	-	0	ID=26_19;partial=00;start_type=GTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.377;conf=100.00;score=67.78;cscore=67.94;sscore=-0.16;rscore=0.96;uscore=2.08;tscore=-2.54;
+Day17a_QCcontig167	Prodigal_v2.6.3	CDS	15708	15854	23.3	+	0	ID=26_20;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.333;conf=99.53;score=23.27;cscore=29.92;sscore=-6.65;rscore=-4.60;uscore=-3.73;tscore=1.68;
+# Sequence Data: seqnum=27;seqlen=2891;seqhdr="Day17a_QCcontig187"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig187	Prodigal_v2.6.3	CDS	1	102	30.5	-	0	ID=27_1;partial=10;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.314;conf=99.91;score=30.51;cscore=17.88;sscore=12.63;rscore=11.86;uscore=-0.26;tscore=1.68;
+Day17a_QCcontig187	Prodigal_v2.6.3	CDS	739	927	31.2	+	0	ID=27_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.296;conf=99.92;score=31.20;cscore=22.04;sscore=9.15;rscore=7.46;uscore=0.44;tscore=1.25;
+Day17a_QCcontig187	Prodigal_v2.6.3	CDS	922	1512	124.2	-	0	ID=27_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.337;conf=100.00;score=124.24;cscore=130.64;sscore=-6.40;rscore=-4.60;uscore=0.74;tscore=-2.54;
+# Sequence Data: seqnum=28;seqlen=1805;seqhdr="Day17a_QCcontig400"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+# Sequence Data: seqnum=29;seqlen=1758;seqhdr="Day17a_QCcontig433"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+# Sequence Data: seqnum=30;seqlen=3958;seqhdr="Day17a_QCcontig472"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig472	Prodigal_v2.6.3	CDS	2	115	12.7	+	0	ID=30_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.325;conf=94.84;score=12.66;cscore=9.45;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig472	Prodigal_v2.6.3	CDS	3830	3958	37.6	+	0	ID=30_2;partial=01;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.372;conf=99.98;score=37.55;cscore=25.73;sscore=11.82;rscore=1.34;uscore=13.02;tscore=-1.88;
+# Sequence Data: seqnum=31;seqlen=4439;seqhdr="Day17a_QCcontig518"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig518	Prodigal_v2.6.3	CDS	1	90	4.8	+	0	ID=31_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.133;conf=75.04;score=4.79;cscore=1.57;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig518	Prodigal_v2.6.3	CDS	653	844	27.7	-	0	ID=31_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.349;conf=99.83;score=27.73;cscore=24.78;sscore=2.95;rscore=7.58;uscore=-5.90;tscore=1.27;
+Day17a_QCcontig518	Prodigal_v2.6.3	CDS	996	3854	558.9	-	0	ID=31_3;partial=00;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.267;conf=99.99;score=558.88;cscore=546.31;sscore=12.57;rscore=11.61;uscore=1.58;tscore=-1.88;
+Day17a_QCcontig518	Prodigal_v2.6.3	CDS	3856	4254	79.7	-	0	ID=31_4;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.308;conf=100.00;score=79.73;cscore=79.26;sscore=0.46;rscore=1.34;uscore=-2.56;tscore=1.68;
+# Sequence Data: seqnum=32;seqlen=5788;seqhdr="Day17a_QCcontig524"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	1	702	135.3	-	0	ID=32_1;partial=10;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.316;conf=100.00;score=135.29;cscore=125.48;sscore=9.81;rscore=10.85;uscore=-2.73;tscore=1.68;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	790	1110	57.3	-	0	ID=32_2;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.259;conf=100.00;score=57.28;cscore=48.47;sscore=8.81;rscore=6.58;uscore=1.19;tscore=1.68;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	1631	1978	80.1	+	0	ID=32_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.322;conf=100.00;score=80.05;cscore=69.38;sscore=10.67;rscore=10.03;uscore=-1.04;tscore=1.68;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	1956	3686	403.6	+	0	ID=32_4;partial=00;start_type=GTG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.306;conf=99.99;score=403.61;cscore=393.04;sscore=10.57;rscore=10.85;uscore=2.26;tscore=-2.54;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	3686	5350	380.2	+	0	ID=32_5;partial=00;start_type=ATG;rbs_motif=GGxGG;rbs_spacer=5-10bp;gc_cont=0.308;conf=99.99;score=380.19;cscore=374.75;sscore=5.44;rscore=2.48;uscore=-2.02;tscore=1.68;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	5347	5661	42.1	+	0	ID=32_6;partial=00;start_type=TTG;rbs_motif=AGGA;rbs_spacer=5-10bp;gc_cont=0.311;conf=99.99;score=42.11;cscore=36.11;sscore=6.00;rscore=6.58;uscore=-0.71;tscore=-1.88;
+Day17a_QCcontig524	Prodigal_v2.6.3	CDS	5661	5786	21.4	+	0	ID=32_7;partial=01;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.317;conf=99.28;score=21.41;cscore=17.11;sscore=4.30;rscore=1.34;uscore=-2.48;tscore=1.68;
+# Sequence Data: seqnum=33;seqlen=1985;seqhdr="Day17a_QCcontig533"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig533	Prodigal_v2.6.3	CDS	2	100	23.4	-	0	ID=33_1;partial=10;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.253;conf=99.54;score=23.39;cscore=11.41;sscore=11.98;rscore=-4.60;uscore=15.55;tscore=1.68;
+Day17a_QCcontig533	Prodigal_v2.6.3	CDS	758	871	5.8	-	0	ID=33_2;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.228;conf=79.02;score=5.77;cscore=4.20;sscore=1.57;rscore=5.26;uscore=-4.44;tscore=0.75;
+# Sequence Data: seqnum=34;seqlen=1930;seqhdr="Day17a_QCcontig583"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig583	Prodigal_v2.6.3	CDS	3	107	12.9	+	0	ID=34_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.248;conf=95.05;score=12.85;cscore=9.63;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig583	Prodigal_v2.6.3	CDS	575	781	24.0	+	0	ID=34_2;partial=00;start_type=ATG;rbs_motif=AGGAG/GGAGG;rbs_spacer=11-12bp;gc_cont=0.319;conf=99.60;score=24.02;cscore=20.04;sscore=3.98;rscore=3.93;uscore=-0.67;tscore=1.37;
+Day17a_QCcontig583	Prodigal_v2.6.3	CDS	880	1239	55.3	+	0	ID=34_3;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.236;conf=100.00;score=55.26;cscore=61.07;sscore=-5.80;rscore=-4.60;uscore=0.68;tscore=-1.88;
+Day17a_QCcontig583	Prodigal_v2.6.3	CDS	1253	1663	64.8	+	0	ID=34_4;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.270;conf=100.00;score=64.82;cscore=52.66;sscore=12.16;rscore=11.61;uscore=-2.27;tscore=1.68;
+# Sequence Data: seqnum=35;seqlen=2482;seqhdr="Day17a_QCcontig119"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig119	Prodigal_v2.6.3	CDS	1	594	86.1	+	0	ID=35_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.271;conf=100.00;score=86.08;cscore=82.86;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig119	Prodigal_v2.6.3	CDS	1514	2413	190.7	+	0	ID=35_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.348;conf=99.99;score=190.71;cscore=193.55;sscore=-2.84;rscore=-4.60;uscore=0.73;tscore=1.68;
+# Sequence Data: seqnum=36;seqlen=13018;seqhdr="Day17a_QCcontig261"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	1487	1858	96.0	+	0	ID=36_1;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.395;conf=100.00;score=96.00;cscore=82.42;sscore=13.58;rscore=-4.60;uscore=16.50;tscore=1.68;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	3113	3307	20.4	+	0	ID=36_2;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.405;conf=99.08;score=20.38;cscore=19.39;sscore=0.99;rscore=-5.99;uscore=6.34;tscore=1.29;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	3366	4055	96.4	-	0	ID=36_3;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp;gc_cont=0.265;conf=100.00;score=96.40;cscore=95.31;sscore=1.09;rscore=0.96;uscore=2.01;tscore=-1.88;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	4126	5040	200.9	-	0	ID=36_4;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.302;conf=99.99;score=200.90;cscore=208.79;sscore=-7.90;rscore=-4.60;uscore=-1.42;tscore=-1.88;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	5140	5889	149.8	-	0	ID=36_5;partial=00;start_type=TTG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.309;conf=100.00;score=149.81;cscore=137.08;sscore=12.73;rscore=11.61;uscore=2.10;tscore=-1.88;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	5924	7150	258.1	-	0	ID=36_6;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.280;conf=99.99;score=258.11;cscore=260.54;sscore=-2.43;rscore=-4.60;uscore=1.14;tscore=1.68;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	7253	7510	58.2	+	0	ID=36_7;partial=00;start_type=ATG;rbs_motif=AGxAGG/AGGxGG;rbs_spacer=5-10bp;gc_cont=0.322;conf=100.00;score=58.21;cscore=51.00;sscore=7.20;rscore=4.24;uscore=1.28;tscore=1.68;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	8284	9234	180.5	+	0	ID=36_8;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.277;conf=99.99;score=180.45;cscore=170.86;sscore=9.60;rscore=-4.60;uscore=16.73;tscore=-1.88;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	9343	9453	12.7	+	0	ID=36_9;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.261;conf=94.88;score=12.70;cscore=4.93;sscore=7.77;rscore=5.01;uscore=2.03;tscore=0.73;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	9621	9860	32.7	-	0	ID=36_10;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.275;conf=99.95;score=32.69;cscore=36.27;sscore=-3.57;rscore=-4.85;uscore=-1.54;tscore=1.60;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	9865	10176	55.8	-	0	ID=36_11;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.276;conf=100.00;score=55.77;cscore=53.28;sscore=2.49;rscore=1.34;uscore=-0.53;tscore=1.68;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	10346	12265	429.3	+	0	ID=36_12;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.311;conf=99.99;score=429.33;cscore=415.81;sscore=13.52;rscore=11.86;uscore=-0.02;tscore=1.68;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	12693	12899	15.9	+	0	ID=36_13;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.208;conf=97.48;score=15.91;cscore=16.01;sscore=-0.11;rscore=1.09;uscore=-1.92;tscore=1.37;
+Day17a_QCcontig261	Prodigal_v2.6.3	CDS	12959	13018	1.8	+	0	ID=36_14;partial=01;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.217;conf=60.46;score=1.85;cscore=4.48;sscore=-2.64;rscore=-4.60;uscore=0.28;tscore=1.68;
+# Sequence Data: seqnum=37;seqlen=16971;seqhdr="Day17a_QCcontig283"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	92	1285	192.2	-	0	ID=37_1;partial=00;start_type=TTG;rbs_motif=AGxAG;rbs_spacer=5-10bp;gc_cont=0.345;conf=99.99;score=192.23;cscore=194.33;sscore=-2.10;rscore=0.36;uscore=-0.58;tscore=-1.88;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	1254	1952	144.6	-	0	ID=37_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.236;conf=100.00;score=144.63;cscore=135.44;sscore=9.19;rscore=10.03;uscore=-1.87;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	2156	2326	30.2	+	0	ID=37_3;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.251;conf=99.90;score=30.22;cscore=21.92;sscore=8.31;rscore=6.74;uscore=0.44;tscore=1.13;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	2330	2650	68.4	+	0	ID=37_4;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.321;conf=100.00;score=68.42;cscore=54.03;sscore=14.38;rscore=11.86;uscore=-0.40;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	2643	2789	18.0	+	0	ID=37_5;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.259;conf=98.42;score=17.99;cscore=16.20;sscore=1.79;rscore=6.25;uscore=-6.68;tscore=0.97;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	2791	3195	89.5	+	0	ID=37_6;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.304;conf=100.00;score=89.55;cscore=77.20;sscore=12.34;rscore=10.85;uscore=-1.45;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	3200	3403	37.6	+	0	ID=37_7;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.250;conf=99.98;score=37.56;cscore=31.41;sscore=6.16;rscore=8.06;uscore=-4.49;tscore=1.35;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	3418	3723	68.7	+	0	ID=37_8;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.314;conf=100.00;score=68.75;cscore=55.37;sscore=13.38;rscore=11.61;uscore=-1.04;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	3812	4681	150.5	+	0	ID=37_9;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.359;conf=100.00;score=150.54;cscore=141.62;sscore=8.92;rscore=10.03;uscore=0.77;tscore=-1.88;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	4693	6069	290.6	+	0	ID=37_10;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.305;conf=99.99;score=290.60;cscore=274.62;sscore=15.98;rscore=11.86;uscore=1.28;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	6311	6667	65.9	+	0	ID=37_11;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.297;conf=100.00;score=65.88;cscore=59.29;sscore=6.59;rscore=10.03;uscore=-4.47;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	6669	7313	143.9	+	0	ID=37_12;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.322;conf=100.00;score=143.87;cscore=135.42;sscore=8.45;rscore=10.03;uscore=-4.53;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	7310	7894	115.1	+	0	ID=37_13;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.268;conf=100.00;score=115.09;cscore=109.35;sscore=5.74;rscore=1.34;uscore=1.43;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	8263	8595	69.0	+	0	ID=37_14;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.309;conf=100.00;score=69.05;cscore=54.10;sscore=14.95;rscore=10.03;uscore=3.89;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	8677	9264	133.3	+	0	ID=37_15;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.299;conf=100.00;score=133.31;cscore=126.24;sscore=7.07;rscore=10.03;uscore=-1.08;tscore=-1.88;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	9264	9473	40.8	+	0	ID=37_16;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.290;conf=99.99;score=40.83;cscore=29.50;sscore=11.33;rscore=8.30;uscore=0.35;tscore=1.39;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	9528	9965	66.8	+	0	ID=37_17;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.290;conf=100.00;score=66.85;cscore=52.06;sscore=14.79;rscore=10.03;uscore=2.39;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	9962	10291	57.3	+	0	ID=37_18;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.291;conf=100.00;score=57.25;cscore=53.60;sscore=3.66;rscore=-4.60;uscore=0.68;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	10302	10874	133.0	+	0	ID=37_19;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.373;conf=100.00;score=133.01;cscore=121.84;sscore=11.16;rscore=11.86;uscore=-3.54;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	10880	11131	34.3	+	0	ID=37_20;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.302;conf=99.96;score=34.25;cscore=20.76;sscore=13.50;rscore=9.99;uscore=0.61;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	11306	12400	231.3	+	0	ID=37_21;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.255;conf=99.99;score=231.34;cscore=218.65;sscore=12.69;rscore=10.03;uscore=0.97;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	12369	12992	51.9	+	0	ID=37_22;partial=00;start_type=TTG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.221;conf=100.00;score=51.94;cscore=52.60;sscore=-0.66;rscore=1.34;uscore=-0.11;tscore=-1.88;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	13224	13814	68.9	-	0	ID=37_23;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.232;conf=100.00;score=68.92;cscore=57.82;sscore=11.10;rscore=11.61;uscore=-1.54;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	14287	14928	106.7	+	0	ID=37_24;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.251;conf=100.00;score=106.65;cscore=104.81;sscore=1.84;rscore=1.34;uscore=-1.18;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	15194	15652	93.0	+	0	ID=37_25;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;gc_cont=0.270;conf=100.00;score=92.98;cscore=82.81;sscore=10.17;rscore=10.85;uscore=-1.72;tscore=1.68;
+Day17a_QCcontig283	Prodigal_v2.6.3	CDS	15819	16640	160.6	+	0	ID=37_26;partial=00;start_type=TTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.251;conf=100.00;score=160.64;cscore=154.22;sscore=6.42;rscore=10.03;uscore=-1.73;tscore=-1.88;
+# Sequence Data: seqnum=38;seqlen=4917;seqhdr="Day17a_QCcontig303"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig303	Prodigal_v2.6.3	CDS	1	87	8.2	+	0	ID=38_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.253;conf=86.72;score=8.16;cscore=4.94;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig303	Prodigal_v2.6.3	CDS	972	1604	61.6	+	0	ID=38_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.382;conf=100.00;score=61.59;cscore=64.94;sscore=-3.35;rscore=-4.60;uscore=3.13;tscore=-1.88;
+Day17a_QCcontig303	Prodigal_v2.6.3	CDS	2419	4716	536.9	+	0	ID=38_3;partial=00;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.341;conf=99.99;score=536.90;cscore=525.42;sscore=11.48;rscore=-4.60;uscore=19.28;tscore=-2.54;
+# Sequence Data: seqnum=39;seqlen=2546;seqhdr="Day17a_QCcontig333"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig333	Prodigal_v2.6.3	CDS	3	620	113.9	-	0	ID=39_1;partial=10;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.267;conf=100.00;score=113.87;cscore=101.42;sscore=12.45;rscore=10.03;uscore=1.39;tscore=1.68;
+Day17a_QCcontig333	Prodigal_v2.6.3	CDS	1141	2433	274.3	+	0	ID=39_2;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.351;conf=99.99;score=274.25;cscore=263.04;sscore=11.21;rscore=-4.60;uscore=17.69;tscore=-1.88;
+# Sequence Data: seqnum=40;seqlen=2539;seqhdr="Day17a_QCcontig366"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig366	Prodigal_v2.6.3	CDS	2	85	9.0	+	0	ID=40_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.369;conf=88.74;score=8.98;cscore=5.76;sscore=3.22;rscore=0.00;uscore=0.00;tscore=3.22;
+Day17a_QCcontig366	Prodigal_v2.6.3	CDS	1944	2537	119.9	+	0	ID=40_2;partial=01;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.389;conf=100.00;score=119.86;cscore=111.87;sscore=7.99;rscore=-4.60;uscore=15.12;tscore=-1.88;
+# Sequence Data: seqnum=41;seqlen=1649;seqhdr="Day17a_QCcontig382"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig382	Prodigal_v2.6.3	CDS	462	632	23.9	-	0	ID=41_1;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.298;conf=99.59;score=23.94;cscore=22.79;sscore=1.15;rscore=0.90;uscore=-0.88;tscore=1.13;
+Day17a_QCcontig382	Prodigal_v2.6.3	CDS	613	1503	137.2	-	0	ID=41_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;gc_cont=0.339;conf=100.00;score=137.17;cscore=128.71;sscore=8.47;rscore=10.03;uscore=-3.25;tscore=1.68;
+# Sequence Data: seqnum=42;seqlen=1194;seqhdr="Day17a_QCcontig451"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig451	Prodigal_v2.6.3	CDS	3	1193	303.6	-	0	ID=42_1;partial=11;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.356;conf=99.99;score=303.59;cscore=301.98;sscore=1.61;rscore=0.00;uscore=0.00;tscore=1.61;
+# Sequence Data: seqnum=43;seqlen=1332;seqhdr="Day17a_QCcontig604"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig604	Prodigal_v2.6.3	CDS	87	767	142.1	-	0	ID=43_1;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.257;conf=100.00;score=142.06;cscore=143.13;sscore=-1.07;rscore=1.34;uscore=-4.09;tscore=1.68;
+# Sequence Data: seqnum=44;seqlen=6502;seqhdr="Day17a_QCcontig289"
+# Model Data: version=Prodigal.v2.6.3;run_type=Single;model="Ab initio";gc_cont=26.97;transl_table=11;uses_sd=1
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	82	396	83.7	+	0	ID=44_1;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;gc_cont=0.340;conf=100.00;score=83.75;cscore=69.84;sscore=13.91;rscore=11.86;uscore=0.37;tscore=1.68;
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	975	2249	276.1	+	0	ID=44_2;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.337;conf=99.99;score=276.12;cscore=274.20;sscore=1.92;rscore=1.34;uscore=-0.45;tscore=1.68;
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	3180	3311	4.3	-	0	ID=44_3;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.432;conf=72.98;score=4.32;cscore=3.25;sscore=1.07;rscore=0.69;uscore=0.16;tscore=0.87;
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	3492	3614	4.3	-	0	ID=44_4;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.309;conf=72.99;score=4.32;cscore=7.59;sscore=-3.27;rscore=-9.59;uscore=6.16;tscore=0.81;
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	4708	5631	214.1	+	0	ID=44_5;partial=00;start_type=TTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.345;conf=99.99;score=214.09;cscore=219.64;sscore=-5.55;rscore=-4.60;uscore=0.93;tscore=-1.88;
+Day17a_QCcontig289	Prodigal_v2.6.3	CDS	6085	6432	67.0	+	0	ID=44_6;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;gc_cont=0.362;conf=100.00;score=67.03;cscore=54.78;sscore=12.26;rscore=-4.60;uscore=15.82;tscore=1.68;

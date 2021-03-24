@@ -1,0 +1,17 @@
+#                                                                             --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name         accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+# ------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig1813_3 -            108 Ribosom_S12_S23      PF00164.20   122    0.0012   13.9   1.6   1   1   2.2e-06    0.0015   13.6   1.6    68   104    64   102    22   107 0.83 # 703 # 1026 # -1 # ID=65_3;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;gc_cont=0.386
+Day17a_QCcontig4092_3 -             40 Ribosomal_L29        PF00831.18    58    0.0005   15.4   0.1   1   1   7.3e-07    0.0005   15.4   0.1     3    39     3    39     1    40 0.92 # 1391 # 1510 # 1 # ID=8_3;partial=01;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;gc_cont=0.367
+Day17a_QCcontig1023_2 -            133 TIGR00422            TIGR00422    863     2e-08   27.9   0.5   1   1   3.1e-10   1.1e-07   25.5   0.5    55   179     2   110     1   115 0.74 # 826 # 1224 # -1 # ID=95_2;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.386
+Day17a_QCcontig2620_1 -            240 TIGR00422            TIGR00422    863   3.3e-07   23.9   1.0   1   1   9.7e-10   3.3e-07   23.9   1.0   515   605    32   121    15   139 0.83 # 3 # 722 # 1 # ID=161_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.312
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/fac85121-6734-46ca-90a8-80856bed44a8
+# Target file:     checkm_lineage_wf/bins/Binsanity_12/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineage_wf/bins/Binsanity_12/hmmer.tree.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/fac85121-6734-46ca-90a8-80856bed44a8 checkm_lineage_wf/bins/Binsanity_12/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/Binsanity2
+# Date:            Mon Sep 28 13:11:49 2020
+# [ok]

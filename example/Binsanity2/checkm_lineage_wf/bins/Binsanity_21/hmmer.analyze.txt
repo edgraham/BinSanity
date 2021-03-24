@@ -1,0 +1,14 @@
+#                                                                            --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name        accession   tlen query name           accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#------------------- ---------- ----- -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+Day17a_QCcontig3471_2 -            148 TIGR00392            TIGR00392    861   2.7e-13   43.4   0.1   1   1   8.4e-16   3.3e-13   43.2   0.1   763   858     2    87     1    90 0.88 # 659 # 1102 # 1 # ID=52_2;partial=01;start_type=GTG;rbs_motif=None;rbs_spacer=None;gc_cont=0.345
+#
+# Program:         hmmsearch
+# Version:         3.3.1 (Jul 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /tmp/215a1d3e-d0f8-4e6e-bb08-3fc6c077c1cc
+# Target file:     checkm_lineage_wf/bins/Binsanity_21/genes.faa
+# Option settings: hmmsearch --domtblout checkm_lineage_wf/bins/Binsanity_21/hmmer.analyze.txt --noali --notextw -E 0.1 --domE 0.1 --cpu 1 /tmp/215a1d3e-d0f8-4e6e-bb08-3fc6c077c1cc checkm_lineage_wf/bins/Binsanity_21/genes.faa 
+# Current dir:     /media/acclomator/egraham/applications/BinSanity/example/Binsanity2
+# Date:            Mon Sep 28 13:21:43 2020
+# [ok]
