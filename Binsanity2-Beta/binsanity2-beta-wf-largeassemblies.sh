@@ -86,7 +86,7 @@ for file in *.fna; do
        let num=$num+1
 done
 checkm lineage_wf -x fna --tab_table -f PASS4_checkmLineageWF_qa.txt -t $threads . PASS4_checkmLineageWF
-checkm_analysis -checkM PASS3_checkmLineageWF_qa.txt
+checkm_analysis -checkM PASS4_checkmLineageWF_qa.txt
 ################FinalMags##############
 mkdir ../Binsanity2WF-Final-Genomes
 cd ../
