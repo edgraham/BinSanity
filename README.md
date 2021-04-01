@@ -1,5 +1,5 @@
 
-# BinSanity v.0.5.2 #
+# BinSanity v.0.5.3 #
 <p>
 
 Quick install pip (*Note* for pip installations you will need to separately make sure hmmer and the subread package are installed)
