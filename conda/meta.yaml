@@ -1,0 +1,37 @@
+package:
+  name: "binsanity"
+  version: "0.5.2"
+
+source:
+  git_rev: v0.5.2
+  git_url: https://github.com/edgraham/BinSanity
+
+requirements:
+  host:
+    - python
+    - setuptools
+  build:
+    - python
+  run:
+    - python
+    - pandas
+    - scipy
+    - checkm-genome
+    - subread
+    - bowtie2
+    - samtools
+    - numpy
+    - hmmer
+    - scikit-image
+    - scikit-learn
+    - bipython
+
+about:
+  home: https://github.com/edgraham/BinSanity
+  license: GNU Public
+  license_file: LICENSE
+  summary: "Biphasic approach to clustering metagenomic contigs using coverage and composition with affinity propagation"
+
+extra:
+  recipe-maintainers:
+    - egraham147
