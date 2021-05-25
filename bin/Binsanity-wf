@@ -31,12 +31,12 @@ def create_fasta_dict(fastafile):
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
-    inf =open(str(h),"r")
-    for line in inf:
-        line = line.rstrip()
-        cov_data = line.split()
-        all_cov_data[cov_data[0]] = cov_data
-    inf.close()
+    with open(str(h)) as f:
+        for line in f:
+#    for line in open(str(h), "r"):
+            line = line.rstrip()
+            cov_data = line.split()
+            all_cov_data[cov_data[0]] = cov_data
     return all_cov_data
 def cov_array(a, path, file_name, size):
     """Computes a coverage array based on the contigs in files and the contig names associated with the coverage file"""
@@ -359,7 +359,7 @@ if __name__ == '__main__':
     parser.add_argument("--binPrefix", dest="binprefix", default=None, metavar="BinPrefix",
                         help="""Sepcify what prefix you want appended to final Bins {optional}""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.5.2')
+                        version='%(prog)s v0.5.4')
     args = parser.parse_args()
     if len(sys.argv) is None:
         parser.print_help()

@@ -28,10 +28,12 @@ def create_fasta_dict(fastafile):
 def get_cov_data(h):
     """Makes a dictionary of coverage values for affinity propagation"""
     all_cov_data = {}
-    for line in open(str(h), "r"):
-        line = line.rstrip()
-        cov_data = line.split()
-        all_cov_data[cov_data[0]] = cov_data
+    with open(str(h)) as f:
+        for line in f:
+#    for line in open(str(h), "r"):
+            line = line.rstrip()
+            cov_data = line.split()
+            all_cov_data[cov_data[0]] = cov_data
     return all_cov_data
 ###################################################################################################################
 def cov_array(a, path, file_name, size):
@@ -168,7 +170,7 @@ if __name__ == '__main__':
     parser.add_argument("--log", dest="logfile", default="binsanity-logfile.txt", help="""
     specify a name for the log file [Default is 'binsanity-logfile.txt']""")
     parser.add_argument('--version', action='version',
-                        version='%(prog)s v0.5.2')
+                        version='%(prog)s v0.5.4')
 
     args = parser.parse_args()
     if len(sys.argv) < 3:
